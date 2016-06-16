@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6DEAD34BBA65F6743833AECF'
+               BlueprintIdentifier = 'B5D4B62402B6F3B9EDA9AF28'
                BlueprintName = 'KRAnimation'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'KRAnimation.framework'>

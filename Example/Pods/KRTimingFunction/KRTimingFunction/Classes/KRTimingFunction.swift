@@ -36,14 +36,17 @@ public struct TimingFunction {
     public static func EaseInQuad(rt rt: Double, b: Double, c: Double) -> Double {
         return c * rt*rt + b
     }
+    
     public static func EaseOutQuad(rt rt: Double, b: Double, c: Double) -> Double {
         return -c * rt*(rt-2) + b
     }
+    
     public static func EaseInOutQuad(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
         if (rt*=2.0) < 1 { return c/2 * rt*rt + b }
         return -c/2 * ((rt-=1.0)*(rt-2) - 1) + b
     }
+    
     // Cubic
     public static func EaseInCubic(rt rt: Double, b: Double, c: Double) -> Double {
         return c * rt*rt*rt + b
@@ -72,7 +75,7 @@ public struct TimingFunction {
     }
     // Quint
     public static func EaseInQuint(rt rt: Double, b: Double, c: Double) -> Double {
-        return c * rt*rt*rt*rt*rt + b;
+        return c * rt*rt*rt*rt*rt + b
     }
     public static func EaseOutQuint(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
@@ -113,12 +116,12 @@ public struct TimingFunction {
     }
     public static func EaseOutCirc(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
-        return c * sqrt(1 - (rt-=1)*rt) + b
+        return c * sqrt(1 - (rt-=1)*rt) + b;
     }
     public static func EaseInOutCirc(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
         if (rt*=2.0) < 1 { return -c/2 * (sqrt(1 - rt*rt) - 1) + b }
-        return c/2 * (sqrt(1 - (rt-=1)*rt) + 1) + b
+        return c/2 * (sqrt(1 - (rt-=1)*rt) + 1) + b;
     }
     // Elastic
     public static func EaseInElastic(rt rt: Double, b: Double, c: Double, d: Double) -> Double {
@@ -172,7 +175,7 @@ public struct TimingFunction {
     }
     // Bounce
     public static func EaseInBounce(rt rt: Double, b: Double, c: Double) -> Double {
-        return c - EaseOutBounce(rt: 1.0-rt, b: 0, c: c) + b
+        return c - TimingFunction.EaseOutBounce(rt: 1.0-rt, b: 0, c: c) + b
     }
     public static func EaseOutBounce(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
@@ -187,8 +190,8 @@ public struct TimingFunction {
         }
     }
     public static func EaseInOutBounce(rt rt: Double, b: Double, c: Double) -> Double {
-        if rt < 0.5 { return EaseInBounce(rt: rt*2, b: 0, c: c) * 0.5 + b }
-        return EaseOutBounce(rt: -rt*2, b: 0, c: c) * 0.5 + c*0.5 + b
+        if rt < 0.5 { return TimingFunction.EaseInBounce(rt: rt*2, b: 0, c: c) * 0.5 + b }
+        return TimingFunction.EaseOutBounce(rt: -rt*2, b: 0, c: c) * 0.5 + c*0.5 + b
     }
 }
 

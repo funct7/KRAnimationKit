@@ -16,56 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        let start = NSDate()
-        for _ in 0 ..< 100 {
-            let t = 12.0
-            let d = 73.0
-            let b = 0.0
-            let c = 1.0
-            
-            TimingFunction.EaseInQuad(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutQuad(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutQuad(rt: t/d, b: b, c: c)
-            
-            TimingFunction.EaseInCubic(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutCubic(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutCubic(rt: t/d, b: b, c: c)
-            
-            TimingFunction.EaseInQuart(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutQuart(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutQuart(rt: t/d, b: b, c: c)
-            
-            TimingFunction.EaseInQuint(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutQuint(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutQuint(rt: t/d, b: b, c: c)
-            
-            TimingFunction.EaseInSine(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutSine(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutSine(rt: t/d, b: b, c: c)
-            
-            TimingFunction.EaseInExpo(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutExpo(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutExpo(rt: t/d, b: b, c: c)
-            
-            TimingFunction.EaseInCirc(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutCirc(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutCirc(rt: t/d, b: b, c: c)
-            
-            TimingFunction.EaseInElastic(rt: t/d, b: b, c: c, d: d)
-            TimingFunction.EaseOutElastic(rt: t/d, b: b, c: c, d: d)
-            TimingFunction.EaseInOutElastic(rt: t/d, b: b, c: c, d: d)
-            
-            TimingFunction.EaseInBack(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutBack(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutBack(rt: t/d, b: b, c: c)
-            
-            TimingFunction.EaseInBounce(rt: t/d, b: b, c: c)
-            TimingFunction.EaseOutBounce(rt: t/d, b: b, c: c)
-            TimingFunction.EaseInOutBounce(rt: t/d, b: b, c: c)
-        }
-        print(NSDate().timeIntervalSinceDate(start))
-        
+  
         return true
     }
 
