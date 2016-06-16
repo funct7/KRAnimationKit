@@ -1,0 +1,14 @@
+PODS:
+  - KRAnimation (0.1.0)
+
+DEPENDENCIES:
+  - KRAnimation (from `../`)
+
+EXTERNAL SOURCES:
+  KRAnimation:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KRAnimation: 3c429a31fb8436a2ccd25dbea2e1b5d76d8f2c75
+
+COCOAPODS: 0.39.0

@@ -3,9 +3,9 @@ use_frameworks!
 target 'KRAnimation_Example' do
   pod 'KRAnimation', :path => '../'
 
-  target 'KRAnimation_Tests' do
-    inherit! :search_paths
+  # target 'KRAnimation_Tests' do
+  #   inherit! :search_paths
 
     
-  end
+  # end
 end

@@ -1,0 +1,22 @@
+{
+  "name": "KRAnimation",
+  "version": "0.1.0",
+  "summary": "A short description of KRAnimation.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/KRAnimation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Joshua Park": "wmpark@knowre.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/KRAnimation.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "KRAnimation/Classes/**/*"
+}
