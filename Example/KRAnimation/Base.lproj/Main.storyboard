@@ -21,11 +21,95 @@
                                 <rect key="frame" x="20" y="275" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4pD-5W-Smf">
+                                <rect key="frame" x="20" y="190" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcW-eM-DOU">
+                                <rect key="frame" x="20" y="114" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HA8-vF-oJJ">
+                                <rect key="frame" x="99" y="114" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4eO-ZK-zwA">
+                                <rect key="frame" x="99" y="190" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7x-HL-SCP">
+                                <rect key="frame" x="99" y="275" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCr-oH-xqg">
+                                <rect key="frame" x="181" y="114" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nf7-gW-RGM">
+                                <rect key="frame" x="181" y="190" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csu-ej-8tq">
+                                <rect key="frame" x="162" y="523" width="88" height="30"/>
+                                <state key="normal" title="KRAnimation"/>
+                                <connections>
+                                    <action selector="animation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8S4-p4-vAS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSs-ZH-Tr8">
+                                <rect key="frame" x="342" y="523" width="50" height="30"/>
+                                <state key="normal" title="Default"/>
+                                <connections>
+                                    <action selector="defaultAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PDt-jz-PuY"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RkR-kO-V4a">
+                                <rect key="frame" x="181" y="275" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BgE-lx-if7">
+                                <rect key="frame" x="19" y="436" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZoD-9D-Kbj">
+                                <rect key="frame" x="19" y="351" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvf-fc-w9a">
+                                <rect key="frame" x="98" y="351" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-X8-khb">
+                                <rect key="frame" x="98" y="436" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgM-Z5-tRV">
+                                <rect key="frame" x="180" y="351" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOf-Gi-6CR">
+                                <rect key="frame" x="180" y="436" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="viewBox" destination="bP3-Pk-mKd" id="rd6-Yg-hld"/>
+                        <outletCollection property="boxes" destination="rOf-Gi-6CR" collectionClass="NSMutableArray" id="rT3-Az-2zH"/>
+                        <outletCollection property="boxes" destination="hgM-Z5-tRV" collectionClass="NSMutableArray" id="jAV-qF-kMh"/>
+                        <outletCollection property="boxes" destination="RkR-kO-V4a" collectionClass="NSMutableArray" id="sLl-jc-kN1"/>
+                        <outletCollection property="boxes" destination="Nf7-gW-RGM" collectionClass="NSMutableArray" id="67Z-GB-gXF"/>
+                        <outletCollection property="boxes" destination="vCr-oH-xqg" collectionClass="NSMutableArray" id="S6B-eG-rsb"/>
+                        <outletCollection property="boxes" destination="HA8-vF-oJJ" collectionClass="NSMutableArray" id="Ctj-nt-aW0"/>
+                        <outletCollection property="boxes" destination="4eO-ZK-zwA" collectionClass="NSMutableArray" id="HQ1-2O-LIO"/>
+                        <outletCollection property="boxes" destination="v7x-HL-SCP" collectionClass="NSMutableArray" id="UPm-6H-7bV"/>
+                        <outletCollection property="boxes" destination="Gvf-fc-w9a" collectionClass="NSMutableArray" id="hbJ-CO-x20"/>
+                        <outletCollection property="boxes" destination="KcP-X8-khb" collectionClass="NSMutableArray" id="FS6-SK-OlU"/>
+                        <outletCollection property="boxes" destination="HcW-eM-DOU" collectionClass="NSMutableArray" id="lW8-9a-eo3"/>
+                        <outletCollection property="boxes" destination="4pD-5W-Smf" collectionClass="NSMutableArray" id="QIk-jL-VjT"/>
+                        <outletCollection property="boxes" destination="bP3-Pk-mKd" collectionClass="NSMutableArray" id="dog-27-RTe"/>
+                        <outletCollection property="boxes" destination="ZoD-9D-Kbj" collectionClass="NSMutableArray" id="8sT-l2-kZj"/>
+                        <outletCollection property="boxes" destination="BgE-lx-if7" collectionClass="NSMutableArray" id="lIj-1B-Jbd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

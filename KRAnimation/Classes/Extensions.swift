@@ -15,9 +15,14 @@ public extension UIView {
         case .Linear(let begin, let end, let duration, let completion):
             if let begin = begin { for anim in begin { anim.set() } }
             
-            animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .BeginFromCurrentState, .CalculationModeLinear], animations: {
+            animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeLinear], animations: {
                 // TODO: Add keyframes
                 for anim in end { addKeyFrameAnimation(anim, duration: duration, function: TimingFunction.Linear) }
+                }, completion: completion)
+        case .EaseInCubic(animation: let animation, duration: let duration, completion: let completion):
+            animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeLinear], animations: {
+                // TODO: Add keyframes
+                for anim in animation { addKeyFrameAnimation(anim, duration: duration, function: TimingFunction.EaseInCubic) }
                 }, completion: completion)
         default:
             fatalError("")
@@ -25,17 +30,12 @@ public extension UIView {
     }
     
     private class func addKeyFrameAnimation(animation: Animation, duration: Double, function: Any) {
-        // IMPLEMENTATION
-        // 1. Iterate through all frames (numberOfSteps = 60 FPS * duration)
-        // 2. Get begin values - animation.view.(whatever property)
-        // 3. Get end values - animation.view.value
-        // 4. animation.view.value = TimingFunction(rt: i/numberOfSteps, beginValue, endValue)
-        let totalSteps = 60 * duration
+        let totalSteps = 60 * duration * 10
         
         for i in 0 ..< Int(totalSteps) {
-            let startTime = Double(i) / totalSteps
+            let startTime = Double(i) / (totalSteps - 1.0)
             
-            addKeyframeWithRelativeStartTime(startTime, relativeDuration: duration / totalSteps, animations: { 
+            addKeyframeWithRelativeStartTime(startTime, relativeDuration: 1.0 / totalSteps, animations: {
                 animation.setWithRelativeTime(startTime, duration: duration, function: function)
             })
         }
