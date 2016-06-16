@@ -1,0 +1,6 @@
+framework module KRTimingFunction {
+  umbrella header "KRTimingFunction-umbrella.h"
+
+  export *
+  module * { export * }
+}
