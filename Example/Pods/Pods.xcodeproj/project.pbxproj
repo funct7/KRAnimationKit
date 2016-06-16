@@ -10,6 +10,33 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>0082B27812ED8A56CF90E1ACEEDFF452</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>691E4908CCFDC2692B4B2340F91F1D93</string>
+				<string>F134A034BC6E5A2649CAF2AE85347BE9</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>01EE01A4C57D882EA7868F90D9613683</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>9BFEBBA904651705C0EFBF60BB701A47</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>086A265B89BBB173AF5962CE0836A50C</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -22,13 +49,6 @@
 			<string>KRTimingFunction-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0DA6AC70774935F43E8477BDF9533866</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3E4E89230EF59BC255123B67864ACF77</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>10BD64FB9847DA702EE1A8A725C62F0D</key>
 		<dict>
@@ -183,20 +203,6 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>236B8B388D24C3DD618CB9BC7525EB6D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C5C918EE4CF5165C65199DF26C7B5D78</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>24D9C6DD8D36E8A68BC275BF4A6B194B</key>
 		<dict>
 			<key>fileRef</key>
@@ -214,6 +220,19 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Development Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>28C9DE691A7F2FC3C6E951C2ED20FA0B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Extensions.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -302,6 +321,21 @@
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
 			<string>Pods-KRAnimation_Example-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>34ECCC2F225A3E88D4B9C953E7A945F2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C92D68337804D8CB392877B8F32FBFF4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>KRAnimation</string>
+			<key>path</key>
+			<string>KRAnimation</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -405,6 +439,19 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>4FA403DB39157EFC04FBBF089681B985</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B8C40F2B750AF0739E174EA03BBE9F66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>512527CAEE10CE1A2189F1B1DA03EF9C</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -417,6 +464,13 @@
 			<string>Pods-KRAnimation_Example.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>53702897D0156E5E17BD13D297F0CD0B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>28C9DE691A7F2FC3C6E951C2ED20FA0B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>544C782FF23C48B572C3B10C1BAE4228</key>
 		<dict>
@@ -504,27 +558,6 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>57D52C249543644375651B6F1D7E88AD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C393CB7209A2A1785451FD7088772BF1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>597C6134E5E7AF66536FD178C8F9ADEF</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B0AE9ADA55716A888A5606E8D7BA3179</string>
-				<string>B1F00ECF5EB7522D44F4C8B8A70C676C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
 		<key>5AB35D9C44DF98850DD1CF8C21F76625</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -589,19 +622,6 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>5ED0E98B39A7288663618624560B951E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>236B8B388D24C3DD618CB9BC7525EB6D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
 		<key>614ABC76C8D206C5B93CB8C795EF7018</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -614,6 +634,79 @@
 			<string>Info.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>632304127E2B8F869CDB588F4B612F11</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>792DD2E90AE099B2625C0E249513631E</string>
+				<string>53702897D0156E5E17BD13D297F0CD0B</string>
+				<string>F56B6109C62161573B482D4F6E7B83CD</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>691E4908CCFDC2692B4B2340F91F1D93</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>A9B0D212296E4BF7C54FA06A77090061</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/KRAnimation/KRAnimation-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/KRAnimation/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/KRAnimation/KRAnimation.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>KRAnimation</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
 		</dict>
 		<key>6A09967AEEB76ED3847080573B0380BA</key>
 		<dict>
@@ -637,7 +730,7 @@
 			<key>proxyType</key>
 			<string>1</string>
 			<key>remoteGlobalIDString</key>
-			<string>C4CB2D900D970442247D28786F1909BE</string>
+			<string>F1ADF167659F735FC45775AE3D4637C5</string>
 			<key>remoteInfo</key>
 			<string>KRAnimation</string>
 		</dict>
@@ -668,9 +761,16 @@
 			<key>name</key>
 			<string>KRAnimation</string>
 			<key>target</key>
-			<string>C4CB2D900D970442247D28786F1909BE</string>
+			<string>F1ADF167659F735FC45775AE3D4637C5</string>
 			<key>targetProxy</key>
 			<string>6CF655445B03C65EF48D590BC0FEF107</string>
+		</dict>
+		<key>792DD2E90AE099B2625C0E249513631E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CACBAB0736FA26A56023EFF8A86835C4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>7DB346D0F39D3F0E887471402A8071AB</key>
 		<dict>
@@ -745,6 +845,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>9BFEBBA904651705C0EFBF60BB701A47</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3E4E89230EF59BC255123B67864ACF77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>9EA55BBC0C99B8831B615AB5DE071D8E</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -752,19 +859,6 @@
 			<key>files</key>
 			<array>
 				<string>9FE5829B065F80C3260101BD03ACA54E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>9EF3D72CB9F242580A6B5B242ECA1E8E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>0DA6AC70774935F43E8477BDF9533866</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -795,7 +889,7 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>CD04FDD67FB60E3EA0250838FF4B9A8D</string>
+				<string>34ECCC2F225A3E88D4B9C953E7A945F2</string>
 				<string>10BD64FB9847DA702EE1A8A725C62F0D</string>
 			</array>
 			<key>isa</key>
@@ -846,64 +940,6 @@
 			<key>remoteInfo</key>
 			<string>KRTimingFunction</string>
 		</dict>
-		<key>B0AE9ADA55716A888A5606E8D7BA3179</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>A9B0D212296E4BF7C54FA06A77090061</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/KRAnimation/KRAnimation-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/KRAnimation/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.3</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/KRAnimation/KRAnimation.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>KRAnimation</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
 		<key>B17EF4F421CDFA3692EDEDDFBF64B51E</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -916,62 +952,6 @@
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
-		</dict>
-		<key>B1F00ECF5EB7522D44F4C8B8A70C676C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>A9B0D212296E4BF7C54FA06A77090061</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/KRAnimation/KRAnimation-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/KRAnimation/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.3</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/KRAnimation/KRAnimation.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>KRAnimation</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
 		</dict>
 		<key>B4295B989E6A3266D7A2A2A5FA1B9F9A</key>
 		<dict>
@@ -1012,6 +992,20 @@
 			<string>PBXSourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>B8C40F2B750AF0739E174EA03BBE9F66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C5C918EE4CF5165C65199DF26C7B5D78</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>B8FD046B08B6D84C36292B0B564698B6</key>
 		<dict>
@@ -1084,44 +1078,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C393CB7209A2A1785451FD7088772BF1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ReplaceMe.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C4CB2D900D970442247D28786F1909BE</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>597C6134E5E7AF66536FD178C8F9ADEF</string>
-			<key>buildPhases</key>
-			<array>
-				<string>F4E1283D45ECEB712697B2F8D635417C</string>
-				<string>9EF3D72CB9F242580A6B5B242ECA1E8E</string>
-				<string>5ED0E98B39A7288663618624560B951E</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>KRAnimation</string>
-			<key>productName</key>
-			<string>KRAnimation</string>
-			<key>productReference</key>
-			<string>CD5706D8677971E3FFB70049F4692FCB</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
 		<key>C56E9ADEF29AC36AF22B88A2ECF2466D</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1174,18 +1130,32 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CD04FDD67FB60E3EA0250838FF4B9A8D</key>
+		<key>C92D68337804D8CB392877B8F32FBFF4</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>D6D7C7FB59CC469B43911DAA891D805F</string>
+				<string>CACBAB0736FA26A56023EFF8A86835C4</string>
+				<string>28C9DE691A7F2FC3C6E951C2ED20FA0B</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>KRAnimation</string>
+			<string>Classes</string>
 			<key>path</key>
-			<string>KRAnimation</string>
+			<string>Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CACBAB0736FA26A56023EFF8A86835C4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Animator.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1230,13 +1200,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D403794D8D97FF7DFF231E9DD5513B4D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3BDA2E1BA576F7048CB3C37FF49F4326</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>D41D8CD98F00B204E9800998ECF8427E</key>
 		<dict>
 			<key>attributes</key>
@@ -1272,7 +1235,7 @@
 			<string></string>
 			<key>targets</key>
 			<array>
-				<string>C4CB2D900D970442247D28786F1909BE</string>
+				<string>F1ADF167659F735FC45775AE3D4637C5</string>
 				<string>30D2C19271B77987524D83948AD21F43</string>
 				<string>17964AF49B8677FF2F57C5B1788C424C</string>
 			</array>
@@ -1290,21 +1253,6 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
-		</dict>
-		<key>D6D7C7FB59CC469B43911DAA891D805F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C393CB7209A2A1785451FD7088772BF1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Classes</string>
-			<key>path</key>
-			<string>Classes</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>D6D81614940E2B7D5D7217E9975D5650</key>
 		<dict>
@@ -1428,6 +1376,87 @@
 				</array>
 			</dict>
 		</dict>
+		<key>F134A034BC6E5A2649CAF2AE85347BE9</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>A9B0D212296E4BF7C54FA06A77090061</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/KRAnimation/KRAnimation-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/KRAnimation/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/KRAnimation/KRAnimation.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>PRODUCT_NAME</key>
+				<string>KRAnimation</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>F1ADF167659F735FC45775AE3D4637C5</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0082B27812ED8A56CF90E1ACEEDFF452</string>
+			<key>buildPhases</key>
+			<array>
+				<string>632304127E2B8F869CDB588F4B612F11</string>
+				<string>01EE01A4C57D882EA7868F90D9613683</string>
+				<string>4FA403DB39157EFC04FBBF089681B985</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>KRAnimation</string>
+			<key>productName</key>
+			<string>KRAnimation</string>
+			<key>productReference</key>
+			<string>CD5706D8677971E3FFB70049F4692FCB</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
 		<key>F3449E5A26B0C82F8A0740128120781E</key>
 		<dict>
 			<key>fileRef</key>
@@ -1453,19 +1482,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F4E1283D45ECEB712697B2F8D635417C</key>
+		<key>F56B6109C62161573B482D4F6E7B83CD</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D403794D8D97FF7DFF231E9DD5513B4D</string>
-				<string>57D52C249543644375651B6F1D7E88AD</string>
-			</array>
+			<key>fileRef</key>
+			<string>3BDA2E1BA576F7048CB3C37FF49F4326</string>
 			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>F5D6F7FDF22B7D03F3719BFFBD15F118</key>
 		<dict>

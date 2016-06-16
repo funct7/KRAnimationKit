@@ -11,6 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
   KRTimingFunction:
     :git: https://github.com/BridgeTheGap/KRTimingFunction.git
+    :submodules: true
 
 CHECKOUT OPTIONS:
   KRTimingFunction:
