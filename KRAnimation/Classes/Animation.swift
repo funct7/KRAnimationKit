@@ -28,14 +28,30 @@ public enum AnimatableKeyPath {
     case ZPosition
 }
 
-enum FunctionType {
+public enum FunctionType {
     case Linear
     case EaseInCubic
     case EaseOutCubic
     case EaseInOutCubic
 }
 
-extension UIView {
+public struct DelayedAnimation {
+    let view: UIView
+    let delay: Double
+    
+    func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) {
+        print(nextAnimation?())
+    }
+    
+    func chainX(x: CGFloat, duration: Double, function: FunctionType, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) -> [CAKeyframeAnimation] {
+        var animation = [CAKeyframeAnimation()]
+        if let chainedAnimation = nextAnimation { animation += chainedAnimation() }
+        
+        return animation
+    }
+}
+
+public extension UIView {
     func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) {
         var values = [AnyObject]()
         let steps = 60 * duration
@@ -123,20 +139,3 @@ extension UIView {
         return DelayedAnimation(view: self, delay: delay)
     }
 }
-
-struct DelayedAnimation {
-    let view: UIView
-    let delay: Double
-    
-    func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) {
-        print(nextAnimation?())
-    }
-    
-    func chainX(x: CGFloat, duration: Double, function: FunctionType, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) -> [CAKeyframeAnimation] {
-        var animation = [CAKeyframeAnimation()]
-        if let chainedAnimation = nextAnimation { animation += chainedAnimation() }
-        
-        return animation
-    }
-}
-
