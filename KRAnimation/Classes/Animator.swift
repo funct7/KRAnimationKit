@@ -53,8 +53,8 @@ public protocol Animation {
 public struct AutoResizeAnimation: Animation {
     public let view: UIView
     public let key: AnimatableProperty
-    public let value: AnyObject
-    private let originalValue: AnyObject
+    public let beginValue: AnyObject
+    public let endValue: AnyObject
     
     public func set() {
         switch key {
@@ -69,7 +69,7 @@ public struct AutoResizeAnimation: Animation {
         case .CGAffineTransform:
             break
         case .Frame:
-            view.frame = (value as! NSValue).CGRectValue()
+            view.frame = (endValue as! NSValue).CGRectValue()
         case .Origin:
             break
         case .Size:
@@ -81,7 +81,7 @@ public struct AutoResizeAnimation: Animation {
         if let f = function as? (rt: Double, b: Double, c: Double) -> Double {
             switch key {
             case .Alpha:
-                view.alpha = CGFloat(f(rt: relativeTime, b: Double(view.alpha), c: value as! Double))
+                view.alpha = CGFloat(f(rt: relativeTime, b: Double(view.alpha), c: endValue as! Double))
             case .BackgroundColor:
                 break
             case .Bounds:
@@ -91,8 +91,8 @@ public struct AutoResizeAnimation: Animation {
             case .CGAffineTransform:
                 break
             case .Frame:
-                let beginFrame = (originalValue as! NSValue).CGRectValue()
-                let endFrame = (value as! NSValue).CGRectValue()
+                let beginFrame = (beginValue as! NSValue).CGRectValue()
+                let endFrame = (endValue as! NSValue).CGRectValue()
                 let scale = CGFloat(f(rt: relativeTime, b: 0.0, c: 1.0))
                 
                 let x = beginFrame.origin.x + scale * (endFrame.origin.x - beginFrame.origin.x)
@@ -120,15 +120,7 @@ public struct AutoResizeAnimation: Animation {
             case .CGAffineTransform:
                 break
             case .Frame:
-                let beginFrame = (originalValue as! NSValue).CGRectValue()
-                let endFrame = (value as! NSValue).CGRectValue()
-                let x = CGFloat(f(rt: relativeTime, b: Double(view.frame.origin.x), c: Double(endFrame.origin.x) - Double(view.frame.origin.x), d: duration))
-                let y = CGFloat(f(rt: relativeTime, b: Double(view.frame.origin.y), c: Double(endFrame.origin.y) - Double(view.frame.origin.y), d: duration))
-                let width = CGFloat(f(rt: relativeTime, b: Double(view.frame.width), c: Double(endFrame.width) - Double(view.frame.width), d: duration))
-                let height = CGFloat(f(rt: relativeTime, b: Double(view.frame.height), c: Double(endFrame.height) - Double(view.frame.height)
-                    , d: duration))
-                
-                view.frame = CGRectMake(x, y, width, height)
+                break
             case .Origin:
                 break
             case .Size:
@@ -137,74 +129,74 @@ public struct AutoResizeAnimation: Animation {
         }
     }
     
-    public init(view: UIView, key: AnimatableProperty, value: AnyObject) {
+    public init(view: UIView, key: AnimatableProperty, endValue: AnyObject) {
         switch key {
         case .Alpha:
-            guard let _ = value as? Double else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? Double else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
-            originalValue = view.alpha
+            beginValue = view.alpha
         case .BackgroundColor:
-            guard let _ = value as? UIColor else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? UIColor else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
-            originalValue = view.backgroundColor!
+            beginValue = view.backgroundColor!
         case .Bounds:
-            guard let _ = value as? NSValue else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? NSValue else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
-            originalValue = NSValue(CGRect: view.bounds)
+            beginValue = NSValue(CGRect: view.bounds)
         case .Center:
-            guard let _ = value as? NSValue else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? NSValue else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
-            originalValue = NSValue(CGPoint: view.center)
+            beginValue = NSValue(CGPoint: view.center)
         case .CGAffineTransform:
-            guard let _ = value as? NSValue else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? NSValue else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
-            originalValue = NSValue(CGAffineTransform: view.transform)
+            beginValue = NSValue(CGAffineTransform: view.transform)
         case .Frame:
-            guard let _ = value as? NSValue else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? NSValue else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
-            originalValue = NSValue(CGRect: view.frame)
+            beginValue = NSValue(CGRect: view.frame)
         case .Origin:
-            guard let _ = value as? NSValue else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? NSValue else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
-            originalValue = NSValue(CGPoint: view.frame.origin)
+            beginValue = NSValue(CGPoint: view.frame.origin)
         case .Size:
-            guard let _ = value as? NSValue else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? NSValue else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
-            originalValue = NSValue(CGSize: view.frame.size)
+            beginValue = NSValue(CGSize: view.frame.size)
         }
         self.view = view
         self.key = key
-        self.value = value
+        self.endValue = endValue
     }
     
-    public init(view: UIView, key: AnimatableProperty, value: AnyObject, originalValue: AnyObject) {
+    public init(view: UIView, key: AnimatableProperty, beginValue: AnyObject, endValue: AnyObject) {
         switch key {
         case .Alpha:
-            guard let _ = value as? Double else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? Double else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
         case .BackgroundColor:
-            guard let _ = value as? UIColor else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? UIColor else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
         default:
-            guard let _ = value as? NSValue else {
-                fatalError("\(#line) \(#function): key and value's type don't match.\nKey: \(key), Value: \(value.self)")
+            guard let _ = endValue as? NSValue else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
             }
         }
         
         self.view = view
         self.key = key
-        self.value = value
-        self.originalValue = originalValue
+        self.beginValue = beginValue
+        self.endValue = endValue
     }
 }
 

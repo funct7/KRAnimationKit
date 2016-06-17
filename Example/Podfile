@@ -4,6 +4,7 @@ target 'KRAnimation_Example' do
   pod 'KRAnimation', :path => '../'
 
   pod 'KRTimingFunction', :git => 'https://github.com/BridgeTheGap/KRTimingFunction.git', :submodules => true
+  pod 'JHChainableAnimations', '~> 1.3.0'
 
 
   # target 'KRAnimation_Tests' do

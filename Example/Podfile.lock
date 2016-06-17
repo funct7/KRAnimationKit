@@ -1,8 +1,10 @@
 PODS:
+  - JHChainableAnimations (1.3.0)
   - KRAnimation (0.1.0)
   - KRTimingFunction (0.2.2)
 
 DEPENDENCIES:
+  - JHChainableAnimations (~> 1.3.0)
   - KRAnimation (from `../`)
   - KRTimingFunction (from `https://github.com/BridgeTheGap/KRTimingFunction.git`)
 
@@ -19,6 +21,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/BridgeTheGap/KRTimingFunction.git
 
 SPEC CHECKSUMS:
+  JHChainableAnimations: 22085fcb04ca87349e584573558e637f659fd769
   KRAnimation: 3c429a31fb8436a2ccd25dbea2e1b5d76d8f2c75
   KRTimingFunction: bc55e462cab7c74dd5c9207a5021fef4dd472ec3
 
