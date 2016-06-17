@@ -29,17 +29,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func animation(sender: AnyObject) {
-        START = NSDate()
+        viewBox.chainAnimations(
+            viewBox.after(2.0).chainX(Screen.bounds.width - 50.0, duration: 3, function: .Linear)[0],
+            viewBox.chainX(0.0, duration: 3.0, function: .Linear)[0],
+            viewBox.chainX(Screen.bounds.width - 50.0, duration: 3.0, function: .EaseOutCubic)[0],
+            viewBox.chainX(0.0, duration: 3, function: .EaseInCubic)[0],
+            viewBox.chainX(Screen.bounds.width / 2.0 - 25.0, duration: 3.0, function: .EaseOutCubic)[0]
+        )
         
-        viewBox.animateX(Screen.bounds.width - 50.0, duration: 3, function: .Linear) {
-            self.viewBox.chainX(0.0, duration: 3.0, function: .Linear) {
-                self.viewBox.chainX(Screen.bounds.width - 50.0, duration: 3.0, function: .EaseOutCubic) {
-                    self.viewBox.chainX(0.0, duration: 3, function: .EaseInCubic) {
-                        self.viewBox.chainX(Screen.bounds.width / 2.0 - 25.0, duration: 3.0, function: .EaseOutCubic)
-                    }
-                }
-            }
-        }
+//        viewBox.animateX(Screen.bounds.width - 50.0, duration: 3, function: .Linear) {
+//            self.viewBox.chainX(0.0, duration: 3.0, function: .Linear) {
+//                self.viewBox.chainX(Screen.bounds.width - 50.0, duration: 3.0, function: .EaseOutCubic) {
+//                    self.viewBox.chainX(0.0, duration: 3, function: .EaseInCubic) {
+//                        self.viewBox.chainX(Screen.bounds.width / 2.0 - 25.0, duration: 3.0, function: .EaseOutCubic)
+//                    }
+//                }
+//            }
+//        }
     }
     
     @IBAction func defaultAnimation(sender: AnyObject) {
@@ -57,11 +63,4 @@ class ViewController: UIViewController {
     @IBAction func stopAction(sender: AnyObject) {
         viewBox.layer.removeAllAnimations()
     }
-    
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        print(self.viewBox.frame)
-        print("LAYER ANIM", NSDate().timeIntervalSinceDate(START))
-    }
 }
-
-    
