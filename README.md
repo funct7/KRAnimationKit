@@ -17,12 +17,12 @@ KRAnimation is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "KRAnimation"
+pod 'KRAnimation', git: => 'https://github.com/BridgeTheGap/KRAnimation.git'
 ```
 
 ## Author
 
-Joshua Park, wmpark@knowre.com
+Josh Woomin Park, wmpark@knowre.com
 
 ## License
 

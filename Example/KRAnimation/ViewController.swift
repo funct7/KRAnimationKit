@@ -40,12 +40,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
-//        ChainAnimation.animate(
-//            viewBox.chainX(10.0, duration: 0.45, function: .Linear)[0],
-//            viewBox.chainX(50.0, duration: 0.55, function: .EaseInCubic)[0],
-//            viewBox.after(3.0).chainX(100.0, duration: 1.0, function: .Linear)[0]
-//        )
     }
     
     @IBAction func defaultAnimation(sender: AnyObject) {
