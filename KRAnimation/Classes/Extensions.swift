@@ -7,19 +7,20 @@
 //
 
 import UIKit
-import KRAnimation
 import KRTimingFunction
 
 public extension UIView {
     public class func animateWithAnimator(animator: Animator) {
         switch animator {
-        case .Linear(let begin, let end, let duration, let completion):
-            animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeLinear], animations: {
-                for anim in end { anim.setWithDuration(duration, function: TimingFunction.Linear) }
+        case .Linear(animation: let animation, duration: let duration, completion: let completion):
+            
+            animateWithDuration(duration, animations: { 
+                for anim in animation { anim.set() }
                 }, completion: completion)
             
         case .EaseInCubic(animation: let animation, duration: let duration, completion: let completion):
-            animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeDiscrete], animations: {
+            
+            animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeLinear], animations: {
                 for anim in animation { anim.setWithDuration(duration, function: TimingFunction.EaseInCubic) }
                 }, completion: completion)
             
@@ -29,30 +30,20 @@ public extension UIView {
     }
 }
 
-extension CALayer {
-    private func getProperties(animator: Animator) -> (String, Double, AnyObject?, AnyObject, Double) {
-        switch animator {
-        case .LinearKeyPath(keyPath: let k, time: let t, begin: let b, end: let e, duration: let d):
-            return (k, t, b, e, d)
-            //        case .CubicKeyPath(keyPath: let k, time: let t, begin: let b, end: let e, duration: let d):
-        //            return (k, t, b, e, d)
-        default:
-            fatalError("Use function with key path")
-        }
-    }
-    
-    func getKeyFrameAnimation(animator: Animator) -> CAAnimation {
-        let properties = getProperties(animator)
-        let anim = CABasicAnimation(keyPath: properties.0)
-        anim.beginTime = CACurrentMediaTime() + properties.1
-        anim.fromValue = properties.2
-        anim.toValue = properties.3
-        anim.duration = properties.4
+public extension CAKeyframeAnimation {
+    convenience init(animator: Animator) {
+        let properties = animator.getProperties()
         
-        return anim
+        self.init(keyPath: properties.keyPath)
+        
+        self.beginTime = CACurrentMediaTime() + properties.beginTime
+        self.duration = properties.duration
+        self.values = properties.values
     }
-    
+}
+
+public extension CALayer {
     func addKeyFrameAnimation(animator: Animator, forKey key: String?) {
-        addAnimation(getKeyFrameAnimation(animator), forKey: key)
+        addAnimation(CAKeyframeAnimation(animator: animator), forKey: key)
     }
 }

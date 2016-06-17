@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRTimingFunction
 
 // TODO: Error handling
 
@@ -25,15 +26,6 @@ private func += (inout lhs: CGRect, rhs: CGRect) {
     lhs.size += rhs.size
 }
 
-public enum TransitionStyle {
-    case Default
-    case SlideUp
-    case SlideDown
-    case SlideLeft
-    case SlideRight
-    case Custom(CGRect, CGRect)
-}
-
 public enum AnimatableProperty {
     case Alpha
     case BackgroundColor
@@ -45,7 +37,27 @@ public enum AnimatableProperty {
     case Size
 }
 
+public enum AnimatableKeyPath {
+    case BackgroundColor
+    case BorderColor
+    case BorderWidth
+    case Bounds
+    case Hidden
+    case Mask
+    case MasksToBounds
+    case Opacity
+    case Position
+    case ShadowColor
+    case ShadowOffset
+    case ShadowOpacity
+    case ShadowPath
+    case ShadowRadius
+    case Transform
+    case ZPosition
+}
+
 public protocol Animation {
+    func set()
     func setWithDuration(duration: Double, function: Any)
 }
 
@@ -54,7 +66,51 @@ public struct AutoResizeAnimation: Animation {
     public let key: AnimatableProperty
     public let beginValue: AnyObject
     public let endValue: AnyObject
-    public var multiplier = 5
+    public var multiplier: Int
+    
+    public init(view: UIView, key: AnimatableProperty, beginValue: AnyObject, endValue: AnyObject, multiplier: Int = 5) {
+        switch key {
+        case .Alpha:
+            guard let _ = endValue as? Double else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
+            }
+        case .BackgroundColor:
+            guard let _ = endValue as? UIColor else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
+            }
+        default:
+            guard let _ = endValue as? NSValue else {
+                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
+            }
+        }
+        
+        self.view = view
+        self.key = key
+        self.beginValue = beginValue
+        self.endValue = endValue
+        self.multiplier = multiplier
+    }
+    
+    public func set() {
+        switch key {
+        case .Alpha:
+            break
+        case .BackgroundColor:
+            break
+        case .Bounds:
+            break
+        case .Center:
+            break
+        case .CGAffineTransform:
+            break
+        case .Frame:
+            view.frame = (endValue as! NSValue).CGRectValue()
+        case .Origin:
+            break
+        case .Size:
+            break
+        }
+    }
     
     public func setWithDuration(duration: Double, function: Any) {
         let totalSteps = 60 * duration * Double(multiplier)
@@ -107,92 +163,60 @@ public struct AutoResizeAnimation: Animation {
             }
         }
     }
-   
-    public init(view: UIView, key: AnimatableProperty, endValue: AnyObject) {
-        switch key {
-        case .Alpha:
-            guard let _ = endValue as? Double else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-            beginValue = view.alpha
-        case .BackgroundColor:
-            guard let _ = endValue as? UIColor else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-            beginValue = view.backgroundColor!
-        case .Bounds:
-            guard let _ = endValue as? NSValue else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-            beginValue = NSValue(CGRect: view.bounds)
-        case .Center:
-            guard let _ = endValue as? NSValue else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-            beginValue = NSValue(CGPoint: view.center)
-        case .CGAffineTransform:
-            guard let _ = endValue as? NSValue else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-            beginValue = NSValue(CGAffineTransform: view.transform)
-        case .Frame:
-            guard let _ = endValue as? NSValue else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-            beginValue = NSValue(CGRect: view.frame)
-        case .Origin:
-            guard let _ = endValue as? NSValue else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-            beginValue = NSValue(CGPoint: view.frame.origin)
-        case .Size:
-            guard let _ = endValue as? NSValue else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-            beginValue = NSValue(CGSize: view.frame.size)
-        }
-        self.view = view
-        self.key = key
-        self.endValue = endValue
-    }
-    
-    public init(view: UIView, key: AnimatableProperty, beginValue: AnyObject, endValue: AnyObject) {
-        switch key {
-        case .Alpha:
-            guard let _ = endValue as? Double else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-        case .BackgroundColor:
-            guard let _ = endValue as? UIColor else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-        default:
-            guard let _ = endValue as? NSValue else {
-                fatalError("\(#line) \(#function): key and endValue's type don't match.\nKey: \(key), Value: \(endValue.self)")
-            }
-        }
-        
-        self.view = view
-        self.key = key
-        self.beginValue = beginValue
-        self.endValue = endValue
-    }
 }
 
 public struct AutoLayoutAnimation: Animation {
     public let constraint: NSLayoutConstraint
     public let constant: CGFloat
     
+    public func set() {}
     public func setWithDuration(duration: Double, function: Any) {}
 }
 
 public enum Animator {
-    case Linear(begin: [Animation]?, end: [Animation], duration: Double, completion: ((Bool) -> Void)?)
-    case LinearWithDelay(delay: Double, begin: [Animation]?, end: [Animation], duration: Double, completion: ((Bool) -> Void)?)
-    case LinearKeyPath(keyPath: String, time: Double, begin: AnyObject?, end: AnyObject, duration: Double)
-    case LinearTransition(TransitionStyle)
+    case Linear(animation: [Animation], duration: Double, completion: ((Bool) -> Void)?)
+    case LinearWithDelay(delay: Double, animation: [Animation], duration: Double, completion: ((Bool) -> Void)?)
+    case LinearKeyPath(property: AnimatableKeyPath, time: CFTimeInterval, begin: AnyObject?, end: AnyObject, duration: Double)
     
     case EaseInCubic(animation: [Animation], duration: Double, completion: ((Bool) -> Void)?)
+    case EaseInCubicKeyPath(property: AnimatableKeyPath, time: CFTimeInterval, begin: AnyObject?, end: AnyObject, duration: Double)
+    
+    func getProperties() -> (keyPath: String, beginTime: Double, duration: Double, values: [AnyObject]) {
+        var values = [AnyObject]()
+        
+        switch self {
+        case .LinearKeyPath(property: let p, time: let t, begin: let b, end: let e, duration: let d):
+            break
+            
+        case .EaseInCubicKeyPath(property: let p, time: let t, begin: let b, end: let e , duration: let d):
+            switch p {
+            case .Position:
+                let totalSteps = 60 * d
+                
+                guard let end = e as? NSValue else {
+                    fatalError("\(#line) \(#function): key path and values' type don't match.\nKey: \(p), Value: \(b.dynamicType)")
+                }
+                
+                let beginPos = b != nil ? (b as! NSValue).CGPointValue() : CGPointZero
+                let endPos = end.CGPointValue()
+                
+                for i in 0 ..< Int(totalSteps) {
+                    let scale = CGFloat(TimingFunction.EaseInOutCubic(rt: Double(i) / totalSteps, b: 0.0, c: 1.0))
+                    
+                    let x = beginPos.x + scale * (endPos.x - beginPos.x)
+                    let y = beginPos.y + scale * (endPos.y - beginPos.y)
+                    
+                    values.append(NSValue(CGPoint: CGPointMake(x, y)))
+                }
+                return (keyPath: "position", beginTime: t, duration: d, values: values)
+            default:
+                break
+            }
+            
+        default:
+            fatalError("Use function with key path")
+        }
+        return ("s", 0.0, 0.0, values)
+    }
 }
 
-var i = 0

@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   KRTimingFunction:
-    :commit: 4fde5518b31e15d6594d0b130452ebd76d23da61
+    :commit: 65b36f700c826c72dbc00b83297ad13cda20a0fa
     :git: https://github.com/BridgeTheGap/KRTimingFunction.git
 
 SPEC CHECKSUMS:

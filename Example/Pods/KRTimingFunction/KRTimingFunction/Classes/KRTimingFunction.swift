@@ -30,7 +30,7 @@ private func /= (inout lhs: Double, rhs: Double) -> Double {
 
 public struct TimingFunction {
     public static func Linear(rt rt: Double, b: Double, c: Double) -> Double {
-        return rt * c + b
+        return c * rt + b
     }
     // Quad
     public static func EaseInQuad(rt rt: Double, b: Double, c: Double) -> Double {
@@ -62,16 +62,16 @@ public struct TimingFunction {
     }
     // Quart
     public static func EaseInQuart(rt rt: Double, b: Double, c: Double) -> Double {
-        return c * rt*rt*rt*rt + b;
+        return c * rt*rt*rt*rt + b
     }
     public static func EaseOutQuart(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
-        return -c * ((rt-=1)*rt*rt*rt - 1) + b;
+        return -c * ((rt-=1)*rt*rt*rt - 1) + b
     }
     public static func EaseInOutQuart(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
         if (rt*=2.0) < 1 { return c/2*rt*rt*rt*rt + b }
-        return -c/2 * ((rt-=2)*rt*rt*rt - 2) + b;
+        return -c/2 * ((rt-=2)*rt*rt*rt - 2) + b
     }
     // Quint
     public static func EaseInQuint(rt rt: Double, b: Double, c: Double) -> Double {
@@ -79,12 +79,12 @@ public struct TimingFunction {
     }
     public static func EaseOutQuint(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
-        return c * ((rt-=1)*rt*rt*rt*rt + 1) + b;
+        return c * ((rt-=1)*rt*rt*rt*rt + 1) + b
     }
     public static func EaseInOutQuint(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
         if (rt*=2.0) < 1 { return c/2 * rt*rt*rt*rt*rt + b }
-        return c/2 * ((rt-=2)*rt*rt*rt*rt + 2) + b;
+        return c/2 * ((rt-=2)*rt*rt*rt*rt + 2) + b
     }
     // Sine
     public static func EaseInSine(rt rt: Double, b: Double, c: Double) -> Double {
@@ -94,7 +94,7 @@ public struct TimingFunction {
         return c * sin(rt * (M_PI_2)) + b
     }
     public static func EaseInOutSine(rt rt: Double, b: Double, c: Double) -> Double {
-        return -c/2 * (cos(M_PI*rt) - 1) + b;
+        return -c/2 * (cos(M_PI*rt) - 1) + b
     }
     // Expo
     public static func EaseInExpo(rt rt: Double, b: Double, c: Double) -> Double {
@@ -112,16 +112,16 @@ public struct TimingFunction {
     }
     // Circ
     public static func EaseInCirc(rt rt: Double, b: Double, c: Double) -> Double {
-        return -c * (sqrt(1 - rt*rt) - 1) + b;
+        return -c * (sqrt(1 - rt*rt) - 1) + b
     }
     public static func EaseOutCirc(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
-        return c * sqrt(1 - (rt-=1)*rt) + b;
+        return c * sqrt(1 - (rt-=1)*rt) + b
     }
     public static func EaseInOutCirc(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
         if (rt*=2.0) < 1 { return -c/2 * (sqrt(1 - rt*rt) - 1) + b }
-        return c/2 * (sqrt(1 - (rt-=1)*rt) + 1) + b;
+        return c/2 * (sqrt(1 - (rt-=1)*rt) + 1) + b
     }
     // Elastic
     public static func EaseInElastic(rt rt: Double, b: Double, c: Double, d: Double) -> Double {
@@ -186,7 +186,7 @@ public struct TimingFunction {
         } else if rt < 2.5/2.75 {
             return c * (7.5625*(rt-=(2.25/2.75))*rt + 0.9375) + b
         } else {
-            return c * (7.5625*(rt-=(2.625/2.75))*rt + 0.984375) + b;
+            return c * (7.5625*(rt-=(2.625/2.75))*rt + 0.984375) + b
         }
     }
     public static func EaseInOutBounce(rt rt: Double, b: Double, c: Double) -> Double {
@@ -210,7 +210,7 @@ public struct TimingFunction {
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
  *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
  *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ *  GOODS OR SERVICES LOSS OF USE, DATA, OR PROFITS OR BUSINESS INTERRUPTION) HOWEVER CAUSED
  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
  * OF THE POSSIBILITY OF SUCH DAMAGE.

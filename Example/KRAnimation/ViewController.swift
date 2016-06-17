@@ -49,6 +49,26 @@ class ViewController: UIViewController {
                 self.viewBox.frame = self.beginFrame
         })
     }
+    
+    @IBAction func layerAnimation(sender: AnyObject) {
+        START = NSDate()
+        
+        let begin = NSValue(CGPoint: viewBox.layer.position)
+        let end = NSValue(CGPoint: CGPointMake(Screen.bounds.width - 25.0, 25.0))
+        let animator = Animator.EaseInCubicKeyPath(property: .Position, time: 0.0, begin: begin, end: end, duration: 5.0)
+        let anim = CAKeyframeAnimation(animator: animator)
+        anim.delegate = self
+        
+        viewBox.layer.addAnimation(anim, forKey: nil)
+    }
+    
+    @IBAction func stopAction(sender: AnyObject) {
+        viewBox.layer.removeAllAnimations()
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        print("LAYER ANIM", NSDate().timeIntervalSinceDate(START))
+    }
 }
 
     

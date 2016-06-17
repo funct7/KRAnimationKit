@@ -35,6 +35,20 @@
                                     <action selector="defaultAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PDt-jz-PuY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0K-pb-qTb">
+                                <rect key="frame" x="497" y="523" width="76" height="30"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YfV-nj-69V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNs-Ug-60E">
+                                <rect key="frame" x="144" y="579" width="125" height="30"/>
+                                <state key="normal" title="KRLayerAnimation"/>
+                                <connections>
+                                    <action selector="layerAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DbH-QR-nkS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
