@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KRAnimation
 
 var START: NSDate!
 
@@ -31,12 +30,7 @@ class ViewController: UIViewController {
     @IBAction func animation(sender: AnyObject) {
         START = NSDate()
         
-        let anim = AutoResizeAnimation(view: viewBox, key: .Frame, beginValue: NSValue(CGRect: beginFrame), endValue: NSValue(CGRect: endFrame))
         
-        UIView.animateWithAnimator(Animator.EaseInCubic(animation: [anim], duration: 5.0, completion: { (_) in
-            print("ANIMATOR", NSDate().timeIntervalSinceDate(START))
-            self.viewBox.frame = self.beginFrame
-        }))
     }
     
     @IBAction func defaultAnimation(sender: AnyObject) {
@@ -53,13 +47,6 @@ class ViewController: UIViewController {
     @IBAction func layerAnimation(sender: AnyObject) {
         START = NSDate()
         
-        let begin = NSValue(CGPoint: viewBox.layer.position)
-        let end = NSValue(CGPoint: CGPointMake(Screen.bounds.width - 25.0, 25.0))
-        let animator = Animator.EaseInCubicKeyPath(property: .Position, time: 0.0, begin: begin, end: end, duration: 5.0)
-        let anim = CAKeyframeAnimation(animator: animator)
-        anim.delegate = self
-        
-        viewBox.layer.addAnimation(anim, forKey: nil)
     }
     
     @IBAction func stopAction(sender: AnyObject) {

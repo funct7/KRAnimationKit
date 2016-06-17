@@ -43,6 +43,7 @@
 		6929477FBBE03517AC50FC29 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		940A07D3F702F0B70B2BC16D /* Pods-KRAnimation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRAnimation_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D145DA4C1D1283AE00B5925F /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
+		D1D943B41D14094300F5AFE4 /* KRTimingFunction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRTimingFunction.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/KRAnimation-gfcvdmhfsdiffxdhzvmjoyeqxhqg/Build/Products/Debug-iphoneos/KRTimingFunction.framework"; sourceTree = "<group>"; };
 		E0A40AA0DBB0D6E30C283667 /* KRAnimation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KRAnimation.podspec; path = ../KRAnimation.podspec; sourceTree = "<group>"; };
 		EBC975E6353E5CC319EC44D7 /* Pods-KRAnimation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRAnimation_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +141,7 @@
 		9B43946B319CA57C868FB827 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1D943B41D14094300F5AFE4 /* KRTimingFunction.framework */,
 				1CE6BE46C6EC06763B9C31D9 /* Pods_KRAnimation_Example.framework */,
 			);
 			name = Frameworks;
