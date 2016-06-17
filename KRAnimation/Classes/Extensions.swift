@@ -22,7 +22,7 @@ public extension UIView {
         case .EaseInCubic(animation: let animation, duration: let duration, completion: let completion):
             animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeLinear], animations: {
                 // TODO: Add keyframes
-                for anim in animation { addKeyFrameAnimation(anim, duration: duration, function: TimingFunction.EaseInCubic) }
+                for anim in animation { addKeyFrameAnimation(anim, duration: duration, function: TimingFunction.EaseOutCubic) }
                 }, completion: completion)
         default:
             fatalError("")
@@ -30,7 +30,7 @@ public extension UIView {
     }
     
     private class func addKeyFrameAnimation(animation: Animation, duration: Double, function: Any) {
-        let totalSteps = 60 * duration * 10
+        let totalSteps = 60 * duration
         
         for i in 0 ..< Int(totalSteps) {
             let startTime = Double(i) / (totalSteps - 1.0)

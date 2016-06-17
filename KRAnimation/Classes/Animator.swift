@@ -10,6 +10,21 @@ import UIKit
 
 // TODO: Error handling
 
+private func += (inout lhs: CGPoint, rhs: CGPoint) {
+    lhs.x += rhs.x
+    lhs.y += rhs.y
+}
+
+private func += (inout lhs: CGSize, rhs: CGSize) {
+    lhs.width += rhs.width
+    lhs.height += rhs.height
+}
+
+private func += (inout lhs: CGRect, rhs: CGRect) {
+    lhs.origin += rhs.origin
+    lhs.size += rhs.size
+}
+
 public enum TransitionStyle {
     case Default
     case SlideUp

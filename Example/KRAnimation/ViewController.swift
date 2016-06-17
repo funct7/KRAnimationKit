@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         }
         
 //        let anim = AutoResizeAnimation(view: viewBox, key: .Frame, value: NSValue(CGRect: CGRectMake(Screen.bounds.width - 100.0, viewBox.frame.origin.y, 100.0, 100.0)), originalValue: NSValue(CGRect: viewBox.frame))
-        UIView.animateWithAnimator(Animator.EaseInCubic(animation: animations(), duration: 1.0, completion: { (_) in
+        UIView.animateWithAnimator(Animator.EaseInCubic(animation: animations(), duration: 5.0, completion: { (_) in
             print("ANIMATOR", NSDate().timeIntervalSinceDate(start))
         }))
     }
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 //            }, completion: { (_) in
 //                print(NSDate().timeIntervalSinceDate(start))
 //        })
-        UIView.animateWithDuration(1.0, animations: {
+        UIView.animateWithDuration(5.0, animations: {
             for box in self.boxes {
                 box.frame = CGRectMake(Screen.bounds.width - 100.0, box.frame.origin.y, 30.0, 30.0)
             }
