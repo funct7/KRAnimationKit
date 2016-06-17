@@ -46,42 +46,18 @@ public enum AnimatableProperty {
 }
 
 public protocol Animation {
-    func set()
     func setWithDuration(duration: Double, function: Any)
-    func setWithRelativeTime(relativeTime: Double, duration: Double, function: Any)
 }
-
-var TIME = 0.0
 
 public struct AutoResizeAnimation: Animation {
     public let view: UIView
     public let key: AnimatableProperty
     public let beginValue: AnyObject
     public let endValue: AnyObject
-    
-    public func set() {
-        switch key {
-        case .Alpha:
-            break
-        case .BackgroundColor:
-            break
-        case .Bounds:
-            break
-        case .Center:
-            break
-        case .CGAffineTransform:
-            break
-        case .Frame:
-            view.frame = (endValue as! NSValue).CGRectValue()
-        case .Origin:
-            break
-        case .Size:
-            break
-        }
-    }
+    public var multiplier = 5
     
     public func setWithDuration(duration: Double, function: Any) {
-        let totalSteps = 60 * duration * 10
+        let totalSteps = 60 * duration * Double(multiplier)
         let threshold: CGFloat = 0.5
         var relativeDuration: Double = 1.0 / totalSteps
         
@@ -131,62 +107,7 @@ public struct AutoResizeAnimation: Animation {
             }
         }
     }
-    
-    
-    
-    
-    public func setWithRelativeTime(relativeTime: Double, duration: Double, function: Any) {
-        if let f = function as? (rt: Double, b: Double, c: Double) -> Double {
-            switch key {
-            case .Alpha:
-                view.alpha = CGFloat(f(rt: relativeTime, b: Double(view.alpha), c: endValue as! Double))
-            case .BackgroundColor:
-                break
-            case .Bounds:
-                break
-            case .Center:
-                break
-            case .CGAffineTransform:
-                break
-            case .Frame:
-                let begin = (beginValue as! NSValue).CGRectValue()
-                let end = (endValue as! NSValue).CGRectValue()
-                let scale = CGFloat(f(rt: relativeTime, b: 0.0, c: 1.0))
-                
-                let x = begin.origin.x + scale * (end.origin.x - begin.origin.x)
-                let y = begin.origin.y + scale * (end.origin.y - begin.origin.y)
-                let width = begin.size.width + scale * (end.size.width - begin.size.width)
-                let height = begin.size.height + scale * (end.size.height - begin.size.height)
-                
-                view.frame = CGRectMake(x, y, width, height)
-
-            case .Origin:
-                break
-            case .Size:
-                break
-            }
-        } else if let f = function as? (rt: Double, b: Double, c: Double, d: Double) -> Double {
-            switch key {
-            case .Alpha:
-                break
-            case .BackgroundColor:
-                break
-            case .Bounds:
-                break
-            case .Center:
-                break
-            case .CGAffineTransform:
-                break
-            case .Frame:
-                break
-            case .Origin:
-                break
-            case .Size:
-                break
-            }
-        }
-    }
-    
+   
     public init(view: UIView, key: AnimatableProperty, endValue: AnyObject) {
         switch key {
         case .Alpha:
@@ -262,15 +183,7 @@ public struct AutoLayoutAnimation: Animation {
     public let constraint: NSLayoutConstraint
     public let constant: CGFloat
     
-    public func set() {
-        constraint.constant = constant
-    }
-    
     public func setWithDuration(duration: Double, function: Any) {}
-    
-    public func setWithRelativeTime(relativeTime: Double, duration: Double, function: Any) {
-        
-    }
 }
 
 public enum Animator {

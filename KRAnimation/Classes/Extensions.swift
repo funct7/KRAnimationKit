@@ -14,15 +14,13 @@ public extension UIView {
     public class func animateWithAnimator(animator: Animator) {
         switch animator {
         case .Linear(let begin, let end, let duration, let completion):
-            if let begin = begin { for anim in begin { anim.set() } }
-            
             animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeLinear], animations: {
                 for anim in end { anim.setWithDuration(duration, function: TimingFunction.Linear) }
                 }, completion: completion)
             
         case .EaseInCubic(animation: let animation, duration: let duration, completion: let completion):
             animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeDiscrete], animations: {
-                for anim in animation { anim.setWithDuration(duration, function: TimingFunction.EaseInOutCubic) }
+                for anim in animation { anim.setWithDuration(duration, function: TimingFunction.EaseInCubic) }
                 }, completion: completion)
             
         default:
