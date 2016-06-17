@@ -8,7 +8,6 @@
 
 import UIKit
 import KRAnimation
-import JHChainableAnimations
 
 var START: NSDate!
 
@@ -49,15 +48,6 @@ class ViewController: UIViewController {
                 print("UIVIEW", NSDate().timeIntervalSinceDate(START))
                 self.viewBox.frame = self.beginFrame
         })
-    }
-    
-    @IBAction func jhanimation(sender: AnyObject) {
-        START = NSDate()
-        
-        viewBox.makeFrame()(endFrame).easeInCubic().animate()(5.0).animationCompletion = {
-            print("JHANIMATION", NSDate().timeIntervalSinceDate(START))
-            self.viewBox.frame = self.beginFrame
-        }
     }
 }
 

@@ -35,13 +35,6 @@
                                     <action selector="defaultAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PDt-jz-PuY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKn-1f-8BA">
-                                <rect key="frame" x="162" y="576" width="88" height="30"/>
-                                <state key="normal" title="JHAnimation"/>
-                                <connections>
-                                    <action selector="jhanimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RVh-yE-zTa"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
