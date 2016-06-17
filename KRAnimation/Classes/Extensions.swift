@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRAnimation
 import KRTimingFunction
 
 public extension UIView {
@@ -16,28 +17,16 @@ public extension UIView {
             if let begin = begin { for anim in begin { anim.set() } }
             
             animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeLinear], animations: {
-                // TODO: Add keyframes
-                for anim in end { addKeyFrameAnimation(anim, duration: duration, function: TimingFunction.Linear) }
+                for anim in end { anim.setWithDuration(duration, function: TimingFunction.Linear) }
                 }, completion: completion)
+            
         case .EaseInCubic(animation: let animation, duration: let duration, completion: let completion):
-            animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeLinear], animations: {
-                // TODO: Add keyframes
-                for anim in animation { addKeyFrameAnimation(anim, duration: duration, function: TimingFunction.EaseInCubic) }
+            animateKeyframesWithDuration(duration, delay: 0.0, options: [.AllowUserInteraction, .CalculationModeDiscrete], animations: {
+                for anim in animation { anim.setWithDuration(duration, function: TimingFunction.EaseInOutCubic) }
                 }, completion: completion)
+            
         default:
             fatalError("")
-        }
-    }
-    
-    private class func addKeyFrameAnimation(animation: Animation, duration: Double, function: Any) {
-        let totalSteps = 60 * duration
-        
-        for i in 0 ... Int(totalSteps) {
-            let startTime = Double(i) / (totalSteps - 1.0)
-            
-            addKeyframeWithRelativeStartTime(startTime, relativeDuration: 1.0 / totalSteps, animations: {
-                animation.setWithRelativeTime(i < Int(totalSteps) - 2 ? startTime : 1.0, duration: duration, function: function)
-            })
         }
     }
 }
@@ -47,8 +36,8 @@ extension CALayer {
         switch animator {
         case .LinearKeyPath(keyPath: let k, time: let t, begin: let b, end: let e, duration: let d):
             return (k, t, b, e, d)
-//        case .CubicKeyPath(keyPath: let k, time: let t, begin: let b, end: let e, duration: let d):
-//            return (k, t, b, e, d)
+            //        case .CubicKeyPath(keyPath: let k, time: let t, begin: let b, end: let e, duration: let d):
+        //            return (k, t, b, e, d)
         default:
             fatalError("Use function with key path")
         }

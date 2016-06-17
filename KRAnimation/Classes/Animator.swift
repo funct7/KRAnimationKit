@@ -47,8 +47,11 @@ public enum AnimatableProperty {
 
 public protocol Animation {
     func set()
+    func setWithDuration(duration: Double, function: Any)
     func setWithRelativeTime(relativeTime: Double, duration: Double, function: Any)
 }
+
+var TIME = 0.0
 
 public struct AutoResizeAnimation: Animation {
     public let view: UIView
@@ -77,6 +80,61 @@ public struct AutoResizeAnimation: Animation {
         }
     }
     
+    public func setWithDuration(duration: Double, function: Any) {
+        let totalSteps = 60 * duration * 10
+        let threshold: CGFloat = 0.5
+        var relativeDuration: Double = 1.0 / totalSteps
+        
+        if let f = function as? (rt: Double, b: Double, c: Double) -> Double {
+            switch key {
+            case .Alpha:
+                break
+            case .BackgroundColor:
+                break
+            case .Bounds:
+                break
+            case .Center:
+                break
+            case .CGAffineTransform:
+                break
+            case .Frame:
+                let begin = (beginValue as! NSValue).CGRectValue()
+                let end = (endValue as! NSValue).CGRectValue()
+                
+                var prevX = begin.origin.x
+                var prevY = begin.origin.y
+                var prevWidth = begin.size.width
+                var prevHeight = begin.size.height
+                
+                for i in 0 ... Int(totalSteps) {
+                    let relativeTime = Double(i) / totalSteps
+                    let scale = CGFloat(f(rt: relativeTime, b: 0.0, c: 1.0))
+                    
+                    let x = begin.origin.x + scale * (end.origin.x - begin.origin.x)
+                    let y = begin.origin.y + scale * (end.origin.y - begin.origin.y)
+                    let width = begin.size.width + scale * (end.size.width - begin.size.width)
+                    let height = begin.size.height + scale * (end.size.height - begin.size.height)
+                    
+                    if abs(x - prevX) >= threshold || abs(y - prevY) >= threshold || abs(width - prevWidth) >= threshold || abs(height - prevHeight) >= threshold {
+                        UIView.addKeyframeWithRelativeStartTime(relativeTime, relativeDuration: relativeDuration, animations: {
+                            self.view.frame = CGRectMake(x, y, width, height)
+                        })
+                        (prevX, prevY, prevWidth, prevHeight, relativeDuration) = (x, y, width, height, 1.0 / totalSteps)
+                    } else {
+                        relativeDuration += 1.0 / totalSteps
+                    }
+                }
+            case .Origin:
+                break
+            case .Size:
+                break
+            }
+        }
+    }
+    
+    
+    
+    
     public func setWithRelativeTime(relativeTime: Double, duration: Double, function: Any) {
         if let f = function as? (rt: Double, b: Double, c: Double) -> Double {
             switch key {
@@ -91,14 +149,14 @@ public struct AutoResizeAnimation: Animation {
             case .CGAffineTransform:
                 break
             case .Frame:
-                let beginFrame = (beginValue as! NSValue).CGRectValue()
-                let endFrame = (endValue as! NSValue).CGRectValue()
+                let begin = (beginValue as! NSValue).CGRectValue()
+                let end = (endValue as! NSValue).CGRectValue()
                 let scale = CGFloat(f(rt: relativeTime, b: 0.0, c: 1.0))
                 
-                let x = beginFrame.origin.x + scale * (endFrame.origin.x - beginFrame.origin.x)
-                let y = beginFrame.origin.y + scale * (endFrame.origin.y - beginFrame.origin.y)
-                let width = beginFrame.size.width + scale * (endFrame.size.width - beginFrame.size.width)
-                let height = beginFrame.size.height + scale * (endFrame.size.height - beginFrame.size.height)
+                let x = begin.origin.x + scale * (end.origin.x - begin.origin.x)
+                let y = begin.origin.y + scale * (end.origin.y - begin.origin.y)
+                let width = begin.size.width + scale * (end.size.width - begin.size.width)
+                let height = begin.size.height + scale * (end.size.height - begin.size.height)
                 
                 view.frame = CGRectMake(x, y, width, height)
 
@@ -207,6 +265,8 @@ public struct AutoLayoutAnimation: Animation {
     public func set() {
         constraint.constant = constant
     }
+    
+    public func setWithDuration(duration: Double, function: Any) {}
     
     public func setWithRelativeTime(relativeTime: Double, duration: Double, function: Any) {
         

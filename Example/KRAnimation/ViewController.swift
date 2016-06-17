@@ -10,6 +10,8 @@ import UIKit
 import KRAnimation
 import JHChainableAnimations
 
+var START: NSDate!
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var viewBox: UIView!
@@ -28,31 +30,32 @@ class ViewController: UIViewController {
     }
 
     @IBAction func animation(sender: AnyObject) {
-        let start = NSDate()
+        START = NSDate()
         
         let anim = AutoResizeAnimation(view: viewBox, key: .Frame, beginValue: NSValue(CGRect: beginFrame), endValue: NSValue(CGRect: endFrame))
+        
         UIView.animateWithAnimator(Animator.EaseInCubic(animation: [anim], duration: 5.0, completion: { (_) in
-            print("ANIMATOR", NSDate().timeIntervalSinceDate(start))
+            print("ANIMATOR", NSDate().timeIntervalSinceDate(START))
             self.viewBox.frame = self.beginFrame
         }))
     }
     
     @IBAction func defaultAnimation(sender: AnyObject) {
-        let start = NSDate()
+        START = NSDate()
 
         UIView.animateWithDuration(5.0, animations: {
             self.viewBox.frame = self.endFrame
             }, completion: { (_) in
-                print("UIVIEW", NSDate().timeIntervalSinceDate(start))
+                print("UIVIEW", NSDate().timeIntervalSinceDate(START))
                 self.viewBox.frame = self.beginFrame
         })
     }
     
     @IBAction func jhanimation(sender: AnyObject) {
-        let start = NSDate()
+        START = NSDate()
         
         viewBox.makeFrame()(endFrame).easeInCubic().animate()(5.0).animationCompletion = {
-            print("JHANIMATION", NSDate().timeIntervalSinceDate(start))
+            print("JHANIMATION", NSDate().timeIntervalSinceDate(START))
             self.viewBox.frame = self.beginFrame
         }
     }
