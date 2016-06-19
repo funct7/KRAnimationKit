@@ -36,12 +36,18 @@ public enum FunctionType {
 
 private enum AnimatableProperty {
     case Frame
+    
     case Origin
     case OriginX
     case OriginY
+    
     case Size
     case SizeWidth
     case SizeHeight
+    
+    case Center
+    case CenterX
+    case CenterY
 }
 
 private func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
@@ -49,8 +55,10 @@ private func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGF
 }
 
 public extension UIView {
-    func chainAnimations(animations: CAKeyframeAnimation...) {
+    func chainAnimations(animations: [CAPropertyAnimation]...) {
+        let animations = animations.flatMap { $0 }
         var totalDuration = 0.0
+        
         for anim in animations {
             anim.beginTime += totalDuration
             totalDuration += anim.duration
@@ -60,15 +68,15 @@ public extension UIView {
         animGroup.animations = animations
         animGroup.duration = totalDuration
         
-        self.layer.addAnimation(animGroup, forKey: nil)
+        layer.addAnimation(animGroup, forKey: nil)
     }
     
-    func animateX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) {
+    func animateX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAPropertyAnimation])? = nil) {
         let anim = getKeyframeAnimation(.OriginX, endValue: x, duration: duration, function: function)
         frame.origin.x = x
         
         var totalDuration = duration
-        var animations = [anim]
+        var animations = [anim as! CAPropertyAnimation]
         
         if let _ = nextAnimation {
             for ani in nextAnimation!() {
@@ -85,11 +93,11 @@ public extension UIView {
         layer.addAnimation(animGroup, forKey: nil)
     }
     
-    func chainX(x: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) -> [CAKeyframeAnimation] {
+    func chainX(x: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAPropertyAnimation])? = nil) -> [CAPropertyAnimation] {
         let anim = getKeyframeAnimation(.OriginX, endValue: x, duration: duration, function: function)
         self.frame.origin.x = x
         
-        var animations = [anim]
+        var animations = [anim as! CAPropertyAnimation]
         if let chainedAnimation = nextAnimation { animations += chainedAnimation() }
         
         return animations
@@ -133,6 +141,14 @@ public extension UIView {
             let eY = e.y + frame.height / 2.0
             
             f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bX, eX, $0))) }
+            
+        case .CenterX:
+            anim = CAKeyframeAnimation(keyPath: "position.x")
+            
+            let b = center.x
+            let e = endValue as! CGFloat
+            
+            f = { return getScaledValue(b, e, $0) }
         default:
             break
         }
@@ -176,21 +192,34 @@ public extension UIView {
 public struct DelayedAnimation {
     let view: UIView
     let delay: Double
+    let preAnim: CABasicAnimation
     
-    public func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) {
-        let preAnim = getPreAnimation()
+    init(view: UIView, delay: Double) {
+        self.view = view
+        self.delay = delay
+        
+        preAnim = CABasicAnimation(keyPath: "position.x")
+        preAnim.duration = delay
+        preAnim.fromValue = view.center.x
+        preAnim.toValue = view.center.x
+        preAnim.fillMode = kCAFillModeForwards
+        preAnim.removedOnCompletion = false
+        
+        view.center.x = view.center.x
+    }
+    
+    public func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAPropertyAnimation])? = nil) {
         let anim = getKeyframeAnimation(.OriginX, endValue: x, duration: duration, function: function)
         view.frame.origin.x = x
         
-        var totalDuration = delay + duration
+        var totalDuration = 0.0
         var animations = [preAnim, anim]
         
-        if let _ = nextAnimation {
-            for ani in nextAnimation!() {
-                ani.beginTime += totalDuration
-                totalDuration = ani.beginTime + ani.duration
-                animations.append(ani)
-            }
+        if let _ = nextAnimation { animations += nextAnimation!() }
+        
+        for anim in animations {
+            anim.beginTime += totalDuration
+            totalDuration += anim.duration
         }
         
         let animGroup = CAAnimationGroup()
@@ -200,28 +229,16 @@ public struct DelayedAnimation {
         view.layer.addAnimation(animGroup, forKey: nil)
     }
     
-    public func chainX(x: CGFloat, duration: Double, function: FunctionType, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) -> [CAKeyframeAnimation] {
+    public func chainX(x: CGFloat, duration: Double, function: FunctionType, nextAnimation: (() -> [CAPropertyAnimation])? = nil) -> [CAPropertyAnimation] {
         let anim = getKeyframeAnimation(.OriginX, endValue: x, duration: duration, function: function)
         view.frame.origin.x = x
         
-        var animations = [anim]
+        var animations = [preAnim, anim]
         if let chainedAnimation = nextAnimation { animations += chainedAnimation() }
         
         return animations
     }
 
-    private func getPreAnimation() -> CAAnimation {
-        let preAnim = CABasicAnimation(keyPath: "position.x")
-        preAnim.duration = delay
-        preAnim.fromValue = view.center.x
-        preAnim.toValue = view.center.x
-        preAnim.fillMode = kCAFillModeForwards
-        preAnim.removedOnCompletion = false
-        view.center = view.center
-        
-        return preAnim
-    }
-    
     private func getKeyframeAnimation(property: AnimatableProperty, endValue: AnyObject, duration: Double, function: FunctionType) -> CAKeyframeAnimation {
         var anim: CAKeyframeAnimation!
         var f: ((CGFloat) -> Any)!
@@ -281,8 +298,7 @@ public struct DelayedAnimation {
                 break
             }
         }
-        
-        anim.beginTime = delay
+
         anim.duration = duration
         anim.fillMode = kCAFillModeForwards
         anim.removedOnCompletion = false

@@ -14,6 +14,7 @@ var START: NSDate!
 class ViewController: UIViewController {
     
     @IBOutlet weak var viewBox: UIView!
+    @IBOutlet weak var viewBox2: UIView!
     
     let beginFrame = CGRectMake(0.0, 0.0, 50, 50)
     let endFrame = CGRectMake(Screen.bounds.width - 100.0, 0.0, 100.0, 100.0)
@@ -29,15 +30,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func animation(sender: AnyObject) {
-        viewBox.after(2.0).animateX(Screen.bounds.width - 50.0, duration: 3, function: .Linear) {
-            self.viewBox.after(1.5).chainX(0.0, duration: 3.0, function: .Linear) {
-                self.viewBox.chainX(Screen.bounds.width - 50.0, duration: 3.0, function: .EaseOutCubic) {
-                    self.viewBox.chainX(0.0, duration: 3, function: .EaseInCubic) {
-                        self.viewBox.after(1.0).chainX(Screen.bounds.width / 2.0 - 25.0, duration: 3.0, function: .EaseOutCubic)
-                    }
-                }
-            }
-        }
+        viewBox.chainAnimations(
+            viewBox.chainX(Screen.bounds.width - 50.0, duration: 3, function: .Linear),
+            viewBox.after(1.5).chainX(0.0, duration: 3.0, function: .Linear),
+            viewBox.chainX(Screen.bounds.width - 50.0, duration: 3.0, function: .EaseOutCubic),
+            viewBox.chainX(0.0, duration: 3, function: .EaseInCubic),
+            viewBox.after(1.0).chainX(Screen.bounds.width / 2.0 - 25.0, duration: 3.0, function: .EaseOutCubic),
+            viewBox.chainX(0.0, duration: 3, function: .EaseInCubic)
+        )
     }
 
     @IBAction func defaultAnimation(sender: AnyObject) {
@@ -46,8 +46,6 @@ class ViewController: UIViewController {
         UIView.animateWithDuration(3.0, animations: {
             self.viewBox.frame = self.endFrame
             }, completion: { (_) in
-                print("UIVIEW", NSDate().timeIntervalSinceDate(START))
-                print(self.viewBox.frame)
                 self.viewBox.frame = self.beginFrame
         })
     }
