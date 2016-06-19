@@ -17,9 +17,12 @@ CHECKOUT OPTIONS:
   KRTimingFunction:
     :commit: 65b36f700c826c72dbc00b83297ad13cda20a0fa
     :git: https://github.com/BridgeTheGap/KRTimingFunction.git
+    :submodules: true
 
 SPEC CHECKSUMS:
-  KRAnimation: 3c429a31fb8436a2ccd25dbea2e1b5d76d8f2c75
+  KRAnimation: 45a98b10dcf4fa6a84a5000d4acc5257a788e65f
   KRTimingFunction: bc55e462cab7c74dd5c9207a5021fef4dd472ec3
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 963c39a6163ac3709eb9ad635a14616b6e67db60
+
+COCOAPODS: 1.0.1

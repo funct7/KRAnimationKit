@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3940A1CC7A8902E807AD688A /* Pods_KRAnimation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE6BE46C6EC06763B9C31D9 /* Pods_KRAnimation_Example.framework */; };
+		531010FEBF0B185402C18CF8 /* Pods_KRAnimation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307EA5759807EEC32FDB21F1 /* Pods_KRAnimation_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -28,8 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1CE6BE46C6EC06763B9C31D9 /* Pods_KRAnimation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRAnimation_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DC845775D9BDD40EE3B32EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		307EA5759807EEC32FDB21F1 /* Pods_KRAnimation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRAnimation_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3249467ED2C0530E859F8299 /* Pods-KRAnimation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRAnimation_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* KRAnimation_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KRAnimation_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,11 +42,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6929477FBBE03517AC50FC29 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		940A07D3F702F0B70B2BC16D /* Pods-KRAnimation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRAnimation_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example.release.xcconfig"; sourceTree = "<group>"; };
+		A47A5EA955F93123017590B4 /* Pods-KRAnimation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRAnimation_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D145DA4C1D1283AE00B5925F /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		D1D943B41D14094300F5AFE4 /* KRTimingFunction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRTimingFunction.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/KRAnimation-gfcvdmhfsdiffxdhzvmjoyeqxhqg/Build/Products/Debug-iphoneos/KRTimingFunction.framework"; sourceTree = "<group>"; };
 		E0A40AA0DBB0D6E30C283667 /* KRAnimation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KRAnimation.podspec; path = ../KRAnimation.podspec; sourceTree = "<group>"; };
-		EBC975E6353E5CC319EC44D7 /* Pods-KRAnimation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRAnimation_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3940A1CC7A8902E807AD688A /* Pods_KRAnimation_Example.framework in Frameworks */,
+				531010FEBF0B185402C18CF8 /* Pods_KRAnimation_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,8 +74,8 @@
 				607FACD21AFB9204008FA782 /* Example for KRAnimation */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				CDD38FDD0DBE4FB6F110197F /* Pods */,
 				9B43946B319CA57C868FB827 /* Frameworks */,
+				F106A6CDADB57D2747156921 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,16 +142,16 @@
 			isa = PBXGroup;
 			children = (
 				D1D943B41D14094300F5AFE4 /* KRTimingFunction.framework */,
-				1CE6BE46C6EC06763B9C31D9 /* Pods_KRAnimation_Example.framework */,
+				307EA5759807EEC32FDB21F1 /* Pods_KRAnimation_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CDD38FDD0DBE4FB6F110197F /* Pods */ = {
+		F106A6CDADB57D2747156921 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EBC975E6353E5CC319EC44D7 /* Pods-KRAnimation_Example.debug.xcconfig */,
-				940A07D3F702F0B70B2BC16D /* Pods-KRAnimation_Example.release.xcconfig */,
+				A47A5EA955F93123017590B4 /* Pods-KRAnimation_Example.debug.xcconfig */,
+				3249467ED2C0530E859F8299 /* Pods-KRAnimation_Example.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -163,12 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "KRAnimation_Example" */;
 			buildPhases = (
-				A9DDA7A9535BEA97897BFF8E /* Check Pods Manifest.lock */,
+				43AF8C6BFD22D71CE3CE746D /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				98BFE9FAD901A6542CC05DF2 /* Embed Pods Frameworks */,
-				68A8541E7210A1E2B66F27FC /* Copy Pods Resources */,
+				375D64B73573728A0C768D24 /* [CP] Embed Pods Frameworks */,
+				38421DF47A3B768A60E134B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,29 +256,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		68A8541E7210A1E2B66F27FC /* Copy Pods Resources */ = {
+		375D64B73573728A0C768D24 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98BFE9FAD901A6542CC05DF2 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,14 +271,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9DDA7A9535BEA97897BFF8E /* Check Pods Manifest.lock */ = {
+		38421DF47A3B768A60E134B3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KRAnimation_Example/Pods-KRAnimation_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43AF8C6BFD22D71CE3CE746D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,7 +436,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBC975E6353E5CC319EC44D7 /* Pods-KRAnimation_Example.debug.xcconfig */;
+			baseConfigurationReference = A47A5EA955F93123017590B4 /* Pods-KRAnimation_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -451,7 +451,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 940A07D3F702F0B70B2BC16D /* Pods-KRAnimation_Example.release.xcconfig */;
+			baseConfigurationReference = 3249467ED2C0530E859F8299 /* Pods-KRAnimation_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

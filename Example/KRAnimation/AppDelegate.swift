@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KRTimingFunction
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

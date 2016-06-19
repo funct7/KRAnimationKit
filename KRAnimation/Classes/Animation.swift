@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KRTimingFunction
 
 public enum AnimatableKeyPath {
     case BackgroundColor
@@ -45,8 +44,12 @@ private enum AnimatableProperty {
     case SizeHeight
 }
 
+private func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
+    return b + scale * (e - b)
+}
+
 public extension UIView {
-    public func chainAnimations(animations: CAKeyframeAnimation...) {
+    func chainAnimations(animations: CAKeyframeAnimation...) {
         var totalDuration = 0.0
         for anim in animations {
             anim.beginTime += totalDuration
@@ -62,7 +65,7 @@ public extension UIView {
     
     func animateX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) {
         let anim = getKeyframeAnimation(.OriginX, endValue: x, duration: duration, function: function)
-        self.frame.origin.x = x
+        frame.origin.x = x
         
         var totalDuration = duration
         var animations = [anim]
@@ -79,7 +82,7 @@ public extension UIView {
         animGroup.animations = animations
         animGroup.duration = totalDuration
         
-        self.layer.addAnimation(animGroup, forKey: nil)
+        layer.addAnimation(animGroup, forKey: nil)
     }
     
     func chainX(x: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) -> [CAKeyframeAnimation] {
@@ -105,6 +108,35 @@ public extension UIView {
     
     private func getKeyframeAnimation(property: AnimatableProperty, endValue: Any, duration: Double, function: FunctionType) -> CAKeyframeAnimation {
         var anim: CAKeyframeAnimation!
+        var f: ((CGFloat) -> Any)!
+        
+        switch property {
+        case .OriginX:
+            anim = CAKeyframeAnimation(keyPath: "position.x")
+            
+            let b = center.x
+            let e = (endValue as! CGFloat) + frame.width / 2.0
+            f = { return getScaledValue(b, e, $0) }
+        case .OriginY:
+            anim = CAKeyframeAnimation(keyPath: "position.y")
+            
+            let b = center.y
+            let e = (endValue as! CGFloat) + frame.height / 2.0
+            f = { return getScaledValue(b, e, $0) }
+        case .Origin:
+            anim = CAKeyframeAnimation(keyPath: "position")
+            
+            let e = (endValue as! NSValue).CGPointValue()
+            let bX = center.x
+            let bY = center.y
+            let eX = e.x + frame.width / 2.0
+            let eY = e.y + frame.height / 2.0
+            
+            f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bX, eX, $0))) }
+        default:
+            break
+        }
+        
         var values = [AnyObject]()
         let steps = 60 * duration
         
@@ -123,27 +155,11 @@ public extension UIView {
             
             switch property {
             case .OriginX:
-                anim = CAKeyframeAnimation(keyPath: "position.x")
-                
-                let b = self.center.x
-                let e = (endValue as! CGFloat) + self.frame.width / 2.0
-                values.append(b + scale * (e - b))
+                values.append(f(scale) as! CGFloat)
             case .OriginY:
-                anim = CAKeyframeAnimation(keyPath: "position.y")
-                
-                let b = self.center.y
-                let e = (endValue as! CGFloat) + self.frame.height / 2.0
-                values.append(b + scale * (e - b))
+                values.append(f(scale) as! CGFloat)
             case .Origin:
-                anim = CAKeyframeAnimation(keyPath: "position")
-                
-                let e = (endValue as! NSValue).CGPointValue()
-                let bX = self.center.x
-                let bY = self.center.y
-                let eX = e.x + self.frame.width / 2.0
-                let eY = e.y + self.frame.height / 2.0
-                
-                values.append(NSValue(CGPoint: CGPointMake(eX, eY)))
+                values.append(f(scale) as! NSValue)
             default:
                 break
             }
@@ -160,18 +176,19 @@ public extension UIView {
 public struct DelayedAnimation {
     let view: UIView
     let delay: Double
-    // FIXME: Consider using NSTimer or CATransaction
+    
     public func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAKeyframeAnimation])? = nil) {
+        let preAnim = getPreAnimation()
         let anim = getKeyframeAnimation(.OriginX, endValue: x, duration: duration, function: function)
         view.frame.origin.x = x
         
-        var totalDuration = duration
-        var animations = [anim]
+        var totalDuration = delay + duration
+        var animations = [preAnim, anim]
         
         if let _ = nextAnimation {
             for ani in nextAnimation!() {
                 ani.beginTime += totalDuration
-                totalDuration += ani.duration
+                totalDuration = ani.beginTime + ani.duration
                 animations.append(ani)
             }
         }
@@ -192,9 +209,51 @@ public struct DelayedAnimation {
         
         return animations
     }
+
+    private func getPreAnimation() -> CAAnimation {
+        let preAnim = CABasicAnimation(keyPath: "position.x")
+        preAnim.duration = delay
+        preAnim.fromValue = view.center.x
+        preAnim.toValue = view.center.x
+        preAnim.fillMode = kCAFillModeForwards
+        preAnim.removedOnCompletion = false
+        view.center = view.center
+        
+        return preAnim
+    }
     
-    private func getKeyframeAnimation(property: AnimatableProperty, endValue: Any, duration: Double, function: FunctionType) -> CAKeyframeAnimation {
+    private func getKeyframeAnimation(property: AnimatableProperty, endValue: AnyObject, duration: Double, function: FunctionType) -> CAKeyframeAnimation {
         var anim: CAKeyframeAnimation!
+        var f: ((CGFloat) -> Any)!
+        
+        switch property {
+        case .OriginX:
+            anim = CAKeyframeAnimation(keyPath: "position.x")
+            
+            let b = view.center.x
+            let e = (endValue as! CGFloat) + view.frame.width / 2.0
+            
+            f = { return getScaledValue(b, e, $0) }
+        case .OriginY:
+            anim = CAKeyframeAnimation(keyPath: "position.y")
+            
+            let b = view.center.y
+            let e = (endValue as! CGFloat) + view.frame.height / 2.0
+            f = { return getScaledValue(b, e, $0) }
+        case .Origin:
+            anim = CAKeyframeAnimation(keyPath: "position")
+            
+            let e = (endValue as! NSValue).CGPointValue()
+            let bX = view.center.x
+            let bY = view.center.y
+            let eX = e.x + view.frame.width / 2.0
+            let eY = e.y + view.frame.height / 2.0
+            
+            f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bX, eX, $0))) }
+        default:
+            break
+        }
+        
         var values = [AnyObject]()
         let steps = 60 * duration
         
@@ -213,27 +272,11 @@ public struct DelayedAnimation {
             
             switch property {
             case .OriginX:
-                anim = CAKeyframeAnimation(keyPath: "position.x")
-                
-                let b = view.center.x
-                let e = (endValue as! CGFloat) + view.frame.width / 2.0
-                values.append(b + scale * (e - b))
+                values.append(f(scale) as! CGFloat)
             case .OriginY:
-                anim = CAKeyframeAnimation(keyPath: "position.y")
-                
-                let b = view.center.y
-                let e = (endValue as! CGFloat) + view.frame.height / 2.0
-                values.append(b + scale * (e - b))
+                values.append(f(scale) as! CGFloat)
             case .Origin:
-                anim = CAKeyframeAnimation(keyPath: "position")
-                
-                let e = (endValue as! NSValue).CGPointValue()
-                let bX = view.center.x
-                let bY = view.center.y
-                let eX = e.x + view.frame.width / 2.0
-                let eY = e.y + view.frame.height / 2.0
-                
-                values.append(NSValue(CGPoint: CGPointMake(eX, eY)))
+                values.append(f(scale) as! NSValue)
             default:
                 break
             }
@@ -244,6 +287,7 @@ public struct DelayedAnimation {
         anim.fillMode = kCAFillModeForwards
         anim.removedOnCompletion = false
         anim.values = values
+        
         return anim
     }
 }
