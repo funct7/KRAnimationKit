@@ -55,7 +55,7 @@ private func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGF
 }
 
 public extension UIView {
-    func chainAnimations(animations: [CAPropertyAnimation]...) {
+    func chainAnimations(animations: [CAPropertyAnimation]..., reverses: Bool = false, repeatCount: Float = 0.0) {
         let animations = animations.flatMap { $0 }
         var totalDuration = 0.0
         
@@ -67,11 +67,13 @@ public extension UIView {
         let animGroup = CAAnimationGroup()
         animGroup.animations = animations
         animGroup.duration = totalDuration
+        animGroup.repeatCount = repeatCount
+        animGroup.autoreverses = reverses
         
         layer.addAnimation(animGroup, forKey: nil)
     }
     
-    func animateX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAPropertyAnimation])? = nil) {
+    func animateX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAPropertyAnimation])? = nil) {
         let anim = getKeyframeAnimation(.OriginX, endValue: x, duration: duration, function: function)
         frame.origin.x = x
         
@@ -86,9 +88,13 @@ public extension UIView {
             }
         }
         
+        print(animations)
+        
         let animGroup = CAAnimationGroup()
         animGroup.animations = animations
         animGroup.duration = totalDuration
+        animGroup.repeatCount = repeatCount
+        animGroup.autoreverses = reverses
         
         layer.addAnimation(animGroup, forKey: nil)
     }
@@ -208,7 +214,7 @@ public struct DelayedAnimation {
         view.center.x = view.center.x
     }
     
-    public func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, infinite: Bool = false, nextAnimation: (() -> [CAPropertyAnimation])? = nil) {
+    public func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAPropertyAnimation])? = nil) {
         let anim = getKeyframeAnimation(.OriginX, endValue: x, duration: duration, function: function)
         view.frame.origin.x = x
         
@@ -225,6 +231,8 @@ public struct DelayedAnimation {
         let animGroup = CAAnimationGroup()
         animGroup.animations = animations
         animGroup.duration = totalDuration
+        animGroup.repeatCount = repeatCount
+        animGroup.autoreverses = reverses
         
         view.layer.addAnimation(animGroup, forKey: nil)
     }

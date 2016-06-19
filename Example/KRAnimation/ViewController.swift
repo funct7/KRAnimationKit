@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +49,12 @@ class ViewController: UIViewController {
         })
     }
     
+    @IBAction func multiAnimation(sender: AnyObject) {
+        // TODO: Implement
+    }
+    
     @IBAction func stopAction(sender: AnyObject) {
         viewBox.layer.removeAllAnimations()
+        viewBox2.layer.removeAllAnimations()
     }
 }
