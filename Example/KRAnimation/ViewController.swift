@@ -46,7 +46,13 @@ class ViewController: UIViewController {
 //            viewBox.chainScaleY(3.0, duration: 1.0),
 //            viewBox.chainScaleY(1.0, duration: 1.0)
 //            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor, duration: 1.0)
+//            viewBox.chainBorderWidth(4.0, duration: 1.0, function: .EaseInOutCubic),
+//            viewBox.chainCornerRadius(25.0, duration: 1.0, function: .EaseInOutCubic),
+            viewBox.chainAlpha(0.5, duration: 1.0),
+            
+            reverses: true, repeatCount: Float.infinity
         )
+        
     }
 
     @IBAction func defaultAnimation(sender: AnyObject) {
@@ -59,9 +65,8 @@ class ViewController: UIViewController {
 //        anim.removedOnCompletion = false
 //        anim.delegate = self
         
-        let anim = CABasicAnimation(keyPath: "backgroundColor")
-        anim.toValue = viewBox2.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor
-        viewBox2.layer.backgroundColor = viewBox2.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor
+        let anim = CABasicAnimation(keyPath: "hidden")
+        anim.toValue = true
         anim.fillMode = kCAFillModeForwards
         anim.duration = 1.0
         anim.removedOnCompletion = false
@@ -80,6 +85,6 @@ class ViewController: UIViewController {
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        print((viewBox.layer.presentationLayer() as! CALayer).transform)
+        
     }
 }

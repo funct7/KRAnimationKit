@@ -8,6 +8,14 @@
 
 import UIKit
 
+public enum FunctionType {
+    case Linear
+    
+    case EaseInCubic
+    case EaseOutCubic
+    case EaseInOutCubic
+}
+
 private func += (inout lhs: Double, rhs: Double) -> Double {
     lhs = lhs + rhs
     return lhs
