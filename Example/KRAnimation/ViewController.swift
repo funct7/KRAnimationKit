@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,26 +41,33 @@ class ViewController: UIViewController {
 //            viewBox.chainCenter(CGPointMake(25.0, 25.0), duration: 1.0)
 //            viewBox.chainFrame(CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0), duration: 1.0),
 //            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0)
-            viewBox.chainScaleX(3.0, duration: 1.0, function: .EaseInCubic),
-            viewBox.chainScaleX(1.0, duration: 1.0, function: .EaseOutCubic)
+//            viewBox.chainScaleX(3.0, duration: 1.0, function: .EaseInCubic),
+//            viewBox.chainScaleX(1.0, duration: 1.0, function: .EaseOutCubic),
 //            viewBox.chainScaleY(3.0, duration: 1.0),
 //            viewBox.chainScaleY(1.0, duration: 1.0)
+//            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor, duration: 1.0)
         )
     }
 
     @IBAction func defaultAnimation(sender: AnyObject) {
-        viewBox.center = view.center
+//        let anim = CABasicAnimation(keyPath: "transform")
+//        anim.fromValue = NSValue(CATransform3D: viewBox.layer.transform)
+//        anim.toValue = NSValue(CATransform3D: CATransform3DRotate(viewBox.layer.transform, CGFloat(M_PI), 1.0, 0.0, 0.0))
+//        viewBox.layer.transform = CATransform3DRotate(viewBox.layer.transform, CGFloat(M_PI), 1.0, 0.0, 0.0)
+//        anim.fillMode = kCAFillModeForwards
+//        anim.duration = 1.0
+//        anim.removedOnCompletion = false
+//        anim.delegate = self
         
-        let anim = CABasicAnimation(keyPath: "transform")
-        anim.fromValue = NSValue(CATransform3D: viewBox.layer.transform)
-        anim.toValue = NSValue(CATransform3D: CATransform3DRotate(viewBox.layer.transform, CGFloat(M_PI), 1.0, 0.0, 0.0))
-        viewBox.layer.transform = CATransform3DRotate(viewBox.layer.transform, CGFloat(M_PI), 1.0, 0.0, 0.0)
+        let anim = CABasicAnimation(keyPath: "backgroundColor")
+        anim.toValue = viewBox2.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor
+        viewBox2.layer.backgroundColor = viewBox2.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor
         anim.fillMode = kCAFillModeForwards
         anim.duration = 1.0
         anim.removedOnCompletion = false
         anim.delegate = self
 
-        viewBox.layer.addAnimation(anim, forKey: nil)
+        viewBox2.layer.addAnimation(anim, forKey: nil)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {

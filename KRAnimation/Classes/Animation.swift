@@ -52,8 +52,43 @@ private enum AnimatableProperty {
     
     case ScaleX
     case ScaleY
+    case ScaleZ
     case Scale
+    
+    case RotationX
+    case RotationY
+    case RotationZ
     case Rotation
+    
+    case TranslationX
+    case TranslationY
+    case TranslationZ
+    case Translation
+    
+    case BackgroundColor
+    
+    case BorderColor
+    case BorderWidth
+    
+    case CornerRadius
+    
+    case Hidden
+    case Opacity
+    case Alpha
+    
+    case PositionX
+    case PositionY
+    case Position
+    
+    case ShadowColor
+    case ShadowOffset
+    case ShadowOpacity
+    case ShadowPath
+    case ShadowRadius
+    
+    case Transform
+    
+    case ZPosition
 }
 
 public extension UIView {
@@ -192,6 +227,36 @@ public extension UIView {
         return KRAnimation.chainView(self, property: .Center, endValue: endValue, duration: duration, function: function, nextAnimation: nextAnimation)
     }
     
+    // Position
+    
+    // Background color
+    
+    func animateBackgroundColor(color: UIColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        KRAnimation.animateView(self, property: .BackgroundColor, endValue: color.CGColor, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+    
+    func animateBackgroundColor(color: CGColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        KRAnimation.animateView(self, property: .BackgroundColor, endValue: color, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+    
+    func chainBackgroundColor(color: UIColor, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+        return KRAnimation.chainView(self, property: .BackgroundColor, endValue: color.CGColor, duration: duration, function: function, nextAnimation: nextAnimation)
+    }
+    
+    func chainBackgroundColor(color: CGColor, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+        return KRAnimation.chainView(self, property: .BackgroundColor, endValue: color, duration: duration, function: function, nextAnimation: nextAnimation)
+    }
+    
+    // Border
+    
+    // Corner radius
+    
+    // Opacity
+    
+    // Shadow
+    
+    // Transform
+    
     // Scale
     
     func animateScaleX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
@@ -203,7 +268,7 @@ public extension UIView {
     }
     
     func animateScaleY(y: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
-    KRAnimation.animateView(self, property: .ScaleY, endValue: y, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+        KRAnimation.animateView(self, property: .ScaleY, endValue: y, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
     }
     
     func chainScaleY(y: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
@@ -211,6 +276,12 @@ public extension UIView {
     }
     
     // Rotation
+    
+    // Translation
+    
+    // Z Position
+    
+    
     
     
     
@@ -236,6 +307,7 @@ public extension UIView {
         case .Center: center = (endValue as! NSValue).CGPointValue()
         case .ScaleX: layer.transform.m11 = endValue as! CGFloat
         case .ScaleY: layer.transform.m22 = endValue as! CGFloat
+        case .BackgroundColor: backgroundColor = UIColor(CGColor: (endValue as! CGColor))
         default: break
         }
     }
@@ -316,7 +388,7 @@ internal struct KRAnimation {
     
     private static func getKeyframeAnimationForView(view: UIView, property: AnimatableProperty, endValue: AnyObject, duration: Double, function: FunctionType) -> CAKeyframeAnimation {
         var anim: CAKeyframeAnimation!
-        var f: ((CGFloat) -> Any)!
+        var f: ((CGFloat) -> AnyObject)!
         
         switch property {
             // Origin
@@ -415,6 +487,27 @@ internal struct KRAnimation {
             let e = endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
+            
+        case .BackgroundColor:
+            anim = CAKeyframeAnimation(keyPath: "backgroundColor")
+            
+            let b = view.layer.backgroundColor
+            let e = endValue as! CGColor
+            
+            let bComp = CGColorGetComponents(b)
+            let eComp = CGColorGetComponents(e)
+            
+            let bR = bComp[0]
+            let bG = bComp[1]
+            let bB = bComp[2]
+            let bA = bComp[3]
+            
+            let eR = eComp[0]
+            let eG = eComp[1]
+            let eB = eComp[2]
+            let eA = eComp[3]
+            
+            f = { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [getScaledValue(bR, eR, $0), getScaledValue(bG, eG, $0), getScaledValue(bB, eB, $0), getScaledValue(bA, eA, $0)])! }
         default:
             fatalError("Check property type: \(property)")
         }
@@ -435,14 +528,7 @@ internal struct KRAnimation {
                 scale = CGFloat(TimingFunction.EaseInOutCubic(rt: Double(i) / steps, b: 0.0, c: 1.0))
             }
             
-            switch property {
-            case .OriginX, .OriginY, .SizeWidth, .SizeHeight, .CenterX, .CenterY, .ScaleX, .ScaleY:
-                values.append(f(scale) as! CGFloat)
-            case .Origin, .Size, .Center:
-                values.append(f(scale) as! NSValue)
-            default:
-                break
-            }
+            values.append(f(scale))
         }
         
         anim.duration = duration
