@@ -30,12 +30,18 @@ class ViewController: UIViewController {
 
     @IBAction func animation(sender: AnyObject) {
         viewBox.chainAnimations(
-            viewBox.chainX(Screen.bounds.width - 50.0, duration: 3, function: .Linear),
-            viewBox.after(1.5).chainX(0.0, duration: 3.0, function: .Linear),
-            viewBox.chainX(Screen.bounds.width - 50.0, duration: 3.0, function: .EaseOutCubic),
-            viewBox.chainX(0.0, duration: 3, function: .EaseInCubic),
-            viewBox.after(1.0).chainX(Screen.bounds.width / 2.0 - 25.0, duration: 3.0, function: .EaseOutCubic),
-            viewBox.chainX(0.0, duration: 3, function: .EaseInCubic)
+//            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic),
+//            viewBox.chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic),
+//            viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic),
+//            viewBox.chainY(0.0, duration: 1.0),
+//            viewBox.chainOrigin(CGPointMake(Screen.bounds.width - 50.0, Screen.bounds.height - 50.0), duration: 1.0, function: .EaseInCubic),
+//            viewBox.chainOrigin(CGPointZero, duration: 1.0, function: .EaseOutCubic),
+//            viewBox.chainSize(CGSizeMake(200.0, 200.0), duration: 1.0),
+//            viewBox.chainSize(CGSizeMake(50.0, 50.0), duration: 1.0)
+//            viewBox.chainCenter(view.center, duration: 1.0),
+//            viewBox.chainCenter(CGPointMake(25.0, 25.0), duration: 1.0)
+            viewBox.chainFrame(CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0), duration: 1.0),
+            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0)
         )
     }
 
