@@ -9,8 +9,6 @@
 import UIKit
 import KRAnimation
 
-var START: NSDate!
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var viewBox: UIView!
@@ -40,19 +38,28 @@ class ViewController: UIViewController {
 //            viewBox.chainSize(CGSizeMake(50.0, 50.0), duration: 1.0)
 //            viewBox.chainCenter(view.center, duration: 1.0),
 //            viewBox.chainCenter(CGPointMake(25.0, 25.0), duration: 1.0)
-            viewBox.chainFrame(CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0), duration: 1.0),
-            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0)
+//            viewBox.chainFrame(CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0), duration: 1.0),
+//            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0)
+            viewBox.chainScaleX(3.0, duration: 1.0, function: .EaseInCubic),
+            viewBox.chainScaleX(1.0, duration: 1.0, function: .EaseOutCubic)
+//            viewBox.chainScaleY(3.0, duration: 1.0),
+//            viewBox.chainScaleY(1.0, duration: 1.0)
         )
     }
 
     @IBAction func defaultAnimation(sender: AnyObject) {
-        START = NSDate()
+        viewBox.center = view.center
+        
+        let anim = CABasicAnimation(keyPath: "transform")
+        anim.fromValue = NSValue(CATransform3D: viewBox.layer.transform)
+        anim.toValue = NSValue(CATransform3D: CATransform3DRotate(viewBox.layer.transform, CGFloat(M_PI), 1.0, 0.0, 0.0))
+        viewBox.layer.transform = CATransform3DRotate(viewBox.layer.transform, CGFloat(M_PI), 1.0, 0.0, 0.0)
+        anim.fillMode = kCAFillModeForwards
+        anim.duration = 1.0
+        anim.removedOnCompletion = false
+        anim.delegate = self
 
-        UIView.animateWithDuration(3.0, animations: {
-            self.viewBox.frame = self.endFrame
-            }, completion: { (_) in
-                self.viewBox.frame = self.beginFrame
-        })
+        viewBox.layer.addAnimation(anim, forKey: nil)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
@@ -62,5 +69,9 @@ class ViewController: UIViewController {
     @IBAction func stopAction(sender: AnyObject) {
         viewBox.layer.removeAllAnimations()
         viewBox2.layer.removeAllAnimations()
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        print((viewBox.layer.presentationLayer() as! CALayer).transform)
     }
 }

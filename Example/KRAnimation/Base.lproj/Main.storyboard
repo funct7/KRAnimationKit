@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hch-Qe-Mu8">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hch-Qe-Mu8">
                                 <rect key="frame" x="358" y="486" width="52" height="52"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -28,6 +28,14 @@
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bP3-Pk-mKd">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="77" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p8-9F-neT">
+                                        <rect key="frame" x="15" y="14" width="21" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csu-ej-8tq">
@@ -60,12 +68,22 @@
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXm-9P-ZYK">
                                 <rect key="frame" x="0.0" y="58" width="50" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0E-B1-39q">
+                                <rect key="frame" x="334" y="556" width="100" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Iix-f9-m5Z"/>
+                                    <constraint firstAttribute="height" constant="50" id="LBg-oq-XmD"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="u0E-B1-39q" firstAttribute="top" secondItem="hch-Qe-Mu8" secondAttribute="bottom" constant="18" id="PWq-9q-wr3"/>
                             <constraint firstItem="hch-Qe-Mu8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="jOf-Im-SNp"/>
+                            <constraint firstItem="u0E-B1-39q" firstAttribute="centerX" secondItem="hch-Qe-Mu8" secondAttribute="centerX" id="k7Y-CI-wu4"/>
                             <constraint firstItem="hch-Qe-Mu8" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="mVj-N5-oKo"/>
                         </constraints>
                     </view>
