@@ -246,6 +246,51 @@ public extension UIView {
     
     // MARK: - Shadow
     
+    func animateShadowColor(shadowColor: UIColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        KRAnimation.animateView(self, property: .ShadowColor, endValue: shadowColor.CGColor, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+    
+    func animateShadowColor(shadowColor: CGColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        KRAnimation.animateView(self, property: .ShadowColor, endValue: shadowColor, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+    
+    func chainShadowColor(shadowColor: UIColor, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+        return KRAnimation.chainView(self, property: .ShadowColor, endValue: shadowColor.CGColor, duration: duration, function: function, nextAnimation: nextAnimation)
+    }
+    
+    func chainShadowColor(shadowColor: CGColor, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+        return KRAnimation.chainView(self, property: .ShadowColor, endValue: shadowColor, duration: duration, function: function, nextAnimation: nextAnimation)
+    }
+    
+    func animateShadowOffset(shadowOffset: CGSize, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        let endValue = NSValue(CGSize: shadowOffset)
+        KRAnimation.animateView(self, property: .ShadowOffset, endValue: endValue, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+
+    func chainShadowOffset(shadowOffset: CGSize, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+        let endValue = NSValue(CGSize: shadowOffset)
+        return KRAnimation.chainView(self, property: .ShadowOffset, endValue: endValue, duration: duration, function: function, nextAnimation: nextAnimation)
+    }
+    
+    func animateShadowOpacity(shadowOpacity: Float, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        KRAnimation.animateView(self, property: .ShadowOpacity, endValue: shadowOpacity, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+    
+    func chainShadowOpacity(shadowOpacity: Float, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+        return KRAnimation.chainView(self, property: .ShadowOpacity, endValue: shadowOpacity, duration: duration, function: function, nextAnimation: nextAnimation)
+    }
+    
+    // TODO: Implementation for shadow path
+    
+    func animateShadowRadius(shadowRadius: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        KRAnimation.animateView(self, property: .ShadowRadius, endValue: shadowRadius, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+    
+    func chainShadowRadius(shadowRadius: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+        return KRAnimation.chainView(self, property: .ShadowRadius, endValue: shadowRadius, duration: duration, function: function, nextAnimation: nextAnimation)
+    }
+
+
     // MARK: - Transform
     
     // MARK: - Scale
@@ -307,6 +352,12 @@ public extension UIView {
         case .CornerRadius: layer.cornerRadius = endValue as! CGFloat
         case .Opacity: layer.opacity = endValue as! Float
         case .Alpha: alpha = endValue as! CGFloat
+        case .ShadowColor: layer.shadowColor = endValue as! CGColor
+        case .ShadowOffset: layer.shadowOffset = (endValue as! NSValue).CGSizeValue()
+        case .ShadowOpacity: layer.shadowOpacity = endValue as! Float
+            // TODO: Implementation for shadow path
+        case .ShadowRadius: layer.shadowRadius = endValue as! CGFloat
+        
         default: break
         }
     }

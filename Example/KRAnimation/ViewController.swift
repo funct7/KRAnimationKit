@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func animation(sender: AnyObject) {
+        viewBox.center = view.center
+        
         viewBox.chainAnimations(
 //            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic),
 //            viewBox.chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic),
@@ -48,11 +50,13 @@ class ViewController: UIViewController {
 //            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor, duration: 1.0)
 //            viewBox.chainBorderWidth(4.0, duration: 1.0, function: .EaseInOutCubic),
 //            viewBox.chainCornerRadius(25.0, duration: 1.0, function: .EaseInOutCubic),
-            viewBox.chainAlpha(0.5, duration: 1.0),
+//            viewBox.chainAlpha(0.5, duration: 1.0),
+//            viewBox.chainShadowColor(UIColor.redColor(), duration: 1.0),
+//            viewBox.chainShadowOpacity(0.0, duration: 1.0),
+//            viewBox.chainShadowRadius(5.0, duration: 1.0),
             
             reverses: true, repeatCount: Float.infinity
         )
-        
     }
 
     @IBAction func defaultAnimation(sender: AnyObject) {
@@ -64,15 +68,6 @@ class ViewController: UIViewController {
 //        anim.duration = 1.0
 //        anim.removedOnCompletion = false
 //        anim.delegate = self
-        
-        let anim = CABasicAnimation(keyPath: "hidden")
-        anim.toValue = true
-        anim.fillMode = kCAFillModeForwards
-        anim.duration = 1.0
-        anim.removedOnCompletion = false
-        anim.delegate = self
-
-        viewBox2.layer.addAnimation(anim, forKey: nil)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
@@ -86,5 +81,7 @@ class ViewController: UIViewController {
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         
+        
     }
+    
 }

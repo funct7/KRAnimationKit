@@ -40,7 +40,7 @@ internal enum AnimatableProperty {
     case ShadowColor
     case ShadowOffset
     case ShadowOpacity
-    case ShadowPath
+//    case ShadowPath
     case ShadowRadius
     
     case Transform
@@ -66,6 +66,14 @@ internal enum AnimatableProperty {
 internal struct KRAnimation {
     internal static func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
         return b + scale * (e - b)
+    }
+    
+    internal static func getScaledValue(_ b: Float, _ e: Float, _ scale: CGFloat) -> CGFloat {
+        return CGFloat(b) + scale * CGFloat(e - b)
+    }
+    
+    internal static func getScaledValue(_ b: Double, _ e: Double, _ scale: CGFloat) -> CGFloat {
+        return CGFloat(b) + scale * CGFloat(e - b)
     }
 
     internal static func animateView(view: UIView, property: AnimatableProperty, endValue: AnyObject, duration: Double, function: FunctionType, reverses: Bool, repeatCount: Float , nextAnimation: (() -> [CAAnimation])?) {
@@ -197,21 +205,18 @@ internal struct KRAnimation {
         case .BackgroundColor:
             anim = CAKeyframeAnimation(keyPath: "backgroundColor")
             
-            let b = view.layer.backgroundColor
-            let e = endValue as! CGColor
+            let b = CGColorGetComponents(view.layer.backgroundColor ?? UIColor.clearColor().CGColor)
+            let e = CGColorGetComponents(endValue as! CGColor)
             
-            let bComp = CGColorGetComponents(b)
-            let eComp = CGColorGetComponents(e)
+            let bR = b[0]
+            let bG = b[1]
+            let bB = b[2]
+            let bA = b[3]
             
-            let bR = bComp[0]
-            let bG = bComp[1]
-            let bB = bComp[2]
-            let bA = bComp[3]
-            
-            let eR = eComp[0]
-            let eG = eComp[1]
-            let eB = eComp[2]
-            let eA = eComp[3]
+            let eR = e[0]
+            let eG = e[1]
+            let eB = e[2]
+            let eA = e[3]
             
             f = { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [getScaledValue(bR, eR, $0), getScaledValue(bG, eG, $0), getScaledValue(bB, eB, $0), getScaledValue(bA, eA, $0)])! }
             
@@ -219,21 +224,18 @@ internal struct KRAnimation {
         case .BorderColor:
             anim = CAKeyframeAnimation(keyPath: "borderColor")
             
-            let b = view.layer.borderColor
-            let e = endValue as! CGColor
+            let b = CGColorGetComponents(view.layer.borderColor ?? UIColor.clearColor().CGColor)
+            let e = CGColorGetComponents(endValue as! CGColor)
             
-            let bComp = CGColorGetComponents(b)
-            let eComp = CGColorGetComponents(e)
+            let bR = b[0]
+            let bG = b[1]
+            let bB = b[2]
+            let bA = b[3]
             
-            let bR = bComp[0]
-            let bG = bComp[1]
-            let bB = bComp[2]
-            let bA = bComp[3]
-            
-            let eR = eComp[0]
-            let eG = eComp[1]
-            let eB = eComp[2]
-            let eA = eComp[3]
+            let eR = e[0]
+            let eG = e[1]
+            let eB = e[2]
+            let eA = e[3]
             
             f = { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [getScaledValue(bR, eR, $0), getScaledValue(bG, eG, $0), getScaledValue(bB, eB, $0), getScaledValue(bA, eA, $0)])! }
             
@@ -255,7 +257,6 @@ internal struct KRAnimation {
             f = { return getScaledValue(b, e, $0) }
             
             // Opacity
-            
         case .Opacity, .Alpha:
             anim = CAKeyframeAnimation(keyPath: "opacity")
             
@@ -264,7 +265,52 @@ internal struct KRAnimation {
             
             f = { return getScaledValue(b, e, $0) }
             
-        // Scale
+            // Shadow
+        case .ShadowColor:
+            anim = CAKeyframeAnimation(keyPath: "shadowColor")
+            
+            let b = CGColorGetComponents(view.layer.shadowColor ?? UIColor.clearColor().CGColor)
+            let e = CGColorGetComponents(endValue as! CGColor)
+            
+            let bR = b[0]
+            let bG = b[1]
+            let bB = b[2]
+            let bA = b[3]
+            
+            let eR = e[0]
+            let eG = e[1]
+            let eB = e[2]
+            let eA = e[3]
+
+            f = { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [getScaledValue(bR, eR, $0), getScaledValue(bG, eG, $0), getScaledValue(bB, eB, $0), getScaledValue(bA, eA, $0)])! }
+            
+        case .ShadowOffset:
+            anim = CAKeyframeAnimation(keyPath: "shadowOffset")
+            
+            let b = view.layer.shadowOffset
+            let e = (endValue as! NSValue).CGSizeValue()
+            
+            f = { return NSValue(CGSize: CGSizeMake(getScaledValue(b.width, e.width, $0), getScaledValue(b.height, e.height, $0))) }
+            
+        case .ShadowOpacity:
+            anim = CAKeyframeAnimation(keyPath: "shadowOpacity")
+            
+            let b = view.layer.shadowOpacity
+            let e = endValue as! Float
+            
+            f = { return getScaledValue(b, e, $0) }
+            
+            // TODO: Implementation for shadow path
+            
+        case .ShadowRadius:
+            anim = CAKeyframeAnimation(keyPath: "shadowRadius")
+            
+            let b = view.layer.shadowRadius
+            let e = endValue as! CGFloat
+            
+            f = { return getScaledValue(b, e, $0) }
+            
+            // Scale
         case .ScaleX:
             anim = CAKeyframeAnimation(keyPath: "transform.scale.x")
             
