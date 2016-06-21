@@ -175,37 +175,37 @@ public extension UIView {
     // MARK: - Background color
     
     func animateBackgroundColor(color: UIColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
-        KRAnimation.animateView(self, property: .BackgroundColor, endValue: color.CGColor, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
-    }
-    
-    func animateBackgroundColor(color: CGColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
         KRAnimation.animateView(self, property: .BackgroundColor, endValue: color, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
     }
     
+    func animateBackgroundColor(color: CGColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        KRAnimation.animateView(self, property: .BackgroundColor, endValue: UIColor(CGColor: color), duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+    
     func chainBackgroundColor(color: UIColor, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(self, property: .BackgroundColor, endValue: color.CGColor, duration: duration, function: function, nextAnimation: nextAnimation)
+        return KRAnimation.chainView(self, property: .BackgroundColor, endValue: color, duration: duration, function: function, nextAnimation: nextAnimation)
     }
     
     func chainBackgroundColor(color: CGColor, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(self, property: .BackgroundColor, endValue: color, duration: duration, function: function, nextAnimation: nextAnimation)
+        return KRAnimation.chainView(self, property: .BackgroundColor, endValue: UIColor(CGColor: color), duration: duration, function: function, nextAnimation: nextAnimation)
     }
     
     // MARK: - Border
     
     func animateBorderColor(color: UIColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
-        KRAnimation.animateView(self, property: .BorderColor, endValue: color.CGColor, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
-    }
-    
-    func animateBorderColor(color: CGColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
         KRAnimation.animateView(self, property: .BorderColor, endValue: color, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
     }
     
+    func animateBorderColor(color: CGColor, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+        KRAnimation.animateView(self, property: .BorderColor, endValue: UIColor(CGColor: color), duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    }
+    
     func chainBorderColor(color: UIColor, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(self, property: .BorderColor, endValue: color.CGColor, duration: duration, function: function, nextAnimation: nextAnimation)
+        return KRAnimation.chainView(self, property: .BorderColor, endValue: color, duration: duration, function: function, nextAnimation: nextAnimation)
     }
     
     func chainBorderColor(color: CGColor, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(self, property: .BorderColor, endValue: color, duration: duration, function: function, nextAnimation: nextAnimation)
+        return KRAnimation.chainView(self, property: .BorderColor, endValue: UIColor(CGColor: color), duration: duration, function: function, nextAnimation: nextAnimation)
     }
     
     func animateBorderWidth(borderWidth: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
@@ -346,13 +346,13 @@ public extension UIView {
         case .Position: layer.position = (endValue as! NSValue).CGPointValue()
         case .ScaleX: layer.transform.m11 = endValue as! CGFloat
         case .ScaleY: layer.transform.m22 = endValue as! CGFloat
-        case .BackgroundColor: backgroundColor = UIColor(CGColor: (endValue as! CGColor))
-        case .BorderColor: layer.borderColor = endValue as! CGColor
+        case .BackgroundColor: layer.backgroundColor = (endValue as! UIColor).CGColor
+        case .BorderColor: layer.borderColor = (endValue as! UIColor).CGColor
         case .BorderWidth: layer.borderWidth = endValue as! CGFloat
         case .CornerRadius: layer.cornerRadius = endValue as! CGFloat
         case .Opacity: layer.opacity = endValue as! Float
         case .Alpha: alpha = endValue as! CGFloat
-        case .ShadowColor: layer.shadowColor = endValue as! CGColor
+        case .ShadowColor: layer.shadowColor = (endValue as! UIColor).CGColor
         case .ShadowOffset: layer.shadowOffset = (endValue as! NSValue).CGSizeValue()
         case .ShadowOpacity: layer.shadowOpacity = endValue as! Float
             // TODO: Implementation for shadow path

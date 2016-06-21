@@ -205,39 +205,31 @@ internal struct KRAnimation {
         case .BackgroundColor:
             anim = CAKeyframeAnimation(keyPath: "backgroundColor")
             
-            let b = CGColorGetComponents(view.layer.backgroundColor ?? UIColor.clearColor().CGColor)
-            let e = CGColorGetComponents(endValue as! CGColor)
+            let b = view.layer.backgroundColor != nil ? UIColor(CGColor: view.layer.backgroundColor!) : UIColor.clearColor()
+            let e = endValue as! UIColor
             
-            let bR = b[0]
-            let bG = b[1]
-            let bB = b[2]
-            let bA = b[3]
+            var bComp = [CGFloat](count: 4, repeatedValue: 0.0)
+            var eComp = [CGFloat](count: 4, repeatedValue: 0.0)
             
-            let eR = e[0]
-            let eG = e[1]
-            let eB = e[2]
-            let eA = e[3]
+            b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
+            e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
             
-            f = { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [getScaledValue(bR, eR, $0), getScaledValue(bG, eG, $0), getScaledValue(bB, eB, $0), getScaledValue(bA, eA, $0)])! }
+            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
             
             // Border
         case .BorderColor:
             anim = CAKeyframeAnimation(keyPath: "borderColor")
             
-            let b = CGColorGetComponents(view.layer.borderColor ?? UIColor.clearColor().CGColor)
-            let e = CGColorGetComponents(endValue as! CGColor)
+            let b = view.layer.borderColor != nil ? UIColor(CGColor: view.layer.backgroundColor!) : UIColor.clearColor()
+            let e = endValue as! UIColor
             
-            let bR = b[0]
-            let bG = b[1]
-            let bB = b[2]
-            let bA = b[3]
+            var bComp = [CGFloat](count: 4, repeatedValue: 0.0)
+            var eComp = [CGFloat](count: 4, repeatedValue: 0.0)
             
-            let eR = e[0]
-            let eG = e[1]
-            let eB = e[2]
-            let eA = e[3]
+            b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
+            e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
             
-            f = { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [getScaledValue(bR, eR, $0), getScaledValue(bG, eG, $0), getScaledValue(bB, eB, $0), getScaledValue(bA, eA, $0)])! }
+            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
             
         case .BorderWidth:
             anim = CAKeyframeAnimation(keyPath: "borderWidth")
@@ -269,20 +261,16 @@ internal struct KRAnimation {
         case .ShadowColor:
             anim = CAKeyframeAnimation(keyPath: "shadowColor")
             
-            let b = CGColorGetComponents(view.layer.shadowColor ?? UIColor.clearColor().CGColor)
-            let e = CGColorGetComponents(endValue as! CGColor)
+            let b = view.layer.shadowColor != nil ? UIColor(CGColor: view.layer.backgroundColor!) : UIColor.clearColor()
+            let e = endValue as! UIColor
             
-            let bR = b[0]
-            let bG = b[1]
-            let bB = b[2]
-            let bA = b[3]
+            var bComp = [CGFloat](count: 4, repeatedValue: 0.0)
+            var eComp = [CGFloat](count: 4, repeatedValue: 0.0)
             
-            let eR = e[0]
-            let eG = e[1]
-            let eB = e[2]
-            let eA = e[3]
-
-            f = { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [getScaledValue(bR, eR, $0), getScaledValue(bG, eG, $0), getScaledValue(bB, eB, $0), getScaledValue(bA, eA, $0)])! }
+            b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
+            e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
+            
+            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
             
         case .ShadowOffset:
             anim = CAKeyframeAnimation(keyPath: "shadowOffset")

@@ -28,10 +28,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func animation(sender: AnyObject) {
-        viewBox.center = view.center
-        
+//        viewBox.center = view.center
+
         viewBox.chainAnimations(
-//            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic),
+            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic),
+            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor() : UIColor.redColor(), duration: 1.0),
+//            viewBox.chainBorderWidth(4.0, duration: 1.0, function: .EaseInOutCubic),
+
 //            viewBox.chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic),
 //            viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic),
 //            viewBox.chainY(0.0, duration: 1.0),
@@ -55,7 +58,7 @@ class ViewController: UIViewController {
 //            viewBox.chainShadowOpacity(0.0, duration: 1.0),
 //            viewBox.chainShadowRadius(5.0, duration: 1.0),
             
-            reverses: true, repeatCount: Float.infinity
+            repeatCount: Float.infinity
         )
     }
 
@@ -68,6 +71,34 @@ class ViewController: UIViewController {
 //        anim.duration = 1.0
 //        anim.removedOnCompletion = false
 //        anim.delegate = self
+        
+        let animX = CABasicAnimation(keyPath: "position.x")
+        animX.toValue = Screen.bounds.width - 25.0
+        animX.duration = 1.0
+        animX.fillMode = kCAFillModeForwards
+        animX.removedOnCompletion = false
+        
+        let animColor = CABasicAnimation(keyPath: "backgroundColor")
+        animColor.toValue = UIColor.blackColor().CGColor
+        animColor.beginTime = 1.0
+        animColor.duration = 1.0
+        animColor.fillMode = kCAFillModeForwards
+        animColor.removedOnCompletion = false
+        
+        let animY = CABasicAnimation(keyPath: "position.y")
+        animY.toValue = Screen.bounds.height - 25.0
+        animY.beginTime = 2.0
+        animY.duration = 1.0
+        animY.fillMode = kCAFillModeForwards
+        animY.removedOnCompletion = false
+        
+        let animGroup = CAAnimationGroup()
+        animGroup.animations = [animX, animColor, animY]
+        animGroup.fillMode = kCAFillModeForwards
+        animGroup.removedOnCompletion = false
+        animGroup.duration = 3.0
+        
+        viewBox.layer.addAnimation(animGroup, forKey: nil)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
