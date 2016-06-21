@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal enum AnimatableProperty {
+public enum AnimatableProperty {
     case Origin
     case OriginX
     case OriginY
@@ -63,7 +63,86 @@ internal enum AnimatableProperty {
     case ZPosition
 }
 
-internal struct KRAnimation {
+public struct Animation {
+    let view: UIView
+    let property: AnimatableProperty
+    let endValue: AnyObject
+    let duration: Double
+    let function: FunctionType
+}
+
+public struct KRAnimation {
+    public static func chain(animations: [Animation]..., reverses: Bool = false, repeatCount: Double = 1.0, completion: (() -> Void)? = nil) {
+        // FIXME: - Remove in multi view support
+        /**************************************/
+        let view = animations[0][0].view
+        guard animations.flatten().reduce(true, combine: { $0.0 && ($0.1.view == view) }) == true else { fatalError() }
+        /**************************************/
+        
+        CATransaction.begin()
+        var updatedValues = [AnimatableProperty: AnyObject]()
+        var totalDuration = 0.0
+        var chainedAnims = [CAAnimation]()
+        
+        CATransaction.setCompletionBlock {
+            updateValues(view, updatedValues: updatedValues)
+            view.layer.removeAllAnimations()
+            completion?()
+        }
+        
+        for animArray in animations {
+            if animArray.count == 1 {
+                let anim = animArray[0]
+                
+                let keyframeAnimation = getKeyframeAnimation(anim)
+                keyframeAnimation.beginTime = totalDuration
+                keyframeAnimation.values = getValues(updatedValues[anim.property], animation: anim)
+                
+                totalDuration += anim.duration
+                chainedAnims.append(keyframeAnimation)
+                
+                updatedValues[anim.property] = anim.endValue
+            } else {
+                var groupedAnimations = [CAKeyframeAnimation]()
+                
+                let animationGroup = CAAnimationGroup()
+                animationGroup.beginTime = totalDuration
+                animationGroup.duration = animArray[0].duration
+                animationGroup.fillMode = kCAFillModeForwards
+                animationGroup.removedOnCompletion = false
+                
+                for anim in animArray {
+                    guard anim.duration == animationGroup.duration else { fatalError("All animations in an animation group must have the same duration.") }
+                    
+                    let keyframeAnimation = getKeyframeAnimation(anim)
+                    keyframeAnimation.duration = anim.duration
+                    keyframeAnimation.fillMode = kCAFillModeForwards
+                    keyframeAnimation.removedOnCompletion = false
+                    keyframeAnimation.values = getValues(updatedValues[anim.property], animation: anim)
+                    
+                    updatedValues[anim.property] = anim.endValue
+                    
+                    groupedAnimations.append(keyframeAnimation)
+                }
+                
+                animationGroup.animations = groupedAnimations
+                
+                totalDuration += animationGroup.duration
+                chainedAnims.append(animationGroup)
+            }
+        }
+        
+        let animGroup = CAAnimationGroup()
+        animGroup.duration = totalDuration
+        animGroup.animations = chainedAnims
+        animGroup.fillMode = kCAFillModeForwards
+        animGroup.removedOnCompletion = false
+        
+        animations[0][0].view.layer.addAnimation(animGroup, forKey: nil)
+        
+        CATransaction.commit()
+    }
+    
     internal static func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
         return b + scale * (e - b)
     }
@@ -364,5 +443,72 @@ internal struct KRAnimation {
         animGroup.autoreverses = reverses
         
         return animGroup
+    }
+    
+    
+    
+    
+    
+    
+    
+    internal static func getKeyframeAnimation(animation: Animation) -> CAKeyframeAnimation {
+        var anim: CAKeyframeAnimation!
+        switch animation.property {
+        case .OriginX: anim = CAKeyframeAnimation(keyPath: "position.x")
+        case .BackgroundColor: anim = CAKeyframeAnimation(keyPath: "backgroundColor")
+        default: return CAKeyframeAnimation()
+        }
+        
+        anim.duration = animation.duration
+        anim.fillMode = kCAFillModeForwards
+        anim.removedOnCompletion = false
+        
+        return anim
+    }
+    
+    internal static func getValues(beginValue: AnyObject?, animation: Animation) -> [AnyObject] {
+        var values = [AnyObject]()
+        let totalFrames = 60 * animation.duration
+        var f: ((CGFloat) -> AnyObject)!
+        
+        switch animation.property {
+        case .OriginX:
+            let b = beginValue as? CGFloat ?? animation.view.center.x
+            let e = animation.endValue as! CGFloat
+            
+            f = { return getScaledValue(b, e, $0) }
+        case .BackgroundColor:
+            let b = beginValue as? UIColor ?? (animation.view.backgroundColor ?? UIColor.clearColor())
+            let e = animation.endValue as! UIColor
+            
+            var bComp = [CGFloat](count: 4, repeatedValue: 0.0)
+            var eComp = [CGFloat](count: 4, repeatedValue: 0.0)
+            
+            b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
+            e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
+            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
+        default:
+            break
+        }
+        
+        for i in 0 ... Int(totalFrames) {
+            let scale = CGFloat(TimingFunction.Linear(rt: Double(i) / totalFrames, b: 0.0, c: 1.0))
+            
+            values.append(f(scale))
+        }
+        
+        return values
+    }
+    
+    internal static func updateValues(view: UIView, updatedValues: [AnimatableProperty: AnyObject]) {
+        for (property, value) in updatedValues {
+            switch property {
+            case .OriginX:
+                view.frame.origin.x = value as! CGFloat
+            case .BackgroundColor:
+                view.backgroundColor = value as? UIColor
+            default: break
+            }
+        }
     }
 }

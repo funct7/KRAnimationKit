@@ -72,33 +72,18 @@ class ViewController: UIViewController {
 //        anim.removedOnCompletion = false
 //        anim.delegate = self
         
-        let animX = CABasicAnimation(keyPath: "position.x")
-        animX.toValue = Screen.bounds.width - 25.0
-        animX.duration = 1.0
-        animX.fillMode = kCAFillModeForwards
-        animX.removedOnCompletion = false
+        chain(
+            viewBox.animateX(Screen.bounds.width - 50.0, duration: 1.0, function: .Linear) + viewBox.animateBackgroundColor(UIColor.blackColor(), duration: 1.0, function: .Linear),
+            viewBox.animateX(0.0, duration: 1.0, function: .Linear)
+        )
         
-        let animColor = CABasicAnimation(keyPath: "backgroundColor")
-        animColor.toValue = UIColor.blackColor().CGColor
-        animColor.beginTime = 1.0
-        animColor.duration = 1.0
-        animColor.fillMode = kCAFillModeForwards
-        animColor.removedOnCompletion = false
         
-        let animY = CABasicAnimation(keyPath: "position.y")
-        animY.toValue = Screen.bounds.height - 25.0
-        animY.beginTime = 2.0
-        animY.duration = 1.0
-        animY.fillMode = kCAFillModeForwards
-        animY.removedOnCompletion = false
         
-        let animGroup = CAAnimationGroup()
-        animGroup.animations = [animX, animColor, animY]
-        animGroup.fillMode = kCAFillModeForwards
-        animGroup.removedOnCompletion = false
-        animGroup.duration = 3.0
         
-        viewBox.layer.addAnimation(animGroup, forKey: nil)
+        
+        
+        
+        
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
@@ -116,3 +101,19 @@ class ViewController: UIViewController {
     }
     
 }
+
+
+
+
+
+
+
+extension UIView {
+    func animateX(endValue: AnyObject, duration: Double, function: FunctionType) -> [Animation] {
+        return [Animation(view: self, property: .OriginX, endValue: endValue, duration: duration, function: function)]
+    }
+    func animateBackgroundColor(endValue: AnyObject, duration: Double, function: FunctionType) -> [Animation] {
+        return [Animation(view: self, property: .BackgroundColor, endValue: endValue, duration: duration, function: function)]
+    }
+}
+
