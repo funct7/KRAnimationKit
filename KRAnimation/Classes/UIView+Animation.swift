@@ -29,16 +29,14 @@ public extension UIView {
     
     // MARK: - Origin
     
-    func animateX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
-        KRAnimation.animateView(self, property: .OriginX, endValue: x, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    func animateX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .OriginX, endValue: x, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    func chainX(x: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(self, property: .OriginX, endValue: x, duration: duration, function: function, nextAnimation: nextAnimation)
-    }
-    
-    func animateY(y: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
-        KRAnimation.animateView(self, property: .OriginY, endValue: y, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    func animateY(y: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .OriginY, endValue: y, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     func chainY(y: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {

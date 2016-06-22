@@ -151,7 +151,8 @@ internal class ViewProperties: NSObject {
     var transform: CATransform3D
     
     init(view: UIView) {
-        frame = view.frame
+        origin = view.frame.origin
+        size = view.frame.size
         position = view.layer.position
         backgroundColor = view.layer.backgroundColor?.getUIColor()
         borderColor = view.layer.borderColor?.getUIColor()
@@ -241,47 +242,22 @@ public struct KRAnimation {
     internal static func getScaledValue(_ b: Double, _ e: Double, _ scale: CGFloat) -> CGFloat {
         return CGFloat(b) + scale * CGFloat(e - b)
     }
-
-//    internal static func animateView(view: UIView, property: AnimatableProperty, endValue: AnyObject, duration: Double, function: FunctionType, reverses: Bool, repeatCount: Float , nextAnimation: (() -> [CAAnimation])?) {
-//        var anim = getKeyframeAnimationForView(view, property: property, endValue: endValue, duration: duration, function: function)
-//        view.setProperty(property, withEndValue: endValue)
-//        
-//        let animGroup = getAnimGroupWithAnimations([anim as! CAAnimation], duration: duration, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
-//        view.layer.addAnimation(animGroup, forKey: nil)
-//    }
-//    
-//    internal static func chainView(view: UIView, property: AnimatableProperty, endValue: AnyObject, duration: Double, function: FunctionType, nextAnimation: (() -> [CAAnimation])?) -> [CAAnimation] {
-//        var animations = [CAAnimation]()
-//        
-//        switch property {
-//        case .Frame:
-//            let endFrame = (endValue as! NSValue).CGRectValue()
-//            let endOrigin = NSValue(CGPoint: endFrame.origin)
-//            let endSize = NSValue(CGSize: endFrame.size)
-//            
-//            let animPos = getKeyframeAnimationForView(view, property: .Origin, endValue: endOrigin, duration: duration, function: function)
-//            let animSize = getKeyframeAnimationForView(view, property: .Size, endValue: endSize, duration: duration, function: function)
-//            
-//            let anim = CAAnimationGroup()
-//            anim.animations = [animPos, animSize]
-//            anim.duration = duration
-//            anim.fillMode = kCAFillModeForwards
-//            anim.removedOnCompletion = false
-//          
-//            view.setProperty(.Frame, withEndValue: endValue)
-//            
-//            animations.append(anim)
-//        default:
-//            let anim = getKeyframeAnimationForView(view, property: property, endValue: endValue, duration: duration, function: function)
-//            view.setProperty(property, withEndValue: endValue)
-//            
-//            animations.append(anim)
-//        }
-//        if let chainedAnimation = nextAnimation { animations += chainedAnimation() }
-//        
-//        return animations
-//    }
     
+    internal static func animate(animDescription: AnimationDescriptor, reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) {
+        let view = animDescription.view
+        let updatedProperties = ViewProperties(view: view)
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            view.update(updatedProperties)
+            view.layer.removeAllAnimations()
+            completion?()
+        }
+        
+        let anim = getAnimation(animDescription, viewProperties: updatedProperties, setDelay: true)
+        view.layer.addAnimation(anim, forKey: nil)
+    }
+
     private static func getAnimation(animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
         if animDesc.property == .Frame {
             var frameAnimations = animDesc.getFrameAnimations()
