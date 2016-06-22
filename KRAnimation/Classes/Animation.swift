@@ -178,7 +178,7 @@ public struct KRAnimation {
         
         var updatedProperties = ViewProperties(view: view)
         var totalDuration = 0.0
-        var chainedAnims = [CAAnimation]()
+        var animations = [CAAnimation]()
         /**************************************/
         
         CATransaction.begin()
@@ -196,41 +196,36 @@ public struct KRAnimation {
                 anim.beginTime += totalDuration
                 totalDuration = anim.beginTime + anim.duration
                 
-                chainedAnims.append(anim)
+                animations.append(anim)
             } else {
-                var groupedAnimations = [CAKeyframeAnimation]()
+                var animArray = [CAAnimation]()
                 
-                let animationGroup = CAAnimationGroup()
-                animationGroup.beginTime = totalDuration + animArray[0].delay
-                animationGroup.duration = animArray[0].duration
-                animationGroup.fillMode = kCAFillModeForwards
-                animationGroup.removedOnCompletion = false
+                let animGroup = CAAnimationGroup()
+                animGroup.beginTime = totalDuration + animDescArray[0].delay
+                animGroup.duration = animDescArray[0].duration
+                animGroup.fillMode = kCAFillModeForwards
+                animGroup.removedOnCompletion = false
                 
-                for anim in animArray {
-                    guard anim.duration == animationGroup.duration else { fatalError("All animations in an animation group must have the same duration.") }
+                for animDesc in animDescArray {
+                    guard animDesc.duration == animGroup.duration else { fatalError("All animations in an animation group must have the same duration.") }
                     
-                    let keyframeAnimation = getKeyframeAnimation(anim)
-                    keyframeAnimation.values = getValues(updatedValues, animation: anim)
-                    
-                    groupedAnimations.append(keyframeAnimation)
-
-                    updateValues(updatedValues, animation: anim)
+                    animArray.append(getAnimation(animDesc, viewProperties: updatedProperties, setDelay: false))
                 }
                 
-                animationGroup.animations = groupedAnimations
+                animGroup.animations = animArray
                 
-                totalDuration = animationGroup.beginTime + animationGroup.duration
-                chainedAnims.append(animationGroup)
+                totalDuration = animGroup.beginTime + animGroup.duration
+                animations.append(animGroup)
             }
         }
         
-        let animGroup = CAAnimationGroup()
-        animGroup.duration = totalDuration
-        animGroup.animations = chainedAnims
-        animGroup.fillMode = kCAFillModeForwards
-        animGroup.removedOnCompletion = false
+        let chainedAnim = CAAnimationGroup()
+        chainedAnim.duration = totalDuration
+        chainedAnim.animations = animations
+        chainedAnim.fillMode = kCAFillModeForwards
+        chainedAnim.removedOnCompletion = false
         
-        view.layer.addAnimation(animGroup, forKey: nil)
+        view.layer.addAnimation(chainedAnim, forKey: nil)
         
         CATransaction.commit()
     }
@@ -406,13 +401,13 @@ public struct KRAnimation {
         return anim
     }
     
-    // FIXME: Update values here
     private static func getValues(animDesc: AnimationDescriptor, viewProperties: ViewProperties) -> [AnyObject] {
         var values = [AnyObject]()
         let totalFrames = 60 * animDesc.duration
         var f: ((CGFloat) -> AnyObject)!
         
         switch animDesc.property {
+            
             // Origin
             
         case .OriginX:
@@ -420,11 +415,14 @@ public struct KRAnimation {
             let e = (animDesc.endValue as! CGFloat) + viewProperties.size.width / 2.0
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.origin.x = animDesc.endValue as! CGFloat
             
         case .OriginY:
             let b = viewProperties.position.y
             let e = (animDesc.endValue as! CGFloat) + viewProperties.size.height / 2.0
+            
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.origin.y = animDesc.endValue as! CGFloat
             
         case .Origin:
             let e = (animDesc.endValue as! NSValue).CGPointValue()
@@ -436,7 +434,8 @@ public struct KRAnimation {
             let eY = e.y + viewProperties.size.height / 2.0
             
             f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bY, eY, $0))) }
-
+            viewProperties.origin = e
+            
             // Size
             
         case .SizeWidth:
@@ -444,14 +443,15 @@ public struct KRAnimation {
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
-
+            viewProperties.size.width = e
             
         case .SizeHeight:
             let b = viewProperties.size.height
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
-
+            viewProperties.size.height = e
+            
         case .Size:
             let e = (animDesc.endValue as! NSValue).CGSizeValue()
             
@@ -461,6 +461,7 @@ public struct KRAnimation {
             let eH = e.height
             
             f = { return NSValue(CGSize: CGSizeMake(getScaledValue(bW, eW, $0), getScaledValue(bH, eH, $0))) }
+            viewProperties.size = e
         
             // Frame
             
@@ -474,11 +475,15 @@ public struct KRAnimation {
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.position.x = e
+            
         case .CenterY, .PositionY:
             let b = viewProperties.position.y
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.position.y = e
+            
         case .Center, .Position:
             let e = (animDesc.endValue as! NSValue).CGPointValue()
             let bX = viewProperties.position.x
@@ -487,6 +492,7 @@ public struct KRAnimation {
             let eY = e.y
             
             f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bY, eY, $0))) }
+            viewProperties.position = e
             
             // Background color
             
@@ -500,6 +506,7 @@ public struct KRAnimation {
             b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
             e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
             f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
+            viewProperties.backgroundColor = e
             
             // Border
             
@@ -514,11 +521,14 @@ public struct KRAnimation {
             e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
             
             f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
+            viewProperties.borderColor = e
+            
         case .BorderWidth:
             let b = viewProperties.borderWidth
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.borderWidth = e
 
             // Corner radius
             
@@ -527,6 +537,7 @@ public struct KRAnimation {
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.cornerRadius = e
 
             // Opacity
             
@@ -535,6 +546,7 @@ public struct KRAnimation {
             let e = animDesc.endValue as! Float
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.opacity = e
             
             // Shadow
             
@@ -549,18 +561,21 @@ public struct KRAnimation {
             e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
             
             f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
+            viewProperties.shadowColor = e
             
         case .ShadowOffset:
             let b = viewProperties.shadowOffset
             let e = (animDesc.endValue as! NSValue).CGSizeValue()
             
             f = { return NSValue(CGSize: CGSizeMake(getScaledValue(b.width, e.width, $0), getScaledValue(b.height, e.height, $0))) }
+            viewProperties.shadowOffset = e
             
         case .ShadowOpacity:
             let b = viewProperties.shadowOpacity
             let e = animDesc.endValue as! Float
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.shadowOpacity = e
         
         case .ShadowPath:
             fatalError("INCOMPLETE IMPLEMENTATION")
@@ -570,6 +585,7 @@ public struct KRAnimation {
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.shadowRadius = e
             
             // Transform
             
@@ -587,12 +603,14 @@ public struct KRAnimation {
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.transform.m11 = e
             
         case .ScaleY:
             let b = viewProperties.transform.m22
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
+            viewProperties.transform.m22 = e
             
         case .ScaleZ, .Scale:
             fatalError("INCOMPLETE IMPLEMENTATION")
