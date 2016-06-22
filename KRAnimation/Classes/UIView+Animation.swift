@@ -34,79 +34,111 @@ public extension UIView {
         KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
+    func chainX(x: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .OriginX, endValue: x, duration: duration, function: function)]
+    }
+    
     func animateY(y: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .OriginY, endValue: y, duration: duration, function: function)
         KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    func chainY(y: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(self, property: .OriginY, endValue: y, duration: duration, function: function, nextAnimation: nextAnimation)
+    func chainY(y: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .OriginY, endValue: y, duration: duration, function: function)]
     }
     
-    func animateOrigin(x: CGFloat, _ y: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+    func animateOrigin(x: CGFloat, _ y: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGPoint: CGPointMake(x, y))
-        KRAnimation.animateView(self, property: .Origin, endValue: endValue, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Origin, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    func chainOrigin(origin: CGPoint, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+    func animateOrigin(origin: CGPoint, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGPoint: origin)
-        return KRAnimation.chainView(self, property: .Origin, endValue: endValue, duration: duration, function: function, nextAnimation: nextAnimation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Origin, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainOrigin(x: CGFloat, _ y: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [AnimationDescriptor] {
+        let endValue = NSValue(CGPoint: CGPointMake(x, y))
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Origin, endValue: endValue, duration: duration, function: function)]
+    }
+    
+    func chainOrigin(origin: CGPoint, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [AnimationDescriptor] {
+        let endValue = NSValue(CGPoint: origin)
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Origin, endValue: endValue, duration: duration, function: function)]
     }
     
     // MARK: - Size
     
-    func animateWidth(width: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
-        KRAnimation.animateView(self, property: .SizeWidth, endValue: width, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    func animateWidth(width: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .SizeWidth, endValue: width, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    func chainWidth(width: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(self, property: .SizeWidth, endValue: width, duration: duration, function: function, nextAnimation: nextAnimation)
+    func chainWidth(width: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .SizeWidth, endValue: width, duration: duration, function: function)]
     }
     
-    func animateHeight(height: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
-        KRAnimation.animateView(self, property: .SizeHeight, endValue: height, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    func animateHeight(height: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .SizeHeight, endValue: height, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    func chainHeight(height: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(self, property: .SizeHeight, endValue: height, duration: duration, function: function, nextAnimation: nextAnimation)
+    func chainHeight(height: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .SizeHeight, endValue: height, duration: duration, function: function)]
     }
     
-    func animateSize(width: CGFloat, _ height: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+    func animateSize(width: CGFloat, _ height: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGSize: CGSizeMake(width, height))
-        KRAnimation.animateView(self, property: .Size, endValue: endValue, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Size, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc)
     }
     
-    func chainSize(size: CGSize, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+    func animateSize(size: CGSize, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGSize: size)
-        return KRAnimation.chainView(self, property: .Size, endValue: endValue, duration: duration, function: function, nextAnimation: nextAnimation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Size, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc)
     }
     
+    func chainSize(width: CGFloat, _ height: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        let endValue = NSValue(CGSize: CGSizeMake(width, height))
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Size, endValue: endValue, duration: duration, function: function)]
+    }
+    
+    func chainSize(size: CGSize, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        let endValue = NSValue(CGSize: size)
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Size, endValue: endValue, duration: duration, function: function)]
+    }
     
     // MARK: - Frame
     
-    func animateFrame(x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+    func animateFrame(x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGRect: CGRectMake(x, y, w, h))
-        KRAnimation.animateView(self, property: .Frame, endValue: endValue, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Frame, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    func animateFrame(origin: CGPoint, _ size: CGSize, duration: Double, function: FunctionType, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+    func animateFrame(origin: CGPoint, _ size: CGSize, duration: Double, function: FunctionType, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGRect: CGRect(origin: origin, size: size))
-        KRAnimation.animateView(self, property: .Frame, endValue: endValue, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Frame, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    func animateFrame(frame: CGRect, duration: Double, function: FunctionType, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
+    func animateFrame(frame: CGRect, duration: Double, function: FunctionType, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGRect: frame)
-        KRAnimation.animateView(self, property: .Frame, endValue: endValue, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Frame, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    func chainFrame(x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+    func chainFrame(x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
         let endValue = NSValue(CGRect: CGRectMake(x, y, w, h))
-        return KRAnimation.chainView(self, property: .Frame, endValue: endValue, duration: duration, function: function, nextAnimation: nextAnimation)
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Frame, endValue: endValue, duration: duration, function: function)]
     }
     
-    func chainFrame(origin: CGPoint, _ size: CGSize, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
+    func chainFrame(origin: CGPoint, _ size: CGSize, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
         let endValue = NSValue(CGRect: CGRect(origin: origin, size: size))
-        return KRAnimation.chainView(self, property: .Frame, endValue: endValue, duration: duration, function: function, nextAnimation: nextAnimation)
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Frame, endValue: endValue, duration: duration, function: function)]
     }
     
     func chainFrame(frame: CGRect, duration: Double, function: FunctionType = .Linear, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
@@ -325,38 +357,4 @@ public extension UIView {
         return DelayedAnimation(view: self, delay: delay)
     }
     
-    // MARK: - Internal
-    
-    internal func setProperty(property: AnimatableProperty, withEndValue endValue: AnyObject) {
-        switch property {
-        case .OriginX: frame.origin.x = endValue as! CGFloat
-        case .OriginY: frame.origin.y = endValue as! CGFloat
-        case .Origin: frame.origin = (endValue as! NSValue).CGPointValue()
-        case .SizeWidth: frame.size.width = endValue as! CGFloat
-        case .SizeHeight: frame.size.height = endValue as! CGFloat
-        case .Size: frame.size = (endValue as! NSValue).CGSizeValue()
-        case .Frame: frame = (endValue as! NSValue).CGRectValue()
-        case .CenterX: center.x = endValue as! CGFloat
-        case .CenterY: center.y = endValue as! CGFloat
-        case .Center: center = (endValue as! NSValue).CGPointValue()
-        case .PositionX: layer.position.x = endValue as! CGFloat
-        case .PositionY: layer.position.y = endValue as! CGFloat
-        case .Position: layer.position = (endValue as! NSValue).CGPointValue()
-        case .ScaleX: layer.transform.m11 = endValue as! CGFloat
-        case .ScaleY: layer.transform.m22 = endValue as! CGFloat
-        case .BackgroundColor: layer.backgroundColor = (endValue as! UIColor).CGColor
-        case .BorderColor: layer.borderColor = (endValue as! UIColor).CGColor
-        case .BorderWidth: layer.borderWidth = endValue as! CGFloat
-        case .CornerRadius: layer.cornerRadius = endValue as! CGFloat
-        case .Opacity: layer.opacity = endValue as! Float
-        case .Alpha: alpha = endValue as! CGFloat
-        case .ShadowColor: layer.shadowColor = (endValue as! UIColor).CGColor
-        case .ShadowOffset: layer.shadowOffset = (endValue as! NSValue).CGSizeValue()
-        case .ShadowOpacity: layer.shadowOpacity = endValue as! Float
-            // TODO: Implementation for shadow path
-        case .ShadowRadius: layer.shadowRadius = endValue as! CGFloat
-        
-        default: break
-        }
-    }
 }
