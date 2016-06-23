@@ -25,6 +25,63 @@ class ViewController: UIViewController {
     }
 
     @IBAction func animation(sender: AnyObject) {
+        let bottomY = Screen.bounds.height - 50.0
+        
+        KRAnimation.chain(
+            viewBox.chainY(bottomY, duration: 1.0, function: .Linear),
+            viewBox.chainY(0.0, duration: 1.0, function: .Linear),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuad),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuad),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutQuad),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInCubic),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutCubic),
+            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutCubic),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuart),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuart),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutQuart),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuint),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuint),
+            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutQuint),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInSine),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutSine),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutSine),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInExpo),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutExpo),
+            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutExpo),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInCirc),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutCirc),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutCirc),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInElastic),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutElastic),
+            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutElastic),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInBack),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutBack),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutBack),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInBounce),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutBounce),
+            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutBounce),
+            
+            reverses: false, repeatCount: 1
+        ) {
+            print("COMPLETION")
+        }
+    }
+
+    @IBAction func defaultAnimation(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func multiAnimation(sender: AnyObject) {
         KRAnimation.chain(
             viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0),
             viewBox.after(0.5).chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic) + viewBox2.after(0.5).chainCenter(view.center, duration: 1.0),
@@ -50,24 +107,9 @@ class ViewController: UIViewController {
             viewBox.chainShadowRadius(5.0, duration: 1.0),
             
             reverses: true, repeatCount: Float.infinity
-        )
-    }
-
-    @IBAction func defaultAnimation(sender: AnyObject) {
-//        let anim = CABasicAnimation(keyPath: "transform")
-//        anim.fromValue = NSValue(CATransform3D: viewBox.layer.transform)
-//        anim.toValue = NSValue(CATransform3D: CATransform3DRotate(viewBox.layer.transform, CGFloat(M_PI), 1.0, 0.0, 0.0))
-//        viewBox.layer.transform = CATransform3DRotate(viewBox.layer.transform, CGFloat(M_PI), 1.0, 0.0, 0.0)
-//        anim.fillMode = kCAFillModeForwards
-//        anim.duration = 1.0
-//        anim.removedOnCompletion = false
-//        anim.delegate = self
-        
-        
-    }
-    
-    @IBAction func multiAnimation(sender: AnyObject) {
-        // TODO: Implement
+        ) {
+            print("MULTI COMPLETION")
+        }
     }
     
     @IBAction func stopAction(sender: AnyObject) {

@@ -162,6 +162,7 @@ public struct TimingFunction {
         var rt = rt
         return c * sqrt(1 - (rt-=1)*rt) + b
     }
+    // FIXME: - Check if functioning properly
     public static func EaseInOutCirc(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
         if (rt*=2.0) < 1 { return -c/2 * (sqrt(1 - rt*rt) - 1) + b }
@@ -233,6 +234,7 @@ public struct TimingFunction {
             return c * (7.5625*(rt-=(2.625/2.75))*rt + 0.984375) + b
         }
     }
+    // FIXME: - Check if functioning properly
     public static func EaseInOutBounce(rt rt: Double, b: Double, c: Double) -> Double {
         if rt < 0.5 { return TimingFunction.EaseInBounce(rt: rt*2, b: 0, c: c) * 0.5 + b }
         return TimingFunction.EaseOutBounce(rt: -rt*2, b: 0, c: c) * 0.5 + c*0.5 + b

@@ -658,7 +658,7 @@ public struct KRAnimation {
                 scale = CGFloat(TimingFunction.EaseInOutQuart(rt: rt, b: 0.0, c: 1.0))
                 
             case .EaseInQuint:
-                scale = CGFloat(TimingFunction.EaseInQuart(rt: rt, b: 0.0, c: 1.0))
+                scale = CGFloat(TimingFunction.EaseInQuint(rt: rt, b: 0.0, c: 1.0))
             case .EaseOutQuint:
                 scale = CGFloat(TimingFunction.EaseOutQuint(rt: rt, b: 0.0, c: 1.0))
             case .EaseInOutQuint:
