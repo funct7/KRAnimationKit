@@ -181,63 +181,81 @@ internal class ViewProperties: NSObject {
 
 public struct KRAnimation {
     public static func chain(animDescriptors: [AnimationDescriptor]..., reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) {
-        // FIXME: - Change in multi view support
-        /**************************************/
-        let view = animDescriptors[0][0].view
-        guard animDescriptors.flatten().reduce(true, combine: { $0.0 && ($0.1.view == view) }) == true else { fatalError() }
+        var propDic = [UIView: ViewProperties]()
+        var animDic = [UIView: [CAAnimation]]()
         
-        var updatedProperties = ViewProperties(view: view)
         var totalDuration = 0.0
-        var animations = [CAAnimation]()
-        /**************************************/
         
         CATransaction.begin()
         CATransaction.setCompletionBlock {
-            view.update(updatedProperties)
-            view.layer.removeAllAnimations()
+            for (view, _) in animDic {
+                view.update(propDic[view]!)
+                view.layer.removeAllAnimations()
+            }
             completion?()
         }
         
         for animDescArray in animDescriptors {
             if animDescArray.count == 1 {
                 let animDesc = animDescArray[0]
+                let viewProp = propDic[animDesc.view] ?? ViewProperties(view: animDesc.view)
+                var viewAnims = animDic[animDesc.view] ?? [CAAnimation]()
                 
-                let anim = getAnimation(animDesc, viewProperties: updatedProperties, setDelay: true)
+                let anim = getAnimation(animDesc, viewProperties: viewProp, setDelay: true)
                 anim.beginTime += totalDuration
                 totalDuration = anim.beginTime + anim.duration
                 
-                animations.append(anim)
-            } else {
-                var animArray = [CAAnimation]()
+                viewAnims.append(anim)
                 
-                let animGroup = CAAnimationGroup()
-                animGroup.beginTime = totalDuration + animDescArray[0].delay
-                animGroup.duration = animDescArray[0].duration
-                animGroup.fillMode = kCAFillModeForwards
-                animGroup.removedOnCompletion = false
+                propDic[animDesc.view] = viewProp
+                animDic[animDesc.view] = viewAnims
+            } else {
+                var animGroupDic = [UIView: CAAnimationGroup]()
+                var segmentDuration: Double! = nil
                 
                 for animDesc in animDescArray {
-                    guard animDesc.duration == animGroup.duration else { fatalError("All animations in an animation group must have the same duration.") }
+                    if segmentDuration == nil { segmentDuration = animDesc.delay + animDesc.duration }
+                    guard segmentDuration == animDesc.delay + animDesc.duration else { fatalError("All animations in an animation group must have the same duration.") }
                     
-                    animArray.append(getAnimation(animDesc, viewProperties: updatedProperties, setDelay: false))
+                    let viewProp = propDic[animDesc.view] ?? ViewProperties(view: animDesc.view)
+                    let animGroup = animGroupDic[animDesc.view] ?? {
+                        let animGroup = CAAnimationGroup()
+                        animGroup.beginTime = totalDuration + animDesc.delay
+                        animGroup.duration = animDesc.duration
+                        animGroup.fillMode = kCAFillModeForwards
+                        animGroup.animations = [CAAnimation]()
+                        animGroup.removedOnCompletion = false
+
+                        return animGroup
+                    }()
+                    
+                    animGroup.animations!.append(getAnimation(animDesc, viewProperties: viewProp, setDelay: false))
+
+                    propDic[animDesc.view] = viewProp
+                    animGroupDic[animDesc.view] = animGroup
                 }
                 
-                animGroup.animations = animArray
+                for (view, animGroup) in animGroupDic {
+                    var viewAnims = animDic[view] ?? [CAAnimation]()
+                    viewAnims.append(animGroup)
+                    animDic[view] = viewAnims
+                }
                 
-                totalDuration = animGroup.beginTime + animGroup.duration
-                animations.append(animGroup)
+                totalDuration += segmentDuration
             }
         }
         
-        let chainedAnim = CAAnimationGroup()
-        chainedAnim.animations = animations
-        chainedAnim.duration = totalDuration
-        chainedAnim.repeatCount = repeatCount
-        chainedAnim.autoreverses = reverses
-        chainedAnim.fillMode = kCAFillModeForwards
-        chainedAnim.removedOnCompletion = false
-        
-        view.layer.addAnimation(chainedAnim, forKey: nil)
+        for (view, animations) in animDic {
+            let chainedAnim = CAAnimationGroup()
+            chainedAnim.animations = animations
+            chainedAnim.duration = totalDuration
+            chainedAnim.repeatCount = repeatCount
+            chainedAnim.autoreverses = reverses
+            chainedAnim.fillMode = kCAFillModeForwards
+            chainedAnim.removedOnCompletion = false
+            
+            view.layer.addAnimation(chainedAnim, forKey: nil)
+        }
         
         CATransaction.commit()
     }
