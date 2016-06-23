@@ -110,7 +110,7 @@ KRAnimation.chain(
 ```
 
 ## Timing Functions
-KRAnimationKit uses *KRTimingFunction*, a Swift-ported version of [JQuery timing functions](http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js).
+KRAnimationKit uses [KRTimingFunction](https://github.com/BridgeTheGap/KRTimingFunction), a Swift-ported version of [JQuery timing functions](http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js).
 
 The supported timing functions are as follows:
 
