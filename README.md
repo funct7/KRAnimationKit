@@ -152,7 +152,7 @@ The supported timing functions are as follows:
 >EaseOutBack
 >EaseInOutBack
 
-vEaseInBounce
+>EaseInBounce
 >EaseOutBounce
 >EaseInOutBounce // Checking if functioning correctly 
 
