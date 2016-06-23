@@ -31,34 +31,30 @@ class ViewController: UIViewController {
 //        viewBox.center = view.center
 
         KRAnimation.chain(
-            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic),
-            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor() : UIColor.redColor(), duration: 1.0),
-//            viewBox.chainBorderWidth(4.0, duration: 1.0, function: .EaseInOutCubic),
-
-//            viewBox.chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic),
-//            viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic),
-//            viewBox.chainY(0.0, duration: 1.0),
+            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0),
+            viewBox.chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic),
+            viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic) + viewBox.chainBackgroundColor(UIColor.redColor(), duration: 1.0),
+            viewBox.chainY(0.0, duration: 1.0) + viewBox.chainAlpha(0.5, duration: 1.0),
 //            viewBox.chainOrigin(CGPointMake(Screen.bounds.width - 50.0, Screen.bounds.height - 50.0), duration: 1.0, function: .EaseInCubic),
 //            viewBox.chainOrigin(CGPointZero, duration: 1.0, function: .EaseOutCubic),
-//            viewBox.chainSize(CGSizeMake(200.0, 200.0), duration: 1.0),
-//            viewBox.chainSize(CGSizeMake(50.0, 50.0), duration: 1.0)
 //            viewBox.chainCenter(view.center, duration: 1.0),
-//            viewBox.chainCenter(CGPointMake(25.0, 25.0), duration: 1.0)
-//            viewBox.chainFrame(CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0), duration: 1.0),
-//            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0)
+//            viewBox.chainSize(CGSizeMake(200.0, 200.0), duration: 1.0),
+//            viewBox.chainSize(CGSizeMake(50.0, 50.0), duration: 1.0),
+//            viewBox.chainFrame(CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0), duration: 1.0, function: .Linear),
+//            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0, function: .Linear),
 //            viewBox.chainScaleX(3.0, duration: 1.0, function: .EaseInCubic),
 //            viewBox.chainScaleX(1.0, duration: 1.0, function: .EaseOutCubic),
 //            viewBox.chainScaleY(3.0, duration: 1.0),
-//            viewBox.chainScaleY(1.0, duration: 1.0)
-//            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor, duration: 1.0)
+//            viewBox.chainScaleY(1.0, duration: 1.0),
+//            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor, duration: 1.0),
 //            viewBox.chainBorderWidth(4.0, duration: 1.0, function: .EaseInOutCubic),
 //            viewBox.chainCornerRadius(25.0, duration: 1.0, function: .EaseInOutCubic),
 //            viewBox.chainAlpha(0.5, duration: 1.0),
+//            viewBox.chainShadowOpacity(1.0, duration: 1.0),
 //            viewBox.chainShadowColor(UIColor.redColor(), duration: 1.0),
-//            viewBox.chainShadowOpacity(0.0, duration: 1.0),
 //            viewBox.chainShadowRadius(5.0, duration: 1.0),
             
-            repeatCount: Float.infinity
+            reverses: true, repeatCount: Float.infinity
         )
     }
 
@@ -72,6 +68,13 @@ class ViewController: UIViewController {
 //        anim.removedOnCompletion = false
 //        anim.delegate = self
         
+        UIView.animateWithDuration(1.0, animations: {
+            self.viewBox.frame = CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0)
+            }) { (_) in
+                UIView.animateWithDuration(1.0, animations: { 
+                    self.viewBox.frame = CGRectMake(0.0, 0.0, 50.0, 50.0)
+                    })
+        }
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {

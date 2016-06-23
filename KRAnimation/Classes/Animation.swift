@@ -73,6 +73,7 @@ public struct AnimationDescriptor {
     
     public func getFrameAnimations() -> (origin: AnimationDescriptor, size: AnimationDescriptor) {
         let frame = (endValue as! NSValue).CGRectValue()
+        
         let animOrigin = AnimationDescriptor(view: view, delay: delay, property: .Origin, endValue: NSValue(CGPoint: frame.origin), duration: duration, function: function)
         let animSize = AnimationDescriptor(view: view, delay: delay, property: .Size, endValue: NSValue(CGSize: frame.size), duration: duration, function: function)
         
@@ -104,7 +105,16 @@ internal extension UIView {
 }
 
 internal class ViewProperties: NSObject {
-    var origin: CGPoint
+    var origin: CGPoint {
+        get {
+            let (x, y) = (position.x - size.width/2.0, position.y - size.height/2.0)
+            return CGPointMake(x, y)
+        }
+        set {
+            let (posX, posY) = (newValue.x + size.width/2.0, newValue.y + size.width/2.0)
+            position = CGPointMake(posX, posY)
+        }
+    }
     var size: CGSize
     var frame: CGRect {
         get {
@@ -125,7 +135,7 @@ internal class ViewProperties: NSObject {
         }
     }
     var position:CGPoint
-
+    
     var backgroundColor: UIColor?
     
     var borderColor: UIColor?
@@ -151,7 +161,6 @@ internal class ViewProperties: NSObject {
     var transform: CATransform3D
     
     init(view: UIView) {
-        origin = view.frame.origin
         size = view.frame.size
         position = view.layer.position
         backgroundColor = view.layer.backgroundColor?.getUIColor()
@@ -264,8 +273,8 @@ public struct KRAnimation {
         if animDesc.property == .Frame {
             var frameAnimations = animDesc.getFrameAnimations()
             
-            let animOrigin = getKeyframeAnimation(frameAnimations.origin, viewProperties: viewProperties, setDelay: false)
             let animSize = getKeyframeAnimation(frameAnimations.size, viewProperties: viewProperties, setDelay: false)
+            let animOrigin = getKeyframeAnimation(frameAnimations.origin, viewProperties: viewProperties, setDelay: false)
             
             let anim = CAAnimationGroup()
             anim.animations = [animOrigin, animSize]
@@ -616,7 +625,7 @@ public struct KRAnimation {
             
             values.append(f(scale))
         }
-
+        
         return values
     }
 }

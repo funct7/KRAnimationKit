@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -26,10 +27,10 @@
                                     <constraint firstAttribute="width" secondItem="hch-Qe-Mu8" secondAttribute="height" id="x2B-6c-gsu"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bP3-Pk-mKd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bP3-Pk-mKd">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="77" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p8-9F-neT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="77" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p8-9F-neT">
                                         <rect key="frame" x="15" y="14" width="21" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,6 +38,12 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="6p8-9F-neT" firstAttribute="centerY" secondItem="bP3-Pk-mKd" secondAttribute="centerY" id="I2G-75-IPN"/>
+                                    <constraint firstItem="6p8-9F-neT" firstAttribute="centerX" secondItem="bP3-Pk-mKd" secondAttribute="centerX" id="LgP-e6-CuC"/>
+                                    <constraint firstAttribute="width" constant="50" id="kso-9k-WWD"/>
+                                    <constraint firstAttribute="height" constant="50" id="xtb-Ey-aLp"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csu-ej-8tq">
                                 <rect key="frame" x="162" y="523" width="88" height="30"/>
@@ -84,7 +91,9 @@
                             <constraint firstItem="u0E-B1-39q" firstAttribute="top" secondItem="hch-Qe-Mu8" secondAttribute="bottom" constant="18" id="PWq-9q-wr3"/>
                             <constraint firstItem="hch-Qe-Mu8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="jOf-Im-SNp"/>
                             <constraint firstItem="u0E-B1-39q" firstAttribute="centerX" secondItem="hch-Qe-Mu8" secondAttribute="centerX" id="k7Y-CI-wu4"/>
+                            <constraint firstItem="bP3-Pk-mKd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="kem-BD-GQt"/>
                             <constraint firstItem="hch-Qe-Mu8" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="mVj-N5-oKo"/>
+                            <constraint firstItem="bP3-Pk-mKd" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="nrX-tp-DHO"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
