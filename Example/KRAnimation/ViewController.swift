@@ -14,9 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewBox: UIView!
     @IBOutlet weak var viewBox2: UIView!
     
-    let beginFrame = CGRectMake(0.0, 0.0, 50, 50)
-    let endFrame = CGRectMake(Screen.bounds.width - 100.0, 0.0, 100.0, 100.0)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +27,7 @@ class ViewController: UIViewController {
     @IBAction func animation(sender: AnyObject) {
         KRAnimation.chain(
             viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0),
-            viewBox.chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic) + viewBox2.chainCenter(view.center, duration: 1.0),
+            viewBox.after(0.5).chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic) + viewBox2.after(0.5).chainCenter(view.center, duration: 1.0),
             viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic) + viewBox.chainBackgroundColor(UIColor.redColor(), duration: 1.0),
             viewBox.chainY(0.0, duration: 1.0),
             viewBox.chainOrigin(CGPointMake(Screen.bounds.width - 50.0, Screen.bounds.height - 50.0), duration: 1.0, function: .EaseInCubic),
@@ -39,11 +36,11 @@ class ViewController: UIViewController {
             viewBox.chainSize(CGSizeMake(200.0, 200.0), duration: 1.0),
             viewBox.chainSize(CGSizeMake(50.0, 50.0), duration: 1.0),
             viewBox.chainFrame(CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0), duration: 1.0, function: .Linear),
-            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0, function: .Linear) + viewBox2.chainOrigin(CGPointZero, duration: 1.0),
+            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0, function: .Linear) + viewBox2.chainOrigin(CGPointMake(0.0, 58.0), duration: 1.0) + viewBox2.chainBackgroundColor(UIColor.greenColor(), duration: 1.0),
             viewBox.chainScaleX(3.0, duration: 1.0, function: .EaseInCubic),
             viewBox.chainScaleX(1.0, duration: 1.0, function: .EaseOutCubic),
             viewBox.chainScaleY(3.0, duration: 1.0),
-            viewBox.chainScaleY(1.0, duration: 1.0),
+            viewBox.chainScaleY(1.0, duration: 1.0) + viewBox2.chainBackgroundColor(UIColor(hex: 0x007AFF, alpha: 1.0), duration: 1.0),
             viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor, duration: 1.0),
             viewBox.chainBorderWidth(4.0, duration: 1.0, function: .EaseInOutCubic),
             viewBox.chainCornerRadius(25.0, duration: 1.0, function: .EaseInOutCubic),
