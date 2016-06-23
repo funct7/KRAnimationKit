@@ -1,6 +1,0 @@
-framework module KRAnimation {
-  umbrella header "KRAnimation-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,13 +1,13 @@
 PODS:
-  - KRAnimation (0.1.0)
+  - KRAnimationKit (0.7.0)
   - KRTimingFunction (0.2.2)
 
 DEPENDENCIES:
-  - KRAnimation (from `../`)
+  - KRAnimationKit (from `../`)
   - KRTimingFunction (from `https://github.com/BridgeTheGap/KRTimingFunction.git`)
 
 EXTERNAL SOURCES:
-  KRAnimation:
+  KRAnimationKit:
     :path: "../"
   KRTimingFunction:
     :git: https://github.com/BridgeTheGap/KRTimingFunction.git
@@ -19,7 +19,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/BridgeTheGap/KRTimingFunction.git
 
 SPEC CHECKSUMS:
-  KRAnimation: 45a98b10dcf4fa6a84a5000d4acc5257a788e65f
+  KRAnimationKit: b0739960658d35f68e892fcc9bb2488a3df44a35
   KRTimingFunction: bc55e462cab7c74dd5c9207a5021fef4dd472ec3
 
 COCOAPODS: 0.39.0
