@@ -187,7 +187,7 @@ X: properties that won't be supported.
 
 According to this [StackOverflow post](http://stackoverflow.com/questions/15597956/ios-layer-background-color-not-showing-when-view-background-color-is-clear-colo), the `backgroundColor` property of `UILabel` and its `layer` are not the same. Animation is applied to the layer level only, so animating a `UILabel` instance with different colors for the view and layer might result in unexpected behavior.
 
-2 . As noted above, `EaseInOutCirc` and `EaseInOutBounce` for *KRTimingFunction` might not be working correctly. This is soon to be fixed.
+2 . As noted above, `EaseInOutCirc` and `EaseInOutBounce` for *KRTimingFunction* might not be working correctly. This is soon to be fixed.
 
 
 ## Author
