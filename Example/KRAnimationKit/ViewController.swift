@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         let bottomY = Screen.bounds.height - 50.0
         
         KRAnimation.chain(
-            viewBox.chainY(bottomY, duration: 1.0, function: .Linear),
+            viewBox.after(2.0).chainY(bottomY, duration: 1.0, function: .Linear),
             viewBox.chainY(0.0, duration: 1.0, function: .Linear),
             
             viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuad),
