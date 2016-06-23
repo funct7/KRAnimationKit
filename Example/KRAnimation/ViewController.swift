@@ -78,12 +78,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func defaultAnimation(sender: AnyObject) {
-        
+        viewBox.animateX(Screen.bounds.width - 50.0, duration: 1.0, reverses: true)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
         KRAnimation.chain(
-            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0),
+            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0) + viewBox2.chainAlpha(0.5, duration: 1.0) + viewBox2.chainBackgroundColor(UIColor.cyanColor(), duration: 1.0),
             viewBox.after(0.5).chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic) + viewBox2.after(0.5).chainCenter(view.center, duration: 1.0),
             viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic) + viewBox.chainBackgroundColor(UIColor.redColor(), duration: 1.0),
             viewBox.chainY(0.0, duration: 1.0),
@@ -108,6 +108,11 @@ class ViewController: UIViewController {
             
             reverses: true, repeatCount: Float.infinity
         ) {
+            self.viewBox.layer.shadowOpacity = 0.0
+            self.viewBox.layer.cornerRadius = 0.0
+            self.viewBox.layer.borderWidth = 0.0
+            self.viewBox.alpha = 1.0
+            self.viewBox2.alpha = 1.0
             print("MULTI COMPLETION")
         }
     }

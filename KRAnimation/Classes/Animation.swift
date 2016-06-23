@@ -189,7 +189,7 @@ public struct KRAnimation {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             for (view, _) in animDic {
-                view.update(propDic[view]!)
+                if !reverses { view.update(propDic[view]!) }
                 view.layer.removeAllAnimations()
             }
             completion?()
@@ -278,13 +278,18 @@ public struct KRAnimation {
         
         CATransaction.begin()
         CATransaction.setCompletionBlock {
-            view.update(updatedProperties)
+            if !reverses { view.update(updatedProperties) }
             view.layer.removeAllAnimations()
             completion?()
         }
         
         let anim = getAnimation(animDescription, viewProperties: updatedProperties, setDelay: true)
+        anim.autoreverses = reverses
+        anim.repeatCount = repeatCount
+        
         view.layer.addAnimation(anim, forKey: nil)
+        
+        CATransaction.commit()
     }
 
     private static func getAnimation(animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
