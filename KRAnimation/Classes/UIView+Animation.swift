@@ -197,7 +197,7 @@ public extension UIView {
     }
     
     func chainPosition(position: CGPoint, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
-        let endValue = NSValue(CGPoint: center)
+        let endValue = NSValue(CGPoint: position)
         return [AnimationDescriptor(view: self, delay: 0.0, property: .Position, endValue: endValue, duration: duration, function: function)]
     }
     

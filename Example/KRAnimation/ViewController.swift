@@ -31,7 +31,7 @@ class ViewController: UIViewController {
 //        viewBox.center = view.center
 
         KRAnimation.chain(
-            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0),
+            viewBox.after(1.0).chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0),
             viewBox.chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic),
             viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic) + viewBox.chainBackgroundColor(UIColor.redColor(), duration: 1.0),
             viewBox.chainY(0.0, duration: 1.0) + viewBox.chainAlpha(0.5, duration: 1.0),
