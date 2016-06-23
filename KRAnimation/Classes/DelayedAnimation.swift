@@ -27,11 +27,12 @@ public struct DelayedAnimation {
         view.center.x = view.center.x
     }
     
-    public func animateX(x: CGFloat, duration: Double, function: FunctionType, reverses: Bool = false, repeatCount: Float = 0.0, nextAnimation: (() -> [CAAnimation])? = nil) {
-        KRAnimation.animateView(view, property: .OriginX, endValue: x, duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, nextAnimation: nextAnimation)
+    public func animateX(x: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: view, delay: delay, property: .OriginX, endValue: x, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
-    public func chainX(x: CGFloat, duration: Double, function: FunctionType, nextAnimation: (() -> [CAAnimation])? = nil) -> [CAAnimation] {
-        return KRAnimation.chainView(view, property: .OriginX, endValue: x, duration: duration, function: function, nextAnimation: nextAnimation)
+    public func chainX(x: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: view, delay: delay, property: .OriginX, endValue: x, duration: duration, function: function)]
     }
 }

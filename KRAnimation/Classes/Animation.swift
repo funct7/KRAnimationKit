@@ -171,7 +171,7 @@ internal class ViewProperties: NSObject {
 }
 
 public struct KRAnimation {
-    public static func chain(animDescriptors: [AnimationDescriptor]..., reverses: Bool = false, repeatCount: Double = 1.0, completion: (() -> Void)? = nil) {
+    public static func chain(animDescriptors: [AnimationDescriptor]..., reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) {
         // FIXME: - Change in multi view support
         /**************************************/
         let view = animDescriptors[0][0].view
@@ -221,8 +221,10 @@ public struct KRAnimation {
         }
         
         let chainedAnim = CAAnimationGroup()
-        chainedAnim.duration = totalDuration
         chainedAnim.animations = animations
+        chainedAnim.duration = totalDuration
+        chainedAnim.repeatCount = repeatCount
+        chainedAnim.autoreverses = reverses
         chainedAnim.fillMode = kCAFillModeForwards
         chainedAnim.removedOnCompletion = false
         

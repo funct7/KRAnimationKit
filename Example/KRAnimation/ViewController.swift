@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     @IBAction func animation(sender: AnyObject) {
 //        viewBox.center = view.center
 
-        viewBox.chainAnimations(
+        KRAnimation.chain(
             viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic),
             viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor() : UIColor.redColor(), duration: 1.0),
 //            viewBox.chainBorderWidth(4.0, duration: 1.0, function: .EaseInOutCubic),
@@ -72,18 +72,6 @@ class ViewController: UIViewController {
 //        anim.removedOnCompletion = false
 //        anim.delegate = self
         
-        chain(
-            viewBox.animateX(Screen.bounds.width - 50.0, duration: 1.0, function: .Linear) + viewBox.animateBackgroundColor(UIColor.blackColor(), duration: 1.0, function: .Linear),
-            viewBox.animateX(0.0, duration: 1.0, function: .Linear)
-        )
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
@@ -101,19 +89,3 @@ class ViewController: UIViewController {
     }
     
 }
-
-
-
-
-
-
-
-extension UIView {
-    func animateX(endValue: AnyObject, duration: Double, function: FunctionType) -> [Animation] {
-        return [Animation(view: self, property: .OriginX, endValue: endValue, duration: duration, function: function)]
-    }
-    func animateBackgroundColor(endValue: AnyObject, duration: Double, function: FunctionType) -> [Animation] {
-        return [Animation(view: self, property: .BackgroundColor, endValue: endValue, duration: duration, function: function)]
-    }
-}
-
