@@ -96,6 +96,7 @@ KRAnimation.chain(
 }
 ```
 
+
 ###### Simultaneously Chained Animations
 To have two or more animations chained simultaneously, simply use `+` like so:
 
@@ -113,47 +114,47 @@ KRAnimationKit uses *KRTimingFunction*, a Swift-ported version of [JQuery timing
 
 The supported timing functions are as follows:
 
-Linear
+>Linear
 
-EaseInQuad
-EaseOutQuad
-EaseInOutQuad
+>EaseInQuad
+>EaseOutQuad
+>EaseInOutQuad
 
-EaseInCubic
-EaseOutCubic
-EaseInOutCubic
+>EaseInCubic
+>EaseOutCubic
+>EaseInOutCubic
 
-EaseInQuart
-EaseOutQuart
-EaseInOutQuart
+>EaseInQuart
+>EaseOutQuart
+>EaseInOutQuart
 
-EaseInQuint
-EaseOutQuint
-EaseInOutQuint
+>EaseInQuint
+>EaseOutQuint
+>EaseInOutQuint
 
-EaseInSine
-EaseOutSine
-EaseInOutSine
+>EaseInSine
+>EaseOutSine
+>EaseInOutSine
 
-EaseInExpo
-EaseOutExpo
-EaseInOutExpo
+>EaseInExpo
+>EaseOutExpo
+>EaseInOutExpo
 
-EaseInCirc
-EaseOutCirc
-EaseInOutCirc // Checking if functioning correctly
+>EaseInCirc
+>EaseOutCirc
+>EaseInOutCirc // Checking if functioning correctly
 
-EaseInElastic
-EaseOutElastic
-EaseInOutElastic
+>EaseInElastic
+>EaseOutElastic
+>EaseInOutElastic
 
-EaseInBack
-EaseOutBack
-EaseInOutBack
+>EaseInBack
+>EaseOutBack
+>EaseInOutBack
 
-EaseInBounce
-EaseOutBounce
-EaseInOutBounce // Checking if functioning correctly 
+vEaseInBounce
+>EaseOutBounce
+>EaseInOutBounce // Checking if functioning correctly 
 
 ## Animatable Properties
 KRAnimationKit supports most CALayer animatable properties as listed in [Core Animation Programming Guide](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/AnimatableProperties/AnimatableProperties.html).
