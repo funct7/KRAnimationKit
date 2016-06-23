@@ -71,7 +71,7 @@ public struct AnimationDescriptor {
     let duration: Double
     let function: FunctionType
     
-    public func getFrameAnimations() -> (origin: AnimationDescriptor, size: AnimationDescriptor) {
+    internal func getFrameAnimations() -> (origin: AnimationDescriptor, size: AnimationDescriptor) {
         let frame = (endValue as! NSValue).CGRectValue()
         
         let animOrigin = AnimationDescriptor(view: view, delay: delay, property: .Origin, endValue: NSValue(CGPoint: frame.origin), duration: duration, function: function)
