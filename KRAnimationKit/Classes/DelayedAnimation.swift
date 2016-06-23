@@ -11,21 +11,6 @@ import UIKit
 public struct DelayedAnimation {
     let view: UIView
     let delay: Double
-    let preAnim: CABasicAnimation
-    
-    init(view: UIView, delay: Double) {
-        self.view = view
-        self.delay = delay
-        
-        preAnim = CABasicAnimation(keyPath: "position.x")
-        preAnim.duration = delay
-        preAnim.fromValue = view.center.x
-        preAnim.toValue = view.center.x
-        preAnim.fillMode = kCAFillModeForwards
-        preAnim.removedOnCompletion = false
-        
-        view.center.x = view.center.x
-    }
     
     // MARK: - Origin
     

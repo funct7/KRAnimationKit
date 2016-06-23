@@ -78,7 +78,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func defaultAnimation(sender: AnyObject) {
-        viewBox.animateX(Screen.bounds.width - 50.0, duration: 1.0, reverses: true)
+        viewBox.after(2.0).animateX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseInQuad) {
+            print("COMPLETION")
+        }
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {

@@ -310,7 +310,7 @@ public struct KRAnimation {
             return anim
         } else {
             let anim = getKeyframeAnimation(animDesc, viewProperties: viewProperties, setDelay: setDelay)
-            
+
             return anim
         }
     }
@@ -401,12 +401,11 @@ public struct KRAnimation {
             fatalError("INCOMPLETE IMPLEMENTATION")
         }
         
+        if setDelay { anim.beginTime = animDesc.delay }
         anim.duration = animDesc.duration
         anim.fillMode = kCAFillModeForwards
         anim.removedOnCompletion = false
         anim.values = getValues(animDesc, viewProperties: viewProperties)
-        
-        if setDelay { anim.beginTime = animDesc.delay }
         
         return anim
     }
