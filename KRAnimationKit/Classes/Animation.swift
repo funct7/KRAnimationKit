@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KRTimingFunction
 
 public enum FunctionType {
     case Linear
@@ -93,16 +92,19 @@ public enum AnimatableProperty {
     case RotationX
     case RotationY
     case RotationZ
+    case Rotation2D
     case Rotation
     
     case ScaleX
     case ScaleY
     case ScaleZ
+    case Scale2D
     case Scale
     
     case TranslationX
     case TranslationY
     case TranslationZ
+    case Translation2D
     case Translation
     
     case ZPosition
@@ -428,7 +430,7 @@ public struct KRAnimation {
             fatalError("INCOMPLETE IMPLEMENTATION")
         
             // Rotation
-        case .RotationX, .RotationY, .RotationZ, .Rotation:
+        case .RotationX, .RotationY, .RotationZ, .Rotation2D, .Rotation:
             fatalError("INCOMPLETE IMPLEMENTATION")
             
             // Scale
@@ -436,11 +438,15 @@ public struct KRAnimation {
             anim = CAKeyframeAnimation(keyPath: "transform.scale.x")
         case .ScaleY:
             anim = CAKeyframeAnimation(keyPath: "transform.scale.y")
-        case .ScaleZ, .Scale:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+        case .Scale2D:
+            anim = CAKeyframeAnimation(keyPath: "transform")
+        case .ScaleZ:
+            anim = CAKeyframeAnimation(keyPath: "transform.scale.z")
+        case .Scale:
+            anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Translation
-        case .TranslationX, .TranslationY, .TranslationZ, .Translation:
+        case .TranslationX, .TranslationY, .TranslationZ, .Translation2D, .Translation:
             fatalError("INCOMPLETE IMPLEMENTATION")
             
             // Z Position
@@ -650,7 +656,7 @@ public struct KRAnimation {
             
             // Rotation
             
-        case .RotationX, .RotationY, .RotationZ, .Rotation:
+        case .RotationX, .RotationY, .RotationZ, .Rotation2D, .Rotation:
             fatalError("INCOMPLETE IMPLEMENTATION")
             
             // Scale
@@ -668,10 +674,38 @@ public struct KRAnimation {
             f = { return getScaledValue(b, e, $0) }
             viewProperties.transform.m22 = e
             
-        case .ScaleZ, .Scale:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+        case .Scale2D:
+            let b = viewProperties.transform
+            let e = (animDesc.endValue as! NSValue).CATransform3DValue
             
-        case .TranslationX, .TranslationY, .TranslationZ, .Translation:
+            f = {
+                var c = b
+                (c.m11, c.m22) = (getScaledValue(b.m11, e.m11, $0), getScaledValue(b.m22, e.m22, $0))
+                return NSValue(CATransform3D: c)
+            }
+            viewProperties.transform.m11 = e.m11
+            viewProperties.transform.m22 = e.m22
+        case .ScaleZ:
+            let b = viewProperties.transform.m33
+            let e = animDesc.endValue as! CGFloat
+            
+            f = { return getScaledValue(b, e, $0) }
+            
+            viewProperties.transform.m33 = e
+        case .Scale:
+            let b = viewProperties.transform
+            let e = (animDesc.endValue as! NSValue).CATransform3DValue
+            
+            f = {
+                var c = b
+                c.m11 = getScaledValue(b.m11, e.m11, $0)
+                c.m22 = getScaledValue(b.m22, e.m22, $0)
+                c.m33 = getScaledValue(b.m33, e.m33, $0)
+                
+                return NSValue(CATransform3D: c)
+            }
+            viewProperties.transform = e
+        case .TranslationX, .TranslationY, .TranslationZ, .Translation2D, .Translation:
             fatalError("INCOMPLETE IMPLEMENTATION")
             
         case .ZPosition:

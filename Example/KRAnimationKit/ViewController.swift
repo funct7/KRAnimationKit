@@ -82,38 +82,43 @@ class ViewController: UIViewController {
         viewBox.center = view.center
         viewBox2.center = view.center
         viewBox2.center.y += 108.0
-        viewBox2.layer.transform = CATransform3DMakeRotation(CGFloat(45 * M_PI / 180.0), 0.0, 0.0, 1.0)
+        viewBox2.transform = CGAffineTransformMakeScale(2.0, 2.0)
         
-        let anim = CAKeyframeAnimation(keyPath: "transform")
-        let duration = 1.0
-        let totalFrames = 60 * duration
-        let b = viewBox.layer.transform
-
-        var values = [AnyObject]()
-        let deg = CGFloat(360.0 * M_PI / 180.0)
+//        KRAnimation.chain(
+//            viewBox.chainScale(2.0, 1.5, 0.0, duration: 2.0, function: .EaseInOutQuart),
+//            reverses: true
+//        )
         
-        for i in 0 ... Int(totalFrames) {
-            let rt = Double(i)/totalFrames
-            var e = b
-            let scale = CGFloat(TimingFunction.EaseOutCubic(rt: rt, b: 0.0, c: 1.0))
-            let m11 = cos(deg * scale)
-            let m12 = sin(deg * scale)
-            let m21 = -sin(deg * scale)
-            let m22 = cos(deg * scale)
-            e.m11 = m11
-            e.m12 = m12
-            e.m21 = m21
-            e.m22 = m22
-            
-            values.append(NSValue(CATransform3D: e))
-        }
-        
-        anim.values = values
-        anim.duration = duration
-        anim.fillMode = kCAFillModeForwards
-        anim.removedOnCompletion = false
-        
-        viewBox.layer.addAnimation(anim, forKey: nil)
+//        let anim = CAKeyframeAnimation(keyPath: "transform")
+//        let duration = 1.0
+//        let totalFrames = 60 * duration
+//        let b = viewBox.layer.transform
+//
+//        var values = [AnyObject]()
+//        let deg = CGFloat(360.0 * M_PI / 180.0)
+//        
+//        for i in 0 ... Int(totalFrames) {
+//            let rt = Double(i)/totalFrames
+//            var e = b
+//            let scale = CGFloat(TimingFunction.EaseOutCubic(rt: rt, b: 0.0, c: 1.0))
+//            let m11 = cos(deg * scale)
+//            let m12 = sin(deg * scale)
+//            let m21 = -sin(deg * scale)
+//            let m22 = cos(deg * scale)
+//            e.m11 = m11
+//            e.m12 = m12
+//            e.m21 = m21
+//            e.m22 = m22
+//            
+//            values.append(NSValue(CATransform3D: e))
+//        }
+//        
+//        anim.values = values
+//        anim.duration = duration
+//        anim.fillMode = kCAFillModeForwards
+//        anim.removedOnCompletion = false
+//        
+//        viewBox.layer.addAnimation(anim, forKey: nil)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
