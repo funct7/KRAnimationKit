@@ -28,28 +28,28 @@ class ViewController: UIViewController {
         let bottomY = Screen.bounds.height - 50.0
         
         KRAnimation.chain(
-            viewBox.after(2.0).chainY(bottomY, duration: 1.0, function: .Linear),
+            viewBox.chainY(bottomY, duration: 1.0, function: .Linear),
             viewBox.chainY(0.0, duration: 1.0, function: .Linear),
-            
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuad),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuad),
-            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutQuad),
-            
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInCubic),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutCubic),
-            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutCubic),
-            
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuart),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuart),
-            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutQuart),
-            
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuint),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuint),
-            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutQuint),
             
             viewBox.chainY(bottomY, duration: 1.0, function: .EaseInSine),
             viewBox.chainY(0.0, duration: 1.0, function: .EaseOutSine),
             viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutSine),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuad),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuad),
+            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutQuad),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInCubic),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutCubic),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutCubic),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuart),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuart),
+            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutQuart),
+            
+            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuint),
+            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuint),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutQuint),
             
             viewBox.chainY(bottomY, duration: 1.0, function: .EaseInExpo),
             viewBox.chainY(0.0, duration: 1.0, function: .EaseOutExpo),
