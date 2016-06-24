@@ -7,6 +7,51 @@
 //
 
 import UIKit
+import KRTimingFunction
+
+public enum FunctionType {
+    case Linear
+    
+    case EaseInSine
+    case EaseOutSine
+    case EaseInOutSine
+    
+    case EaseInQuad
+    case EaseOutQuad
+    case EaseInOutQuad
+    
+    case EaseInCubic
+    case EaseOutCubic
+    case EaseInOutCubic
+    
+    case EaseInQuart
+    case EaseOutQuart
+    case EaseInOutQuart
+    
+    case EaseInQuint
+    case EaseOutQuint
+    case EaseInOutQuint
+    
+    case EaseInExpo
+    case EaseOutExpo
+    case EaseInOutExpo
+    
+    case EaseInCirc
+    case EaseOutCirc
+    case EaseInOutCirc
+    
+    case EaseInBack
+    case EaseOutBack
+    case EaseInOutBack
+    
+    case EaseInElastic
+    case EaseOutElastic
+    case EaseInOutElastic
+    
+    case EaseInBounce
+    case EaseOutBounce
+    case EaseInOutBounce
+}
 
 public enum AnimatableProperty {
     case Origin

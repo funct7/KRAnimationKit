@@ -32,6 +32,16 @@ public struct TimingFunction {
     public static func Linear(rt rt: Double, b: Double, c: Double) -> Double {
         return c * rt + b
     }
+    // Sine
+    public static func EaseInSine(rt rt: Double, b: Double, c: Double) -> Double {
+        return -c * cos(rt * (M_PI_2)) + c + b
+    }
+    public static func EaseOutSine(rt rt: Double, b: Double, c: Double) -> Double {
+        return c * sin(rt * (M_PI_2)) + b
+    }
+    public static func EaseInOutSine(rt rt: Double, b: Double, c: Double) -> Double {
+        return -c/2 * (cos(M_PI*rt) - 1) + b
+    }
     // Quad
     public static func EaseInQuad(rt rt: Double, b: Double, c: Double) -> Double {
         return c * rt*rt + b
@@ -86,16 +96,6 @@ public struct TimingFunction {
         if (rt*=2.0) < 1 { return c/2 * rt*rt*rt*rt*rt + b }
         return c/2 * ((rt-=2)*rt*rt*rt*rt + 2) + b
     }
-    // Sine
-    public static func EaseInSine(rt rt: Double, b: Double, c: Double) -> Double {
-        return -c * cos(rt * (M_PI_2)) + c + b
-    }
-    public static func EaseOutSine(rt rt: Double, b: Double, c: Double) -> Double {
-        return c * sin(rt * (M_PI_2)) + b
-    }
-    public static func EaseInOutSine(rt rt: Double, b: Double, c: Double) -> Double {
-        return -c/2 * (cos(M_PI*rt) - 1) + b
-    }
     // Expo
     public static func EaseInExpo(rt rt: Double, b: Double, c: Double) -> Double {
         return rt == 0.0 ? b : c * pow(2, 10 * (rt - 1)) + b
@@ -121,7 +121,23 @@ public struct TimingFunction {
     public static func EaseInOutCirc(rt rt: Double, b: Double, c: Double) -> Double {
         var rt = rt
         if (rt*=2.0) < 1 { return -c/2 * (sqrt(1 - rt*rt) - 1) + b }
-        return c/2 * (sqrt(1 - (rt-=1)*rt) + 1) + b
+        return c/2 * (sqrt(1 - (rt-=2)*rt) + 1) + b
+    }
+    // Back
+    public static func EaseInBack(rt rt: Double, b: Double, c: Double) -> Double {
+        let s = 1.70158
+        return c * rt*rt*((s+1) * rt - s) + b
+    }
+    public static func EaseOutBack(rt rt: Double, b: Double, c: Double) -> Double {
+        var rt = rt
+        let s = 1.70158
+        return c * ((rt-=1)*rt*((s+1) * rt + s) + 1) + b
+    }
+    public static func EaseInOutBack(rt rt: Double, b: Double, c: Double) -> Double {
+        var rt = rt
+        var s = 1.70158 * 1.525
+        if ((rt*=2.0) < 1) { return c/2 * (rt*rt*((s+1)*rt - s)) + b }
+        return c/2 * ((rt-=2)*rt*(((s*=1.525)+1)*rt + s) + 2) + b
     }
     // Elastic
     public static func EaseInElastic(rt rt: Double, b: Double, c: Double, d: Double) -> Double {
@@ -157,22 +173,6 @@ public struct TimingFunction {
         if rt < 1 { return -0.5 * (a * pow(2, 10 * (rt-=1)) * sin((rt*d-s) * (2*M_PI) / p)) + b }
         return a * pow(2,-10 * (rt-=1)) * sin((rt*d-s) * (2*M_PI) / p) * 0.5 + c + b
     }
-    // Back
-    public static func EaseInBack(rt rt: Double, b: Double, c: Double) -> Double {
-        let s = 1.70158
-        return c * rt*rt*((s+1) * rt - s) + b
-    }
-    public static func EaseOutBack(rt rt: Double, b: Double, c: Double) -> Double {
-        var rt = rt
-        let s = 1.70158
-        return c * ((rt-=1)*rt*((s+1) * rt + s) + 1) + b
-    }
-    public static func EaseInOutBack(rt rt: Double, b: Double, c: Double) -> Double {
-        var rt = rt
-        var s = 1.70158 * 1.525
-        if ((rt*=2.0) < 1) { return c/2 * (rt*rt*((s+1)*rt - s)) + b }
-        return c/2 * ((rt-=2)*rt*(((s*=1.525)+1)*rt + s) + 2) + b
-    }
     // Bounce
     public static func EaseInBounce(rt rt: Double, b: Double, c: Double) -> Double {
         return c - TimingFunction.EaseOutBounce(rt: 1.0-rt, b: 0, c: c) + b
@@ -191,7 +191,7 @@ public struct TimingFunction {
     }
     public static func EaseInOutBounce(rt rt: Double, b: Double, c: Double) -> Double {
         if rt < 0.5 { return TimingFunction.EaseInBounce(rt: rt*2, b: 0, c: c) * 0.5 + b }
-        return TimingFunction.EaseOutBounce(rt: -rt*2, b: 0, c: c) * 0.5 + c*0.5 + b
+        return TimingFunction.EaseOutBounce(rt: rt*2 - 1, b: 0, c: c) * 0.5 + c*0.5 + b
     }
 }
 

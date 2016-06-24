@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0271D40A97123580209AD3CAC883C674 /* DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936E98E21F9C49E94813C0AF3AE7635 /* DelayedAnimation.swift */; };
-		0F62CEA8340C1C0586C98937CA5878D2 /* TimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6216100A419FBCFBC001F7D77D552C0 /* TimingFunction.swift */; };
 		1DA39ECE1F39A6F2A4AD610EF4FF7995 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		24D9C6DD8D36E8A68BC275BF4A6B194B /* KRTimingFunction-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEA1748D7D819083F48E321FE7CC161 /* KRTimingFunction-dummy.m */; };
 		2CCB1B3968DC2F0A32362F4FE55FE46F /* Pods-KRAnimationKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE9664FE99E9D25000503EC8CA5871F0 /* Pods-KRAnimationKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,7 +61,6 @@
 		87611AA3C9F9FCCB21CCD150650476A3 /* KRAnimationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRAnimationKit-prefix.pch"; sourceTree = "<group>"; };
 		95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KRTimingFunction.xcconfig; sourceTree = "<group>"; };
 		96F0462853EA63AAEEAF1870D59DF488 /* Pods-KRAnimationKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KRAnimationKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A6216100A419FBCFBC001F7D77D552C0 /* TimingFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimingFunction.swift; sourceTree = "<group>"; };
 		AB0EA393F1DF83338B925CDC635EDF2C /* KRAnimationKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRAnimationKit-umbrella.h"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C56E9ADEF29AC36AF22B88A2ECF2466D /* KRTimingFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRTimingFunction.swift; path = KRTimingFunction/Classes/KRTimingFunction.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 			children = (
 				25150E0059545D9A067628F551C6B1E9 /* Animation.swift */,
 				C936E98E21F9C49E94813C0AF3AE7635 /* DelayedAnimation.swift */,
-				A6216100A419FBCFBC001F7D77D552C0 /* TimingFunction.swift */,
 				544B1605E8A10B133822C80967CA6EA0 /* UIView+Animation.swift */,
 			);
 			path = Classes;
@@ -339,7 +336,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -368,7 +365,6 @@
 				958ABAB8A05F618879C8FB4543D57B09 /* Animation.swift in Sources */,
 				0271D40A97123580209AD3CAC883C674 /* DelayedAnimation.swift in Sources */,
 				53A9F423D696A25CAA5BF262269D7907 /* KRAnimationKit-dummy.m in Sources */,
-				0F62CEA8340C1C0586C98937CA5878D2 /* TimingFunction.swift in Sources */,
 				35E487630D33C172F745F39425ED7D53 /* UIView+Animation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,7 +459,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_KRAnimationKit_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -491,7 +486,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/KRTimingFunction/KRTimingFunction.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = KRTimingFunction;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -520,7 +514,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -560,7 +553,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/KRAnimationKit/KRAnimationKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = KRAnimationKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -589,7 +581,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/KRAnimationKit/KRAnimationKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = KRAnimationKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -620,7 +611,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_KRAnimationKit_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -649,7 +639,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/KRTimingFunction/KRTimingFunction.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = KRTimingFunction;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

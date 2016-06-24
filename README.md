@@ -116,6 +116,10 @@ The supported timing functions are as follows:
 
 >Linear
 
+>EaseInSine
+>EaseOutSine
+>EaseInOutSine
+
 >EaseInQuad
 >EaseOutQuad
 >EaseInOutQuad
@@ -132,29 +136,27 @@ The supported timing functions are as follows:
 >EaseOutQuint
 >EaseInOutQuint
 
->EaseInSine
->EaseOutSine
->EaseInOutSine
-
 >EaseInExpo
 >EaseOutExpo
 >EaseInOutExpo
 
 >EaseInCirc
 >EaseOutCirc
->EaseInOutCirc // Checking if functioning correctly
-
->EaseInElastic
->EaseOutElastic
->EaseInOutElastic
+>EaseInOutCirc
 
 >EaseInBack
 >EaseOutBack
 >EaseInOutBack
 
+>EaseInElastic
+>EaseOutElastic
+>EaseInOutElastic
+
 >EaseInBounce
 >EaseOutBounce
->EaseInOutBounce // Checking if functioning correctly 
+>EaseInOutBounce
+
+More explanation and a visual representation of these functions can be found at [Easings](http://easings.net/)
 
 ## Animatable Properties
 KRAnimationKit supports most CALayer animatable properties as listed in [Core Animation Programming Guide](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/AnimatableProperties/AnimatableProperties.html).
@@ -177,17 +179,15 @@ The list of properties that are currently unavailable are as listed below:
 - zPosition *
 
 ==============================================================
-*: properties that are planned to be supported later.
-?: properties that are not set to be supported at the moment.
-X: properties that won't be supported.
+- *: properties that are planned to be supported later.
+- ?: properties that are not set to be supported at the moment.
+- X: properties that won't be supported.
 
 
-## Known Issues
-1 . Since KRAnimationKit uses a layer-based animation--it uses `CAAnimation`, certain `UIView` subviews might not work as expected like the following scenario:
+## Caveat
+Since KRAnimationKit uses a layer-based animation--it uses `CAAnimation`, certain `UIView` subviews might not work as expected like the following scenario:
 
 According to this [StackOverflow post](http://stackoverflow.com/questions/15597956/ios-layer-background-color-not-showing-when-view-background-color-is-clear-colo), the `backgroundColor` property of `UILabel` and its `layer` are not the same. Animation is applied to the layer level only, so animating a `UILabel` instance with different colors for the view and layer might result in unexpected behavior.
-
-2 . As noted above, `EaseInOutCirc` and `EaseInOutBounce` for *KRTimingFunction* might not be working correctly. This is soon to be fixed.
 
 
 ## Author
