@@ -74,13 +74,13 @@ public extension UIView {
     func animateSize(width: CGFloat, _ height: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGSize: CGSizeMake(width, height))
         let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Size, endValue: endValue, duration: duration, function: function)
-        KRAnimation.animate(animDesc)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     func animateSize(size: CGSize, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGSize: size)
         let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Size, endValue: endValue, duration: duration, function: function)
-        KRAnimation.animate(animDesc)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     func chainSize(width: CGFloat, _ height: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
@@ -335,6 +335,180 @@ public extension UIView {
 
     // MARK: - Transform
     
+    // MARK: - Rotation
+    
+    func animateRotationX(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationX, endValue: degreeToRadian(degree), duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func animateRotationX(degree degree: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationX, endValue: degreeToRadian(degree), duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func animateRotationX(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationX, endValue: radian, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func animateRotationX(radian radian: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationX, endValue: radian, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainRotationX(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationX, endValue: degreeToRadian(degree), duration: duration, function: function)]
+    }
+    
+    func chainRotationX(degree degree: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationX, endValue: degreeToRadian(degree), duration: duration, function: function)]
+    }
+    
+    func chainRotationX(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationX, endValue: radian, duration: duration, function: function)]
+    }
+    
+    func chainRotationX(radian radian: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationX, endValue: radian, duration: duration, function: function)]
+    }
+    
+    func animateRotationY(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationY, endValue: degreeToRadian(degree), duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func animateRotationY(degree degree: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationY, endValue: degreeToRadian(degree), duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func animateRotationY(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationY, endValue: radian, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func animateRotationY(radian radian: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationY, endValue: radian, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainRotationY(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationY, endValue: degreeToRadian(degree), duration: duration, function: function)]
+    }
+    
+    func chainRotationY(degree degree: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationY, endValue: degreeToRadian(degree), duration: duration, function: function)]
+    }
+    
+    func chainRotationY(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationY, endValue: radian, duration: duration, function: function)]
+    }
+    
+    func chainRotationY(radian radian: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationY, endValue: radian, duration: duration, function: function)]
+    }
+    
+    func animateRotationZ(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotationZ(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func animateRotationZ(degree degree: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotationZ(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func animateRotationZ(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotationZ(radian: Double(radian), duration: duration)
+    }
+    
+    func animateRotationZ(radian radian: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationZ, endValue: radian, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainRotationZ(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotationZ(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func chainRotationZ(degree degree: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotationZ(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func chainRotationZ(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotationZ(radian: Double(radian), duration: duration)
+    }
+    
+    func chainRotationZ(radian radian: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationZ, endValue: radian, duration: duration, function: function)]
+    }
+    
+    func animateRotation2D(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotation2D(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func animateRotation2D(degree degree: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotation2D(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func animateRotation2D(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotation2D(radian: Double(radian), duration: duration)
+    }
+    
+    func animateRotation2D(radian radian: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Rotation2D, endValue: radian, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainRotation2D(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotation2D(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func chainRotation2D(degree degree: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotation2D(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func chainRotation2D(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotation2D(radian: Double(radian), duration: duration)
+    }
+    
+    func chainRotation2D(radian radian: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Rotation2D, endValue: radian, duration: duration, function: function)]
+    }
+    
+    func animateRotation(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotation2D(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func animateRotation(degree degree: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotation2D(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func animateRotation(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateRotation2D(radian: Double(radian), duration: duration)
+    }
+    
+    func animateRotation(radian radian: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Rotation, endValue: radian, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainRotation(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotation(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func chainRotation(degree degree: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotation(radian: degreeToRadian(degree), duration: duration)
+    }
+    
+    func chainRotation(radian radian: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainRotation(radian: Double(radian), duration: duration)
+    }
+    
+    func chainRotation(radian radian: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Rotation, endValue: radian, duration: duration, function: function)]
+    }
+    
+    
     // MARK: - Scale
     
     func animateScaleX(sx: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
@@ -427,8 +601,6 @@ public extension UIView {
         
         return [AnimationDescriptor(view: self, delay: 0.0, property: .Scale, endValue: endValue, duration: duration, function: function)]
     }
-    
-    // MARK: - Rotation
     
     // MARK: - Translation
     

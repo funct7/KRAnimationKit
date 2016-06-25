@@ -77,13 +77,13 @@ public struct DelayedAnimation {
     public func animateSize(width: CGFloat, _ height: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGSize: CGSizeMake(width, height))
         let animDesc = AnimationDescriptor(view: view, delay: delay, property: .Size, endValue: endValue, duration: duration, function: function)
-        KRAnimation.animate(animDesc)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func animateSize(size: CGSize, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
         let endValue = NSValue(CGSize: size)
         let animDesc = AnimationDescriptor(view: view, delay: delay, property: .Size, endValue: endValue, duration: duration, function: function)
-        KRAnimation.animate(animDesc)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chainSize(width: CGFloat, _ height: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {

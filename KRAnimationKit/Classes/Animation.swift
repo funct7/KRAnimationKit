@@ -134,6 +134,14 @@ internal extension CGColor {
     }
 }
 
+internal func degreeToRadian(degree: Double) -> Double {
+    return degree * M_PI / 180.0
+}
+
+internal func degreeToRadian(degree: CGFloat) -> CGFloat {
+    return degree * CGFloat(M_PI) / 180.0
+}
+
 internal extension UIView {
     func update(properties: ViewProperties) {
         frame = properties.frame
@@ -320,7 +328,7 @@ public struct KRAnimation {
         return CGFloat(b) + scale * CGFloat(e - b)
     }
     
-    internal static func animate(animDescription: AnimationDescriptor, reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) {
+    internal static func animate(animDescription: AnimationDescriptor, reverses: Bool, repeatCount: Float, completion: (() -> Void)?) {
         let view = animDescription.view
         let updatedProperties = ViewProperties(view: view)
         
@@ -431,7 +439,7 @@ public struct KRAnimation {
         
             // Rotation
         case .RotationX, .RotationY, .RotationZ, .Rotation2D, .Rotation:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+            anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Scale
         case .ScaleX:
@@ -656,8 +664,38 @@ public struct KRAnimation {
             
             // Rotation
             
-        case .RotationX, .RotationY, .RotationZ, .Rotation2D, .Rotation:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+        case .RotationX:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                return NSValue(CATransform3D: CATransform3DRotate(b, e * scale, 1.0, 0.0, 0.0))
+            }
+            
+            viewProperties.transform = CATransform3DRotate(b, e, 1.0, 0.0, 0.0)
+            
+        case .RotationY:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                return NSValue(CATransform3D: CATransform3DRotate(b, e * scale, 0.0, 1.0, 0.0))
+            }
+            
+            viewProperties.transform = CATransform3DRotate(b, e, 0.0, 1.0, 0.0)
+            
+        case .RotationZ, .Rotation2D, .Rotation:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                return NSValue(CATransform3D: CATransform3DRotate(b, e * scale, 0.0, 0.0, 1.0))
+            }
+            
+            viewProperties.transform = CATransform3DRotate(b, e, 0.0, 0.0, 1.0)
             
             // Scale
         case .ScaleX:
@@ -705,6 +743,7 @@ public struct KRAnimation {
                 return NSValue(CATransform3D: c)
             }
             viewProperties.transform = e
+            
         case .TranslationX, .TranslationY, .TranslationZ, .Translation2D, .Translation:
             fatalError("INCOMPLETE IMPLEMENTATION")
             
