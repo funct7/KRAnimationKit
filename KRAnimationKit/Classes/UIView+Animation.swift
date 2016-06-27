@@ -449,7 +449,7 @@ public extension UIView {
     }
     
     func animateRotation2D(radian radian: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Rotation2D, endValue: radian, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationZ, endValue: radian, duration: duration, function: function)
         KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
@@ -466,7 +466,7 @@ public extension UIView {
     }
     
     func chainRotation2D(radian radian: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .Rotation2D, endValue: radian, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationZ, endValue: radian, duration: duration, function: function)]
     }
     
     func animateRotation(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
@@ -482,7 +482,7 @@ public extension UIView {
     }
     
     func animateRotation(radian radian: Double, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Rotation, endValue: radian, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .RotationZ, endValue: radian, duration: duration, function: function)
         KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
@@ -499,7 +499,7 @@ public extension UIView {
     }
     
     func chainRotation(radian radian: Double, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .Rotation, endValue: radian, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .RotationZ, endValue: radian, duration: duration, function: function)]
     }
     
     
@@ -597,6 +597,72 @@ public extension UIView {
     }
     
     // MARK: - Translation
+    
+    func animateTranslationX(tx: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .TranslationX, endValue: tx, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainTranslationX(tx: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .TranslationX, endValue: tx, duration: duration, function: function)]
+    }
+    
+    func animateTranslationY(ty: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .TranslationY, endValue: ty, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainTranslationY(ty: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .TranslationY, endValue: ty, duration: duration, function: function)]
+    }
+    
+    func animateTranslationZ(tz: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .TranslationZ, endValue: tz, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainTranslationZ(tz: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .TranslationZ, endValue: tz, duration: duration, function: function)]
+    }
+    
+    func animateTranslation2D(tx: CGFloat, ty: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateTranslation2D(CGSizeMake(tx, ty), duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func animateTranslation2D(translation: CGSize, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let endValue = NSValue(CGSize: translation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Translation, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainTranslation2D(tx: CGFloat, ty: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainTranslation2D(CGSizeMake(tx, ty), duration: duration, function: function)
+    }
+    
+    func chainTranslation2D(translation: CGSize, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        let endValue = NSValue(CGSize: translation)
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Translation, endValue: endValue, duration: duration, function: function)]
+    }
+    
+    func animateTranslation(tx: CGFloat, ty: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        animateTranslation(CGSizeMake(tx, ty), duration: duration, function: function, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func animateTranslation(translation: CGSize, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let endValue = NSValue(CGSize: translation)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Translation, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
+    func chainTranslation(tx: CGFloat, ty: CGFloat, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        return chainTranslation(CGSizeMake(tx, ty), duration: duration, function: function)
+    }
+    
+    func chainTranslation(translation: CGSize, duration: Double, function: FunctionType = .Linear) -> [AnimationDescriptor] {
+        let endValue = NSValue(CGSize: translation)
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .Translation, endValue: endValue, duration: duration, function: function)]
+    }
+    
     
     // MARK: - Z Position
     

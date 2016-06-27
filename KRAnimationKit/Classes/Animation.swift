@@ -52,7 +52,7 @@ public enum FunctionType {
     case EaseInOutBounce
 }
 
-public enum AnimatableProperty {
+internal enum AnimatableProperty {
     case Origin
     case OriginX
     case OriginY
@@ -92,8 +92,6 @@ public enum AnimatableProperty {
     case RotationX
     case RotationY
     case RotationZ
-    case Rotation2D
-    case Rotation
     
     case ScaleX
     case ScaleY
@@ -104,7 +102,6 @@ public enum AnimatableProperty {
     case TranslationX
     case TranslationY
     case TranslationZ
-    case Translation2D
     case Translation
     
     case ZPosition
@@ -144,8 +141,10 @@ internal func degreeToRadian(degree: CGFloat) -> CGFloat {
 
 internal extension UIView {
     func update(properties: ViewProperties) {
-        frame = properties.frame
-        backgroundColor = properties.backgroundColor
+        layer.position = properties.position
+        layer.bounds.size = properties.bounds.size
+        
+        layer.backgroundColor = properties.backgroundColor?.CGColor
         layer.borderColor = properties.borderColor?.CGColor
         layer.borderWidth = properties.borderWidth
         layer.cornerRadius = properties.cornerRadius
@@ -162,22 +161,21 @@ internal extension UIView {
 internal class ViewProperties: NSObject {
     var origin: CGPoint {
         get {
-            let (x, y) = (position.x - size.width/2.0, position.y - size.height/2.0)
+            let (x, y) = (position.x - bounds.width*anchorPoint.x, position.y - bounds.height * anchorPoint.y)
             return CGPointMake(x, y)
         }
         set {
-            let (posX, posY) = (newValue.x + size.width/2.0, newValue.y + size.width/2.0)
+            let (posX, posY) = (newValue.x + bounds.width*anchorPoint.x, newValue.y + bounds.height * anchorPoint.y)
             position = CGPointMake(posX, posY)
         }
     }
-    var size: CGSize
     var frame: CGRect {
         get {
-            return CGRect(origin: origin, size: size)
+            return CGRect(origin: origin, size: bounds.size)
         }
         set {
             origin = newValue.origin
-            size = newValue.size
+            bounds.size = newValue.size
         }
     }
     
@@ -189,7 +187,9 @@ internal class ViewProperties: NSObject {
             position = newValue
         }
     }
-    var position:CGPoint
+    var anchorPoint: CGPoint
+    var position: CGPoint
+    var bounds: CGRect
     
     var backgroundColor: UIColor?
     
@@ -216,8 +216,9 @@ internal class ViewProperties: NSObject {
     var transform: CATransform3D
     
     init(view: UIView) {
-        size = view.frame.size
+        anchorPoint = view.layer.anchorPoint
         position = view.layer.position
+        bounds = view.layer.bounds
         backgroundColor = view.layer.backgroundColor?.getUIColor()
         borderColor = view.layer.borderColor?.getUIColor()
         borderWidth = view.layer.borderWidth
@@ -335,6 +336,7 @@ public struct KRAnimation {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             if !reverses { view.update(updatedProperties) }
+            
             view.layer.removeAllAnimations()
             completion?()
         }
@@ -438,7 +440,7 @@ public struct KRAnimation {
             fatalError("INCOMPLETE IMPLEMENTATION")
         
             // Rotation
-        case .RotationX, .RotationY, .RotationZ, .Rotation2D, .Rotation:
+        case .RotationX, .RotationY, .RotationZ:
             anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Scale
@@ -454,8 +456,8 @@ public struct KRAnimation {
             anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Translation
-        case .TranslationX, .TranslationY, .TranslationZ, .Translation2D, .Translation:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+        case .TranslationX, .TranslationY, .TranslationZ, .Translation:
+            anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Z Position
         case .ZPosition:
@@ -482,14 +484,14 @@ public struct KRAnimation {
             
         case .OriginX:
             let b = viewProperties.position.x
-            let e = (animDesc.endValue as! CGFloat) + viewProperties.size.width / 2.0
+            let e = (animDesc.endValue as! CGFloat) + viewProperties.bounds.width * viewProperties.anchorPoint.x
             
             f = { return getScaledValue(b, e, $0) }
             viewProperties.origin.x = animDesc.endValue as! CGFloat
             
         case .OriginY:
             let b = viewProperties.position.y
-            let e = (animDesc.endValue as! CGFloat) + viewProperties.size.height / 2.0
+            let e = (animDesc.endValue as! CGFloat) + viewProperties.bounds.height * viewProperties.anchorPoint.y
             
             f = { return getScaledValue(b, e, $0) }
             viewProperties.origin.y = animDesc.endValue as! CGFloat
@@ -500,8 +502,8 @@ public struct KRAnimation {
             let bX = viewProperties.position.x
             let bY = viewProperties.position.y
             
-            let eX = e.x + viewProperties.size.width / 2.0
-            let eY = e.y + viewProperties.size.height / 2.0
+            let eX = e.x + viewProperties.bounds.width*viewProperties.anchorPoint.x
+            let eY = e.y + viewProperties.bounds.height * viewProperties.anchorPoint.y
             
             f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bY, eY, $0))) }
             viewProperties.origin = e
@@ -509,29 +511,29 @@ public struct KRAnimation {
             // Size
             
         case .SizeWidth:
-            let b = viewProperties.size.width
+            let b = viewProperties.bounds.width
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
-            viewProperties.size.width = e
+            viewProperties.bounds.size.width = e
             
         case .SizeHeight:
-            let b = viewProperties.size.height
+            let b = viewProperties.bounds.height
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
-            viewProperties.size.height = e
+            viewProperties.bounds.size.height = e
             
         case .Size:
             let e = (animDesc.endValue as! NSValue).CGSizeValue()
             
-            let bW = viewProperties.size.width
-            let bH = viewProperties.size.height
+            let bW = viewProperties.bounds.width
+            let bH = viewProperties.bounds.height
             let eW = e.width
             let eH = e.height
             
             f = { return NSValue(CGSize: CGSizeMake(getScaledValue(bW, eW, $0), getScaledValue(bH, eH, $0))) }
-            viewProperties.size = e
+            viewProperties.bounds.size = e
         
             // Frame
             
@@ -686,7 +688,7 @@ public struct KRAnimation {
             
             viewProperties.transform = CATransform3DRotate(b, e, 0.0, 1.0, 0.0)
             
-        case .RotationZ, .Rotation2D, .Rotation:
+        case .RotationZ:
             let b = viewProperties.transform
             let e = animDesc.endValue as! CGFloat
             
@@ -723,6 +725,7 @@ public struct KRAnimation {
             }
             viewProperties.transform.m11 = e.m11
             viewProperties.transform.m22 = e.m22
+            
         case .ScaleZ:
             let b = viewProperties.transform.m33
             let e = animDesc.endValue as! CGFloat
@@ -730,6 +733,7 @@ public struct KRAnimation {
             f = { return getScaledValue(b, e, $0) }
             
             viewProperties.transform.m33 = e
+            
         case .Scale:
             let b = viewProperties.transform
             let e = (animDesc.endValue as! NSValue).CATransform3DValue
@@ -744,8 +748,58 @@ public struct KRAnimation {
             }
             viewProperties.transform = e
             
-        case .TranslationX, .TranslationY, .TranslationZ, .Translation2D, .Translation:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+            // Translation
+        case .TranslationX:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                let c = CATransform3DTranslate(b, e * scale, 0.0, 0.0)
+                
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = CATransform3DTranslate(b, e, 0.0, 0.0)
+            
+        case .TranslationY:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                let c = CATransform3DTranslate(b, 0.0, e * scale, 0.0)
+                
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = CATransform3DTranslate(b, 0.0, e, 0.0)
+            
+        case .TranslationZ:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                let c = CATransform3DTranslate(b, 0.0, 0.0, e * scale)
+                
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = CATransform3DTranslate(b, 0.0, 0.0, e)
+            
+        case .Translation:
+            let b = viewProperties.transform
+            let e = (animDesc.endValue as! NSValue).CGSizeValue()
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                let c = CATransform3DTranslate(b, e.width * scale, e.height * scale, 0.0)
+                
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = CATransform3DTranslate(b, e.width, e.height, 0.0)
             
         case .ZPosition:
             fatalError("INCOMPLETE IMPLEMENTATION")
