@@ -52,7 +52,7 @@ public enum FunctionType {
     case EaseInOutBounce
 }
 
-public enum AnimatableProperty {
+internal enum AnimatableProperty {
     case Origin
     case OriginX
     case OriginY
@@ -92,8 +92,6 @@ public enum AnimatableProperty {
     case RotationX
     case RotationY
     case RotationZ
-    case Rotation2D
-    case Rotation
     
     case ScaleX
     case ScaleY
@@ -104,7 +102,6 @@ public enum AnimatableProperty {
     case TranslationX
     case TranslationY
     case TranslationZ
-    case Translation2D
     case Translation
     
     case ZPosition
@@ -144,7 +141,9 @@ internal func degreeToRadian(degree: CGFloat) -> CGFloat {
 
 internal extension UIView {
     func update(properties: ViewProperties) {
-        frame = properties.frame
+        if layer.position != properties.position { layer.position = properties.position }
+        if layer.frame.size != properties.size { layer.frame.size = properties.size }
+
         backgroundColor = properties.backgroundColor
         layer.borderColor = properties.borderColor?.CGColor
         layer.borderWidth = properties.borderWidth
@@ -216,7 +215,7 @@ internal class ViewProperties: NSObject {
     var transform: CATransform3D
     
     init(view: UIView) {
-        size = view.frame.size
+        size = view.layer.frame.size
         position = view.layer.position
         backgroundColor = view.layer.backgroundColor?.getUIColor()
         borderColor = view.layer.borderColor?.getUIColor()
@@ -335,6 +334,7 @@ public struct KRAnimation {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             if !reverses { view.update(updatedProperties) }
+            
             view.layer.removeAllAnimations()
             completion?()
         }
@@ -438,7 +438,7 @@ public struct KRAnimation {
             fatalError("INCOMPLETE IMPLEMENTATION")
         
             // Rotation
-        case .RotationX, .RotationY, .RotationZ, .Rotation2D, .Rotation:
+        case .RotationX, .RotationY, .RotationZ:
             anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Scale
@@ -454,8 +454,8 @@ public struct KRAnimation {
             anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Translation
-        case .TranslationX, .TranslationY, .TranslationZ, .Translation2D, .Translation:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+        case .TranslationX, .TranslationY, .TranslationZ, .Translation:
+            anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Z Position
         case .ZPosition:
@@ -686,7 +686,7 @@ public struct KRAnimation {
             
             viewProperties.transform = CATransform3DRotate(b, e, 0.0, 1.0, 0.0)
             
-        case .RotationZ, .Rotation2D, .Rotation:
+        case .RotationZ:
             let b = viewProperties.transform
             let e = animDesc.endValue as! CGFloat
             
@@ -723,6 +723,7 @@ public struct KRAnimation {
             }
             viewProperties.transform.m11 = e.m11
             viewProperties.transform.m22 = e.m22
+            
         case .ScaleZ:
             let b = viewProperties.transform.m33
             let e = animDesc.endValue as! CGFloat
@@ -730,6 +731,7 @@ public struct KRAnimation {
             f = { return getScaledValue(b, e, $0) }
             
             viewProperties.transform.m33 = e
+            
         case .Scale:
             let b = viewProperties.transform
             let e = (animDesc.endValue as! NSValue).CATransform3DValue
@@ -744,8 +746,58 @@ public struct KRAnimation {
             }
             viewProperties.transform = e
             
-        case .TranslationX, .TranslationY, .TranslationZ, .Translation2D, .Translation:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+            // Translation
+        case .TranslationX:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                let c = CATransform3DTranslate(b, e * scale, 0.0, 0.0)
+                
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = CATransform3DTranslate(b, e, 0.0, 0.0)
+            
+        case .TranslationY:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                let c = CATransform3DTranslate(b, 0.0, e * scale, 0.0)
+                
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = CATransform3DTranslate(b, 0.0, e, 0.0)
+            
+        case .TranslationZ:
+            let b = viewProperties.transform
+            let e = animDesc.endValue as! CGFloat
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                let c = CATransform3DTranslate(b, 0.0, 0.0, e * scale)
+                
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = CATransform3DTranslate(b, 0.0, 0.0, e)
+            
+        case .Translation:
+            let b = viewProperties.transform
+            let e = (animDesc.endValue as! NSValue).CGSizeValue()
+            
+            f = {
+                let scale = getScaledValue(0.0, 1.0, $0)
+                let c = CATransform3DTranslate(b, e.width * scale, e.height * scale, 0.0)
+                
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = CATransform3DTranslate(b, e.width, e.height, 0.0)
             
         case .ZPosition:
             fatalError("INCOMPLETE IMPLEMENTATION")

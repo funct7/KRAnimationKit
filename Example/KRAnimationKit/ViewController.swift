@@ -76,17 +76,13 @@ class ViewController: UIViewController {
             print("COMPLETION")
         }
     }
+    
+    var frame: CGRect!
 
     @IBAction func defaultAnimation(sender: AnyObject) {
         viewBox.center = view.center
         
-        let rad = 180.0 * CGFloat(M_PI) / 180.0
-        viewBox.animateRotation(radian: rad, duration: 1.0)
-        
-//        KRAnimation.chain(
-//            viewBox.chainScale(2.0, 1.5, 0.0, duration: 2.0, function: .EaseInOutQuart),
-//            reverses: true
-//        )
+        viewBox.animateTranslationX(100.0, duration: 1.0)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
@@ -126,6 +122,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func stopAction(sender: AnyObject) {
+        viewBox.setNeedsLayout()
+
         viewBox.layer.removeAllAnimations()
         viewBox2.layer.removeAllAnimations()
     }
