@@ -141,10 +141,10 @@ internal func degreeToRadian(degree: CGFloat) -> CGFloat {
 
 internal extension UIView {
     func update(properties: ViewProperties) {
-        if layer.position != properties.position { layer.position = properties.position }
-        if layer.frame.size != properties.size { layer.frame.size = properties.size }
-
-        backgroundColor = properties.backgroundColor
+        layer.position = properties.position
+        layer.bounds.size = properties.bounds.size
+        
+        layer.backgroundColor = properties.backgroundColor?.CGColor
         layer.borderColor = properties.borderColor?.CGColor
         layer.borderWidth = properties.borderWidth
         layer.cornerRadius = properties.cornerRadius
@@ -161,22 +161,21 @@ internal extension UIView {
 internal class ViewProperties: NSObject {
     var origin: CGPoint {
         get {
-            let (x, y) = (position.x - size.width/2.0, position.y - size.height/2.0)
+            let (x, y) = (position.x - bounds.width*anchorPoint.x, position.y - bounds.height * anchorPoint.y)
             return CGPointMake(x, y)
         }
         set {
-            let (posX, posY) = (newValue.x + size.width/2.0, newValue.y + size.width/2.0)
+            let (posX, posY) = (newValue.x + bounds.width*anchorPoint.x, newValue.y + bounds.height * anchorPoint.y)
             position = CGPointMake(posX, posY)
         }
     }
-    var size: CGSize
     var frame: CGRect {
         get {
-            return CGRect(origin: origin, size: size)
+            return CGRect(origin: origin, size: bounds.size)
         }
         set {
             origin = newValue.origin
-            size = newValue.size
+            bounds.size = newValue.size
         }
     }
     
@@ -188,7 +187,9 @@ internal class ViewProperties: NSObject {
             position = newValue
         }
     }
-    var position:CGPoint
+    var anchorPoint: CGPoint
+    var position: CGPoint
+    var bounds: CGRect
     
     var backgroundColor: UIColor?
     
@@ -215,8 +216,9 @@ internal class ViewProperties: NSObject {
     var transform: CATransform3D
     
     init(view: UIView) {
-        size = view.layer.frame.size
+        anchorPoint = view.layer.anchorPoint
         position = view.layer.position
+        bounds = view.layer.bounds
         backgroundColor = view.layer.backgroundColor?.getUIColor()
         borderColor = view.layer.borderColor?.getUIColor()
         borderWidth = view.layer.borderWidth
@@ -482,14 +484,14 @@ public struct KRAnimation {
             
         case .OriginX:
             let b = viewProperties.position.x
-            let e = (animDesc.endValue as! CGFloat) + viewProperties.size.width / 2.0
+            let e = (animDesc.endValue as! CGFloat) + viewProperties.bounds.width * viewProperties.anchorPoint.x
             
             f = { return getScaledValue(b, e, $0) }
             viewProperties.origin.x = animDesc.endValue as! CGFloat
             
         case .OriginY:
             let b = viewProperties.position.y
-            let e = (animDesc.endValue as! CGFloat) + viewProperties.size.height / 2.0
+            let e = (animDesc.endValue as! CGFloat) + viewProperties.bounds.height * viewProperties.anchorPoint.y
             
             f = { return getScaledValue(b, e, $0) }
             viewProperties.origin.y = animDesc.endValue as! CGFloat
@@ -500,8 +502,8 @@ public struct KRAnimation {
             let bX = viewProperties.position.x
             let bY = viewProperties.position.y
             
-            let eX = e.x + viewProperties.size.width / 2.0
-            let eY = e.y + viewProperties.size.height / 2.0
+            let eX = e.x + viewProperties.bounds.width*viewProperties.anchorPoint.x
+            let eY = e.y + viewProperties.bounds.height * viewProperties.anchorPoint.y
             
             f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bY, eY, $0))) }
             viewProperties.origin = e
@@ -509,29 +511,29 @@ public struct KRAnimation {
             // Size
             
         case .SizeWidth:
-            let b = viewProperties.size.width
+            let b = viewProperties.bounds.width
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
-            viewProperties.size.width = e
+            viewProperties.bounds.size.width = e
             
         case .SizeHeight:
-            let b = viewProperties.size.height
+            let b = viewProperties.bounds.height
             let e = animDesc.endValue as! CGFloat
             
             f = { return getScaledValue(b, e, $0) }
-            viewProperties.size.height = e
+            viewProperties.bounds.size.height = e
             
         case .Size:
             let e = (animDesc.endValue as! NSValue).CGSizeValue()
             
-            let bW = viewProperties.size.width
-            let bH = viewProperties.size.height
+            let bW = viewProperties.bounds.width
+            let bH = viewProperties.bounds.height
             let eW = e.width
             let eH = e.height
             
             f = { return NSValue(CGSize: CGSizeMake(getScaledValue(bW, eW, $0), getScaledValue(bH, eH, $0))) }
-            viewProperties.size = e
+            viewProperties.bounds.size = e
         
             // Frame
             

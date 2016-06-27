@@ -80,9 +80,7 @@ class ViewController: UIViewController {
     var frame: CGRect!
 
     @IBAction func defaultAnimation(sender: AnyObject) {
-        viewBox.center = view.center
         
-        viewBox.animateTranslationX(100.0, duration: 1.0)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
