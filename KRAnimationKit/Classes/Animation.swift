@@ -125,39 +125,6 @@ public struct AnimationDescriptor {
     }
 }
 
-internal extension CGColor {
-    func getUIColor() -> UIColor {
-        return UIColor(CGColor: self)
-    }
-}
-
-internal func degreeToRadian(degree: Double) -> Double {
-    return degree * M_PI / 180.0
-}
-
-internal func degreeToRadian(degree: CGFloat) -> CGFloat {
-    return degree * CGFloat(M_PI) / 180.0
-}
-
-internal extension UIView {
-    func update(properties: ViewProperties) {
-        layer.position = properties.position
-        layer.bounds.size = properties.bounds.size
-        
-        layer.backgroundColor = properties.backgroundColor?.CGColor
-        layer.borderColor = properties.borderColor?.CGColor
-        layer.borderWidth = properties.borderWidth
-        layer.cornerRadius = properties.cornerRadius
-        layer.opacity = properties.opacity
-        layer.shadowColor = properties.shadowColor?.CGColor
-        layer.shadowOffset = properties.shadowOffset
-        layer.shadowOpacity = properties.shadowOpacity
-        layer.shadowPath = properties.shadowPath
-        layer.shadowRadius = properties.shadowRadius
-        layer.transform = properties.transform
-    }
-}
-
 internal class ViewProperties: NSObject {
     var origin: CGPoint {
         get {
@@ -437,7 +404,7 @@ public struct KRAnimation {
             
             // Transform
         case.Transform:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+            anim = CAKeyframeAnimation(keyPath: "transform")
         
             // Rotation
         case .RotationX, .RotationY, .RotationZ:
@@ -448,10 +415,10 @@ public struct KRAnimation {
             anim = CAKeyframeAnimation(keyPath: "transform.scale.x")
         case .ScaleY:
             anim = CAKeyframeAnimation(keyPath: "transform.scale.y")
-        case .Scale2D:
-            anim = CAKeyframeAnimation(keyPath: "transform")
         case .ScaleZ:
             anim = CAKeyframeAnimation(keyPath: "transform.scale.z")
+        case .Scale2D:
+            anim = CAKeyframeAnimation(keyPath: "transform")
         case .Scale:
             anim = CAKeyframeAnimation(keyPath: "transform")
             
@@ -662,7 +629,42 @@ public struct KRAnimation {
             // Transform
             
         case .Transform:
-            fatalError("INCOMPLETE IMPLEMENTATION")
+            let b = viewProperties.transform
+            let e = (animDesc.endValue as! NSValue).CATransform3DValue
+            
+            let (sx, sy, sz) = e.scale
+            let (rx, ry, rz) = e.rotation
+            let (tx, ty, tz) = e.translation
+            
+            let didScale = sx != 1.0 || sy != 1.0 || sz != 1.0
+            let didRotate = rx != 0.0 || ry != 0.0 || rz != 0.0
+            let didTranslate = tx != 0.0 || ty != 0.0 || tz != 0.0
+            
+            print(sx, sy, sz)
+            print(rx, ry, rz)
+            print(tx, ty, tz)
+            
+            f = {
+                var c = b
+                let s = getScaledValue(0.0, 1.0, $0)
+                
+                if didRotate {
+                    c = CATransform3DRotate(c, rx * s, 1.0, 0.0, 0.0)
+                    c = CATransform3DRotate(c, ry * s, 0.0, 1.0, 0.0)
+                    c = CATransform3DRotate(c, rz * s, 0.0, 0.0, 1.0)
+                }
+                
+                if didScale {
+                    c = CATransform3DScale(c, s * sx, s * sy, s * sz)
+                }
+                if didTranslate {
+                    c = CATransform3DTranslate(c, s * tx, s * ty, s * tz)
+                }
+
+                return NSValue(CATransform3D: c)
+            }
+            
+            viewProperties.transform = e
             
             // Rotation
             

@@ -325,6 +325,12 @@ public extension UIView {
 
     // MARK: - Transform
     
+    func animateTransform(t: CATransform3D, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {
+        let endValue = NSValue(CATransform3D: t)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .Transform, endValue: endValue, duration: duration, function: function)
+        KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
+    }
+    
     // MARK: - Rotation
     
     func animateRotationX(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {

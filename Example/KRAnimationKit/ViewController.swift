@@ -77,10 +77,10 @@ class ViewController: UIViewController {
         }
     }
     
-    var frame: CGRect!
-
     @IBAction func defaultAnimation(sender: AnyObject) {
-        
+        viewBox.center = view.center
+        let t = CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0)
+        viewBox.animateTransform(CATransform3DScale(t, 2.0, 2.0, 1.0), duration: 1.0)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {

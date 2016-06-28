@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0271D40A97123580209AD3CAC883C674 /* DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936E98E21F9C49E94813C0AF3AE7635 /* DelayedAnimation.swift */; };
+		032965A01D21E91300543394 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329659F1D21E91300543394 /* Convenience.swift */; };
 		038B9D3F1D1D0A9F003E6405 /* TimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B9D3E1D1D0A9F003E6405 /* TimingFunction.swift */; };
 		1DA39ECE1F39A6F2A4AD610EF4FF7995 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		24D9C6DD8D36E8A68BC275BF4A6B194B /* KRTimingFunction-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEA1748D7D819083F48E321FE7CC161 /* KRTimingFunction-dummy.m */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		005C6D32836196A9259E8B8FEC587650 /* Pods-KRAnimationKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KRAnimationKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		007C50A3C254E594888D456B134470B6 /* Pods_KRAnimationKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRAnimationKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0329659F1D21E91300543394 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		038B9D3E1D1D0A9F003E6405 /* TimingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunction.swift; sourceTree = "<group>"; };
 		086A265B89BBB173AF5962CE0836A50C /* KRTimingFunction-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRTimingFunction-prefix.pch"; sourceTree = "<group>"; };
 		08EDA2D0EF5A9233C34C7525271749E1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				25150E0059545D9A067628F551C6B1E9 /* Animation.swift */,
+				0329659F1D21E91300543394 /* Convenience.swift */,
 				544B1605E8A10B133822C80967CA6EA0 /* UIView+Animation.swift */,
 				C936E98E21F9C49E94813C0AF3AE7635 /* DelayedAnimation.swift */,
 				038B9D3E1D1D0A9F003E6405 /* TimingFunction.swift */,
@@ -366,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				038B9D3F1D1D0A9F003E6405 /* TimingFunction.swift in Sources */,
+				032965A01D21E91300543394 /* Convenience.swift in Sources */,
 				958ABAB8A05F618879C8FB4543D57B09 /* Animation.swift in Sources */,
 				0271D40A97123580209AD3CAC883C674 /* DelayedAnimation.swift in Sources */,
 				53A9F423D696A25CAA5BF262269D7907 /* KRAnimationKit-dummy.m in Sources */,
