@@ -302,10 +302,14 @@ public struct KRAnimation {
         
         CATransaction.begin()
         CATransaction.setCompletionBlock {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion?()
+            }
             if !reverses { view.update(updatedProperties) }
             
             view.layer.removeAllAnimations()
-            completion?()
+            CATransaction.commit()
         }
         
         let anim = getAnimation(animDescription, viewProperties: updatedProperties, setDelay: true)
