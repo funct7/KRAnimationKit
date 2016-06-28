@@ -28,7 +28,7 @@ KRAnimationKit is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'KRAnimationKit', git: => 'https://github.com/BridgeTheGap/KRAnimationKit.git'
+pod 'KRAnimationKit', :git => 'https://github.com/BridgeTheGap/KRAnimationKit.git'
 ```
 
 ## Syntax
