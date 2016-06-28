@@ -211,11 +211,15 @@ public struct KRAnimation {
         
         CATransaction.begin()
         CATransaction.setCompletionBlock {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion?()
+            }
             for (view, _) in animDic {
                 if !reverses { view.update(propDic[view]!) }
                 view.layer.removeAllAnimations()
             }
-            completion?()
+            CATransaction.commit()
         }
         
         for animDescArray in animDescriptors {
