@@ -40,21 +40,7 @@ internal extension CGColor {
 // MARK: - CATransform3D
 
 internal extension CATransform3D {
-    var scale: (CGFloat, CGFloat, CGFloat) {
-        let sx = sqrt(pow(m11, 2) + pow(m12, 2))
-        let sy = sqrt(pow(m22, 2) + pow(m23, 2))
-        let sz = sqrt(pow(m33, 2) + pow(m31, 2))
-        return (sx, sy, sz)
-    }
-    
-    var rotation: (CGFloat, CGFloat, CGFloat) {
-        let (sx, sy, sz) = scale
-        return (acos(m11/sx), acos(m22/sy), acos(m33/sz))
-    }
-    
-    var translation: (CGFloat, CGFloat, CGFloat) {
-        return (m41, m42, m43)
-    }
+    // TODO: Implement 
 }
 
 // MARK - Functions

@@ -328,6 +328,8 @@ public struct DelayedAnimation {
     
     // MARK: - Transform
     
+    // TODO: Implement transform animation
+    
     // MARK: - Rotation
     
     public func animateRotationX(degree degree: CGFloat, duration: Double, function: FunctionType = .Linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) {

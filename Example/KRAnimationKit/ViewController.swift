@@ -79,8 +79,19 @@ class ViewController: UIViewController {
     
     @IBAction func defaultAnimation(sender: AnyObject) {
         viewBox.center = view.center
-        let t = CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0)
-        viewBox.animateTransform(CATransform3DScale(t, 2.0, 2.0, 1.0), duration: 1.0)
+        
+        var t = CATransform3DIdentity
+        t = CATransform3DScale(t, 2.0, 1.5, 1.0)
+        t = CATransform3DRotate(t, CGFloat(M_PI_2), 1.0, 0.0, 0.0)
+        t = CATransform3DRotate(t, CGFloat(M_PI_2), 0.0, 1.0, 0.0)
+        
+        let anim = CABasicAnimation(keyPath: "transform")
+        anim.duration = 1.0
+        anim.toValue = NSValue(CATransform3D: t)
+        anim.removedOnCompletion = false
+        anim.fillMode = kCAFillModeForwards
+        
+        viewBox.layer.addAnimation(anim, forKey: nil)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {

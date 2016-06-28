@@ -629,42 +629,10 @@ public struct KRAnimation {
             // Transform
             
         case .Transform:
-            let b = viewProperties.transform
-            let e = (animDesc.endValue as! NSValue).CATransform3DValue
-            
-            let (sx, sy, sz) = e.scale
-            let (rx, ry, rz) = e.rotation
-            let (tx, ty, tz) = e.translation
-            
-            let didScale = sx != 1.0 || sy != 1.0 || sz != 1.0
-            let didRotate = rx != 0.0 || ry != 0.0 || rz != 0.0
-            let didTranslate = tx != 0.0 || ty != 0.0 || tz != 0.0
-            
-            print(sx, sy, sz)
-            print(rx, ry, rz)
-            print(tx, ty, tz)
-            
-            f = {
-                var c = b
-                let s = getScaledValue(0.0, 1.0, $0)
-                
-                if didRotate {
-                    c = CATransform3DRotate(c, rx * s, 1.0, 0.0, 0.0)
-                    c = CATransform3DRotate(c, ry * s, 0.0, 1.0, 0.0)
-                    c = CATransform3DRotate(c, rz * s, 0.0, 0.0, 1.0)
-                }
-                
-                if didScale {
-                    c = CATransform3DScale(c, s * sx, s * sy, s * sz)
-                }
-                if didTranslate {
-                    c = CATransform3DTranslate(c, s * tx, s * ty, s * tz)
-                }
+            fatalError("INCOMPLETE IMPLEMENTATION")
 
-                return NSValue(CATransform3D: c)
-            }
+            // TODO: Implement transform animation
             
-            viewProperties.transform = e
             
             // Rotation
             
