@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRTimingFunction
 
 public enum FunctionType {
     case Linear

@@ -34,12 +34,13 @@ Not only that, it's really simple to mix and match animations for different view
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'KRAnimationKit/Classes/**/*'
-  
+  s.dependency 'KRTimingFunction'
+
   # s.resource_bundles = {
   #   'KRAnimationKit' => ['KRAnimationKit/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+
 end

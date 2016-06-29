@@ -1,9 +1,9 @@
 use_frameworks!
 
 target 'KRAnimationKit_Example' do
+  pod 'KRTimingFunction', :git => 'https://github.com/BridgeTheGap/KRTimingFunction.git', :submodules => true
   pod 'KRAnimationKit', :path => '../'
 
-  pod 'KRTimingFunction', :git => 'https://github.com/BridgeTheGap/KRTimingFunction.git', :submodules => true
 
   # target 'KRAnimationKit_Tests' do
   #   inherit! :search_paths

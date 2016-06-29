@@ -92,6 +92,9 @@ class ViewController: UIViewController {
 //        anim.fillMode = kCAFillModeForwards
 //        
 //        viewBox.layer.addAnimation(anim, forKey: nil)
+        viewBox.after(0.5).animateY(200.0, duration: 1.0, function: .EaseInCubic) {
+            self.viewBox.after(0.5).animateX(200.0, duration: 1.0, function: .EaseInCubic)
+        }
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
