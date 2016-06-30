@@ -1,715 +1,1670 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		1A2AC25D7FE9D70B2A80A4665877E14A /* KRTimingFunction-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D6D81614940E2B7D5D7217E9975D5650 /* KRTimingFunction-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CCB1B3968DC2F0A32362F4FE55FE46F /* Pods-KRAnimationKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE9664FE99E9D25000503EC8CA5871F0 /* Pods-KRAnimationKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E07022B5327B77B1D36DEE928E9B7DF /* KRTimingFunction-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEA1748D7D819083F48E321FE7CC161 /* KRTimingFunction-dummy.m */; };
-		33210D3B4CF02F822BDF5C817C3A8187 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE5A1AD55D9624BC4BF9976984E5050 /* Foundation.framework */; };
-		58151C0D4D2A90AD5973C6BC7C72D29E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE5A1AD55D9624BC4BF9976984E5050 /* Foundation.framework */; };
-		71E87474365B5B944117D78093BA1519 /* KRAnimationKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB0EA393F1DF83338B925CDC635EDF2C /* KRAnimationKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		73DEA393D1E56E8D63E1B410A8B8944F /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBC25D6C925978DE799021F17073DD /* Animation.swift */; };
-		7C4C36D3F252E0AA846488C4157A77A6 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E86F6096BADF48507C2E982EF22C1 /* Convenience.swift */; };
-		9E2E88602E7AA7B379838A5E3F73EE74 /* KRTimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E9ADEF29AC36AF22B88A2ECF2466D /* KRTimingFunction.swift */; };
-		CE2EADBE4CCDCA6153FF40F048AEF0BD /* KRAnimationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F5D4A59AA49AF40D41D3660312C7CE /* KRAnimationKit-dummy.m */; };
-		D1FF6533116B8EE6FFBE5BE58B584CFA /* DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F2B943D81FCA6F1A0C3ECECDD26023 /* DelayedAnimation.swift */; };
-		D89BFF545EA2ABFE171CED45C21237CF /* KRTimingFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D787A84A5CF3CC6B0B71D0658EE83D /* KRTimingFunction.framework */; };
-		E0EFADFE12AFC62297D0F21928000B9D /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D920B361748D7D5468917021CB6418F7 /* UIView+Animation.swift */; };
-		FB8CA6A6EB908DDF3562C83DB116AD7C /* Pods-KRAnimationKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 268C4E596F1C6C8E81707047B441894C /* Pods-KRAnimationKit_Example-dummy.m */; };
-		FD880ABFA6290E55A0C4744D5F9D98D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE5A1AD55D9624BC4BF9976984E5050 /* Foundation.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		82AF8D2CC183FC954DC7D360B47DAF0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AA062FD87B12954F9F8FA31889A55A70;
-			remoteInfo = KRAnimationKit;
-		};
-		ED7B4A6490564CEB1E4CB6512B04F5CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 431534D696CC604F40435FD9AFBEBECC;
-			remoteInfo = KRTimingFunction;
-		};
-		F35057774CF19F9384D3021A7484E3CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 431534D696CC604F40435FD9AFBEBECC;
-			remoteInfo = KRTimingFunction;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		005C6D32836196A9259E8B8FEC587650 /* Pods-KRAnimationKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KRAnimationKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		007C50A3C254E594888D456B134470B6 /* Pods_KRAnimationKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRAnimationKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		086A265B89BBB173AF5962CE0836A50C /* KRTimingFunction-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRTimingFunction-prefix.pch"; sourceTree = "<group>"; };
-		08EDA2D0EF5A9233C34C7525271749E1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10864C50B532EFBE0564C136942449D6 /* KRTimingFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRTimingFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		12F2B943D81FCA6F1A0C3ECECDD26023 /* DelayedAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DelayedAnimation.swift; sourceTree = "<group>"; };
-		205E86F6096BADF48507C2E982EF22C1 /* Convenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
-		268C4E596F1C6C8E81707047B441894C /* Pods-KRAnimationKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KRAnimationKit_Example-dummy.m"; sourceTree = "<group>"; };
-		2C39304879B84C6917A58E43437EDE7B /* Pods-KRAnimationKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KRAnimationKit_Example-frameworks.sh"; sourceTree = "<group>"; };
-		514254A1AFB0260A12ED2B1E43EF02E6 /* Pods-KRAnimationKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-KRAnimationKit_Example.modulemap"; sourceTree = "<group>"; };
-		52F5D4A59AA49AF40D41D3660312C7CE /* KRAnimationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KRAnimationKit-dummy.m"; sourceTree = "<group>"; };
-		614ABC76C8D206C5B93CB8C795EF7018 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64D787A84A5CF3CC6B0B71D0658EE83D /* KRTimingFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRTimingFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		685243B436F1BE92EC2B17D399714E2B /* KRAnimationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRAnimationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7349A3547A4EBCA3C053E4E526504432 /* Pods-KRAnimationKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KRAnimationKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7661D40B50C73B2A61F1B4C246C8DF30 /* Pods-KRAnimationKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KRAnimationKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		7AE18119DF26778810AF3BC24D2BAC2A /* Pods-KRAnimationKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KRAnimationKit_Example-resources.sh"; sourceTree = "<group>"; };
-		874C708A808A9DDE7BF4E4932FA52692 /* KRAnimationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KRAnimationKit.modulemap; sourceTree = "<group>"; };
-		87611AA3C9F9FCCB21CCD150650476A3 /* KRAnimationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRAnimationKit-prefix.pch"; sourceTree = "<group>"; };
-		89EBC25D6C925978DE799021F17073DD /* Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
-		95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KRTimingFunction.xcconfig; sourceTree = "<group>"; };
-		96F0462853EA63AAEEAF1870D59DF488 /* Pods-KRAnimationKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KRAnimationKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		AB0EA393F1DF83338B925CDC635EDF2C /* KRAnimationKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRAnimationKit-umbrella.h"; sourceTree = "<group>"; };
-		ABE5A1AD55D9624BC4BF9976984E5050 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C56E9ADEF29AC36AF22B88A2ECF2466D /* KRTimingFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRTimingFunction.swift; path = KRTimingFunction/Classes/KRTimingFunction.swift; sourceTree = "<group>"; };
-		D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KRAnimationKit.xcconfig; sourceTree = "<group>"; };
-		D6D81614940E2B7D5D7217E9975D5650 /* KRTimingFunction-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRTimingFunction-umbrella.h"; sourceTree = "<group>"; };
-		D920B361748D7D5468917021CB6418F7 /* UIView+Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
-		DE9664FE99E9D25000503EC8CA5871F0 /* Pods-KRAnimationKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KRAnimationKit_Example-umbrella.h"; sourceTree = "<group>"; };
-		DFEA1748D7D819083F48E321FE7CC161 /* KRTimingFunction-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KRTimingFunction-dummy.m"; sourceTree = "<group>"; };
-		F4805D944E11CF41B9E8F6BF2B539C3A /* KRTimingFunction.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KRTimingFunction.modulemap; sourceTree = "<group>"; };
-		FB2AC21DB8BB464CDDE0E86C47EBC87B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		5D7BB65B6A7CF2CA585BCB439CE40427 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				33210D3B4CF02F822BDF5C817C3A8187 /* Foundation.framework in Frameworks */,
-				D89BFF545EA2ABFE171CED45C21237CF /* KRTimingFunction.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A0E043752D26E704C181D1BAD6370F81 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58151C0D4D2A90AD5973C6BC7C72D29E /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFA40C05DF2DA0F9D54FD411E31AD4ED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD880ABFA6290E55A0C4744D5F9D98D0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		059C15D926191B3849361F82BF2B1818 /* Pods-KRAnimationKit_Example */ = {
-			isa = PBXGroup;
-			children = (
-				08EDA2D0EF5A9233C34C7525271749E1 /* Info.plist */,
-				514254A1AFB0260A12ED2B1E43EF02E6 /* Pods-KRAnimationKit_Example.modulemap */,
-				7349A3547A4EBCA3C053E4E526504432 /* Pods-KRAnimationKit_Example-acknowledgements.markdown */,
-				005C6D32836196A9259E8B8FEC587650 /* Pods-KRAnimationKit_Example-acknowledgements.plist */,
-				268C4E596F1C6C8E81707047B441894C /* Pods-KRAnimationKit_Example-dummy.m */,
-				2C39304879B84C6917A58E43437EDE7B /* Pods-KRAnimationKit_Example-frameworks.sh */,
-				7AE18119DF26778810AF3BC24D2BAC2A /* Pods-KRAnimationKit_Example-resources.sh */,
-				DE9664FE99E9D25000503EC8CA5871F0 /* Pods-KRAnimationKit_Example-umbrella.h */,
-				96F0462853EA63AAEEAF1870D59DF488 /* Pods-KRAnimationKit_Example.debug.xcconfig */,
-				7661D40B50C73B2A61F1B4C246C8DF30 /* Pods-KRAnimationKit_Example.release.xcconfig */,
-			);
-			name = "Pods-KRAnimationKit_Example";
-			path = "Target Support Files/Pods-KRAnimationKit_Example";
-			sourceTree = "<group>";
-		};
-		0AFEB5B82EAB81C6401FFA86C8217F5F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				059C15D926191B3849361F82BF2B1818 /* Pods-KRAnimationKit_Example */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		38AAC2E1C487558877114430B9315580 /* KRAnimationKit */ = {
-			isa = PBXGroup;
-			children = (
-				CE23AFCF1AC55378865EB4C1A41BFA48 /* Classes */,
-			);
-			path = KRAnimationKit;
-			sourceTree = "<group>";
-		};
-		3F531312D09E51AFC513860A53699110 /* KRTimingFunction */ = {
-			isa = PBXGroup;
-			children = (
-				C56E9ADEF29AC36AF22B88A2ECF2466D /* KRTimingFunction.swift */,
-				8682604FC96AAE2B2FF3278AB7D9DEFB /* Support Files */,
-			);
-			path = KRTimingFunction;
-			sourceTree = "<group>";
-		};
-		4F10AAFA8E8FFCC3B509484330EF6375 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A4E590FC031C0FEF9ED3173402333B86 /* KRAnimationKit */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				4F10AAFA8E8FFCC3B509484330EF6375 /* Development Pods */,
-				EA62DA9F9A5B24416BBA1C44A189255D /* Frameworks */,
-				D1536AD4C7D71DA24AADC31FB09FE631 /* Pods */,
-				BCE1A3064BEA898426B7F20626AF9776 /* Products */,
-				0AFEB5B82EAB81C6401FFA86C8217F5F /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		8682604FC96AAE2B2FF3278AB7D9DEFB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				614ABC76C8D206C5B93CB8C795EF7018 /* Info.plist */,
-				F4805D944E11CF41B9E8F6BF2B539C3A /* KRTimingFunction.modulemap */,
-				95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */,
-				DFEA1748D7D819083F48E321FE7CC161 /* KRTimingFunction-dummy.m */,
-				086A265B89BBB173AF5962CE0836A50C /* KRTimingFunction-prefix.pch */,
-				D6D81614940E2B7D5D7217E9975D5650 /* KRTimingFunction-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/KRTimingFunction";
-			sourceTree = "<group>";
-		};
-		A4E590FC031C0FEF9ED3173402333B86 /* KRAnimationKit */ = {
-			isa = PBXGroup;
-			children = (
-				38AAC2E1C487558877114430B9315580 /* KRAnimationKit */,
-				F760188056A02500DCD9C4D16580DF5F /* Support Files */,
-			);
-			name = KRAnimationKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		BCE1A3064BEA898426B7F20626AF9776 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				685243B436F1BE92EC2B17D399714E2B /* KRAnimationKit.framework */,
-				10864C50B532EFBE0564C136942449D6 /* KRTimingFunction.framework */,
-				007C50A3C254E594888D456B134470B6 /* Pods_KRAnimationKit_Example.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		CE23AFCF1AC55378865EB4C1A41BFA48 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				89EBC25D6C925978DE799021F17073DD /* Animation.swift */,
-				205E86F6096BADF48507C2E982EF22C1 /* Convenience.swift */,
-				12F2B943D81FCA6F1A0C3ECECDD26023 /* DelayedAnimation.swift */,
-				D920B361748D7D5468917021CB6418F7 /* UIView+Animation.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		D1536AD4C7D71DA24AADC31FB09FE631 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3F531312D09E51AFC513860A53699110 /* KRTimingFunction */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D4FBE32FF389F304809AD44CD2DE215B /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				ABE5A1AD55D9624BC4BF9976984E5050 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		EA62DA9F9A5B24416BBA1C44A189255D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				64D787A84A5CF3CC6B0B71D0658EE83D /* KRTimingFunction.framework */,
-				D4FBE32FF389F304809AD44CD2DE215B /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F760188056A02500DCD9C4D16580DF5F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FB2AC21DB8BB464CDDE0E86C47EBC87B /* Info.plist */,
-				874C708A808A9DDE7BF4E4932FA52692 /* KRAnimationKit.modulemap */,
-				D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */,
-				52F5D4A59AA49AF40D41D3660312C7CE /* KRAnimationKit-dummy.m */,
-				87611AA3C9F9FCCB21CCD150650476A3 /* KRAnimationKit-prefix.pch */,
-				AB0EA393F1DF83338B925CDC635EDF2C /* KRAnimationKit-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/KRAnimationKit";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		30220E8D492F502C630BD9F61D341216 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CCB1B3968DC2F0A32362F4FE55FE46F /* Pods-KRAnimationKit_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BAE59D69C4A763EA0C07EEBC4CB99B2E /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A2AC25D7FE9D70B2A80A4665877E14A /* KRTimingFunction-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E35A8D79468B8A4511676BC8CB18B1CB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				71E87474365B5B944117D78093BA1519 /* KRAnimationKit-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		431534D696CC604F40435FD9AFBEBECC /* KRTimingFunction */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E0EF3D3CA99DB5A965FC27B811022676 /* Build configuration list for PBXNativeTarget "KRTimingFunction" */;
-			buildPhases = (
-				8C7D1E71C6BC837F1DC33BF28B081646 /* Sources */,
-				A0E043752D26E704C181D1BAD6370F81 /* Frameworks */,
-				BAE59D69C4A763EA0C07EEBC4CB99B2E /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = KRTimingFunction;
-			productName = KRTimingFunction;
-			productReference = 10864C50B532EFBE0564C136942449D6 /* KRTimingFunction.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		AA062FD87B12954F9F8FA31889A55A70 /* KRAnimationKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 02619EB8B7FCA9E00BED3CD665EE3B71 /* Build configuration list for PBXNativeTarget "KRAnimationKit" */;
-			buildPhases = (
-				8FCDFE9F269BF08364C7E9807E7E7CC4 /* Sources */,
-				5D7BB65B6A7CF2CA585BCB439CE40427 /* Frameworks */,
-				E35A8D79468B8A4511676BC8CB18B1CB /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8EA5457D581BE794B7A86EF806B4692C /* PBXTargetDependency */,
-			);
-			name = KRAnimationKit;
-			productName = KRAnimationKit;
-			productReference = 685243B436F1BE92EC2B17D399714E2B /* KRAnimationKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		FA4E3F74143D80DD5501ED24BECEFC93 /* Pods-KRAnimationKit_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1BF5240A1B10F0F6B12CDE7F595F130F /* Build configuration list for PBXNativeTarget "Pods-KRAnimationKit_Example" */;
-			buildPhases = (
-				C1095E3E591D8B3E3857561F56BB6E81 /* Sources */,
-				CFA40C05DF2DA0F9D54FD411E31AD4ED /* Frameworks */,
-				30220E8D492F502C630BD9F61D341216 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2AD52B25E69382CE393BE09D7BFF79AF /* PBXTargetDependency */,
-				FC5CE2A2BDE2868D169FFC477DBBA060 /* PBXTargetDependency */,
-			);
-			name = "Pods-KRAnimationKit_Example";
-			productName = "Pods-KRAnimationKit_Example";
-			productReference = 007C50A3C254E594888D456B134470B6 /* Pods_KRAnimationKit_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
-			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = BCE1A3064BEA898426B7F20626AF9776 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				AA062FD87B12954F9F8FA31889A55A70 /* KRAnimationKit */,
-				431534D696CC604F40435FD9AFBEBECC /* KRTimingFunction */,
-				FA4E3F74143D80DD5501ED24BECEFC93 /* Pods-KRAnimationKit_Example */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		8C7D1E71C6BC837F1DC33BF28B081646 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2E07022B5327B77B1D36DEE928E9B7DF /* KRTimingFunction-dummy.m in Sources */,
-				9E2E88602E7AA7B379838A5E3F73EE74 /* KRTimingFunction.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8FCDFE9F269BF08364C7E9807E7E7CC4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				73DEA393D1E56E8D63E1B410A8B8944F /* Animation.swift in Sources */,
-				7C4C36D3F252E0AA846488C4157A77A6 /* Convenience.swift in Sources */,
-				D1FF6533116B8EE6FFBE5BE58B584CFA /* DelayedAnimation.swift in Sources */,
-				CE2EADBE4CCDCA6153FF40F048AEF0BD /* KRAnimationKit-dummy.m in Sources */,
-				E0EFADFE12AFC62297D0F21928000B9D /* UIView+Animation.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C1095E3E591D8B3E3857561F56BB6E81 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB8CA6A6EB908DDF3562C83DB116AD7C /* Pods-KRAnimationKit_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2AD52B25E69382CE393BE09D7BFF79AF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KRAnimationKit;
-			target = AA062FD87B12954F9F8FA31889A55A70 /* KRAnimationKit */;
-			targetProxy = 82AF8D2CC183FC954DC7D360B47DAF0E /* PBXContainerItemProxy */;
-		};
-		8EA5457D581BE794B7A86EF806B4692C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KRTimingFunction;
-			target = 431534D696CC604F40435FD9AFBEBECC /* KRTimingFunction */;
-			targetProxy = F35057774CF19F9384D3021A7484E3CC /* PBXContainerItemProxy */;
-		};
-		FC5CE2A2BDE2868D169FFC477DBBA060 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KRTimingFunction;
-			target = 431534D696CC604F40435FD9AFBEBECC /* KRTimingFunction */;
-			targetProxy = ED7B4A6490564CEB1E4CB6512B04F5CC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		149DF3A8B9F7E59FF614BEA9BDBAF9F0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7661D40B50C73B2A61F1B4C246C8DF30 /* Pods-KRAnimationKit_Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_KRAnimationKit_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		17ADC2380C9A1BD1F7043C3D0592D3BA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KRTimingFunction/KRTimingFunction-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KRTimingFunction/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KRTimingFunction/KRTimingFunction.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = KRTimingFunction;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		552D02D5BA751AC2E8790D2811D496CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				ONLY_ACTIVE_ARCH = YES;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		AB9443BE28B3914C3CEC2A7627B7078C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96F0462853EA63AAEEAF1870D59DF488 /* Pods-KRAnimationKit_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_KRAnimationKit_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		CD6681DE0D4A456DEA2D704B094580F9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KRAnimationKit/KRAnimationKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KRAnimationKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KRAnimationKit/KRAnimationKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = KRAnimationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		EDC44412A2EEA3155FD20F2CA606A88F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KRTimingFunction/KRTimingFunction-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KRTimingFunction/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KRTimingFunction/KRTimingFunction.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = KRTimingFunction;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		EE5E73BEE90510BA887195072E804AE1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KRAnimationKit/KRAnimationKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KRAnimationKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KRAnimationKit/KRAnimationKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = KRAnimationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		02619EB8B7FCA9E00BED3CD665EE3B71 /* Build configuration list for PBXNativeTarget "KRAnimationKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CD6681DE0D4A456DEA2D704B094580F9 /* Debug */,
-				EE5E73BEE90510BA887195072E804AE1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1BF5240A1B10F0F6B12CDE7F595F130F /* Build configuration list for PBXNativeTarget "Pods-KRAnimationKit_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AB9443BE28B3914C3CEC2A7627B7078C /* Debug */,
-				149DF3A8B9F7E59FF614BEA9BDBAF9F0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				552D02D5BA751AC2E8790D2811D496CA /* Debug */,
-				10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E0EF3D3CA99DB5A965FC27B811022676 /* Build configuration list for PBXNativeTarget "KRTimingFunction" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				17ADC2380C9A1BD1F7043C3D0592D3BA /* Debug */,
-				EDC44412A2EEA3155FD20F2CA606A88F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>005C6D32836196A9259E8B8FEC587650</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>007C50A3C254E594888D456B134470B6</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>Pods_KRAnimationKit_Example.framework</string>
+			<key>path</key>
+			<string>Pods_KRAnimationKit_Example.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>059C15D926191B3849361F82BF2B1818</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>08EDA2D0EF5A9233C34C7525271749E1</string>
+				<string>514254A1AFB0260A12ED2B1E43EF02E6</string>
+				<string>7349A3547A4EBCA3C053E4E526504432</string>
+				<string>005C6D32836196A9259E8B8FEC587650</string>
+				<string>268C4E596F1C6C8E81707047B441894C</string>
+				<string>2C39304879B84C6917A58E43437EDE7B</string>
+				<string>7AE18119DF26778810AF3BC24D2BAC2A</string>
+				<string>DE9664FE99E9D25000503EC8CA5871F0</string>
+				<string>96F0462853EA63AAEEAF1870D59DF488</string>
+				<string>7661D40B50C73B2A61F1B4C246C8DF30</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods-KRAnimationKit_Example</string>
+			<key>path</key>
+			<string>Target Support Files/Pods-KRAnimationKit_Example</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>086A265B89BBB173AF5962CE0836A50C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>KRTimingFunction-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>08EDA2D0EF5A9233C34C7525271749E1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0AFEB5B82EAB81C6401FFA86C8217F5F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>059C15D926191B3849361F82BF2B1818</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10864C50B532EFBE0564C136942449D6</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>KRTimingFunction.framework</string>
+			<key>path</key>
+			<string>KRTimingFunction.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>10DE1947DAC0ED28F6C0A9F9BD75D546</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>RELEASE=1</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>13DBF9DE6D2C1239247207BA95CA2F6A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CDC875E4D2E034FE38C2C0886425D3EC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>149DF3A8B9F7E59FF614BEA9BDBAF9F0</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>7661D40B50C73B2A61F1B4C246C8DF30</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-KRAnimationKit_Example/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_KRAnimationKit_Example</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>1BD9134DC67EA80E89F861AB61B3A181</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D6D81614940E2B7D5D7217E9975D5650</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>1BF5240A1B10F0F6B12CDE7F595F130F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AB9443BE28B3914C3CEC2A7627B7078C</string>
+				<string>149DF3A8B9F7E59FF614BEA9BDBAF9F0</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>268C4E596F1C6C8E81707047B441894C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AD52B25E69382CE393BE09D7BFF79AF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>KRAnimationKit</string>
+			<key>target</key>
+			<string>4C650EA5470BBC68FF2BA2A8C416CC05</string>
+			<key>targetProxy</key>
+			<string>82AF8D2CC183FC954DC7D360B47DAF0E</string>
+		</dict>
+		<key>2C39304879B84C6917A58E43437EDE7B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example-frameworks.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2CCB1B3968DC2F0A32362F4FE55FE46F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DE9664FE99E9D25000503EC8CA5871F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>552D02D5BA751AC2E8790D2811D496CA</string>
+				<string>10DE1947DAC0ED28F6C0A9F9BD75D546</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>30220E8D492F502C630BD9F61D341216</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>2CCB1B3968DC2F0A32362F4FE55FE46F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>34F38DBFF211B010EC4DAF593A7D8FF1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UIView+Animation.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3686E8AD3944E115CF09DE49E2B3FA46</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D1D37D9BA93FF8B8327D09FEB728A97D</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/KRAnimationKit/KRAnimationKit-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/KRAnimationKit/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/KRAnimationKit/KRAnimationKit.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>KRAnimationKit</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>39FC58690CDF0E608B5537A2989B828B</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D1D37D9BA93FF8B8327D09FEB728A97D</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/KRAnimationKit/KRAnimationKit-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/KRAnimationKit/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/KRAnimationKit/KRAnimationKit.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>PRODUCT_NAME</key>
+				<string>KRAnimationKit</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>3CD8DE0AE37BB14AF0307903ADF8F5A5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DFEA1748D7D819083F48E321FE7CC161</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F531312D09E51AFC513860A53699110</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C56E9ADEF29AC36AF22B88A2ECF2466D</string>
+				<string>8682604FC96AAE2B2FF3278AB7D9DEFB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>KRTimingFunction</string>
+			<key>path</key>
+			<string>KRTimingFunction</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>455CD78A44935F8FBC9E3B6FD7525778</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ABE5A1AD55D9624BC4BF9976984E5050</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>47AF2DAC0F2D6DCFE200FD0BDD384145</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AB0EA393F1DF83338B925CDC635EDF2C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>4C650EA5470BBC68FF2BA2A8C416CC05</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>9E32E10F40EE8F8E13D9AEC6560AD424</string>
+			<key>buildPhases</key>
+			<array>
+				<string>A18FD4FCC7EE3E02EEEB8F5D10B130CE</string>
+				<string>63CC73CA1534C9F6103178D989DDD8CE</string>
+				<string>63261A33FE1C5ADD7021C554DF085758</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>75871C5E985988DCC5DDF43092F034B5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>KRAnimationKit</string>
+			<key>productName</key>
+			<string>KRAnimationKit</string>
+			<key>productReference</key>
+			<string>685243B436F1BE92EC2B17D399714E2B</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>4F10AAFA8E8FFCC3B509484330EF6375</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A4E590FC031C0FEF9ED3173402333B86</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Development Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>514254A1AFB0260A12ED2B1E43EF02E6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>51461B3257A27F4792F98CED3584F594</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DelayedAnimation.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>52F5D4A59AA49AF40D41D3660312C7CE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>KRAnimationKit-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5310896ECD74FC585B54DFDEA86B0630</key>
+		<dict>
+			<key>fileRef</key>
+			<string>64D787A84A5CF3CC6B0B71D0658EE83D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>552D02D5BA751AC2E8790D2811D496CA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>5D2BECE7655F075B23582E5FED737A8F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7FCE4E070DE492E9D4D651A918B58715</string>
+				<string>CDC875E4D2E034FE38C2C0886425D3EC</string>
+				<string>51461B3257A27F4792F98CED3584F594</string>
+				<string>34F38DBFF211B010EC4DAF593A7D8FF1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Classes</string>
+			<key>path</key>
+			<string>Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>614ABC76C8D206C5B93CB8C795EF7018</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>63261A33FE1C5ADD7021C554DF085758</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>47AF2DAC0F2D6DCFE200FD0BDD384145</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>63CC73CA1534C9F6103178D989DDD8CE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F55E4BC3911F3F504A47E3E46C13ADBA</string>
+				<string>5310896ECD74FC585B54DFDEA86B0630</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>64D787A84A5CF3CC6B0B71D0658EE83D</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>KRTimingFunction.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>685243B436F1BE92EC2B17D399714E2B</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>KRAnimationKit.framework</string>
+			<key>path</key>
+			<string>KRAnimationKit.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6ABA908EFBABA68C0E568D59BBB8585B</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>A80BABC3A803CE56768F12C0330ED73B</string>
+			<key>buildPhases</key>
+			<array>
+				<string>B877B1FBC5FD7F9759444B7D673CB705</string>
+				<string>E65E0F6C45C72E7DFD000F94F274671F</string>
+				<string>FE83144D4C8E8ACBBCF6DC3B4DD39C7F</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>KRTimingFunction</string>
+			<key>productName</key>
+			<string>KRTimingFunction</string>
+			<key>productReference</key>
+			<string>10864C50B532EFBE0564C136942449D6</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>7349A3547A4EBCA3C053E4E526504432</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>75871C5E985988DCC5DDF43092F034B5</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>KRTimingFunction</string>
+			<key>target</key>
+			<string>6ABA908EFBABA68C0E568D59BBB8585B</string>
+			<key>targetProxy</key>
+			<string>C928F9535503C8D05BD15EE160F5A9C9</string>
+		</dict>
+		<key>7661D40B50C73B2A61F1B4C246C8DF30</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7AE18119DF26778810AF3BC24D2BAC2A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7DB346D0F39D3F0E887471402A8071AB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
+				<string>4F10AAFA8E8FFCC3B509484330EF6375</string>
+				<string>EA62DA9F9A5B24416BBA1C44A189255D</string>
+				<string>D1536AD4C7D71DA24AADC31FB09FE631</string>
+				<string>BCE1A3064BEA898426B7F20626AF9776</string>
+				<string>0AFEB5B82EAB81C6401FFA86C8217F5F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7FCE4E070DE492E9D4D651A918B58715</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Animation.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>82AF8D2CC183FC954DC7D360B47DAF0E</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>4C650EA5470BBC68FF2BA2A8C416CC05</string>
+			<key>remoteInfo</key>
+			<string>KRAnimationKit</string>
+		</dict>
+		<key>841BACAA0FD876FDF1803B1338C37A72</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5D2BECE7655F075B23582E5FED737A8F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>KRAnimationKit</string>
+			<key>path</key>
+			<string>KRAnimationKit</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8682604FC96AAE2B2FF3278AB7D9DEFB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>614ABC76C8D206C5B93CB8C795EF7018</string>
+				<string>F4805D944E11CF41B9E8F6BF2B539C3A</string>
+				<string>95A8489F9F00FD5F1178F8EC3715E20E</string>
+				<string>DFEA1748D7D819083F48E321FE7CC161</string>
+				<string>086A265B89BBB173AF5962CE0836A50C</string>
+				<string>D6D81614940E2B7D5D7217E9975D5650</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/KRTimingFunction</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>874C708A808A9DDE7BF4E4932FA52692</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>KRAnimationKit.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>87611AA3C9F9FCCB21CCD150650476A3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>KRAnimationKit-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8F740B025E6E269B2328B4E65CDE50AF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>34F38DBFF211B010EC4DAF593A7D8FF1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>95A8489F9F00FD5F1178F8EC3715E20E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>KRTimingFunction.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96F0462853EA63AAEEAF1870D59DF488</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9E32E10F40EE8F8E13D9AEC6560AD424</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3686E8AD3944E115CF09DE49E2B3FA46</string>
+				<string>39FC58690CDF0E608B5537A2989B828B</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>A18FD4FCC7EE3E02EEEB8F5D10B130CE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B46FB6A9B113FB7FB7F0C93D8826ECB9</string>
+				<string>13DBF9DE6D2C1239247207BA95CA2F6A</string>
+				<string>C42C48BB411F63FC369AA752B6B453D7</string>
+				<string>DD0FFEB20B5D6FA48EA40AE052B1403C</string>
+				<string>8F740B025E6E269B2328B4E65CDE50AF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A4E590FC031C0FEF9ED3173402333B86</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>841BACAA0FD876FDF1803B1338C37A72</string>
+				<string>F760188056A02500DCD9C4D16580DF5F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>KRAnimationKit</string>
+			<key>path</key>
+			<string>../..</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A80BABC3A803CE56768F12C0330ED73B</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>EC561022D327201AE18A8112AF53BB66</string>
+				<string>DFB7ECB6D70393950A18D14D8D5533B6</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>A83C4FDE2EDDD0CB2F4B7E414561BBD3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C56E9ADEF29AC36AF22B88A2ECF2466D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AB0EA393F1DF83338B925CDC635EDF2C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>KRAnimationKit-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AB9443BE28B3914C3CEC2A7627B7078C</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>96F0462853EA63AAEEAF1870D59DF488</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-KRAnimationKit_Example/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_KRAnimationKit_Example</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>ABE5A1AD55D9624BC4BF9976984E5050</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>B46FB6A9B113FB7FB7F0C93D8826ECB9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7FCE4E070DE492E9D4D651A918B58715</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B877B1FBC5FD7F9759444B7D673CB705</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3CD8DE0AE37BB14AF0307903ADF8F5A5</string>
+				<string>A83C4FDE2EDDD0CB2F4B7E414561BBD3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.ruby</string>
+		</dict>
+		<key>BCE1A3064BEA898426B7F20626AF9776</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>685243B436F1BE92EC2B17D399714E2B</string>
+				<string>10864C50B532EFBE0564C136942449D6</string>
+				<string>007C50A3C254E594888D456B134470B6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C1095E3E591D8B3E3857561F56BB6E81</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FB8CA6A6EB908DDF3562C83DB116AD7C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>C42C48BB411F63FC369AA752B6B453D7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>51461B3257A27F4792F98CED3584F594</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>C56E9ADEF29AC36AF22B88A2ECF2466D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>KRTimingFunction.swift</string>
+			<key>path</key>
+			<string>KRTimingFunction/Classes/KRTimingFunction.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C928F9535503C8D05BD15EE160F5A9C9</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>6ABA908EFBABA68C0E568D59BBB8585B</string>
+			<key>remoteInfo</key>
+			<string>KRTimingFunction</string>
+		</dict>
+		<key>CDC875E4D2E034FE38C2C0886425D3EC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Convenience.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CFA40C05DF2DA0F9D54FD411E31AD4ED</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FD880ABFA6290E55A0C4744D5F9D98D0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>D1536AD4C7D71DA24AADC31FB09FE631</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3F531312D09E51AFC513860A53699110</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D1D37D9BA93FF8B8327D09FEB728A97D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>KRAnimationKit.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D41D8CD98F00B204E9800998ECF8427E</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0700</string>
+				<key>LastUpgradeCheck</key>
+				<string>0700</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>7DB346D0F39D3F0E887471402A8071AB</string>
+			<key>productRefGroup</key>
+			<string>BCE1A3064BEA898426B7F20626AF9776</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>4C650EA5470BBC68FF2BA2A8C416CC05</string>
+				<string>6ABA908EFBABA68C0E568D59BBB8585B</string>
+				<string>FA4E3F74143D80DD5501ED24BECEFC93</string>
+			</array>
+		</dict>
+		<key>D4FBE32FF389F304809AD44CD2DE215B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>ABE5A1AD55D9624BC4BF9976984E5050</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D6D81614940E2B7D5D7217E9975D5650</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>KRTimingFunction-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DD0FFEB20B5D6FA48EA40AE052B1403C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>52F5D4A59AA49AF40D41D3660312C7CE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>DE9664FE99E9D25000503EC8CA5871F0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-KRAnimationKit_Example-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DFB7ECB6D70393950A18D14D8D5533B6</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>95A8489F9F00FD5F1178F8EC3715E20E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/KRTimingFunction/KRTimingFunction-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/KRTimingFunction/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/KRTimingFunction/KRTimingFunction.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>PRODUCT_NAME</key>
+				<string>KRTimingFunction</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>DFEA1748D7D819083F48E321FE7CC161</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>KRTimingFunction-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E65E0F6C45C72E7DFD000F94F274671F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>455CD78A44935F8FBC9E3B6FD7525778</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>EA62DA9F9A5B24416BBA1C44A189255D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>64D787A84A5CF3CC6B0B71D0658EE83D</string>
+				<string>D4FBE32FF389F304809AD44CD2DE215B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC561022D327201AE18A8112AF53BB66</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>95A8489F9F00FD5F1178F8EC3715E20E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/KRTimingFunction/KRTimingFunction-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/KRTimingFunction/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/KRTimingFunction/KRTimingFunction.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>KRTimingFunction</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>ED7B4A6490564CEB1E4CB6512B04F5CC</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>6ABA908EFBABA68C0E568D59BBB8585B</string>
+			<key>remoteInfo</key>
+			<string>KRTimingFunction</string>
+		</dict>
+		<key>F4805D944E11CF41B9E8F6BF2B539C3A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>KRTimingFunction.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55E4BC3911F3F504A47E3E46C13ADBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ABE5A1AD55D9624BC4BF9976984E5050</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F760188056A02500DCD9C4D16580DF5F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FB2AC21DB8BB464CDDE0E86C47EBC87B</string>
+				<string>874C708A808A9DDE7BF4E4932FA52692</string>
+				<string>D1D37D9BA93FF8B8327D09FEB728A97D</string>
+				<string>52F5D4A59AA49AF40D41D3660312C7CE</string>
+				<string>87611AA3C9F9FCCB21CCD150650476A3</string>
+				<string>AB0EA393F1DF83338B925CDC635EDF2C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>Example/Pods/Target Support Files/KRAnimationKit</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FA4E3F74143D80DD5501ED24BECEFC93</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>1BF5240A1B10F0F6B12CDE7F595F130F</string>
+			<key>buildPhases</key>
+			<array>
+				<string>C1095E3E591D8B3E3857561F56BB6E81</string>
+				<string>CFA40C05DF2DA0F9D54FD411E31AD4ED</string>
+				<string>30220E8D492F502C630BD9F61D341216</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>2AD52B25E69382CE393BE09D7BFF79AF</string>
+				<string>FC5CE2A2BDE2868D169FFC477DBBA060</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-KRAnimationKit_Example</string>
+			<key>productName</key>
+			<string>Pods-KRAnimationKit_Example</string>
+			<key>productReference</key>
+			<string>007C50A3C254E594888D456B134470B6</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>FB2AC21DB8BB464CDDE0E86C47EBC87B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB8CA6A6EB908DDF3562C83DB116AD7C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>268C4E596F1C6C8E81707047B441894C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FC5CE2A2BDE2868D169FFC477DBBA060</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>KRTimingFunction</string>
+			<key>target</key>
+			<string>6ABA908EFBABA68C0E568D59BBB8585B</string>
+			<key>targetProxy</key>
+			<string>ED7B4A6490564CEB1E4CB6512B04F5CC</string>
+		</dict>
+		<key>FD880ABFA6290E55A0C4744D5F9D98D0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ABE5A1AD55D9624BC4BF9976984E5050</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FE83144D4C8E8ACBBCF6DC3B4DD39C7F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1BD9134DC67EA80E89F861AB61B3A181</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>D41D8CD98F00B204E9800998ECF8427E</string>
+</dict>
+</plist>
