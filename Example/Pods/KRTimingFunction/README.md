@@ -77,7 +77,7 @@ TimingFunction.Linear(rt: 0.5, b: 0.0, c: 100.0)
 - `rt`: Relative time (the progress in relation to the whole duration of animation that you would calculate the value for.) In the example above, if the whole duration of the animation is 2 seconds, the function will be giving back the value for the 1 second marker, which is 0.5 of the whole animation time.
 
 - `b`: Beginning value. In the example above, if the animation was animating the origin.x of a view, the view would be starting from 0.0.
-- `c`: Change in value (the end value). In the example above, if the animation was animating the origin.x of a view, the view would be ending at 100.0.
+- `c`: Change in value (the end value - beginning value). In the example above, if the animation was animating the origin.x of a view, the view would be ending at 100.0.
 
 - (The reason why KRTimingFunction uses relative time instead of absolute duration and absolute current time is that it was originally intended to be used in conjunction with `UIView.addKeyframeWithRelativeStartTime(_:, relativeDuration:, animations:)`. Also, the original JQuery function converts the absolute duration and absolute current time to relative time for most functions anyway.)
 

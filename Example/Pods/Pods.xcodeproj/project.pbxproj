@@ -7,70 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0271D40A97123580209AD3CAC883C674 /* DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936E98E21F9C49E94813C0AF3AE7635 /* DelayedAnimation.swift */; };
-		032965A01D21E91300543394 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329659F1D21E91300543394 /* Convenience.swift */; };
-		03BC56EE1D276CA000E5B115 /* TimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BC56ED1D276CA000E5B115 /* TimingFunction.swift */; };
-		1DA39ECE1F39A6F2A4AD610EF4FF7995 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		24D9C6DD8D36E8A68BC275BF4A6B194B /* KRTimingFunction-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEA1748D7D819083F48E321FE7CC161 /* KRTimingFunction-dummy.m */; };
-		2CCB1B3968DC2F0A32362F4FE55FE46F /* Pods-KRAnimationKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE9664FE99E9D25000503EC8CA5871F0 /* Pods-KRAnimationKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		35E487630D33C172F745F39425ED7D53 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544B1605E8A10B133822C80967CA6EA0 /* UIView+Animation.swift */; };
-		53A9F423D696A25CAA5BF262269D7907 /* KRAnimationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F5D4A59AA49AF40D41D3660312C7CE /* KRAnimationKit-dummy.m */; };
-		5E078D481B105457DE6AA5184A109E38 /* KRAnimationKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB0EA393F1DF83338B925CDC635EDF2C /* KRAnimationKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		730EDB9A8E2A2DCA5004D2A4C744B607 /* KRTimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E9ADEF29AC36AF22B88A2ECF2466D /* KRTimingFunction.swift */; };
-		958ABAB8A05F618879C8FB4543D57B09 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25150E0059545D9A067628F551C6B1E9 /* Animation.swift */; };
-		F3449E5A26B0C82F8A0740128120781E /* KRTimingFunction-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D6D81614940E2B7D5D7217E9975D5650 /* KRTimingFunction-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F9E833BF58116CFE173DCABE0B07BC67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		FB8CA6A6EB908DDF3562C83DB116AD7C /* Pods-KRAnimationKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 268C4E596F1C6C8E81707047B441894C /* Pods-KRAnimationKit_Example-dummy.m */; };
-		FD880ABFA6290E55A0C4744D5F9D98D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		1A2AC25D7FE9D70B2A80A4665877E14A /* KRTimingFunction-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D6D81614940E2B7D5D7217E9975D5650 /* KRTimingFunction-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E07022B5327B77B1D36DEE928E9B7DF /* KRTimingFunction-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEA1748D7D819083F48E321FE7CC161 /* KRTimingFunction-dummy.m */; };
+		2FF0248E56292C207A21564154ECD9E8 /* Pods-KRAnimationKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE9664FE99E9D25000503EC8CA5871F0 /* Pods-KRAnimationKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EE25860E1EA86735CB5DFA50FFC00CF /* Pods-KRAnimationKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 268C4E596F1C6C8E81707047B441894C /* Pods-KRAnimationKit_Example-dummy.m */; };
+		71E87474365B5B944117D78093BA1519 /* KRAnimationKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB0EA393F1DF83338B925CDC635EDF2C /* KRAnimationKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		73DEA393D1E56E8D63E1B410A8B8944F /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBC25D6C925978DE799021F17073DD /* Animation.swift */; };
+		7A18C66BF1123F3EFE1BE3AE7CB61318 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A22E74DFABECC275F6FE5E36BADCC4F /* Foundation.framework */; };
+		7C4C36D3F252E0AA846488C4157A77A6 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E86F6096BADF48507C2E982EF22C1 /* Convenience.swift */; };
+		92C8F8C8C5DB1022CF1DC9A3EBFB9917 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A22E74DFABECC275F6FE5E36BADCC4F /* Foundation.framework */; };
+		9E2E88602E7AA7B379838A5E3F73EE74 /* KRTimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E9ADEF29AC36AF22B88A2ECF2466D /* KRTimingFunction.swift */; };
+		A4EBFD5276B8017F5BAB5F550057B27C /* TimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D46F56A1E4E759AEE453C69BA6A71 /* TimingFunction.swift */; };
+		CE2EADBE4CCDCA6153FF40F048AEF0BD /* KRAnimationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F5D4A59AA49AF40D41D3660312C7CE /* KRAnimationKit-dummy.m */; };
+		D1FF6533116B8EE6FFBE5BE58B584CFA /* DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F2B943D81FCA6F1A0C3ECECDD26023 /* DelayedAnimation.swift */; };
+		D89BFF545EA2ABFE171CED45C21237CF /* KRTimingFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D787A84A5CF3CC6B0B71D0658EE83D /* KRTimingFunction.framework */; };
+		E0EFADFE12AFC62297D0F21928000B9D /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D920B361748D7D5468917021CB6418F7 /* UIView+Animation.swift */; };
+		E751BD2DDC214982C264BA9F99BFB1FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A22E74DFABECC275F6FE5E36BADCC4F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		82AF8D2CC183FC954DC7D360B47DAF0E /* PBXContainerItemProxy */ = {
+		2B06B8E357E6AC65107372306A37B27F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7E940CA27B115D87406AC607C6990D51;
+			remoteGlobalIDString = 431534D696CC604F40435FD9AFBEBECC;
+			remoteInfo = KRTimingFunction;
+		};
+		C38ACC18016AEAD13DD3A3B039CB3BBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA062FD87B12954F9F8FA31889A55A70;
 			remoteInfo = KRAnimationKit;
 		};
-		ED7B4A6490564CEB1E4CB6512B04F5CC /* PBXContainerItemProxy */ = {
+		F35057774CF19F9384D3021A7484E3CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 30D2C19271B77987524D83948AD21F43;
+			remoteGlobalIDString = 431534D696CC604F40435FD9AFBEBECC;
 			remoteInfo = KRTimingFunction;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		005C6D32836196A9259E8B8FEC587650 /* Pods-KRAnimationKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KRAnimationKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		007C50A3C254E594888D456B134470B6 /* Pods_KRAnimationKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRAnimationKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0329659F1D21E91300543394 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
-		03BC56ED1D276CA000E5B115 /* TimingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunction.swift; sourceTree = "<group>"; };
 		086A265B89BBB173AF5962CE0836A50C /* KRTimingFunction-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRTimingFunction-prefix.pch"; sourceTree = "<group>"; };
 		08EDA2D0EF5A9233C34C7525271749E1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10864C50B532EFBE0564C136942449D6 /* KRTimingFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRTimingFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		25150E0059545D9A067628F551C6B1E9 /* Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		12F2B943D81FCA6F1A0C3ECECDD26023 /* DelayedAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DelayedAnimation.swift; sourceTree = "<group>"; };
+		180C0AE4851BF40B80F41E69AF9400A5 /* KRAnimationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRAnimationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		205E86F6096BADF48507C2E982EF22C1 /* Convenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		268C4E596F1C6C8E81707047B441894C /* Pods-KRAnimationKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KRAnimationKit_Example-dummy.m"; sourceTree = "<group>"; };
+		2A22E74DFABECC275F6FE5E36BADCC4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		2C39304879B84C6917A58E43437EDE7B /* Pods-KRAnimationKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KRAnimationKit_Example-frameworks.sh"; sourceTree = "<group>"; };
-		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2EDBA72D2B7CF7515D8AEDDA84942E48 /* Pods_KRAnimationKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRAnimationKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		514254A1AFB0260A12ED2B1E43EF02E6 /* Pods-KRAnimationKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-KRAnimationKit_Example.modulemap"; sourceTree = "<group>"; };
 		52F5D4A59AA49AF40D41D3660312C7CE /* KRAnimationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KRAnimationKit-dummy.m"; sourceTree = "<group>"; };
-		544B1605E8A10B133822C80967CA6EA0 /* UIView+Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		614ABC76C8D206C5B93CB8C795EF7018 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		685243B436F1BE92EC2B17D399714E2B /* KRAnimationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRAnimationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64D787A84A5CF3CC6B0B71D0658EE83D /* KRTimingFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRTimingFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7349A3547A4EBCA3C053E4E526504432 /* Pods-KRAnimationKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KRAnimationKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7661D40B50C73B2A61F1B4C246C8DF30 /* Pods-KRAnimationKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KRAnimationKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		7AE18119DF26778810AF3BC24D2BAC2A /* Pods-KRAnimationKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KRAnimationKit_Example-resources.sh"; sourceTree = "<group>"; };
 		874C708A808A9DDE7BF4E4932FA52692 /* KRAnimationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KRAnimationKit.modulemap; sourceTree = "<group>"; };
 		87611AA3C9F9FCCB21CCD150650476A3 /* KRAnimationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRAnimationKit-prefix.pch"; sourceTree = "<group>"; };
+		89EBC25D6C925978DE799021F17073DD /* Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KRTimingFunction.xcconfig; sourceTree = "<group>"; };
 		96F0462853EA63AAEEAF1870D59DF488 /* Pods-KRAnimationKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KRAnimationKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A3633C23CC9646A38E747FA88DE5D8D7 /* KRTimingFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRTimingFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0EA393F1DF83338B925CDC635EDF2C /* KRAnimationKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRAnimationKit-umbrella.h"; sourceTree = "<group>"; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B93D46F56A1E4E759AEE453C69BA6A71 /* TimingFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimingFunction.swift; sourceTree = "<group>"; };
 		C56E9ADEF29AC36AF22B88A2ECF2466D /* KRTimingFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRTimingFunction.swift; path = KRTimingFunction/Classes/KRTimingFunction.swift; sourceTree = "<group>"; };
-		C936E98E21F9C49E94813C0AF3AE7635 /* DelayedAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DelayedAnimation.swift; sourceTree = "<group>"; };
 		D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KRAnimationKit.xcconfig; sourceTree = "<group>"; };
 		D6D81614940E2B7D5D7217E9975D5650 /* KRTimingFunction-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRTimingFunction-umbrella.h"; sourceTree = "<group>"; };
+		D920B361748D7D5468917021CB6418F7 /* UIView+Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		DE9664FE99E9D25000503EC8CA5871F0 /* Pods-KRAnimationKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KRAnimationKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		DFEA1748D7D819083F48E321FE7CC161 /* KRTimingFunction-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KRTimingFunction-dummy.m"; sourceTree = "<group>"; };
 		F4805D944E11CF41B9E8F6BF2B539C3A /* KRTimingFunction.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KRTimingFunction.modulemap; sourceTree = "<group>"; };
@@ -78,27 +87,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		201F31C9EFFA12BF89C7FE2392344F3D /* Frameworks */ = {
+		5D7BB65B6A7CF2CA585BCB439CE40427 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9E833BF58116CFE173DCABE0B07BC67 /* Foundation.framework in Frameworks */,
+				E751BD2DDC214982C264BA9F99BFB1FC /* Foundation.framework in Frameworks */,
+				D89BFF545EA2ABFE171CED45C21237CF /* KRTimingFunction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8D26F9C7589EA49F35497B77EA00580F /* Frameworks */ = {
+		A0E043752D26E704C181D1BAD6370F81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DA39ECE1F39A6F2A4AD610EF4FF7995 /* Foundation.framework in Frameworks */,
+				92C8F8C8C5DB1022CF1DC9A3EBFB9917 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CFA40C05DF2DA0F9D54FD411E31AD4ED /* Frameworks */ = {
+		F750B77C6A3680E3E379EAC5512A552A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD880ABFA6290E55A0C4744D5F9D98D0 /* Foundation.framework in Frameworks */,
+				7A18C66BF1123F3EFE1BE3AE7CB61318 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +141,14 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		38AAC2E1C487558877114430B9315580 /* KRAnimationKit */ = {
+			isa = PBXGroup;
+			children = (
+				CE23AFCF1AC55378865EB4C1A41BFA48 /* Classes */,
+			);
+			path = KRAnimationKit;
+			sourceTree = "<group>";
+		};
 		3F531312D09E51AFC513860A53699110 /* KRTimingFunction */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,24 +166,34 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
+		6B0BE8186747CC5486B83065DD483FCC /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2A22E74DFABECC275F6FE5E36BADCC4F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7367DE6747ABA86E1BD119C9B59A2568 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				180C0AE4851BF40B80F41E69AF9400A5 /* KRAnimationKit.framework */,
+				A3633C23CC9646A38E747FA88DE5D8D7 /* KRTimingFunction.framework */,
+				2EDBA72D2B7CF7515D8AEDDA84942E48 /* Pods_KRAnimationKit_Example.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				4F10AAFA8E8FFCC3B509484330EF6375 /* Development Pods */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				EA62DA9F9A5B24416BBA1C44A189255D /* Frameworks */,
 				D1536AD4C7D71DA24AADC31FB09FE631 /* Pods */,
-				BCE1A3064BEA898426B7F20626AF9776 /* Products */,
+				7367DE6747ABA86E1BD119C9B59A2568 /* Products */,
 				0AFEB5B82EAB81C6401FFA86C8217F5F /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		841BACAA0FD876FDF1803B1338C37A72 /* KRAnimationKit */ = {
-			isa = PBXGroup;
-			children = (
-				D24E5121E8173AF05302481C723714EC /* Classes */,
-			);
-			path = KRAnimationKit;
 			sourceTree = "<group>";
 		};
 		8682604FC96AAE2B2FF3278AB7D9DEFB /* Support Files */ = {
@@ -185,37 +213,23 @@
 		A4E590FC031C0FEF9ED3173402333B86 /* KRAnimationKit */ = {
 			isa = PBXGroup;
 			children = (
-				841BACAA0FD876FDF1803B1338C37A72 /* KRAnimationKit */,
+				38AAC2E1C487558877114430B9315580 /* KRAnimationKit */,
 				F760188056A02500DCD9C4D16580DF5F /* Support Files */,
 			);
 			name = KRAnimationKit;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		CE23AFCF1AC55378865EB4C1A41BFA48 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+				89EBC25D6C925978DE799021F17073DD /* Animation.swift */,
+				205E86F6096BADF48507C2E982EF22C1 /* Convenience.swift */,
+				12F2B943D81FCA6F1A0C3ECECDD26023 /* DelayedAnimation.swift */,
+				B93D46F56A1E4E759AEE453C69BA6A71 /* TimingFunction.swift */,
+				D920B361748D7D5468917021CB6418F7 /* UIView+Animation.swift */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BCE1A3064BEA898426B7F20626AF9776 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				685243B436F1BE92EC2B17D399714E2B /* KRAnimationKit.framework */,
-				10864C50B532EFBE0564C136942449D6 /* KRTimingFunction.framework */,
-				007C50A3C254E594888D456B134470B6 /* Pods_KRAnimationKit_Example.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
-			);
-			name = iOS;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		D1536AD4C7D71DA24AADC31FB09FE631 /* Pods */ = {
@@ -226,16 +240,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D24E5121E8173AF05302481C723714EC /* Classes */ = {
+		EA62DA9F9A5B24416BBA1C44A189255D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				25150E0059545D9A067628F551C6B1E9 /* Animation.swift */,
-				0329659F1D21E91300543394 /* Convenience.swift */,
-				C936E98E21F9C49E94813C0AF3AE7635 /* DelayedAnimation.swift */,
-				544B1605E8A10B133822C80967CA6EA0 /* UIView+Animation.swift */,
-				03BC56ED1D276CA000E5B115 /* TimingFunction.swift */,
+				64D787A84A5CF3CC6B0B71D0658EE83D /* KRTimingFunction.framework */,
+				6B0BE8186747CC5486B83065DD483FCC /* iOS */,
 			);
-			path = Classes;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F760188056A02500DCD9C4D16580DF5F /* Support Files */ = {
@@ -255,40 +266,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		30220E8D492F502C630BD9F61D341216 /* Headers */ = {
+		6624F078BCDAF48A09D6C6363FE7105A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CCB1B3968DC2F0A32362F4FE55FE46F /* Pods-KRAnimationKit_Example-umbrella.h in Headers */,
+				2FF0248E56292C207A21564154ECD9E8 /* Pods-KRAnimationKit_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE8010D7FB8B4D0D96885ADB57D36038 /* Headers */ = {
+		BAE59D69C4A763EA0C07EEBC4CB99B2E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E078D481B105457DE6AA5184A109E38 /* KRAnimationKit-umbrella.h in Headers */,
+				1A2AC25D7FE9D70B2A80A4665877E14A /* KRTimingFunction-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDF502C1E7CBCA4FAD7528209069A03C /* Headers */ = {
+		E35A8D79468B8A4511676BC8CB18B1CB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3449E5A26B0C82F8A0740128120781E /* KRTimingFunction-umbrella.h in Headers */,
+				71E87474365B5B944117D78093BA1519 /* KRAnimationKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		30D2C19271B77987524D83948AD21F43 /* KRTimingFunction */ = {
+		431534D696CC604F40435FD9AFBEBECC /* KRTimingFunction */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F3EEBF35096D39038E19D64C22ABDBA /* Build configuration list for PBXNativeTarget "KRTimingFunction" */;
+			buildConfigurationList = E0EF3D3CA99DB5A965FC27B811022676 /* Build configuration list for PBXNativeTarget "KRTimingFunction" */;
 			buildPhases = (
-				B6E3FBD04E618DD41C6114F270C7F4F1 /* Sources */,
-				201F31C9EFFA12BF89C7FE2392344F3D /* Frameworks */,
-				DDF502C1E7CBCA4FAD7528209069A03C /* Headers */,
+				8C7D1E71C6BC837F1DC33BF28B081646 /* Sources */,
+				A0E043752D26E704C181D1BAD6370F81 /* Frameworks */,
+				BAE59D69C4A763EA0C07EEBC4CB99B2E /* Headers */,
 			);
 			buildRules = (
 			);
@@ -296,43 +307,44 @@
 			);
 			name = KRTimingFunction;
 			productName = KRTimingFunction;
-			productReference = 10864C50B532EFBE0564C136942449D6 /* KRTimingFunction.framework */;
+			productReference = A3633C23CC9646A38E747FA88DE5D8D7 /* KRTimingFunction.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7E940CA27B115D87406AC607C6990D51 /* KRAnimationKit */ = {
+		8B7C3E0A57582902CF4A1023B7FBD4C8 /* Pods-KRAnimationKit_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 06944BA467A79730803068446E20A43C /* Build configuration list for PBXNativeTarget "KRAnimationKit" */;
+			buildConfigurationList = 9245EDA393176D02AA5EE213ADB5BC7F /* Build configuration list for PBXNativeTarget "Pods-KRAnimationKit_Example" */;
 			buildPhases = (
-				7ECBCB72A4E440913B5CE644D4896B94 /* Sources */,
-				8D26F9C7589EA49F35497B77EA00580F /* Frameworks */,
-				CE8010D7FB8B4D0D96885ADB57D36038 /* Headers */,
+				DAB8F7CBA725419811A988B0E2BD9B90 /* Sources */,
+				F750B77C6A3680E3E379EAC5512A552A /* Frameworks */,
+				6624F078BCDAF48A09D6C6363FE7105A /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = KRAnimationKit;
-			productName = KRAnimationKit;
-			productReference = 685243B436F1BE92EC2B17D399714E2B /* KRAnimationKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		FA4E3F74143D80DD5501ED24BECEFC93 /* Pods-KRAnimationKit_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1BF5240A1B10F0F6B12CDE7F595F130F /* Build configuration list for PBXNativeTarget "Pods-KRAnimationKit_Example" */;
-			buildPhases = (
-				C1095E3E591D8B3E3857561F56BB6E81 /* Sources */,
-				CFA40C05DF2DA0F9D54FD411E31AD4ED /* Frameworks */,
-				30220E8D492F502C630BD9F61D341216 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2AD52B25E69382CE393BE09D7BFF79AF /* PBXTargetDependency */,
-				FC5CE2A2BDE2868D169FFC477DBBA060 /* PBXTargetDependency */,
+				2D5F7BE6C17A9480139BBE24EE75D283 /* PBXTargetDependency */,
+				4F312607C1FC08BF031CDDF81E482ABD /* PBXTargetDependency */,
 			);
 			name = "Pods-KRAnimationKit_Example";
 			productName = "Pods-KRAnimationKit_Example";
-			productReference = 007C50A3C254E594888D456B134470B6 /* Pods_KRAnimationKit_Example.framework */;
+			productReference = 2EDBA72D2B7CF7515D8AEDDA84942E48 /* Pods_KRAnimationKit_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA062FD87B12954F9F8FA31889A55A70 /* KRAnimationKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02619EB8B7FCA9E00BED3CD665EE3B71 /* Build configuration list for PBXNativeTarget "KRAnimationKit" */;
+			buildPhases = (
+				8FCDFE9F269BF08364C7E9807E7E7CC4 /* Sources */,
+				5D7BB65B6A7CF2CA585BCB439CE40427 /* Frameworks */,
+				E35A8D79468B8A4511676BC8CB18B1CB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8EA5457D581BE794B7A86EF806B4692C /* PBXTargetDependency */,
+			);
+			name = KRAnimationKit;
+			productName = KRAnimationKit;
+			productReference = 180C0AE4851BF40B80F41E69AF9400A5 /* KRAnimationKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -341,7 +353,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -352,70 +364,77 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = BCE1A3064BEA898426B7F20626AF9776 /* Products */;
+			productRefGroup = 7367DE6747ABA86E1BD119C9B59A2568 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7E940CA27B115D87406AC607C6990D51 /* KRAnimationKit */,
-				30D2C19271B77987524D83948AD21F43 /* KRTimingFunction */,
-				FA4E3F74143D80DD5501ED24BECEFC93 /* Pods-KRAnimationKit_Example */,
+				AA062FD87B12954F9F8FA31889A55A70 /* KRAnimationKit */,
+				431534D696CC604F40435FD9AFBEBECC /* KRTimingFunction */,
+				8B7C3E0A57582902CF4A1023B7FBD4C8 /* Pods-KRAnimationKit_Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7ECBCB72A4E440913B5CE644D4896B94 /* Sources */ = {
+		8C7D1E71C6BC837F1DC33BF28B081646 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				032965A01D21E91300543394 /* Convenience.swift in Sources */,
-				03BC56EE1D276CA000E5B115 /* TimingFunction.swift in Sources */,
-				958ABAB8A05F618879C8FB4543D57B09 /* Animation.swift in Sources */,
-				0271D40A97123580209AD3CAC883C674 /* DelayedAnimation.swift in Sources */,
-				53A9F423D696A25CAA5BF262269D7907 /* KRAnimationKit-dummy.m in Sources */,
-				35E487630D33C172F745F39425ED7D53 /* UIView+Animation.swift in Sources */,
+				2E07022B5327B77B1D36DEE928E9B7DF /* KRTimingFunction-dummy.m in Sources */,
+				9E2E88602E7AA7B379838A5E3F73EE74 /* KRTimingFunction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6E3FBD04E618DD41C6114F270C7F4F1 /* Sources */ = {
+		8FCDFE9F269BF08364C7E9807E7E7CC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24D9C6DD8D36E8A68BC275BF4A6B194B /* KRTimingFunction-dummy.m in Sources */,
-				730EDB9A8E2A2DCA5004D2A4C744B607 /* KRTimingFunction.swift in Sources */,
+				73DEA393D1E56E8D63E1B410A8B8944F /* Animation.swift in Sources */,
+				7C4C36D3F252E0AA846488C4157A77A6 /* Convenience.swift in Sources */,
+				D1FF6533116B8EE6FFBE5BE58B584CFA /* DelayedAnimation.swift in Sources */,
+				CE2EADBE4CCDCA6153FF40F048AEF0BD /* KRAnimationKit-dummy.m in Sources */,
+				A4EBFD5276B8017F5BAB5F550057B27C /* TimingFunction.swift in Sources */,
+				E0EFADFE12AFC62297D0F21928000B9D /* UIView+Animation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1095E3E591D8B3E3857561F56BB6E81 /* Sources */ = {
+		DAB8F7CBA725419811A988B0E2BD9B90 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB8CA6A6EB908DDF3562C83DB116AD7C /* Pods-KRAnimationKit_Example-dummy.m in Sources */,
+				5EE25860E1EA86735CB5DFA50FFC00CF /* Pods-KRAnimationKit_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2AD52B25E69382CE393BE09D7BFF79AF /* PBXTargetDependency */ = {
+		2D5F7BE6C17A9480139BBE24EE75D283 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = KRAnimationKit;
-			target = 7E940CA27B115D87406AC607C6990D51 /* KRAnimationKit */;
-			targetProxy = 82AF8D2CC183FC954DC7D360B47DAF0E /* PBXContainerItemProxy */;
+			target = AA062FD87B12954F9F8FA31889A55A70 /* KRAnimationKit */;
+			targetProxy = C38ACC18016AEAD13DD3A3B039CB3BBC /* PBXContainerItemProxy */;
 		};
-		FC5CE2A2BDE2868D169FFC477DBBA060 /* PBXTargetDependency */ = {
+		4F312607C1FC08BF031CDDF81E482ABD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = KRTimingFunction;
-			target = 30D2C19271B77987524D83948AD21F43 /* KRTimingFunction */;
-			targetProxy = ED7B4A6490564CEB1E4CB6512B04F5CC /* PBXContainerItemProxy */;
+			target = 431534D696CC604F40435FD9AFBEBECC /* KRTimingFunction */;
+			targetProxy = 2B06B8E357E6AC65107372306A37B27F /* PBXContainerItemProxy */;
+		};
+		8EA5457D581BE794B7A86EF806B4692C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KRTimingFunction;
+			target = 431534D696CC604F40435FD9AFBEBECC /* KRTimingFunction */;
+			targetProxy = F35057774CF19F9384D3021A7484E3CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */ = {
+		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -432,7 +451,10 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -446,17 +468,48 @@
 			};
 			name = Release;
 		};
-		149DF3A8B9F7E59FF614BEA9BDBAF9F0 /* Release */ = {
+		4EC637DCF9A06558D8CB000A8D412E37 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7661D40B50C73B2A61F1B4C246C8DF30 /* Pods-KRAnimationKit_Example.release.xcconfig */;
+			baseConfigurationReference = 95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KRTimingFunction/KRTimingFunction-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KRTimingFunction/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KRTimingFunction/KRTimingFunction.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = KRTimingFunction;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B00DAE09E802CCD06AEDC36CE2BA461 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7661D40B50C73B2A61F1B4C246C8DF30 /* Pods-KRAnimationKit_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -467,6 +520,7 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_KRAnimationKit_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -476,25 +530,27 @@
 			};
 			name = Release;
 		};
-		43CF15DEC299BC1942296836BC7141AA /* Debug */ = {
+		B7D1B8EC6A38F307F21298B42B6127D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */;
+			baseConfigurationReference = D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KRTimingFunction/KRTimingFunction-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KRTimingFunction/Info.plist";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KRAnimationKit/KRAnimationKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KRAnimationKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KRTimingFunction/KRTimingFunction.modulemap";
+				MODULEMAP_FILE = "Target Support Files/KRAnimationKit/KRAnimationKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = KRTimingFunction;
+				PRODUCT_NAME = KRAnimationKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -504,10 +560,74 @@
 			};
 			name = Debug;
 		};
-		552D02D5BA751AC2E8790D2811D496CA /* Debug */ = {
+		BC24C9DB66ED2924EDCC8C976164AEA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KRAnimationKit/KRAnimationKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KRAnimationKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KRAnimationKit/KRAnimationKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = KRAnimationKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D2564449C45F118B6526DF8E3D7320AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96F0462853EA63AAEEAF1870D59DF488 /* Pods-KRAnimationKit_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_KRAnimationKit_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -522,10 +642,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -543,136 +665,44 @@
 			};
 			name = Debug;
 		};
-		79FC170E6B15AA468559490145CD1574 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KRAnimationKit/KRAnimationKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KRAnimationKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KRAnimationKit/KRAnimationKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = KRAnimationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A864FEBEB3230E523C51ECF0CC65DF97 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1D37D9BA93FF8B8327D09FEB728A97D /* KRAnimationKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KRAnimationKit/KRAnimationKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KRAnimationKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KRAnimationKit/KRAnimationKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = KRAnimationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		AB9443BE28B3914C3CEC2A7627B7078C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96F0462853EA63AAEEAF1870D59DF488 /* Pods-KRAnimationKit_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_KRAnimationKit_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D86D7DA5D250B87FA0C6D4E36A6AA045 /* Release */ = {
+		ED716E80ADD3901DDF58C9379BE6ED29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 95A8489F9F00FD5F1178F8EC3715E20E /* KRTimingFunction.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/KRTimingFunction/KRTimingFunction-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KRTimingFunction/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/KRTimingFunction/KRTimingFunction.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = KRTimingFunction;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		06944BA467A79730803068446E20A43C /* Build configuration list for PBXNativeTarget "KRAnimationKit" */ = {
+		02619EB8B7FCA9E00BED3CD665EE3B71 /* Build configuration list for PBXNativeTarget "KRAnimationKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				79FC170E6B15AA468559490145CD1574 /* Debug */,
-				A864FEBEB3230E523C51ECF0CC65DF97 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1BF5240A1B10F0F6B12CDE7F595F130F /* Build configuration list for PBXNativeTarget "Pods-KRAnimationKit_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AB9443BE28B3914C3CEC2A7627B7078C /* Debug */,
-				149DF3A8B9F7E59FF614BEA9BDBAF9F0 /* Release */,
+				B7D1B8EC6A38F307F21298B42B6127D1 /* Debug */,
+				BC24C9DB66ED2924EDCC8C976164AEA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -680,17 +710,26 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				552D02D5BA751AC2E8790D2811D496CA /* Debug */,
-				10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */,
+				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
+				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F3EEBF35096D39038E19D64C22ABDBA /* Build configuration list for PBXNativeTarget "KRTimingFunction" */ = {
+		9245EDA393176D02AA5EE213ADB5BC7F /* Build configuration list for PBXNativeTarget "Pods-KRAnimationKit_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43CF15DEC299BC1942296836BC7141AA /* Debug */,
-				D86D7DA5D250B87FA0C6D4E36A6AA045 /* Release */,
+				D2564449C45F118B6526DF8E3D7320AD /* Debug */,
+				8B00DAE09E802CCD06AEDC36CE2BA461 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0EF3D3CA99DB5A965FC27B811022676 /* Build configuration list for PBXNativeTarget "KRTimingFunction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED716E80ADD3901DDF58C9379BE6ED29 /* Debug */,
+				4EC637DCF9A06558D8CB000A8D412E37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
