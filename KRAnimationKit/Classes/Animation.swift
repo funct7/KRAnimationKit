@@ -232,7 +232,7 @@ public struct KRAnimation {
         for (view, animations) in animDic {
             let chainedAnim = CAAnimationGroup()
             chainedAnim.animations = animations
-            chainedAnim.beginTime = CACurrentMediaTime() + 0.0
+            chainedAnim.beginTime = view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil) + 0.0
             chainedAnim.duration = totalDuration
             chainedAnim.repeatCount = repeatCount
             chainedAnim.autoreverses = reverses
@@ -274,7 +274,7 @@ public struct KRAnimation {
         }
         
         let anim = getAnimation(animDescription, viewProperties: updatedProperties, setDelay: true)
-        anim.beginTime += CACurrentMediaTime()
+        anim.beginTime += view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         anim.autoreverses = reverses
         anim.repeatCount = repeatCount
         
