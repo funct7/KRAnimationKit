@@ -49,29 +49,29 @@ public enum FunctionType {
     case EaseOutBounce
     case EaseInOutBounce
     
-    public mutating func converseFunction() {
+    public func converseFunction() -> FunctionType {
         switch self {
-        case .EaseInSine: self = .EaseOutSine
-        case .EaseOutSine: self = .EaseInSine
-        case .EaseInQuad: self = .EaseOutQuad
-        case .EaseOutQuad: self = .EaseInQuad
-        case .EaseInCubic: self = .EaseOutCubic
-        case .EaseOutCubic: self = .EaseInCubic
-        case .EaseInQuart: self = .EaseOutQuart
-        case .EaseOutQuart: self = .EaseInQuart
-        case .EaseInQuint: self = .EaseOutQuint
-        case .EaseOutQuint: self = .EaseInQuint
-        case .EaseInExpo: self = .EaseOutExpo
-        case .EaseOutExpo: self = .EaseInExpo
-        case .EaseInCirc: self = .EaseOutCirc
-        case .EaseOutCirc: self = .EaseInCirc
-        case .EaseInBack: self = .EaseOutBack
-        case .EaseOutBack: self = .EaseInBack
-        case .EaseInElastic: self = .EaseOutElastic
-        case .EaseOutElastic: self = .EaseInElastic
-        case .EaseInBounce: self = .EaseOutBounce
-        case .EaseOutBounce: self = .EaseInBounce
-        default: break
+        case .EaseInSine: return .EaseOutSine
+        case .EaseOutSine: return .EaseInSine
+        case .EaseInQuad: return .EaseOutQuad
+        case .EaseOutQuad: return .EaseInQuad
+        case .EaseInCubic: return .EaseOutCubic
+        case .EaseOutCubic: return .EaseInCubic
+        case .EaseInQuart: return .EaseOutQuart
+        case .EaseOutQuart: return .EaseInQuart
+        case .EaseInQuint: return .EaseOutQuint
+        case .EaseOutQuint: return .EaseInQuint
+        case .EaseInExpo: return .EaseOutExpo
+        case .EaseOutExpo: return .EaseInExpo
+        case .EaseInCirc: return .EaseOutCirc
+        case .EaseOutCirc: return .EaseInCirc
+        case .EaseInBack: return .EaseOutBack
+        case .EaseOutBack: return .EaseInBack
+        case .EaseInElastic: return .EaseOutElastic
+        case .EaseOutElastic: return .EaseInElastic
+        case .EaseInBounce: return .EaseOutBounce
+        case .EaseOutBounce: return .EaseInBounce
+        default: return self
         }
     }
 }
