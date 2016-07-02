@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KRAnimationKit'
-  s.version          = '0.8.4'
+  s.version          = '0.8.5'
   s.summary          = 'An easy-to-use animation library, inspired by JHChainableAnimations.'
 
 # This description is used to generate tags and improve search results.
