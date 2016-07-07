@@ -76,6 +76,7 @@ class ViewController: UIViewController {
             print("COMPLETION")
         }
     }
+    @IBOutlet weak var testView: UIView!
     
     @IBAction func defaultAnimation(sender: AnyObject) {
 //        viewBox.center = view.center
@@ -93,7 +94,17 @@ class ViewController: UIViewController {
 //        
 //        viewBox.layer.addAnimation(anim, forKey: nil)
         
-        viewBox.after(1.0).animateCenter(view.center, duration: 1.0)
+        
+        let snapshot = testView.snapshotViewAfterScreenUpdates(true)
+        snapshot.center = view.center
+        snapshot.backgroundColor = UIColor.brownColor()
+        view.addSubview(snapshot)
+//        snapshot.animateFrame(CGRectMake(150, 150, 300, 300), duration: 0.5)
+        snapshot.animateWidth(300, duration: 0.5)
+        
+//        UIView.animateWithDuration(0.5) {
+//            snapshot.bounds.size.width = 300.0
+//        }
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {

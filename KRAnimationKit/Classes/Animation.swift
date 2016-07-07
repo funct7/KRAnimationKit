@@ -301,8 +301,8 @@ public struct KRAnimation {
         return CGFloat(b) + scale * CGFloat(e - b)
     }
     
-    internal static func animate(animDescription: AnimationDescriptor, reverses: Bool, repeatCount: Float, completion: (() -> Void)?) {
-        let view = animDescription.view
+    internal static func animate(animDesc: AnimationDescriptor, reverses: Bool, repeatCount: Float, completion: (() -> Void)?) {
+        let view = animDesc.view
         let updatedProperties = ViewProperties(view: view)
         
         CATransaction.begin()
@@ -317,12 +317,34 @@ public struct KRAnimation {
             CATransaction.commit()
         }
         
-        let anim = getAnimation(animDescription, viewProperties: updatedProperties, setDelay: true)
+        let anim = getAnimation(animDesc, viewProperties: updatedProperties, setDelay: true)
         anim.beginTime += view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         anim.autoreverses = reverses
         anim.repeatCount = repeatCount
         
         view.layer.addAnimation(anim, forKey: nil)
+        
+        if String(view.dynamicType) == "_UIReplicantView" && [AnimatableProperty.Frame, .Size, .SizeWidth, .SizeHeight].contains(animDesc.property) {
+            let contentView = view.subviews[0]
+            var contentAnimDesc: AnimationDescriptor!
+            
+            if animDesc.property == .Frame {
+                var frame = (animDesc.endValue as! NSValue).CGRectValue()
+                frame.origin = CGPointZero
+                let endValue = NSValue(CGRect: frame)
+                contentAnimDesc = AnimationDescriptor(view: contentView, delay: animDesc.delay, property: animDesc.property, endValue: endValue, duration: animDesc.duration, function: animDesc.function)
+            } else {
+                contentView.layer.anchorPoint = CGPointZero
+                contentAnimDesc = AnimationDescriptor(view: contentView, delay: animDesc.delay, property: animDesc.property, endValue: animDesc.endValue, duration: animDesc.duration, function: animDesc.function)
+            }
+            
+            let contentAnim = getAnimation(contentAnimDesc, viewProperties: ViewProperties(view: contentView), setDelay: true)
+            contentAnim.beginTime = contentView.layer.convertTime(CACurrentMediaTime(), toLayer: nil)
+            contentAnim.autoreverses = reverses
+            contentAnim.repeatCount = repeatCount
+            
+            contentView.layer.addAnimation(contentAnim, forKey: nil)
+        }
         
         CATransaction.commit()
     }
