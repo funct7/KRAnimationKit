@@ -1,5 +1,5 @@
 PODS:
-  - KRAnimationKit (0.8.4):
+  - KRAnimationKit (0.8.6):
     - KRTimingFunction
   - KRTimingFunction (0.9.1)
 
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  KRAnimationKit: e19afb28d3970e18eea7e85b9a99e11bcdfc7a62
+  KRAnimationKit: b1d7cd577ca9b518a631d8ddf1d53c17f3b5710a
   KRTimingFunction: 78e502786e657c880a890b675633a766a54240a0
 
 PODFILE CHECKSUM: 26784c17c08dd919827371d522b2ab0e925116ac

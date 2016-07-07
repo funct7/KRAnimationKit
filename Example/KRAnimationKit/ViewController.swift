@@ -99,8 +99,8 @@ class ViewController: UIViewController {
         snapshot.center = view.center
         snapshot.backgroundColor = UIColor.brownColor()
         view.addSubview(snapshot)
-//        snapshot.animateFrame(CGRectMake(150, 150, 300, 300), duration: 0.5)
-        snapshot.animateWidth(300, duration: 0.5)
+        snapshot.animateFrame(CGRectMake(150, 150, 300, 300), duration: 0.5)
+//        snapshot.animateWidth(300, duration: 0.5)
         
 //        UIView.animateWithDuration(0.5) {
 //            snapshot.bounds.size.width = 300.0

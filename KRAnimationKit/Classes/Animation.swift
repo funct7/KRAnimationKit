@@ -273,7 +273,7 @@ public struct KRAnimation {
             CATransaction.commit()
         }
         
-        let anim = getAnimation(animDescription, viewProperties: updatedProperties, setDelay: true)
+        let anim = getAnimation(animDesc, viewProperties: updatedProperties, setDelay: true)
         anim.beginTime += view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         anim.autoreverses = reverses
         anim.repeatCount = repeatCount

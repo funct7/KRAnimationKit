@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A9F647F12B0AC517E13507F /* Pods_KRAnimationKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC006DA99FCC6A8BBAFADBDB /* Pods_KRAnimationKit_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -46,7 +45,6 @@
 		BEC820F8CBAEB08A61FDE034 /* Pods-KRAnimationKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRAnimationKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D145DA4C1D1283AE00B5925F /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		D1D943B41D14094300F5AFE4 /* KRTimingFunction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRTimingFunction.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/KRAnimationKit-gfcvdmhfsdiffxdhzvmjoyeqxhqg/Build/Products/Debug-iphoneos/KRTimingFunction.framework"; sourceTree = "<group>"; };
-		DC006DA99FCC6A8BBAFADBDB /* Pods_KRAnimationKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRAnimationKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A40AA0DBB0D6E30C283667 /* KRAnimationKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KRAnimationKit.podspec; path = ../KRAnimationKit.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,15 +67,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B2C546A5F0967E875029DA1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6FD6AC74D84A2B906FEEDE20 /* Pods-KRAnimationKit_Example.debug.xcconfig */,
-				6E200AC00992D2BC7FB026B5 /* Pods-KRAnimationKit_Example.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -279,7 +268,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5C5051CE885C41C54CBB90D5 /* [CP] Embed Pods Frameworks */ = {
