@@ -9,50 +9,6 @@
 import UIKit
 import KRTimingFunction
 
-public enum FunctionType {
-    case Linear
-    
-    case EaseInSine
-    case EaseOutSine
-    case EaseInOutSine
-    
-    case EaseInQuad
-    case EaseOutQuad
-    case EaseInOutQuad
-    
-    case EaseInCubic
-    case EaseOutCubic
-    case EaseInOutCubic
-    
-    case EaseInQuart
-    case EaseOutQuart
-    case EaseInOutQuart
-    
-    case EaseInQuint
-    case EaseOutQuint
-    case EaseInOutQuint
-    
-    case EaseInExpo
-    case EaseOutExpo
-    case EaseInOutExpo
-    
-    case EaseInCirc
-    case EaseOutCirc
-    case EaseInOutCirc
-    
-    case EaseInBack
-    case EaseOutBack
-    case EaseInOutBack
-    
-    case EaseInElastic
-    case EaseOutElastic
-    case EaseInOutElastic
-    
-    case EaseInBounce
-    case EaseOutBounce
-    case EaseInOutBounce
-}
-
 internal enum AnimatableProperty {
     case Origin
     case OriginX
@@ -276,7 +232,7 @@ public struct KRAnimation {
         for (view, animations) in animDic {
             let chainedAnim = CAAnimationGroup()
             chainedAnim.animations = animations
-            chainedAnim.beginTime = view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+            chainedAnim.beginTime = view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil) + 0.0
             chainedAnim.duration = totalDuration
             chainedAnim.repeatCount = repeatCount
             chainedAnim.autoreverses = reverses
@@ -317,7 +273,7 @@ public struct KRAnimation {
             CATransaction.commit()
         }
         
-        let anim = getAnimation(animDesc, viewProperties: updatedProperties, setDelay: true)
+        let anim = getAnimation(animDescription, viewProperties: updatedProperties, setDelay: true)
         anim.beginTime += view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         anim.autoreverses = reverses
         anim.repeatCount = repeatCount
