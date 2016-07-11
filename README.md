@@ -185,9 +185,18 @@ The list of properties that are currently unavailable are as listed below:
 
 
 ## Caveat
-Since KRAnimationKit uses a layer-based animation--it uses `CAAnimation`, certain `UIView` subviews might not work as expected like the following scenario:
+Since KRAnimationKit uses a layer-based animation--it uses `CAAnimation`, certain `UIView` subviews might not work as expected.
 
+###### UILabel
 According to this [StackOverflow post](http://stackoverflow.com/questions/15597956/ios-layer-background-color-not-showing-when-view-background-color-is-clear-colo), the `backgroundColor` property of `UILabel` and its `layer` are not the same. Animation is applied to the layer level only, so animating a `UILabel` instance with different colors for the view and layer might result in unexpected behavior.
+
+###### Frame.size vs. Bounds.size
+When animating, frame.size and bounds.size show a different behavior in that `frame` animates size change with the `anchorPoint` set as `(0.0, 0.0)` whereas `bounds` animates size change from the center, i.e. `anchorPoint` of `(0.5, 0.5)`.
+This behavior is observable when using `UIView` animations/
+
+This behavior is kept in *KRAnimationKit*, and `animateSize` function animates `bounds.frame,` i.e. if you animate the size of a view using `animateSize`, its center will remain the same whereas the `frame.origin` property will be affected.
+
+If this is not the size-change animation you want and would like to change the size with the `frame.origin` as the anchor point, you can either use `animateFrame` function or manually set the `anchorPoint` property of the view to `CGPointMake(0.0, 0.0)` and use `animateSize` function.
 
 
 ## Author
