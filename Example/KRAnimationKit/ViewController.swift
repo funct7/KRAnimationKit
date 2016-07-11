@@ -77,6 +77,8 @@ class ViewController: UIViewController {
         }
     }
     @IBOutlet weak var testView: UIView!
+    var snapshot: UIView!
+    var displayLink: CADisplayLink!
     
     @IBAction func defaultAnimation(sender: AnyObject) {
 //        viewBox.center = view.center
@@ -93,18 +95,10 @@ class ViewController: UIViewController {
 //        anim.fillMode = kCAFillModeForwards
 //        
 //        viewBox.layer.addAnimation(anim, forKey: nil)
-        
-        
-        let snapshot = testView.snapshotViewAfterScreenUpdates(true)
-        snapshot.center = view.center
-        snapshot.backgroundColor = UIColor.brownColor()
-        view.addSubview(snapshot)
-        snapshot.animateFrame(CGRectMake(150, 150, 300, 300), duration: 0.5)
-//        snapshot.animateWidth(300, duration: 0.5)
-        
-//        UIView.animateWithDuration(0.5) {
-//            snapshot.bounds.size.width = 300.0
-//        }
+    }
+    
+    func displayLinkDidFire(displayLink: CADisplayLink) {
+        print(snapshot.frame)
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
