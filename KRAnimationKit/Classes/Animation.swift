@@ -234,7 +234,7 @@ public struct KRAnimation {
                     if needsSnapshotAnimation(animDesc.view, animDesc: animDesc) {
                         let contentView = animDesc.view.subviews[0]
                         let contentViewProp = propDic[contentView] ?? ViewProperties(view: contentView)
-                        var contentViewAnimGroup = animGroupDic[contentView] ?? {
+                        let contentViewAnimGroup = animGroupDic[contentView] ?? {
                             let animGroup = CAAnimationGroup()
                             animGroup.beginTime = totalDuration + animDesc.delay
                             animGroup.duration = animDesc.duration
