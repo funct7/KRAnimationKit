@@ -160,7 +160,7 @@ internal class ViewProperties: NSObject {
 }
 
 public struct KRAnimation {
-    public static func chain(animDescriptors: [AnimationDescriptor]..., reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) {
+    public static func chain(animDescriptors: [AnimationDescriptor]..., reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) -> String {
         var propDic = [UIView: ViewProperties]()
         var animDic = [UIView: [CAAnimation]]()
         
@@ -262,6 +262,8 @@ public struct KRAnimation {
             }
         }
         
+        let animKey = "\(CACurrentMediaTime().hashValue)"
+        
         for (view, animations) in animDic {
             let chainedAnim = CAAnimationGroup()
             chainedAnim.animations = animations
@@ -272,10 +274,12 @@ public struct KRAnimation {
             chainedAnim.fillMode = kCAFillModeForwards
             chainedAnim.removedOnCompletion = false
             
-            view.layer.addAnimation(chainedAnim, forKey: nil)
+            view.layer.addAnimation(chainedAnim, forKey: animKey)
         }
         
         CATransaction.commit()
+        
+        return animKey
     }
     
     internal static func getScaledValue(b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
@@ -290,7 +294,7 @@ public struct KRAnimation {
         return CGFloat(b) + scale * CGFloat(e - b)
     }
     
-    internal static func animate(animDesc: AnimationDescriptor, reverses: Bool, repeatCount: Float, completion: (() -> Void)?) {
+    internal static func animate(animDesc: AnimationDescriptor, reverses: Bool, repeatCount: Float, completion: (() -> Void)?) -> String {
         let view = animDesc.view
         let updatedProperties = ViewProperties(view: view)
         
@@ -306,12 +310,14 @@ public struct KRAnimation {
             CATransaction.commit()
         }
         
+        let animKey = "\(CACurrentMediaTime().hashValue)"
+
         let anim = getAnimation(animDesc, viewProperties: updatedProperties, setDelay: true)
         anim.beginTime += view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         anim.autoreverses = reverses
         anim.repeatCount = repeatCount
         
-        view.layer.addAnimation(anim, forKey: nil)
+        view.layer.addAnimation(anim, forKey: animKey)
         
         if needsSnapshotAnimation(view, animDesc: animDesc) {
             let contentView = view.subviews[0]
@@ -319,10 +325,12 @@ public struct KRAnimation {
             contentAnim.beginTime += contentView.layer.convertTime(CACurrentMediaTime(), toLayer: nil)
             contentAnim.autoreverses = reverses
             contentAnim.repeatCount = repeatCount
-            contentView.layer.addAnimation(contentAnim, forKey: nil)
+            contentView.layer.addAnimation(contentAnim, forKey: animKey)
         }
         
         CATransaction.commit()
+        
+        return animKey
     }
     
     private static func getAnimation(animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {

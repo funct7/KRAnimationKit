@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var viewBox: UIView!
     @IBOutlet weak var viewBox2: UIView!
+    var animKey: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +103,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func multiAnimation(sender: AnyObject) {
-        KRAnimation.chain(
+        self.animKey = KRAnimation.chain(
             viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0) + viewBox2.chainAlpha(0.5, duration: 1.0) + viewBox2.chainBackgroundColor(UIColor.cyanColor(), duration: 1.0),
             viewBox.after(0.5).chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic) + viewBox2.after(0.5).chainCenter(view.center, duration: 1.0),
             viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic) + viewBox.chainBackgroundColor(UIColor.redColor(), duration: 1.0),
@@ -140,8 +141,15 @@ class ViewController: UIViewController {
     @IBAction func stopAction(sender: AnyObject) {
         viewBox.setNeedsLayout()
 
-        viewBox.layer.removeAllAnimations()
-        viewBox2.layer.removeAllAnimations()
+        if let animKey = self.animKey {
+            print(animKey)
+            viewBox.layer.removeAnimationForKey(animKey)
+            viewBox2.layer.removeAnimationForKey(animKey)
+            self.animKey = nil
+        } else {
+            viewBox.layer.removeAllAnimations()
+            viewBox2.layer.removeAllAnimations()
+        }
     }
     
 }
