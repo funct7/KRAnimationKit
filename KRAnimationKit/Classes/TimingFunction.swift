@@ -7,70 +7,70 @@
 //
 
 public enum FunctionType {
-    case Linear
+    case linear
     
-    case EaseInSine
-    case EaseOutSine
-    case EaseInOutSine
+    case easeInSine
+    case easeOutSine
+    case easeInOutSine
     
-    case EaseInQuad
-    case EaseOutQuad
-    case EaseInOutQuad
+    case easeInQuad
+    case easeOutQuad
+    case easeInOutQuad
     
-    case EaseInCubic
-    case EaseOutCubic
-    case EaseInOutCubic
+    case easeInCubic
+    case easeOutCubic
+    case easeInOutCubic
     
-    case EaseInQuart
-    case EaseOutQuart
-    case EaseInOutQuart
+    case easeInQuart
+    case easeOutQuart
+    case easeInOutQuart
     
-    case EaseInQuint
-    case EaseOutQuint
-    case EaseInOutQuint
+    case easeInQuint
+    case easeOutQuint
+    case easeInOutQuint
     
-    case EaseInExpo
-    case EaseOutExpo
-    case EaseInOutExpo
+    case easeInExpo
+    case easeOutExpo
+    case easeInOutExpo
     
-    case EaseInCirc
-    case EaseOutCirc
-    case EaseInOutCirc
+    case easeInCirc
+    case easeOutCirc
+    case easeInOutCirc
     
-    case EaseInBack
-    case EaseOutBack
-    case EaseInOutBack
+    case easeInBack
+    case easeOutBack
+    case easeInOutBack
     
-    case EaseInElastic
-    case EaseOutElastic
-    case EaseInOutElastic
+    case easeInElastic
+    case easeOutElastic
+    case easeInOutElastic
     
-    case EaseInBounce
-    case EaseOutBounce
-    case EaseInOutBounce
+    case easeInBounce
+    case easeOutBounce
+    case easeInOutBounce
     
     public func converseFunction() -> FunctionType {
         switch self {
-        case .EaseInSine: return .EaseOutSine
-        case .EaseOutSine: return .EaseInSine
-        case .EaseInQuad: return .EaseOutQuad
-        case .EaseOutQuad: return .EaseInQuad
-        case .EaseInCubic: return .EaseOutCubic
-        case .EaseOutCubic: return .EaseInCubic
-        case .EaseInQuart: return .EaseOutQuart
-        case .EaseOutQuart: return .EaseInQuart
-        case .EaseInQuint: return .EaseOutQuint
-        case .EaseOutQuint: return .EaseInQuint
-        case .EaseInExpo: return .EaseOutExpo
-        case .EaseOutExpo: return .EaseInExpo
-        case .EaseInCirc: return .EaseOutCirc
-        case .EaseOutCirc: return .EaseInCirc
-        case .EaseInBack: return .EaseOutBack
-        case .EaseOutBack: return .EaseInBack
-        case .EaseInElastic: return .EaseOutElastic
-        case .EaseOutElastic: return .EaseInElastic
-        case .EaseInBounce: return .EaseOutBounce
-        case .EaseOutBounce: return .EaseInBounce
+        case .easeInSine: return .easeOutSine
+        case .easeOutSine: return .easeInSine
+        case .easeInQuad: return .easeOutQuad
+        case .easeOutQuad: return .easeInQuad
+        case .easeInCubic: return .easeOutCubic
+        case .easeOutCubic: return .easeInCubic
+        case .easeInQuart: return .easeOutQuart
+        case .easeOutQuart: return .easeInQuart
+        case .easeInQuint: return .easeOutQuint
+        case .easeOutQuint: return .easeInQuint
+        case .easeInExpo: return .easeOutExpo
+        case .easeOutExpo: return .easeInExpo
+        case .easeInCirc: return .easeOutCirc
+        case .easeOutCirc: return .easeInCirc
+        case .easeInBack: return .easeOutBack
+        case .easeOutBack: return .easeInBack
+        case .easeInElastic: return .easeOutElastic
+        case .easeOutElastic: return .easeInElastic
+        case .easeInBounce: return .easeOutBounce
+        case .easeOutBounce: return .easeInBounce
         default: return self
         }
     }

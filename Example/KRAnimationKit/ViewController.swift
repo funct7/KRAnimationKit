@@ -29,48 +29,48 @@ class ViewController: UIViewController {
         let bottomY = Screen.bounds.height - 50.0
         
         KRAnimation.chain(
-            viewBox.chainY(bottomY, duration: 1.0, function: .Linear),
-            viewBox.chainY(0.0, duration: 1.0, function: .Linear),
+            viewBox.chainY(bottomY, duration: 1.0, function: .linear),
+            viewBox.chainY(0.0, duration: 1.0, function: .linear),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInSine),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutSine),
-            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutSine),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInSine),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutSine),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .easeInOutSine),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuad),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuad),
-            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutQuad),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInQuad),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutQuad),
+            viewBox2.chainY(58.0, duration: 1.0, function: .easeInOutQuad),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInCubic),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutCubic),
-            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutCubic),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInCubic),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutCubic),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .easeInOutCubic),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuart),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuart),
-            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutQuart),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInQuart),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutQuart),
+            viewBox2.chainY(58.0, duration: 1.0, function: .easeInOutQuart),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInQuint),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutQuint),
-            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutQuint),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInQuint),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutQuint),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .easeInOutQuint),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInExpo),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutExpo),
-            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutExpo),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInExpo),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutExpo),
+            viewBox2.chainY(58.0, duration: 1.0, function: .easeInOutExpo),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInCirc),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutCirc),
-            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutCirc),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInCirc),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutCirc),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .easeInOutCirc),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInElastic),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutElastic),
-            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutElastic),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInElastic),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutElastic),
+            viewBox2.chainY(58.0, duration: 1.0, function: .easeInOutElastic),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInBack),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutBack),
-            viewBox2.chainY(bottomY, duration: 1.0, function: .EaseInOutBack),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInBack),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutBack),
+            viewBox2.chainY(bottomY, duration: 1.0, function: .easeInOutBack),
             
-            viewBox.chainY(bottomY, duration: 1.0, function: .EaseInBounce),
-            viewBox.chainY(0.0, duration: 1.0, function: .EaseOutBounce),
-            viewBox2.chainY(58.0, duration: 1.0, function: .EaseInOutBounce),
+            viewBox.chainY(bottomY, duration: 1.0, function: .easeInBounce),
+            viewBox.chainY(0.0, duration: 1.0, function: .easeOutBounce),
+            viewBox2.chainY(58.0, duration: 1.0, function: .easeInOutBounce),
             
             reverses: false, repeatCount: 1
         ) {
@@ -104,27 +104,27 @@ class ViewController: UIViewController {
     
     @IBAction func multiAnimation(sender: AnyObject) {
         self.animKey = KRAnimation.chain(
-            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .EaseOutCubic) + viewBox.chainBackgroundColor(UIColor.blueColor(), duration: 1.0) + viewBox2.chainAlpha(0.5, duration: 1.0) + viewBox2.chainBackgroundColor(UIColor.cyanColor(), duration: 1.0),
-            viewBox.after(0.5).chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .EaseInCubic) + viewBox2.after(0.5).chainCenter(view.center, duration: 1.0),
-            viewBox.chainX(0.0, duration: 1.0, function: .EaseInOutCubic) + viewBox.chainBackgroundColor(UIColor.redColor(), duration: 1.0),
+            viewBox.chainX(Screen.bounds.width - 50.0, duration: 1.0, function: .easeOutCubic) + viewBox.chainBackgroundColor(UIColor.blue, duration: 1.0) + viewBox2.chainAlpha(0.5, duration: 1.0) + viewBox2.chainBackgroundColor(UIColor.cyan, duration: 1.0),
+            viewBox.after(0.5).chainY(Screen.bounds.height - 50.0, duration: 1.0, function: .easeInCubic) + viewBox2.after(0.5).chainCenter(view.center, duration: 1.0),
+            viewBox.chainX(0.0, duration: 1.0, function: .easeInOutCubic) + viewBox.chainBackgroundColor(UIColor.red, duration: 1.0),
             viewBox.chainY(0.0, duration: 1.0),
-            viewBox.chainOrigin(CGPointMake(Screen.bounds.width - 50.0, Screen.bounds.height - 50.0), duration: 1.0, function: .EaseInCubic),
-            viewBox.chainOrigin(CGPointZero, duration: 1.0, function: .EaseOutCubic),
+            viewBox.chainOrigin(CGPoint(x: Screen.bounds.width - 50.0, y: Screen.bounds.height - 50.0), duration: 1.0, function: .easeInCubic),
+            viewBox.chainOrigin(CGPoint.zero, duration: 1.0, function: .easeOutCubic),
             viewBox.chainCenter(view.center, duration: 1.0),
-            viewBox.chainSize(CGSizeMake(200.0, 200.0), duration: 1.0),
-            viewBox.chainSize(CGSizeMake(50.0, 50.0), duration: 1.0),
-            viewBox.chainFrame(CGRectMake(Screen.bounds.width - 100.0, Screen.bounds.height - 100.0, 100.0, 100.0), duration: 1.0, function: .Linear),
-            viewBox.chainFrame(CGRectMake(0.0, 0.0, 50.0, 50.0), duration: 1.0, function: .Linear) + viewBox2.chainOrigin(CGPointMake(0.0, 58.0), duration: 1.0) + viewBox2.chainBackgroundColor(UIColor.greenColor(), duration: 1.0),
-            viewBox.chainScaleX(3.0, duration: 1.0, function: .EaseInCubic),
-            viewBox.chainScaleX(1.0, duration: 1.0, function: .EaseOutCubic),
+            viewBox.chainSize(CGSize(width: 200.0, height: 200.0), duration: 1.0),
+            viewBox.chainSize(CGSize(width: 50.0, height: 50.0), duration: 1.0),
+            viewBox.chainFrame(CGRect(x: Screen.bounds.width - 100.0, y: Screen.bounds.height - 100.0, width: 100.0, height: 100.0), duration: 1.0, function: .linear),
+            viewBox.chainFrame(CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0), duration: 1.0, function: .linear) + viewBox2.chainOrigin(CGPoint(x: 0.0, y: 58.0), duration: 1.0) + viewBox2.chainBackgroundColor(UIColor.green, duration: 1.0),
+            viewBox.chainScaleX(3.0, duration: 1.0, function: .easeInCubic),
+            viewBox.chainScaleX(1.0, duration: 1.0, function: .easeOutCubic),
             viewBox.chainScaleY(3.0, duration: 1.0),
             viewBox.chainScaleY(1.0, duration: 1.0) + viewBox2.chainBackgroundColor(UIColor(hex: 0x007AFF, alpha: 1.0), duration: 1.0),
-            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.redColor()) ? UIColor.blueColor().CGColor : UIColor.redColor().CGColor, duration: 1.0),
-            viewBox.chainBorderWidth(4.0, duration: 1.0, function: .EaseInOutCubic),
-            viewBox.chainCornerRadius(25.0, duration: 1.0, function: .EaseInOutCubic),
+            viewBox.chainBackgroundColor(viewBox.backgroundColor!.isEqual(UIColor.red) ? UIColor.blue.cgColor : UIColor.red.cgColor, duration: 1.0),
+            viewBox.chainBorderWidth(4.0, duration: 1.0, function: .easeInOutCubic),
+            viewBox.chainCornerRadius(25.0, duration: 1.0, function: .easeInOutCubic),
             viewBox.chainAlpha(0.5, duration: 1.0),
             viewBox.chainShadowOpacity(1.0, duration: 1.0),
-            viewBox.chainShadowColor(UIColor.redColor(), duration: 1.0),
+            viewBox.chainShadowColor(UIColor.red, duration: 1.0),
             viewBox.chainShadowRadius(5.0, duration: 1.0),
             
             reverses: true, repeatCount: Float.infinity
@@ -143,8 +143,8 @@ class ViewController: UIViewController {
 
         if let animKey = self.animKey {
             print(animKey)
-            viewBox.layer.removeAnimationForKey(animKey)
-            viewBox2.layer.removeAnimationForKey(animKey)
+            viewBox.layer.removeAnimation(forKey: animKey)
+            viewBox2.layer.removeAnimation(forKey: animKey)
             self.animKey = nil
         } else {
             viewBox.layer.removeAllAnimations()

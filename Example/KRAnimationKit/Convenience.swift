@@ -9,7 +9,7 @@
 import UIKit
 
 var Screen: UIScreen {
-    return UIScreen.mainScreen()
+    return UIScreen.main
 }
 
 extension UIColor {

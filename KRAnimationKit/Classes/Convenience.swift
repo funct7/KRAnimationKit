@@ -11,16 +11,16 @@ import UIKit
 // MARK: - UIView
 
 internal extension UIView {
-    func update(properties: ViewProperties) {
+    func update(_ properties: ViewProperties) {
         layer.position = properties.position
         layer.bounds.size = properties.bounds.size
         
-        layer.backgroundColor = properties.backgroundColor?.CGColor
-        layer.borderColor = properties.borderColor?.CGColor
+        layer.backgroundColor = properties.backgroundColor?.cgColor
+        layer.borderColor = properties.borderColor?.cgColor
         layer.borderWidth = properties.borderWidth
         layer.cornerRadius = properties.cornerRadius
         layer.opacity = properties.opacity
-        layer.shadowColor = properties.shadowColor?.CGColor
+        layer.shadowColor = properties.shadowColor?.cgColor
         layer.shadowOffset = properties.shadowOffset
         layer.shadowOpacity = properties.shadowOpacity
         layer.shadowPath = properties.shadowPath
@@ -33,7 +33,7 @@ internal extension UIView {
 
 internal extension CGColor {
     func getUIColor() -> UIColor {
-        return UIColor(CGColor: self)
+        return UIColor(cgColor: self)
     }
 }
 
@@ -45,10 +45,10 @@ internal extension CATransform3D {
 
 // MARK - Functions
 
-internal func degreeToRadian(degree: Double) -> Double {
+internal func degreeToRadian(_ degree: Double) -> Double {
     return degree * M_PI / 180.0
 }
 
-internal func degreeToRadian(degree: CGFloat) -> CGFloat {
+internal func degreeToRadian(_ degree: CGFloat) -> CGFloat {
     return degree * CGFloat(M_PI) / 180.0
 }

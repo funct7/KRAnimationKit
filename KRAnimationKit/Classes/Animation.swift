@@ -10,58 +10,58 @@ import UIKit
 import KRTimingFunction
 
 internal enum AnimatableProperty {
-    case Origin
-    case OriginX
-    case OriginY
+    case origin
+    case originX
+    case originY
     
-    case Size
-    case SizeWidth
-    case SizeHeight
+    case size
+    case sizeWidth
+    case sizeHeight
     
-    case Frame
+    case frame
     
-    case Center
-    case CenterX
-    case CenterY
+    case center
+    case centerX
+    case centerY
     
-    case PositionX
-    case PositionY
-    case Position
+    case positionX
+    case positionY
+    case position
     
-    case BackgroundColor
+    case backgroundColor
     
-    case BorderColor
-    case BorderWidth
+    case borderColor
+    case borderWidth
     
-    case CornerRadius
+    case cornerRadius
     
-    case Opacity
-    case Alpha
+    case opacity
+    case alpha
     
-    case ShadowColor
-    case ShadowOffset
-    case ShadowOpacity
-    case ShadowPath
-    case ShadowRadius
+    case shadowColor
+    case shadowOffset
+    case shadowOpacity
+    case shadowPath
+    case shadowRadius
     
-    case Transform
+    case transform
     
-    case RotationX
-    case RotationY
-    case RotationZ
+    case rotationX
+    case rotationY
+    case rotationZ
     
-    case ScaleX
-    case ScaleY
-    case ScaleZ
-    case Scale2D
-    case Scale
+    case scaleX
+    case scaleY
+    case scaleZ
+    case scale2D
+    case scale
     
-    case TranslationX
-    case TranslationY
-    case TranslationZ
-    case Translation
+    case translationX
+    case translationY
+    case translationZ
+    case translation
     
-    case ZPosition
+    case zPosition
 }
 
 public struct AnimationDescriptor {
@@ -73,10 +73,10 @@ public struct AnimationDescriptor {
     let function: FunctionType
     
     internal func getFrameAnimations() -> (origin: AnimationDescriptor, size: AnimationDescriptor) {
-        let frame = (endValue as! NSValue).CGRectValue()
+        let frame = (endValue as! NSValue).cgRectValue
         
-        let animOrigin = AnimationDescriptor(view: view, delay: delay, property: .Origin, endValue: NSValue(CGPoint: frame.origin), duration: duration, function: function)
-        let animSize = AnimationDescriptor(view: view, delay: delay, property: .Size, endValue: NSValue(CGSize: frame.size), duration: duration, function: function)
+        let animOrigin = AnimationDescriptor(view: view, delay: delay, property: .origin, endValue: NSValue(cgPoint: frame.origin), duration: duration, function: function)
+        let animSize = AnimationDescriptor(view: view, delay: delay, property: .size, endValue: NSValue(cgSize: frame.size), duration: duration, function: function)
         
         return (origin: animOrigin, size: animSize)
     }
@@ -86,11 +86,11 @@ internal class ViewProperties: NSObject {
     var origin: CGPoint {
         get {
             let (x, y) = (position.x - bounds.width*anchorPoint.x, position.y - bounds.height * anchorPoint.y)
-            return CGPointMake(x, y)
+            return CGPoint(x: x, y: y)
         }
         set {
             let (posX, posY) = (newValue.x + bounds.width*anchorPoint.x, newValue.y + bounds.height * anchorPoint.y)
-            position = CGPointMake(posX, posY)
+            position = CGPoint(x: posX, y: posY)
         }
     }
     var frame: CGRect {
@@ -160,7 +160,7 @@ internal class ViewProperties: NSObject {
 }
 
 public struct KRAnimation {
-    public static func chain(animDescriptors: [AnimationDescriptor]..., reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) -> String {
+    @discardableResult public static func chain(_ animDescriptors: [AnimationDescriptor]..., reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) -> String {
         var propDic = [UIView: ViewProperties]()
         var animDic = [UIView: [CAAnimation]]()
         
@@ -221,7 +221,7 @@ public struct KRAnimation {
                         animGroup.duration = animDesc.duration
                         animGroup.fillMode = kCAFillModeForwards
                         animGroup.animations = [CAAnimation]()
-                        animGroup.removedOnCompletion = false
+                        animGroup.isRemovedOnCompletion = false
 
                         return animGroup
                     }()
@@ -240,7 +240,7 @@ public struct KRAnimation {
                             animGroup.duration = animDesc.duration
                             animGroup.fillMode = kCAFillModeForwards
                             animGroup.animations = [CAAnimation]()
-                            animGroup.removedOnCompletion = false
+                            animGroup.isRemovedOnCompletion = false
                             
                             return animGroup
                             }()
@@ -267,14 +267,14 @@ public struct KRAnimation {
         for (view, animations) in animDic {
             let chainedAnim = CAAnimationGroup()
             chainedAnim.animations = animations
-            chainedAnim.beginTime = view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil) + 0.0
+            chainedAnim.beginTime = view.layer.convertTime(CACurrentMediaTime(), from: nil) + 0.0
             chainedAnim.duration = totalDuration
             chainedAnim.repeatCount = repeatCount
             chainedAnim.autoreverses = reverses
             chainedAnim.fillMode = kCAFillModeForwards
-            chainedAnim.removedOnCompletion = false
+            chainedAnim.isRemovedOnCompletion = false
             
-            view.layer.addAnimation(chainedAnim, forKey: animKey)
+            view.layer.add(chainedAnim, forKey: animKey)
         }
         
         CATransaction.commit()
@@ -282,19 +282,19 @@ public struct KRAnimation {
         return animKey
     }
     
-    internal static func getScaledValue(b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
+    internal static func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
         return b + scale * (e - b)
     }
     
-    internal static func getScaledValue(b: Float, _ e: Float, _ scale: CGFloat) -> CGFloat {
+    internal static func getScaledValue(_ b: Float, _ e: Float, _ scale: CGFloat) -> CGFloat {
         return CGFloat(b) + scale * CGFloat(e - b)
     }
     
-    internal static func getScaledValue(b: Double, _ e: Double, _ scale: CGFloat) -> CGFloat {
+    internal static func getScaledValue(_ b: Double, _ e: Double, _ scale: CGFloat) -> CGFloat {
         return CGFloat(b) + scale * CGFloat(e - b)
     }
     
-    internal static func animate(animDesc: AnimationDescriptor, reverses: Bool, repeatCount: Float, completion: (() -> Void)?) -> String {
+    internal static func animate(_ animDesc: AnimationDescriptor, reverses: Bool, repeatCount: Float, completion: (() -> Void)?) -> String {
         let view = animDesc.view
         let updatedProperties = ViewProperties(view: view)
         
@@ -313,19 +313,19 @@ public struct KRAnimation {
         let animKey = "\(CACurrentMediaTime().hashValue)"
 
         let anim = getAnimation(animDesc, viewProperties: updatedProperties, setDelay: true)
-        anim.beginTime += view.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        anim.beginTime += view.layer.convertTime(CACurrentMediaTime(), from: nil)
         anim.autoreverses = reverses
         anim.repeatCount = repeatCount
         
-        view.layer.addAnimation(anim, forKey: animKey)
+        view.layer.add(anim, forKey: animKey)
         
         if needsSnapshotAnimation(view, animDesc: animDesc) {
             let contentView = view.subviews[0]
             let contentAnim = getSnapshotAnimation(animDesc, viewProperties: updatedProperties, setDelay: true)
-            contentAnim.beginTime += contentView.layer.convertTime(CACurrentMediaTime(), toLayer: nil)
+            contentAnim.beginTime += contentView.layer.convertTime(CACurrentMediaTime(), to: nil)
             contentAnim.autoreverses = reverses
             contentAnim.repeatCount = repeatCount
-            contentView.layer.addAnimation(contentAnim, forKey: animKey)
+            contentView.layer.add(contentAnim, forKey: animKey)
         }
         
         CATransaction.commit()
@@ -333,8 +333,8 @@ public struct KRAnimation {
         return animKey
     }
     
-    private static func getAnimation(animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
-        if animDesc.property == .Frame {
+    fileprivate static func getAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
+        if animDesc.property == .frame {
             let frameAnimations = animDesc.getFrameAnimations()
             
             let animSize = getKeyframeAnimation(frameAnimations.size, viewProperties: viewProperties, setDelay: false)
@@ -344,7 +344,7 @@ public struct KRAnimation {
             anim.animations = [animOrigin, animSize]
             anim.duration = animDesc.duration
             anim.fillMode = kCAFillModeForwards
-            anim.removedOnCompletion = false
+            anim.isRemovedOnCompletion = false
             
             if setDelay { anim.beginTime = animDesc.delay }
             
@@ -356,106 +356,106 @@ public struct KRAnimation {
         }
     }
     
-    private static func getKeyframeAnimation(animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAKeyframeAnimation {
+    fileprivate static func getKeyframeAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAKeyframeAnimation {
         var anim: CAKeyframeAnimation!
         switch animDesc.property {
             // Origin
-        case .OriginX:
+        case .originX:
             anim = CAKeyframeAnimation(keyPath: "position.x")
-        case .OriginY:
+        case .originY:
             anim = CAKeyframeAnimation(keyPath: "position.y")
-        case .Origin:
+        case .origin:
             anim = CAKeyframeAnimation(keyPath: "position")
             
             // Size
-        case .SizeWidth:
+        case .sizeWidth:
             anim = CAKeyframeAnimation(keyPath: "bounds.size.width")
-        case .SizeHeight:
+        case .sizeHeight:
             anim = CAKeyframeAnimation(keyPath: "bounds.size.height")
-        case .Size:
+        case .size:
             anim = CAKeyframeAnimation(keyPath: "bounds.size")
 
             // Frame
-        case .Frame:
+        case .frame:
             fatalError("Keyframe animation for `frame` unavailable. Get separate animations for origin, size and bind into CAAnimationGroup instead.")
 
             // Center & Position
-        case .CenterX, .PositionX:
+        case .centerX, .positionX:
             anim = CAKeyframeAnimation(keyPath: "position.x")
-        case .CenterY, .PositionY:
+        case .centerY, .positionY:
             anim = CAKeyframeAnimation(keyPath: "position.y")
-        case .Center, .Position:
+        case .center, .position:
             anim = CAKeyframeAnimation(keyPath: "position")
 
             // Background color
-        case .BackgroundColor:
+        case .backgroundColor:
             anim = CAKeyframeAnimation(keyPath: "backgroundColor")
         
             // Border
-        case .BorderColor:
+        case .borderColor:
             anim = CAKeyframeAnimation(keyPath: "borderColor")
-        case .BorderWidth:
+        case .borderWidth:
             anim = CAKeyframeAnimation(keyPath: "borderWidth")
             
             // Corner radius
-        case .CornerRadius:
+        case .cornerRadius:
             anim = CAKeyframeAnimation(keyPath: "cornerRadius")
             
             // Opacity
-        case .Opacity, .Alpha:
+        case .opacity, .alpha:
             anim = CAKeyframeAnimation(keyPath: "opacity")
 
             // Shadow
-        case .ShadowColor:
+        case .shadowColor:
             anim = CAKeyframeAnimation(keyPath: "shadowColor")
-        case .ShadowOffset:
+        case .shadowOffset:
             anim = CAKeyframeAnimation(keyPath: "shadowOffset")
-        case .ShadowOpacity:
+        case .shadowOpacity:
             anim = CAKeyframeAnimation(keyPath: "shadowOpacity")
-        case .ShadowRadius:
+        case .shadowRadius:
             anim = CAKeyframeAnimation(keyPath: "shadowRadius")
-        case .ShadowPath:
+        case .shadowPath:
             fatalError("INCOMPLETE IMPLEMENTATION")
             
             // Transform
-        case.Transform:
+        case.transform:
             anim = CAKeyframeAnimation(keyPath: "transform")
         
             // Rotation
-        case .RotationX, .RotationY, .RotationZ:
+        case .rotationX, .rotationY, .rotationZ:
             anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Scale
-        case .ScaleX:
+        case .scaleX:
             anim = CAKeyframeAnimation(keyPath: "transform.scale.x")
-        case .ScaleY:
+        case .scaleY:
             anim = CAKeyframeAnimation(keyPath: "transform.scale.y")
-        case .ScaleZ:
+        case .scaleZ:
             anim = CAKeyframeAnimation(keyPath: "transform.scale.z")
-        case .Scale2D:
+        case .scale2D:
             anim = CAKeyframeAnimation(keyPath: "transform")
-        case .Scale:
+        case .scale:
             anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Translation
-        case .TranslationX, .TranslationY, .TranslationZ, .Translation:
+        case .translationX, .translationY, .translationZ, .translation:
             anim = CAKeyframeAnimation(keyPath: "transform")
             
             // Z Position
-        case .ZPosition:
+        case .zPosition:
             fatalError("INCOMPLETE IMPLEMENTATION")
         }
         
         if setDelay { anim.beginTime = animDesc.delay }
         anim.duration = animDesc.duration
         anim.fillMode = kCAFillModeForwards
-        anim.removedOnCompletion = false
+        anim.isRemovedOnCompletion = false
         anim.values = getValues(animDesc, viewProperties: viewProperties)
         
         return anim
     }
     
-    private static func getValues(animDesc: AnimationDescriptor, viewProperties: ViewProperties) -> [AnyObject] {
+    fileprivate static func getValues(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties) -> [AnyObject] {
         var values = [AnyObject]()
         let totalFrames = 60 * animDesc.duration
         var f: ((CGFloat) -> AnyObject)!
@@ -464,22 +464,22 @@ public struct KRAnimation {
             
             // Origin
             
-        case .OriginX:
+        case .originX:
             let b = viewProperties.position.x
             let e = (animDesc.endValue as! CGFloat) + viewProperties.bounds.width * viewProperties.anchorPoint.x
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.origin.x = animDesc.endValue as! CGFloat
             
-        case .OriginY:
+        case .originY:
             let b = viewProperties.position.y
             let e = (animDesc.endValue as! CGFloat) + viewProperties.bounds.height * viewProperties.anchorPoint.y
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.origin.y = animDesc.endValue as! CGFloat
             
-        case .Origin:
-            let e = (animDesc.endValue as! NSValue).CGPointValue()
+        case .origin:
+            let e = (animDesc.endValue as! NSValue).cgPointValue
             
             let bX = viewProperties.position.x
             let bY = viewProperties.position.y
@@ -487,163 +487,163 @@ public struct KRAnimation {
             let eX = e.x + viewProperties.bounds.width*viewProperties.anchorPoint.x
             let eY = e.y + viewProperties.bounds.height * viewProperties.anchorPoint.y
             
-            f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bY, eY, $0))) }
+            f = { return NSValue(cgPoint: CGPoint(x: getScaledValue(bX, eX, $0), y: getScaledValue(bY, eY, $0))) }
             viewProperties.origin = e
             
             // Size
             
-        case .SizeWidth:
+        case .sizeWidth:
             let b = viewProperties.bounds.width
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.bounds.size.width = e
             
-        case .SizeHeight:
+        case .sizeHeight:
             let b = viewProperties.bounds.height
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.bounds.size.height = e
             
-        case .Size:
-            let e = (animDesc.endValue as! NSValue).CGSizeValue()
+        case .size:
+            let e = (animDesc.endValue as! NSValue).cgSizeValue
             
             let bW = viewProperties.bounds.width
             let bH = viewProperties.bounds.height
             let eW = e.width
             let eH = e.height
             
-            f = { return NSValue(CGSize: CGSizeMake(getScaledValue(bW, eW, $0), getScaledValue(bH, eH, $0))) }
+            f = { return NSValue(cgSize: CGSize(width: getScaledValue(bW, eW, $0), height: getScaledValue(bH, eH, $0))) }
             viewProperties.bounds.size = e
         
             // Frame
             
-        case .Frame:
+        case .frame:
             fatalError("Unable to get values for `frame` directly. Set values for `origin` and `size` separately instead.")
          
             // Center, Position
             
-        case .CenterX, .PositionX:
+        case .centerX, .positionX:
             let b = viewProperties.position.x
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.position.x = e
             
-        case .CenterY, .PositionY:
+        case .centerY, .positionY:
             let b = viewProperties.position.y
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.position.y = e
             
-        case .Center, .Position:
-            let e = (animDesc.endValue as! NSValue).CGPointValue()
+        case .center, .position:
+            let e = (animDesc.endValue as! NSValue).cgPointValue
             let bX = viewProperties.position.x
             let eX = e.x
             let bY = viewProperties.position.y
             let eY = e.y
             
-            f = { return NSValue(CGPoint: CGPointMake(getScaledValue(bX, eX, $0), getScaledValue(bY, eY, $0))) }
+            f = { return NSValue(cgPoint: CGPoint(x: getScaledValue(bX, eX, $0), y: getScaledValue(bY, eY, $0))) }
             viewProperties.position = e
             
             // Background color
             
-        case .BackgroundColor:
-            let b = viewProperties.backgroundColor ?? UIColor.clearColor()
+        case .backgroundColor:
+            let b = viewProperties.backgroundColor ?? UIColor.clear
             let e = animDesc.endValue as! UIColor
             
-            var bComp = [CGFloat](count: 4, repeatedValue: 0.0)
-            var eComp = [CGFloat](count: 4, repeatedValue: 0.0)
+            var bComp = [CGFloat](repeating: 0.0, count: 4)
+            var eComp = [CGFloat](repeating: 0.0, count: 4)
             
             b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
             e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
-            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
+            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).cgColor }
             viewProperties.backgroundColor = e
             
             // Border
             
-        case .BorderColor:
-            let b = viewProperties.borderColor ?? UIColor.clearColor()
+        case .borderColor:
+            let b = viewProperties.borderColor ?? UIColor.clear
             let e = animDesc.endValue as! UIColor
             
-            var bComp = [CGFloat](count: 4, repeatedValue: 0.0)
-            var eComp = [CGFloat](count: 4, repeatedValue: 0.0)
+            var bComp = [CGFloat](repeating: 0.0, count: 4)
+            var eComp = [CGFloat](repeating: 0.0, count: 4)
             
             b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
             e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
             
-            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
+            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).cgColor }
             viewProperties.borderColor = e
             
-        case .BorderWidth:
+        case .borderWidth:
             let b = viewProperties.borderWidth
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.borderWidth = e
 
             // Corner radius
             
-        case .CornerRadius:
+        case .cornerRadius:
             let b = viewProperties.cornerRadius
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.cornerRadius = e
 
             // Opacity
             
-        case .Opacity, .Alpha:
+        case .opacity, .alpha:
             let b = viewProperties.opacity
             let e = animDesc.endValue as! Float
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.opacity = e
             
             // Shadow
             
-        case .ShadowColor:
-            let b = viewProperties.shadowColor ?? UIColor.clearColor()
+        case .shadowColor:
+            let b = viewProperties.shadowColor ?? UIColor.clear
             let e = animDesc.endValue as! UIColor
             
-            var bComp = [CGFloat](count: 4, repeatedValue: 0.0)
-            var eComp = [CGFloat](count: 4, repeatedValue: 0.0)
+            var bComp = [CGFloat](repeating: 0.0, count: 4)
+            var eComp = [CGFloat](repeating: 0.0, count: 4)
             
             b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
             e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
             
-            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).CGColor }
+            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).cgColor }
             viewProperties.shadowColor = e
             
-        case .ShadowOffset:
+        case .shadowOffset:
             let b = viewProperties.shadowOffset
-            let e = (animDesc.endValue as! NSValue).CGSizeValue()
+            let e = (animDesc.endValue as! NSValue).cgSizeValue
             
-            f = { return NSValue(CGSize: CGSizeMake(getScaledValue(b.width, e.width, $0), getScaledValue(b.height, e.height, $0))) }
+            f = { return NSValue(cgSize: CGSize(width: getScaledValue(b.width, e.width, $0), height: getScaledValue(b.height, e.height, $0))) }
             viewProperties.shadowOffset = e
             
-        case .ShadowOpacity:
+        case .shadowOpacity:
             let b = viewProperties.shadowOpacity
             let e = animDesc.endValue as! Float
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.shadowOpacity = e
         
-        case .ShadowPath:
+        case .shadowPath:
             fatalError("INCOMPLETE IMPLEMENTATION")
         
-        case .ShadowRadius:
+        case .shadowRadius:
             let b = viewProperties.shadowRadius
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.shadowRadius = e
             
             // Transform
             
-        case .Transform:
+        case .transform:
             fatalError("INCOMPLETE IMPLEMENTATION")
 
             // TODO: Implement transform animation
@@ -651,74 +651,74 @@ public struct KRAnimation {
             
             // Rotation
             
-        case .RotationX:
+        case .rotationX:
             let b = viewProperties.transform
             let e = animDesc.endValue as! CGFloat
             
             f = {
-                return NSValue(CATransform3D: CATransform3DRotate(b, e * $0, 1.0, 0.0, 0.0))
+                return NSValue(caTransform3D: CATransform3DRotate(b, e * $0, 1.0, 0.0, 0.0))
             }
             
             viewProperties.transform = CATransform3DRotate(b, e, 1.0, 0.0, 0.0)
             
-        case .RotationY:
+        case .rotationY:
             let b = viewProperties.transform
             let e = animDesc.endValue as! CGFloat
             
             f = {
-                return NSValue(CATransform3D: CATransform3DRotate(b, e * $0, 0.0, 1.0, 0.0))
+                return NSValue(caTransform3D: CATransform3DRotate(b, e * $0, 0.0, 1.0, 0.0))
             }
             
             viewProperties.transform = CATransform3DRotate(b, e, 0.0, 1.0, 0.0)
             
-        case .RotationZ:
+        case .rotationZ:
             let b = viewProperties.transform
             let e = animDesc.endValue as! CGFloat
             
             f = {
-                return NSValue(CATransform3D: CATransform3DRotate(b, e * $0, 0.0, 0.0, 1.0))
+                return NSValue(caTransform3D: CATransform3DRotate(b, e * $0, 0.0, 0.0, 1.0))
             }
             
             viewProperties.transform = CATransform3DRotate(b, e, 0.0, 0.0, 1.0)
             
             // Scale
-        case .ScaleX:
+        case .scaleX:
             let b = viewProperties.transform.m11
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.transform.m11 = e
             
-        case .ScaleY:
+        case .scaleY:
             let b = viewProperties.transform.m22
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.transform.m22 = e
             
-        case .Scale2D:
+        case .scale2D:
             let b = viewProperties.transform
-            let e = (animDesc.endValue as! NSValue).CATransform3DValue
+            let e = (animDesc.endValue as! NSValue).caTransform3DValue
             
             f = {
                 var c = b
                 (c.m11, c.m22) = (getScaledValue(b.m11, e.m11, $0), getScaledValue(b.m22, e.m22, $0))
-                return NSValue(CATransform3D: c)
+                return NSValue(caTransform3D: c)
             }
             viewProperties.transform.m11 = e.m11
             viewProperties.transform.m22 = e.m22
             
-        case .ScaleZ:
+        case .scaleZ:
             let b = viewProperties.transform.m33
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) }
+            f = { return getScaledValue(b, e, $0) as AnyObject }
             
             viewProperties.transform.m33 = e
             
-        case .Scale:
+        case .scale:
             let b = viewProperties.transform
-            let e = (animDesc.endValue as! NSValue).CATransform3DValue
+            let e = (animDesc.endValue as! NSValue).caTransform3DValue
             
             f = {
                 var c = b
@@ -726,60 +726,60 @@ public struct KRAnimation {
                 c.m22 = getScaledValue(b.m22, e.m22, $0)
                 c.m33 = getScaledValue(b.m33, e.m33, $0)
                 
-                return NSValue(CATransform3D: c)
+                return NSValue(caTransform3D: c)
             }
             viewProperties.transform = e
             
             // Translation
-        case .TranslationX:
+        case .translationX:
             let b = viewProperties.transform
             let e = animDesc.endValue as! CGFloat
             
             f = {
                 let c = CATransform3DTranslate(b, e * $0, 0.0, 0.0)
                 
-                return NSValue(CATransform3D: c)
+                return NSValue(caTransform3D: c)
             }
             
             viewProperties.transform = CATransform3DTranslate(b, e, 0.0, 0.0)
             
-        case .TranslationY:
+        case .translationY:
             let b = viewProperties.transform
             let e = animDesc.endValue as! CGFloat
             
             f = {
                 let c = CATransform3DTranslate(b, 0.0, e * $0, 0.0)
                 
-                return NSValue(CATransform3D: c)
+                return NSValue(caTransform3D: c)
             }
             
             viewProperties.transform = CATransform3DTranslate(b, 0.0, e, 0.0)
             
-        case .TranslationZ:
+        case .translationZ:
             let b = viewProperties.transform
             let e = animDesc.endValue as! CGFloat
             
             f = {
                 let c = CATransform3DTranslate(b, 0.0, 0.0, e * $0)
                 
-                return NSValue(CATransform3D: c)
+                return NSValue(caTransform3D: c)
             }
             
             viewProperties.transform = CATransform3DTranslate(b, 0.0, 0.0, e)
             
-        case .Translation:
+        case .translation:
             let b = viewProperties.transform
-            let e = (animDesc.endValue as! NSValue).CGSizeValue()
+            let e = (animDesc.endValue as! NSValue).cgSizeValue
             
             f = {
                 let c = CATransform3DTranslate(b, e.width * $0, e.height * $0, 0.0)
                 
-                return NSValue(CATransform3D: c)
+                return NSValue(caTransform3D: c)
             }
             
             viewProperties.transform = CATransform3DTranslate(b, e.width, e.height, 0.0)
             
-        case .ZPosition:
+        case .zPosition:
             fatalError("INCOMPLETE IMPLEMENTATION")
             
         }
@@ -789,77 +789,77 @@ public struct KRAnimation {
             let rt = Double(i) / totalFrames
             
             switch animDesc.function {
-            case .Linear:
+            case .linear:
                 scale = CGFloat(TimingFunction.Linear(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInQuad:
+            case .easeInQuad:
                 scale = CGFloat(TimingFunction.EaseInQuad(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutQuad:
+            case .easeOutQuad:
                 scale = CGFloat(TimingFunction.EaseOutQuad(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutQuad:
+            case .easeInOutQuad:
                 scale = CGFloat(TimingFunction.EaseInOutQuad(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInCubic:
+            case .easeInCubic:
                 scale = CGFloat(TimingFunction.EaseInCubic(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutCubic:
+            case .easeOutCubic:
                 scale = CGFloat(TimingFunction.EaseOutCubic(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutCubic:
+            case .easeInOutCubic:
                 scale = CGFloat(TimingFunction.EaseInOutCubic(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInQuart:
+            case .easeInQuart:
                 scale = CGFloat(TimingFunction.EaseInQuart(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutQuart:
+            case .easeOutQuart:
                 scale = CGFloat(TimingFunction.EaseOutQuart(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutQuart:
+            case .easeInOutQuart:
                 scale = CGFloat(TimingFunction.EaseInOutQuart(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInQuint:
+            case .easeInQuint:
                 scale = CGFloat(TimingFunction.EaseInQuint(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutQuint:
+            case .easeOutQuint:
                 scale = CGFloat(TimingFunction.EaseOutQuint(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutQuint:
+            case .easeInOutQuint:
                 scale = CGFloat(TimingFunction.EaseInOutQuint(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInSine:
+            case .easeInSine:
                 scale = CGFloat(TimingFunction.EaseInSine(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutSine:
+            case .easeOutSine:
                 scale = CGFloat(TimingFunction.EaseOutSine(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutSine:
+            case .easeInOutSine:
                 scale = CGFloat(TimingFunction.EaseInOutSine(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInExpo:
+            case .easeInExpo:
                 scale = CGFloat(TimingFunction.EaseInExpo(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutExpo:
+            case .easeOutExpo:
                 scale = CGFloat(TimingFunction.EaseOutExpo(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutExpo:
+            case .easeInOutExpo:
                 scale = CGFloat(TimingFunction.EaseInOutExpo(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInCirc:
+            case .easeInCirc:
                 scale = CGFloat(TimingFunction.EaseInCirc(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutCirc:
+            case .easeOutCirc:
                 scale = CGFloat(TimingFunction.EaseOutCirc(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutCirc:
+            case .easeInOutCirc:
                 scale = CGFloat(TimingFunction.EaseInOutCirc(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInElastic:
+            case .easeInElastic:
                 scale = CGFloat(TimingFunction.EaseInElastic(rt: rt, b: 0.0, c: 1.0, d: animDesc.duration))
-            case .EaseOutElastic:
+            case .easeOutElastic:
                 scale = CGFloat(TimingFunction.EaseOutElastic(rt: rt, b: 0.0, c: 1.0, d: animDesc.duration))
-            case .EaseInOutElastic:
+            case .easeInOutElastic:
                 scale = CGFloat(TimingFunction.EaseInOutElastic(rt: rt, b: 0.0, c: 1.0, d: animDesc.duration))
                 
-            case .EaseInBack:
+            case .easeInBack:
                 scale = CGFloat(TimingFunction.EaseInBack(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutBack:
+            case .easeOutBack:
                 scale = CGFloat(TimingFunction.EaseOutBack(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutBack:
+            case .easeInOutBack:
                 scale = CGFloat(TimingFunction.EaseInOutBack(rt: rt, b: 0.0, c: 1.0))
                 
-            case .EaseInBounce:
+            case .easeInBounce:
                 scale = CGFloat(TimingFunction.EaseInBounce(rt: rt, b: 0.0, c: 1.0))
-            case .EaseOutBounce:
+            case .easeOutBounce:
                 scale = CGFloat(TimingFunction.EaseOutBounce(rt: rt, b: 0.0, c: 1.0))
-            case .EaseInOutBounce:
+            case .easeInOutBounce:
                 scale = CGFloat(TimingFunction.EaseInOutBounce(rt: rt, b: 0.0, c: 1.0))
             
             }
@@ -870,21 +870,21 @@ public struct KRAnimation {
         return values
     }
     
-    private static func needsSnapshotAnimation(view: UIView, animDesc: AnimationDescriptor) -> Bool {
-        return String(view.dynamicType) == "_UIReplicantView" && [AnimatableProperty.Frame, .Size, .SizeWidth, .SizeHeight].contains(animDesc.property)
+    fileprivate static func needsSnapshotAnimation(_ view: UIView, animDesc: AnimationDescriptor) -> Bool {
+        return String(describing: type(of: view)) == "_UIReplicantView" && [AnimatableProperty.frame, .size, .sizeWidth, .sizeHeight].contains(animDesc.property)
     }
     
-    private static func getSnapshotAnimation(animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
+    fileprivate static func getSnapshotAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
         let contentView = animDesc.view.subviews[0]
         var contentAnimDesc: AnimationDescriptor!
         
-        if animDesc.property == .Frame {
-            var frame = (animDesc.endValue as! NSValue).CGRectValue()
-            frame.origin = CGPointZero
-            let endValue = NSValue(CGRect: frame)
+        if animDesc.property == .frame {
+            var frame = (animDesc.endValue as! NSValue).cgRectValue
+            frame.origin = CGPoint.zero
+            let endValue = NSValue(cgRect: frame)
             contentAnimDesc = AnimationDescriptor(view: contentView, delay: animDesc.delay, property: animDesc.property, endValue: endValue, duration: animDesc.duration, function: animDesc.function)
         } else {
-            contentView.layer.anchorPoint = CGPointZero
+            contentView.layer.anchorPoint = CGPoint.zero
             contentAnimDesc = AnimationDescriptor(view: contentView, delay: animDesc.delay, property: animDesc.property, endValue: animDesc.endValue, duration: animDesc.duration, function: animDesc.function)
         }
         
