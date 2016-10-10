@@ -143,13 +143,13 @@ internal class ViewProperties: NSObject {
         anchorPoint = view.layer.anchorPoint
         position = view.layer.position
         bounds = view.layer.bounds
-        backgroundColor = view.layer.backgroundColor?.getUIColor()
-        borderColor = view.layer.borderColor?.getUIColor()
+        backgroundColor = view.layer.backgroundColor?.uiColor
+        borderColor = view.layer.borderColor?.uiColor
         borderWidth = view.layer.borderWidth
         cornerRadius = view.layer.cornerRadius
         opacity = view.layer.opacity
         
-        shadowColor = view.layer.shadowColor?.getUIColor()
+        shadowColor = view.layer.shadowColor?.uiColor
         shadowOffset = view.layer.shadowOffset
         shadowOpacity = view.layer.shadowOpacity
         shadowPath = view.layer.shadowPath

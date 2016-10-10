@@ -32,7 +32,7 @@ internal extension UIView {
 // MARK: - CGColor
 
 internal extension CGColor {
-    func getUIColor() -> UIColor {
+    var uiColor: UIColor {
         return UIColor(cgColor: self)
     }
 }
@@ -45,10 +45,10 @@ internal extension CATransform3D {
 
 // MARK - Functions
 
-internal func degreeToRadian(_ degree: Double) -> Double {
-    return degree * M_PI / 180.0
+internal func radians(from degrees: Double) -> Double {
+    return degrees * M_PI / 180.0
 }
 
-internal func degreeToRadian(_ degree: CGFloat) -> CGFloat {
-    return degree * CGFloat(M_PI) / 180.0
+internal func radians(from degrees: CGFloat) -> CGFloat {
+    return degrees * CGFloat(M_PI) / 180.0
 }
