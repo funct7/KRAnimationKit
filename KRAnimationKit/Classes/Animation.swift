@@ -597,7 +597,7 @@ public struct KRAnimation {
             
         case .opacity, .alpha:
             let b = viewProperties.opacity
-            let e = animDesc.endValue as! Float
+            let e = animDesc.property == .opacity ? animDesc.endValue as! Float : Float(animDesc.endValue as! CGFloat)
             
             f = { return getScaledValue(b, e, $0) as AnyObject }
             viewProperties.opacity = e
