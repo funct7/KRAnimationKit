@@ -68,7 +68,7 @@ public struct AnimationDescriptor {
     let view: UIView
     let delay: Double
     let property: AnimatableProperty
-    let endValue: AnyObject
+    let endValue: Any
     let duration: Double
     let function: FunctionType
     
@@ -333,7 +333,7 @@ public struct KRAnimation {
         return animKey
     }
     
-    fileprivate static func getAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
+    private static func getAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
         if animDesc.property == .frame {
             let frameAnimations = animDesc.getFrameAnimations()
             
@@ -356,7 +356,7 @@ public struct KRAnimation {
         }
     }
     
-    fileprivate static func getKeyframeAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAKeyframeAnimation {
+    private static func getKeyframeAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAKeyframeAnimation {
         var anim: CAKeyframeAnimation!
         switch animDesc.property {
             // Origin
@@ -455,10 +455,10 @@ public struct KRAnimation {
         return anim
     }
     
-    fileprivate static func getValues(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties) -> [AnyObject] {
-        var values = [AnyObject]()
+    private static func getValues(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties) -> [Any] {
+        var values = [Any]()
         let totalFrames = 60 * animDesc.duration
-        var f: ((CGFloat) -> AnyObject)!
+        var f: ((CGFloat) -> Any)!
         
         switch animDesc.property {
             
@@ -468,14 +468,14 @@ public struct KRAnimation {
             let b = viewProperties.position.x
             let e = (animDesc.endValue as! CGFloat) + viewProperties.bounds.width * viewProperties.anchorPoint.x
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.origin.x = animDesc.endValue as! CGFloat
             
         case .originY:
             let b = viewProperties.position.y
             let e = (animDesc.endValue as! CGFloat) + viewProperties.bounds.height * viewProperties.anchorPoint.y
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.origin.y = animDesc.endValue as! CGFloat
             
         case .origin:
@@ -496,14 +496,14 @@ public struct KRAnimation {
             let b = viewProperties.bounds.width
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.bounds.size.width = e
             
         case .sizeHeight:
             let b = viewProperties.bounds.height
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.bounds.size.height = e
             
         case .size:
@@ -528,14 +528,14 @@ public struct KRAnimation {
             let b = viewProperties.position.x
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.position.x = e
             
         case .centerY, .positionY:
             let b = viewProperties.position.y
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.position.y = e
             
         case .center, .position:
@@ -581,7 +581,7 @@ public struct KRAnimation {
             let b = viewProperties.borderWidth
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.borderWidth = e
 
             // Corner radius
@@ -590,7 +590,7 @@ public struct KRAnimation {
             let b = viewProperties.cornerRadius
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.cornerRadius = e
 
             // Opacity
@@ -599,7 +599,7 @@ public struct KRAnimation {
             let b = viewProperties.opacity
             let e = animDesc.property == .opacity ? animDesc.endValue as! Float : Float(animDesc.endValue as! CGFloat)
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.opacity = e
             
             // Shadow
@@ -628,7 +628,7 @@ public struct KRAnimation {
             let b = viewProperties.shadowOpacity
             let e = animDesc.endValue as! Float
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.shadowOpacity = e
         
         case .shadowPath:
@@ -638,7 +638,7 @@ public struct KRAnimation {
             let b = viewProperties.shadowRadius
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.shadowRadius = e
             
             // Transform
@@ -686,14 +686,14 @@ public struct KRAnimation {
             let b = viewProperties.transform.m11
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.transform.m11 = e
             
         case .scaleY:
             let b = viewProperties.transform.m22
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             viewProperties.transform.m22 = e
             
         case .scale2D:
@@ -712,7 +712,7 @@ public struct KRAnimation {
             let b = viewProperties.transform.m33
             let e = animDesc.endValue as! CGFloat
             
-            f = { return getScaledValue(b, e, $0) as AnyObject }
+            f = { return getScaledValue(b, e, $0) }
             
             viewProperties.transform.m33 = e
             
@@ -870,11 +870,11 @@ public struct KRAnimation {
         return values
     }
     
-    fileprivate static func needsSnapshotAnimation(_ view: UIView, animDesc: AnimationDescriptor) -> Bool {
+    private static func needsSnapshotAnimation(_ view: UIView, animDesc: AnimationDescriptor) -> Bool {
         return String(describing: type(of: view)) == "_UIReplicantView" && [AnimatableProperty.frame, .size, .sizeWidth, .sizeHeight].contains(animDesc.property)
     }
     
-    fileprivate static func getSnapshotAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
+    private static func getSnapshotAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
         let contentView = animDesc.view.subviews[0]
         var contentAnimDesc: AnimationDescriptor!
         

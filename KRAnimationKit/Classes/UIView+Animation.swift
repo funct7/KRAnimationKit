@@ -13,21 +13,21 @@ public extension UIView {
     // MARK: - Origin
     
     @discardableResult public func animate(x: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .originX, endValue: x as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .originX, endValue: x, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(x: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .originX, endValue: x as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .originX, endValue: x, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(y: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .originY, endValue: y as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .originY, endValue: y, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(y: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .originY, endValue: y as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .originY, endValue: y, duration: duration, function: function)]
     }
     
     @discardableResult public func animateOrigin(_ x: CGFloat, _ y: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -52,21 +52,21 @@ public extension UIView {
     // MARK: - Size
     
     @discardableResult public func animate(width: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .sizeWidth, endValue: width as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .sizeWidth, endValue: width, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(width: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .sizeWidth, endValue: width as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .sizeWidth, endValue: width, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(height: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .sizeHeight, endValue: height as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .sizeHeight, endValue: height, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(height: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .sizeHeight, endValue: height as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .sizeHeight, endValue: height, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(width: CGFloat, height: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -120,21 +120,21 @@ public extension UIView {
     // MARK: - Center
     
     @discardableResult public func animate(centerX: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .centerX, endValue: centerX as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .centerX, endValue: centerX, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(centerX: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .centerX, endValue: centerX as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .centerX, endValue: centerX, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(centerY: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .centerY, endValue: centerY as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .centerY, endValue: centerY, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(centerY: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .centerY, endValue: centerY as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .centerY, endValue: centerY, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(centerX: CGFloat, centerY: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -159,21 +159,21 @@ public extension UIView {
     // MARK: - Position
     
     @discardableResult public func animate(positionX: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .positionX, endValue: positionX as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .positionX, endValue: positionX, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(positionX: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .positionX, endValue: positionX as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .positionX, endValue: positionX, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(positionY: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .positionY, endValue: positionY as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .positionY, endValue: positionY, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(positionY: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .positionY, endValue: positionY as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .positionY, endValue: positionY, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(positionX: CGFloat, positionY: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -234,43 +234,43 @@ public extension UIView {
     }
     
     @discardableResult public func animate(borderWidth: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .borderWidth, endValue: borderWidth as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .borderWidth, endValue: borderWidth, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(borderWidth: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .borderWidth, endValue: borderWidth as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .borderWidth, endValue: borderWidth, duration: duration, function: function)]
     }
     
     // MARK: - Corner radius
     
     @discardableResult public func animate(cornerRadius: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .cornerRadius, endValue: cornerRadius as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .cornerRadius, endValue: cornerRadius, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(cornerRadius: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .cornerRadius, endValue: cornerRadius as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .cornerRadius, endValue: cornerRadius, duration: duration, function: function)]
     }
     
     // MARK: - Opacity
     
     @discardableResult public func animate(opacity: Float, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .opacity, endValue: opacity as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .opacity, endValue: opacity, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(opacity: Float, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .opacity, endValue: opacity as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .opacity, endValue: opacity, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(alpha: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .alpha, endValue: alpha as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .alpha, endValue: alpha, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(alpha: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .alpha, endValue: alpha as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .alpha, endValue: alpha, duration: duration, function: function)]
     }
     
     // MARK: - Shadow
@@ -304,23 +304,23 @@ public extension UIView {
     }
     
     @discardableResult public func animate(shadowOpacity: Float, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .shadowOpacity, endValue: shadowOpacity as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .shadowOpacity, endValue: shadowOpacity, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(shadowOpacity: Float, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .shadowOpacity, endValue: shadowOpacity as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .shadowOpacity, endValue: shadowOpacity, duration: duration, function: function)]
     }
     
     // TODO: Implementation for shadow path
     
     @discardableResult public func animate(shadowRadius: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .shadowRadius, endValue: shadowRadius as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .shadowRadius, endValue: shadowRadius, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(shadowRadius: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .shadowRadius, endValue: shadowRadius as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .shadowRadius, endValue: shadowRadius, duration: duration, function: function)]
     }
 
 
@@ -335,7 +335,7 @@ public extension UIView {
     }
     
     @discardableResult public func animate(rotationXRad radians: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .rotationX, endValue: radians as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .rotationX, endValue: radians, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
@@ -344,7 +344,7 @@ public extension UIView {
     }
     
     public func chain(rotationXRad radians: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .rotationX, endValue: radians as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .rotationX, endValue: radians, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(rotationYDeg degrees: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -352,7 +352,7 @@ public extension UIView {
     }
     
     @discardableResult public func animate(rotationYRad radians: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .rotationY, endValue: radians as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .rotationY, endValue: radians, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
@@ -361,7 +361,7 @@ public extension UIView {
     }
     
     public func chain(rotationYRad radians: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .rotationY, endValue: radians as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .rotationY, endValue: radians, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(rotationZDeg degrees: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -369,7 +369,7 @@ public extension UIView {
     }
     
     @discardableResult public func animate(rotationZRad radians: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .rotationZ, endValue: radians as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .rotationZ, endValue: radians, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
@@ -378,7 +378,7 @@ public extension UIView {
     }
     
     public func chain(rotationZRad radians: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .rotationZ, endValue: radians as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .rotationZ, endValue: radians, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(rotation2DDeg degrees: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -416,21 +416,21 @@ public extension UIView {
     // MARK: - Scale
     
     @discardableResult public func animate(scaleX sx: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .scaleX, endValue: sx as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .scaleX, endValue: sx, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(scaleX sx: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .scaleX, endValue: sx as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .scaleX, endValue: sx, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(scaleY sy: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .scaleY, endValue: sy as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .scaleY, endValue: sy, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(scaleY sy: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .scaleY, endValue: sy as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .scaleY, endValue: sy, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(scaleX sx: CGFloat, scaleY sy: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -458,12 +458,12 @@ public extension UIView {
     }
     
     @discardableResult public func animate(scaleZ sz: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .scaleZ, endValue: sz as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .scaleZ, endValue: sz, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(scaleZ sz: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .scaleZ, endValue: sz as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .scaleZ, endValue: sz, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(scaleX sx: CGFloat, scaleY sy: CGFloat, scaleZ sz: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
@@ -493,30 +493,30 @@ public extension UIView {
     // MARK: - Translation
     
     @discardableResult public func animate(translationX tx: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .translationX, endValue: tx as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .translationX, endValue: tx, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(translationX tx: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .translationX, endValue: tx as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .translationX, endValue: tx, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(translationY ty: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .translationY, endValue: ty as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .translationY, endValue: ty, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(translationY ty: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .translationY, endValue: ty as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .translationY, endValue: ty, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(translationZ tz: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
-        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .translationZ, endValue: tz as AnyObject, duration: duration, function: function)
+        let animDesc = AnimationDescriptor(view: self, delay: 0.0, property: .translationZ, endValue: tz, duration: duration, function: function)
         return KRAnimation.animate(animDesc, reverses: reverses, repeatCount: repeatCount, completion: completion)
     }
     
     public func chain(translationZ tz: CGFloat, duration: Double, function: FunctionType = .linear) -> [AnimationDescriptor] {
-        return [AnimationDescriptor(view: self, delay: 0.0, property: .translationZ, endValue: tz as AnyObject, duration: duration, function: function)]
+        return [AnimationDescriptor(view: self, delay: 0.0, property: .translationZ, endValue: tz, duration: duration, function: function)]
     }
     
     @discardableResult public func animate(translationX tx: CGFloat, translationY ty: CGFloat, duration: Double, function: FunctionType = .linear, reverses: Bool = false, repeatCount: Float = 0.0, completion: (() -> Void)? = nil) -> String {
