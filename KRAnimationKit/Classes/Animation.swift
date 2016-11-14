@@ -9,7 +9,7 @@
 import UIKit
 import KRTimingFunction
 
-internal enum AnimatableProperty {
+public enum AnimatableProperty {
     case origin
     case originX
     case originY
