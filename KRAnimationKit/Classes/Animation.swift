@@ -457,7 +457,7 @@ public struct KRAnimation {
     
     private static func getValues(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties) -> [Any] {
         var values = [Any]()
-        let totalFrames = 60 * animDesc.duration
+        let totalFrames = CGFloat(60 * animDesc.duration)
         var f: ((CGFloat) -> Any)!
         
         switch animDesc.property {
@@ -786,84 +786,9 @@ public struct KRAnimation {
         
         for i in 0 ... Int(totalFrames) {
             var scale: CGFloat!
-            let rt = Double(i) / totalFrames
+            let rt = CGFloat(i) / totalFrames
             
-            switch animDesc.function {
-            case .linear:
-                scale = CGFloat(TimingFunction.Linear(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInQuad:
-                scale = CGFloat(TimingFunction.EaseInQuad(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutQuad:
-                scale = CGFloat(TimingFunction.EaseOutQuad(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutQuad:
-                scale = CGFloat(TimingFunction.EaseInOutQuad(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInCubic:
-                scale = CGFloat(TimingFunction.EaseInCubic(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutCubic:
-                scale = CGFloat(TimingFunction.EaseOutCubic(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutCubic:
-                scale = CGFloat(TimingFunction.EaseInOutCubic(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInQuart:
-                scale = CGFloat(TimingFunction.EaseInQuart(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutQuart:
-                scale = CGFloat(TimingFunction.EaseOutQuart(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutQuart:
-                scale = CGFloat(TimingFunction.EaseInOutQuart(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInQuint:
-                scale = CGFloat(TimingFunction.EaseInQuint(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutQuint:
-                scale = CGFloat(TimingFunction.EaseOutQuint(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutQuint:
-                scale = CGFloat(TimingFunction.EaseInOutQuint(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInSine:
-                scale = CGFloat(TimingFunction.EaseInSine(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutSine:
-                scale = CGFloat(TimingFunction.EaseOutSine(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutSine:
-                scale = CGFloat(TimingFunction.EaseInOutSine(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInExpo:
-                scale = CGFloat(TimingFunction.EaseInExpo(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutExpo:
-                scale = CGFloat(TimingFunction.EaseOutExpo(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutExpo:
-                scale = CGFloat(TimingFunction.EaseInOutExpo(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInCirc:
-                scale = CGFloat(TimingFunction.EaseInCirc(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutCirc:
-                scale = CGFloat(TimingFunction.EaseOutCirc(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutCirc:
-                scale = CGFloat(TimingFunction.EaseInOutCirc(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInElastic:
-                scale = CGFloat(TimingFunction.EaseInElastic(rt: rt, b: 0.0, c: 1.0, d: animDesc.duration))
-            case .easeOutElastic:
-                scale = CGFloat(TimingFunction.EaseOutElastic(rt: rt, b: 0.0, c: 1.0, d: animDesc.duration))
-            case .easeInOutElastic:
-                scale = CGFloat(TimingFunction.EaseInOutElastic(rt: rt, b: 0.0, c: 1.0, d: animDesc.duration))
-                
-            case .easeInBack:
-                scale = CGFloat(TimingFunction.EaseInBack(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutBack:
-                scale = CGFloat(TimingFunction.EaseOutBack(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutBack:
-                scale = CGFloat(TimingFunction.EaseInOutBack(rt: rt, b: 0.0, c: 1.0))
-                
-            case .easeInBounce:
-                scale = CGFloat(TimingFunction.EaseInBounce(rt: rt, b: 0.0, c: 1.0))
-            case .easeOutBounce:
-                scale = CGFloat(TimingFunction.EaseOutBounce(rt: rt, b: 0.0, c: 1.0))
-            case .easeInOutBounce:
-                scale = CGFloat(TimingFunction.EaseInOutBounce(rt: rt, b: 0.0, c: 1.0))
-            
-            }
-            
+            scale = TimingFunction.value(using: animDesc.function, rt: rt, b: 0.0, c: 1.0, d: CGFloat(animDesc.duration))
             values.append(f(scale))
         }
         

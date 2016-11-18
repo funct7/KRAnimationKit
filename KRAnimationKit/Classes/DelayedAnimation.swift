@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRTimingFunction
 
 public struct DelayedAnimation {
     let view: UIView
