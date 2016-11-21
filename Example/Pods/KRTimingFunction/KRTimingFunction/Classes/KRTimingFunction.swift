@@ -61,7 +61,7 @@ public enum FunctionType {
     case easeOutBounce
     case easeInOutBounce
     
-    public var converse: FunctionType {
+    public var inverse: FunctionType {
         switch self {
         case .easeInSine:     return .easeOutSine
         case .easeOutSine:    return .easeInSine
