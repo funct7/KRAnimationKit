@@ -46,9 +46,9 @@ internal extension CATransform3D {
 // MARK - Functions
 
 internal func radians(from degrees: Double) -> Double {
-    return degrees * M_PI / 180.0
+    return degrees * Double.pi / 180.0
 }
 
 internal func radians(from degrees: CGFloat) -> CGFloat {
-    return degrees * CGFloat(M_PI) / 180.0
+    return degrees * CGFloat.pi / 180.0
 }

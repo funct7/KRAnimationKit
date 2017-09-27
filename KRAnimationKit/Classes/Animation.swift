@@ -554,12 +554,17 @@ public struct KRAnimation {
             let b = viewProperties.backgroundColor ?? UIColor.clear
             let e = animDesc.endValue as! UIColor
             
-            var bComp = [CGFloat](repeating: 0.0, count: 4)
-            var eComp = [CGFloat](repeating: 0.0, count: 4)
+            var (bR, bG, bB, bA): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
+            var (eR, eG, eB, eA): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
             
-            b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
-            e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
-            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).cgColor }
+            b.getRed(&bR, green: &bG, blue: &bB, alpha: &bA)
+            e.getRed(&eR, green: &eG, blue: &eB, alpha: &eA)
+            
+            f = { return UIColor(red: getScaledValue(bR, eR, $0),
+                                 green: getScaledValue(bG, eG, $0),
+                                 blue: getScaledValue(bB, eB, $0),
+                                 alpha: getScaledValue(bA, eA, $0)).cgColor }
+            
             viewProperties.backgroundColor = e
             
             // Border
@@ -568,13 +573,16 @@ public struct KRAnimation {
             let b = viewProperties.borderColor ?? UIColor.clear
             let e = animDesc.endValue as! UIColor
             
-            var bComp = [CGFloat](repeating: 0.0, count: 4)
-            var eComp = [CGFloat](repeating: 0.0, count: 4)
+            var (bR, bG, bB, bA): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
+            var (eR, eG, eB, eA): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
             
-            b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
-            e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
+            b.getRed(&bR, green: &bG, blue: &bB, alpha: &bA)
+            e.getRed(&eR, green: &eG, blue: &eB, alpha: &eA)
             
-            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).cgColor }
+            f = { return UIColor(red: getScaledValue(bR, eR, $0),
+                                 green: getScaledValue(bG, eG, $0),
+                                 blue: getScaledValue(bB, eB, $0),
+                                 alpha: getScaledValue(bA, eA, $0)).cgColor }
             viewProperties.borderColor = e
             
         case .borderWidth:
@@ -608,13 +616,16 @@ public struct KRAnimation {
             let b = viewProperties.shadowColor ?? UIColor.clear
             let e = animDesc.endValue as! UIColor
             
-            var bComp = [CGFloat](repeating: 0.0, count: 4)
-            var eComp = [CGFloat](repeating: 0.0, count: 4)
+            var (bR, bG, bB, bA): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
+            var (eR, eG, eB, eA): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
             
-            b.getRed(&bComp[0], green: &bComp[1], blue: &bComp[2], alpha: &bComp[3])
-            e.getRed(&eComp[0], green: &eComp[1], blue: &eComp[2], alpha: &eComp[3])
+            b.getRed(&bR, green: &bG, blue: &bB, alpha: &bA)
+            e.getRed(&eR, green: &eG, blue: &eB, alpha: &eA)
             
-            f = { return UIColor(red: getScaledValue(bComp[0], eComp[0], $0), green: getScaledValue(bComp[1], eComp[1], $0), blue: getScaledValue(bComp[2], eComp[2], $0), alpha: getScaledValue(bComp[3], eComp[3], $0)).cgColor }
+            f = { return UIColor(red: getScaledValue(bR, eR, $0),
+                                 green: getScaledValue(bG, eG, $0),
+                                 blue: getScaledValue(bB, eB, $0),
+                                 alpha: getScaledValue(bA, eA, $0)).cgColor }
             viewProperties.shadowColor = e
             
         case .shadowOffset:
