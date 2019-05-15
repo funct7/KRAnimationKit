@@ -219,7 +219,7 @@ public struct KRAnimation {
                         let animGroup = CAAnimationGroup()
                         animGroup.beginTime = totalDuration + animDesc.delay
                         animGroup.duration = animDesc.duration
-                        animGroup.fillMode = kCAFillModeForwards
+                        animGroup.fillMode = CAMediaTimingFillMode.forwards
                         animGroup.animations = [CAAnimation]()
                         animGroup.isRemovedOnCompletion = false
 
@@ -238,7 +238,7 @@ public struct KRAnimation {
                             let animGroup = CAAnimationGroup()
                             animGroup.beginTime = totalDuration + animDesc.delay
                             animGroup.duration = animDesc.duration
-                            animGroup.fillMode = kCAFillModeForwards
+                            animGroup.fillMode = CAMediaTimingFillMode.forwards
                             animGroup.animations = [CAAnimation]()
                             animGroup.isRemovedOnCompletion = false
                             
@@ -271,7 +271,7 @@ public struct KRAnimation {
             chainedAnim.duration = totalDuration
             chainedAnim.repeatCount = repeatCount
             chainedAnim.autoreverses = reverses
-            chainedAnim.fillMode = kCAFillModeForwards
+            chainedAnim.fillMode = CAMediaTimingFillMode.forwards
             chainedAnim.isRemovedOnCompletion = false
             
             view.layer.add(chainedAnim, forKey: animKey)
@@ -343,7 +343,7 @@ public struct KRAnimation {
             let anim = CAAnimationGroup()
             anim.animations = [animOrigin, animSize]
             anim.duration = animDesc.duration
-            anim.fillMode = kCAFillModeForwards
+            anim.fillMode = CAMediaTimingFillMode.forwards
             anim.isRemovedOnCompletion = false
             
             if setDelay { anim.beginTime = animDesc.delay }
@@ -448,7 +448,7 @@ public struct KRAnimation {
         
         if setDelay { anim.beginTime = animDesc.delay }
         anim.duration = animDesc.duration
-        anim.fillMode = kCAFillModeForwards
+        anim.fillMode = CAMediaTimingFillMode.forwards
         anim.isRemovedOnCompletion = false
         anim.values = getValues(animDesc, viewProperties: viewProperties)
         
