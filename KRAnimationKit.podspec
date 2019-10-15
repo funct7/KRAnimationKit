@@ -8,9 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KRAnimationKit'
-  s.swift_version    = '4.2'
-  s.version          = '0.14.0'
-  s.summary          = 'An easy-to-use animation library, inspired by JHChainableAnimations.'
+  s.version          = '0.13.2'
+  s.summary          = 'An easy-to-use animation library, inspired by `JHChainableAnimations`.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,22 +24,24 @@ KRAnimationKit adopts a more familiar and traditional syntax, making it really o
 Not only that, it's really simple to mix and match animations for different views as well as reverse or repeat your animations.
                        DESC
 
-  s.homepage         = 'https://github.com/BridgeTheGap/KRAnimationKit'
+  s.homepage         = 'https://github.com/funct7/KRAnimationKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Josh Woomin Park' => 'wmpark@knowre.com' }
-  s.source           = { :git => 'https://github.com/BridgeTheGap/KRAnimationKit.git', :tag => s.version.to_s }
+  s.author           = { 'Josh Woomin Park' => 'joshuaparkwm@gmail.com' }
+  s.source           = { :git => 'https://github.com/funct7/KRAnimationKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'KRAnimationKit/Classes/**/*'
-  s.dependency 'KRTimingFunction', '1.0.0'
+  s.source_files = 'KRAnimationKit/**/*'
+  s.dependency 'KRTimingFunction', '1.1.0'
   # s.resource_bundles = {
   #   'KRAnimationKit' => ['KRAnimationKit/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+
+  s.swift_version = '4.2'
   
 end

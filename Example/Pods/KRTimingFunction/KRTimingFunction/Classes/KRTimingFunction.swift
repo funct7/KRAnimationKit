@@ -89,7 +89,7 @@ public enum FunctionType {
 }
 
 
-public struct TimingFunction {
+public enum TimingFunction {
     public static func value(using function: FunctionType, rt: Double, b: Double, c: Double, d: Double? = nil) -> Double {
         switch function {
         case .linear:           return TimingFunction.linear(rt: rt, b: b, c: c)

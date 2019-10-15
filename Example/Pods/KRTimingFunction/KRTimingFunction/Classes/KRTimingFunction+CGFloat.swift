@@ -19,7 +19,7 @@ fileprivate func *= (lhs: inout CGFloat, rhs: CGFloat) -> CGFloat {
 }
 
 public extension TimingFunction {
-    public static func value(using function: FunctionType, rt: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat? = nil) -> CGFloat {
+    static func value(using function: FunctionType, rt: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat? = nil) -> CGFloat {
         switch function {
         case .linear:           return TimingFunction.linear(rt: rt, b: b, c: c)
             
@@ -65,81 +65,81 @@ public extension TimingFunction {
         }
     }
     
-    public static func linear(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func linear(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return c * rt + b
     }
     // Sine
-    public static func easeInSine(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInSine(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return -c * cos(rt * (CGFloat.pi/2.0)) + c + b
     }
-    public static func easeOutSine(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutSine(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return c * sin(rt * (CGFloat.pi/2.0)) + b
     }
-    public static func easeInOutSine(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutSine(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return -c/2 * (cos(CGFloat.pi*rt) - 1) + b
     }
     // Quad
-    public static func easeInQuad(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInQuad(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return c * rt*rt + b
     }
     
-    public static func easeOutQuad(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutQuad(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return -c * rt*(rt-2) + b
     }
     
-    public static func easeInOutQuad(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutQuad(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         if (rt*=2.0) < 1 { return c/2 * rt*rt + b }
         return -c/2 * ((rt-=1.0)*(rt-2) - 1) + b
     }
     
     // Cubic
-    public static func easeInCubic(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInCubic(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return c * rt*rt*rt + b
     }
-    public static func easeOutCubic(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutCubic(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         return c*((rt-=1)*rt*rt + 1) + b
     }
-    public static func easeInOutCubic(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutCubic(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         if (rt*=2.0) < 1 { return c/2 * rt*rt*rt + b }
         return c/2 * ((rt-=2)*rt*rt + 2) + b
     }
     // Quart
-    public static func easeInQuart(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInQuart(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return c * rt*rt*rt*rt + b
     }
-    public static func easeOutQuart(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutQuart(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         return -c * ((rt-=1)*rt*rt*rt - 1) + b
     }
-    public static func easeInOutQuart(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutQuart(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         if (rt*=2.0) < 1 { return c/2*rt*rt*rt*rt + b }
         return -c/2 * ((rt-=2)*rt*rt*rt - 2) + b
     }
     // Quint
-    public static func easeInQuint(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInQuint(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return c * rt*rt*rt*rt*rt + b
     }
-    public static func easeOutQuint(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutQuint(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         return c * ((rt-=1)*rt*rt*rt*rt + 1) + b
     }
-    public static func easeInOutQuint(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutQuint(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         if (rt*=2.0) < 1 { return c/2 * rt*rt*rt*rt*rt + b }
         return c/2 * ((rt-=2)*rt*rt*rt*rt + 2) + b
     }
     // Expo
-    public static func easeInExpo(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInExpo(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return rt == 0.0 ? b : c * pow(2, 10 * (rt - 1)) + b
     }
-    public static func easeOutExpo(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutExpo(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return rt == 1.0 ? b+c : c * (-pow(2, -10 * rt) + 1) + b
     }
-    public static func easeInOutExpo(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutExpo(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         if rt == 0.0 { return b }
         if rt == 1.0 { return b+c }
@@ -147,30 +147,30 @@ public extension TimingFunction {
         return c/2 * (-pow(2, -10 * (rt-=1)) + 2) + b
     }
     // Circ
-    public static func easeInCirc(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInCirc(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return -c * (sqrt(1 - rt*rt) - 1) + b
     }
-    public static func easeOutCirc(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutCirc(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         return c * sqrt(1 - (rt-=1)*rt) + b
     }
-    public static func easeInOutCirc(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutCirc(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         if (rt*=2.0) < 1 { return -c/2 * (sqrt(1 - rt*rt) - 1) + b }
         return c/2 * (sqrt(1 - (rt-=2)*rt) + 1) + b
     }
     // Back
-    public static func easeInBack(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInBack(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         let s: CGFloat = 1.70158
         return c * rt*rt*((s+1) * rt - s) + b
     }
-    public static func easeOutBack(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutBack(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         let rt = rt - 1
         let s: CGFloat = 1.70158
         let ex1 = (s+1) * rt + s
         return c * (rt * rt * ex1 + 1) + b
     }
-    public static func easeInOutBack(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutBack(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var (rt, s) = (rt, CGFloat(1.70158) * 1.525)
         if ((rt*=2.0) < 1) {
             let exp = rt*rt*((s+1)*rt - s)
@@ -180,7 +180,7 @@ public extension TimingFunction {
         return c/2 * exp + b
     }
     // Elastic
-    public static func easeInElastic(rt: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat) -> CGFloat {
+    static func easeInElastic(rt: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat) -> CGFloat {
         var (rt, s, a) = (rt, CGFloat(1.70158), c)
         let p = d * 0.3
         if rt == 0.0 { return b }
@@ -189,7 +189,7 @@ public extension TimingFunction {
         else          { s = p / (2*CGFloat.pi) * asin(c/a) }
         return -(a * pow(2, 10 * (rt-=1)) * sin((rt*d-s) * (2*CGFloat.pi) / p)) + b
     }
-    public static func easeOutElastic(rt: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat) -> CGFloat {
+    static func easeOutElastic(rt: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat) -> CGFloat {
         var (s, a) = (CGFloat(1.70158), c)
         let p = d * 0.3
         if rt == 0.0 { return b }
@@ -198,7 +198,7 @@ public extension TimingFunction {
         else          { s = p / (2*CGFloat.pi) * asin(c/a) }
         return a * pow(2,-10 * rt) * sin((rt*d-s) * (2*CGFloat.pi) / p) + c + b
     }
-    public static func easeInOutElastic(rt: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat) -> CGFloat {
+    static func easeInOutElastic(rt: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat) -> CGFloat {
         var rt = rt
         var s = CGFloat(1.70158)
         let p = d * 0.45
@@ -211,10 +211,10 @@ public extension TimingFunction {
         return a * pow(2,-10 * (rt-=1)) * sin((rt*d-s) * (2*CGFloat.pi) / p) * 0.5 + c + b
     }
     // Bounce
-    public static func easeInBounce(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInBounce(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         return c - TimingFunction.easeOutBounce(rt: 1.0-rt, b: 0, c: c) + b
     }
-    public static func easeOutBounce(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeOutBounce(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         var rt = rt
         if rt < 1/2.75 {
             return c * (7.5625*rt*rt) + b
@@ -226,7 +226,7 @@ public extension TimingFunction {
             return c * (7.5625*(rt-=(2.625/2.75))*rt + 0.984375) + b
         }
     }
-    public static func easeInOutBounce(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
+    static func easeInOutBounce(rt: CGFloat, b: CGFloat, c: CGFloat) -> CGFloat {
         if rt < 0.5 { return TimingFunction.easeInBounce(rt: rt*2, b: 0, c: c) * 0.5 + b }
         return TimingFunction.easeOutBounce(rt: rt*2 - 1, b: 0, c: c) * 0.5 + c*0.5 + b
     }
