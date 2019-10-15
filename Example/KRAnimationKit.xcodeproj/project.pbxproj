@@ -219,7 +219,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KRAnimationKit/KRAnimationKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KRTimingFunction/KRTimingFunction.framework",
 			);
@@ -230,7 +230,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KRAnimationKit_Example/Pods-KRAnimationKit_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CCF54ACC8C305734A1B45130 /* [CP] Check Pods Manifest.lock */ = {

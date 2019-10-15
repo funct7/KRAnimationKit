@@ -1,13 +1,13 @@
 PODS:
-  - KRAnimationKit (0.13.1):
-    - KRTimingFunction (= 1.0.0)
-  - KRTimingFunction (1.0.0)
+  - KRAnimationKit (0.13.2):
+    - KRTimingFunction (= 1.1.0)
+  - KRTimingFunction (1.1.0)
 
 DEPENDENCIES:
   - KRAnimationKit (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - KRTimingFunction
 
 EXTERNAL SOURCES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  KRAnimationKit: 7df65eb276c39c58af0815b504d37b4756210205
-  KRTimingFunction: f74a7630fb2e7e8daf7e619059cfedce1a76545b
+  KRAnimationKit: 346d13666a45edd1b0f3024929640561a8119262
+  KRTimingFunction: de602def48058322836b9b2a31c81f8f6b476805
 
 PODFILE CHECKSUM: 5033174e8f4534a68051c7b9f65a01ff769f1e1c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.3

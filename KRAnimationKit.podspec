@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KRAnimationKit'
-  s.version          = '0.13.1'
+  s.version          = '0.13.2'
   s.summary          = 'An easy-to-use animation library, inspired by JHChainableAnimations.'
 
 # This description is used to generate tags and improve search results.
@@ -34,12 +34,14 @@ Not only that, it's really simple to mix and match animations for different view
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'KRAnimationKit/Classes/**/*'
-  s.dependency 'KRTimingFunction', '1.0.0'
+  s.dependency 'KRTimingFunction', '1.1.0'
   # s.resource_bundles = {
   #   'KRAnimationKit' => ['KRAnimationKit/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+
+  s.swift_version = '4.2'
   
 end
