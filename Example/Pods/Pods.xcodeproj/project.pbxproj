@@ -10,7 +10,6 @@
 		26154445AB1AA3D84F5BEFBBB6E55F14 /* KRAnimationKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 456D46BBC4B24325E79FBC243C929134 /* KRAnimationKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38358CE46BFF6E8353B603E7B6F2EAAB /* KRAnimationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 086DF2A86FA9F7DB4B915DC207DE93F0 /* KRAnimationKit-dummy.m */; };
 		3FE38560733E6788F454FB3A02B6633A /* Pods-KRAnimationKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 055A64138348EBA195C12599BC5161B3 /* Pods-KRAnimationKit_Example-dummy.m */; };
-		4D3BDE8AC9BBE79E9533B12F74C9BD5A /* KRAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73995F6FCD852001DA79143D93A83E /* KRAnimation.swift */; };
 		5F189E0FA9C3F429BCB2A376F8ABCA9E /* KRTimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E96B94F7EBE5399CAFAECC251BA91C9 /* KRTimingFunction.swift */; };
 		766F63BCD1D683197EBD00C8A659EF42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84FA37FE8AB277FC395F9E12C20286A /* Foundation.framework */; };
 		7956343878BFFA73FA988D126F2016E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84FA37FE8AB277FC395F9E12C20286A /* Foundation.framework */; };
@@ -20,27 +19,28 @@
 		A870C87C455EA679919D64B2080E1CF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84FA37FE8AB277FC395F9E12C20286A /* Foundation.framework */; };
 		B1FA396D6AF8198FE1A90B3A27319BA3 /* Pods-KRAnimationKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ECBA01588164BEB3D9925236D38C695 /* Pods-KRAnimationKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB1BD847C625B5924EA51CEE6251E871 /* KRTimingFunction-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB3D6DE7D9E3105E3E7EC6B9ADDA59 /* KRTimingFunction-dummy.m */; };
-		C1EC75601E8B3A46CDA0BCF55A360F16 /* DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577BDFD87CFB956ACD7BC69BA7739F4 /* DelayedAnimation.swift */; };
-		CE280EC23C635E1DFCB2B523A55F833A /* UIView+DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3881E5F0F8345A81BDEA0D1B18BD006 /* UIView+DelayedAnimation.swift */; };
-		D153F3AF235561B8006E37F3 /* UIView+OriginAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3AE235561B8006E37F3 /* UIView+OriginAnim.swift */; };
-		D153F3B1235561EF006E37F3 /* UIView+SizeAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3B0235561EF006E37F3 /* UIView+SizeAnim.swift */; };
-		D153F3B323556227006E37F3 /* UIView+FrameAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3B223556227006E37F3 /* UIView+FrameAnim.swift */; };
-		D153F3B623556538006E37F3 /* UIView+CenterAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3B523556538006E37F3 /* UIView+CenterAnim.swift */; };
-		D153F3B823556690006E37F3 /* UIView+PositionAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3B723556690006E37F3 /* UIView+PositionAnim.swift */; };
-		D153F3BA23556789006E37F3 /* UIView+BGColorAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3B923556789006E37F3 /* UIView+BGColorAnim.swift */; };
-		D153F3BC23556804006E37F3 /* UIView+BorderAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3BB23556804006E37F3 /* UIView+BorderAnim.swift */; };
-		D153F3BE235568BB006E37F3 /* UIView+CornerRadiusAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3BD235568BB006E37F3 /* UIView+CornerRadiusAnim.swift */; };
-		D153F3C023556909006E37F3 /* UIView+OpacityAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3BF23556909006E37F3 /* UIView+OpacityAnim.swift */; };
-		D153F3C2235569B2006E37F3 /* UIView+ShadowAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3C1235569B2006E37F3 /* UIView+ShadowAnim.swift */; };
-		D153F3C423556AF2006E37F3 /* UIView+TransformAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3C323556AF2006E37F3 /* UIView+TransformAnim.swift */; };
-		D153F3C623556B10006E37F3 /* UIView+RotationAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3C523556B10006E37F3 /* UIView+RotationAnim.swift */; };
-		D153F3C823556E30006E37F3 /* UIView+ScaleAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3C723556E30006E37F3 /* UIView+ScaleAnim.swift */; };
-		D153F3CA23557FC5006E37F3 /* UIView+TranslationAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3C923557FC5006E37F3 /* UIView+TranslationAnim.swift */; };
-		D153F3CC2355806B006E37F3 /* UIView+ZAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3CB2355806B006E37F3 /* UIView+ZAnim.swift */; };
-		D153F3CE235580AF006E37F3 /* AnimatableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3CD235580AF006E37F3 /* AnimatableProperty.swift */; };
-		D153F3D0235580C8006E37F3 /* AnimationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3CF235580C8006E37F3 /* AnimationDescriptor.swift */; };
-		D153F3D223558109006E37F3 /* ViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3D123558109006E37F3 /* ViewProperties.swift */; };
-		FD748E714FB2003BEDC77777180D575E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42033CA2A45D8BAF0993A07D3C623F2 /* Helper.swift */; };
+		D153F3EB23558741006E37F3 /* ViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3D323558741006E37F3 /* ViewProperties.swift */; };
+		D153F3EC23558741006E37F3 /* AnimatableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3D423558741006E37F3 /* AnimatableProperty.swift */; };
+		D153F3ED23558741006E37F3 /* KRAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3D523558741006E37F3 /* KRAnimation.swift */; };
+		D153F3EE23558741006E37F3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3D723558741006E37F3 /* Helper.swift */; };
+		D153F3EF23558741006E37F3 /* AnimationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3D823558741006E37F3 /* AnimationDescriptor.swift */; };
+		D153F3F023558741006E37F3 /* DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3D923558741006E37F3 /* DelayedAnimation.swift */; };
+		D153F3F123558741006E37F3 /* UIView+RotationAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3DB23558741006E37F3 /* UIView+RotationAnim.swift */; };
+		D153F3F223558741006E37F3 /* UIView+CenterAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3DC23558741006E37F3 /* UIView+CenterAnim.swift */; };
+		D153F3F323558741006E37F3 /* UIView+PositionAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3DD23558741006E37F3 /* UIView+PositionAnim.swift */; };
+		D153F3F423558741006E37F3 /* UIView+OpacityAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3DE23558741006E37F3 /* UIView+OpacityAnim.swift */; };
+		D153F3F523558741006E37F3 /* UIView+CornerRadiusAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3DF23558741006E37F3 /* UIView+CornerRadiusAnim.swift */; };
+		D153F3F623558741006E37F3 /* UIView+TranslationAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E023558741006E37F3 /* UIView+TranslationAnim.swift */; };
+		D153F3F723558741006E37F3 /* UIView+DelayedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E123558741006E37F3 /* UIView+DelayedAnimation.swift */; };
+		D153F3F823558741006E37F3 /* UIView+SizeAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E223558741006E37F3 /* UIView+SizeAnim.swift */; };
+		D153F3F923558741006E37F3 /* UIView+BGColorAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E323558741006E37F3 /* UIView+BGColorAnim.swift */; };
+		D153F3FA23558741006E37F3 /* UIView+ZAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E423558741006E37F3 /* UIView+ZAnim.swift */; };
+		D153F3FB23558741006E37F3 /* UIView+TransformAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E523558741006E37F3 /* UIView+TransformAnim.swift */; };
+		D153F3FC23558741006E37F3 /* UIView+OriginAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E623558741006E37F3 /* UIView+OriginAnim.swift */; };
+		D153F3FD23558741006E37F3 /* UIView+ScaleAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E723558741006E37F3 /* UIView+ScaleAnim.swift */; };
+		D153F3FE23558741006E37F3 /* UIView+FrameAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E823558741006E37F3 /* UIView+FrameAnim.swift */; };
+		D153F3FF23558741006E37F3 /* UIView+ShadowAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3E923558741006E37F3 /* UIView+ShadowAnim.swift */; };
+		D153F40023558741006E37F3 /* UIView+BorderAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = D153F3EA23558741006E37F3 /* UIView+BorderAnim.swift */; };
 		FEA2FB1FF9276B3F164FC346C203D60A /* KRTimingFunction+Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525A735FC80E7B228E95CED938EA4767 /* KRTimingFunction+Float.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,40 +89,40 @@
 		8DAABD992177C8E02F01094C88E1B7F5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		919213CC7F22F7776CC14598A84B7C5C /* Pods-KRAnimationKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KRAnimationKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A42033CA2A45D8BAF0993A07D3C623F2 /* Helper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		AECBBC8D93A3868E58F2F28A4BEAF7DA /* Pods-KRAnimationKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KRAnimationKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B85998E5086E58300A1386273F01C2ED /* KRTimingFunction+CGFloat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "KRTimingFunction+CGFloat.swift"; path = "KRTimingFunction/Classes/KRTimingFunction+CGFloat.swift"; sourceTree = "<group>"; };
-		BD73995F6FCD852001DA79143D93A83E /* KRAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRAnimation.swift; path = KRAnimationKit/Classes/KRAnimation.swift; sourceTree = "<group>"; };
 		BDC0C49B373D7EA83933585F5E186B4C /* Pods-KRAnimationKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KRAnimationKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C84FA37FE8AB277FC395F9E12C20286A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		C8CD4EB0B8C0E5795EA2F5F476AF9A5D /* Pods-KRAnimationKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KRAnimationKit_Example-Info.plist"; sourceTree = "<group>"; };
 		CD50B791944B90FCED8AACC65C0A4FB2 /* KRTimingFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRTimingFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D153F3AE235561B8006E37F3 /* UIView+OriginAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+OriginAnim.swift"; sourceTree = "<group>"; };
-		D153F3B0235561EF006E37F3 /* UIView+SizeAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SizeAnim.swift"; sourceTree = "<group>"; };
-		D153F3B223556227006E37F3 /* UIView+FrameAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FrameAnim.swift"; sourceTree = "<group>"; };
-		D153F3B523556538006E37F3 /* UIView+CenterAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CenterAnim.swift"; sourceTree = "<group>"; };
-		D153F3B723556690006E37F3 /* UIView+PositionAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PositionAnim.swift"; sourceTree = "<group>"; };
-		D153F3B923556789006E37F3 /* UIView+BGColorAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BGColorAnim.swift"; sourceTree = "<group>"; };
-		D153F3BB23556804006E37F3 /* UIView+BorderAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderAnim.swift"; sourceTree = "<group>"; };
-		D153F3BD235568BB006E37F3 /* UIView+CornerRadiusAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadiusAnim.swift"; sourceTree = "<group>"; };
-		D153F3BF23556909006E37F3 /* UIView+OpacityAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+OpacityAnim.swift"; sourceTree = "<group>"; };
-		D153F3C1235569B2006E37F3 /* UIView+ShadowAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ShadowAnim.swift"; sourceTree = "<group>"; };
-		D153F3C323556AF2006E37F3 /* UIView+TransformAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TransformAnim.swift"; sourceTree = "<group>"; };
-		D153F3C523556B10006E37F3 /* UIView+RotationAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RotationAnim.swift"; sourceTree = "<group>"; };
-		D153F3C723556E30006E37F3 /* UIView+ScaleAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ScaleAnim.swift"; sourceTree = "<group>"; };
-		D153F3C923557FC5006E37F3 /* UIView+TranslationAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TranslationAnim.swift"; sourceTree = "<group>"; };
-		D153F3CB2355806B006E37F3 /* UIView+ZAnim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ZAnim.swift"; sourceTree = "<group>"; };
-		D153F3CD235580AF006E37F3 /* AnimatableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableProperty.swift; sourceTree = "<group>"; };
-		D153F3CF235580C8006E37F3 /* AnimationDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationDescriptor.swift; sourceTree = "<group>"; };
-		D153F3D123558109006E37F3 /* ViewProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProperties.swift; sourceTree = "<group>"; };
+		D153F3D323558741006E37F3 /* ViewProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewProperties.swift; path = KRAnimationKit/ViewProperties.swift; sourceTree = "<group>"; };
+		D153F3D423558741006E37F3 /* AnimatableProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatableProperty.swift; path = KRAnimationKit/AnimatableProperty.swift; sourceTree = "<group>"; };
+		D153F3D523558741006E37F3 /* KRAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KRAnimation.swift; path = KRAnimationKit/KRAnimation.swift; sourceTree = "<group>"; };
+		D153F3D723558741006E37F3 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		D153F3D823558741006E37F3 /* AnimationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationDescriptor.swift; path = KRAnimationKit/AnimationDescriptor.swift; sourceTree = "<group>"; };
+		D153F3D923558741006E37F3 /* DelayedAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DelayedAnimation.swift; path = KRAnimationKit/DelayedAnimation.swift; sourceTree = "<group>"; };
+		D153F3DB23558741006E37F3 /* UIView+RotationAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RotationAnim.swift"; sourceTree = "<group>"; };
+		D153F3DC23558741006E37F3 /* UIView+CenterAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CenterAnim.swift"; sourceTree = "<group>"; };
+		D153F3DD23558741006E37F3 /* UIView+PositionAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+PositionAnim.swift"; sourceTree = "<group>"; };
+		D153F3DE23558741006E37F3 /* UIView+OpacityAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+OpacityAnim.swift"; sourceTree = "<group>"; };
+		D153F3DF23558741006E37F3 /* UIView+CornerRadiusAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadiusAnim.swift"; sourceTree = "<group>"; };
+		D153F3E023558741006E37F3 /* UIView+TranslationAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+TranslationAnim.swift"; sourceTree = "<group>"; };
+		D153F3E123558741006E37F3 /* UIView+DelayedAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+DelayedAnimation.swift"; sourceTree = "<group>"; };
+		D153F3E223558741006E37F3 /* UIView+SizeAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SizeAnim.swift"; sourceTree = "<group>"; };
+		D153F3E323558741006E37F3 /* UIView+BGColorAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+BGColorAnim.swift"; sourceTree = "<group>"; };
+		D153F3E423558741006E37F3 /* UIView+ZAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ZAnim.swift"; sourceTree = "<group>"; };
+		D153F3E523558741006E37F3 /* UIView+TransformAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+TransformAnim.swift"; sourceTree = "<group>"; };
+		D153F3E623558741006E37F3 /* UIView+OriginAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+OriginAnim.swift"; sourceTree = "<group>"; };
+		D153F3E723558741006E37F3 /* UIView+ScaleAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ScaleAnim.swift"; sourceTree = "<group>"; };
+		D153F3E823558741006E37F3 /* UIView+FrameAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FrameAnim.swift"; sourceTree = "<group>"; };
+		D153F3E923558741006E37F3 /* UIView+ShadowAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ShadowAnim.swift"; sourceTree = "<group>"; };
+		D153F3EA23558741006E37F3 /* UIView+BorderAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+BorderAnim.swift"; sourceTree = "<group>"; };
 		D3464A1DE2504F39A76B012DAF0B9B9C /* Pods-KRAnimationKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KRAnimationKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E007995B83DA6E19ACB0BF4482552348 /* Pods_KRAnimationKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRAnimationKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6763F62E308A463AEE97121626F8B98 /* KRTimingFunction-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRTimingFunction-umbrella.h"; sourceTree = "<group>"; };
 		E807E05878A649456C9CE9DA59E01587 /* KRAnimationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRAnimationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95578F7C5F620FEC59EE3B4D11C1628 /* KRAnimationKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KRAnimationKit-Info.plist"; sourceTree = "<group>"; };
-		F3881E5F0F8345A81BDEA0D1B18BD006 /* UIView+DelayedAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+DelayedAnimation.swift"; sourceTree = "<group>"; };
 		F42D83A4B591B5F46BE504F7B8AAAEFC /* KRTimingFunction-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KRTimingFunction-prefix.pch"; sourceTree = "<group>"; };
-		F577BDFD87CFB956ACD7BC69BA7739F4 /* DelayedAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DelayedAnimation.swift; path = KRAnimationKit/Classes/DelayedAnimation.swift; sourceTree = "<group>"; };
 		FE7060F7E39FA2FB621A0E551E93F2B7 /* KRAnimationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KRAnimationKit.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,35 +266,37 @@
 			);
 			sourceTree = "<group>";
 		};
-		D153F3AD235561AC006E37F3 /* Extension */ = {
+		D153F3D623558741006E37F3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				A42033CA2A45D8BAF0993A07D3C623F2 /* Helper.swift */,
+				D153F3D723558741006E37F3 /* Helper.swift */,
 			);
-			path = Extension;
+			name = Extension;
+			path = KRAnimationKit/Extension;
 			sourceTree = "<group>";
 		};
-		D153F3B42355651E006E37F3 /* UIViewExtension */ = {
+		D153F3DA23558741006E37F3 /* UIViewExtension */ = {
 			isa = PBXGroup;
 			children = (
-				F3881E5F0F8345A81BDEA0D1B18BD006 /* UIView+DelayedAnimation.swift */,
-				D153F3AE235561B8006E37F3 /* UIView+OriginAnim.swift */,
-				D153F3B0235561EF006E37F3 /* UIView+SizeAnim.swift */,
-				D153F3B223556227006E37F3 /* UIView+FrameAnim.swift */,
-				D153F3B523556538006E37F3 /* UIView+CenterAnim.swift */,
-				D153F3B723556690006E37F3 /* UIView+PositionAnim.swift */,
-				D153F3B923556789006E37F3 /* UIView+BGColorAnim.swift */,
-				D153F3BB23556804006E37F3 /* UIView+BorderAnim.swift */,
-				D153F3BD235568BB006E37F3 /* UIView+CornerRadiusAnim.swift */,
-				D153F3BF23556909006E37F3 /* UIView+OpacityAnim.swift */,
-				D153F3C1235569B2006E37F3 /* UIView+ShadowAnim.swift */,
-				D153F3C323556AF2006E37F3 /* UIView+TransformAnim.swift */,
-				D153F3C523556B10006E37F3 /* UIView+RotationAnim.swift */,
-				D153F3C723556E30006E37F3 /* UIView+ScaleAnim.swift */,
-				D153F3C923557FC5006E37F3 /* UIView+TranslationAnim.swift */,
-				D153F3CB2355806B006E37F3 /* UIView+ZAnim.swift */,
+				D153F3DB23558741006E37F3 /* UIView+RotationAnim.swift */,
+				D153F3DC23558741006E37F3 /* UIView+CenterAnim.swift */,
+				D153F3DD23558741006E37F3 /* UIView+PositionAnim.swift */,
+				D153F3DE23558741006E37F3 /* UIView+OpacityAnim.swift */,
+				D153F3DF23558741006E37F3 /* UIView+CornerRadiusAnim.swift */,
+				D153F3E023558741006E37F3 /* UIView+TranslationAnim.swift */,
+				D153F3E123558741006E37F3 /* UIView+DelayedAnimation.swift */,
+				D153F3E223558741006E37F3 /* UIView+SizeAnim.swift */,
+				D153F3E323558741006E37F3 /* UIView+BGColorAnim.swift */,
+				D153F3E423558741006E37F3 /* UIView+ZAnim.swift */,
+				D153F3E523558741006E37F3 /* UIView+TransformAnim.swift */,
+				D153F3E623558741006E37F3 /* UIView+OriginAnim.swift */,
+				D153F3E723558741006E37F3 /* UIView+ScaleAnim.swift */,
+				D153F3E823558741006E37F3 /* UIView+FrameAnim.swift */,
+				D153F3E923558741006E37F3 /* UIView+ShadowAnim.swift */,
+				D153F3EA23558741006E37F3 /* UIView+BorderAnim.swift */,
 			);
-			path = UIViewExtension;
+			name = UIViewExtension;
+			path = KRAnimationKit/UIViewExtension;
 			sourceTree = "<group>";
 		};
 		E364A4195A921E589C08729A23F683E7 /* Targets Support Files */ = {
@@ -308,13 +310,13 @@
 		ED1C5C49315D866DC71CBC614ABEF8DD /* KRAnimationKit */ = {
 			isa = PBXGroup;
 			children = (
-				D153F3B42355651E006E37F3 /* UIViewExtension */,
-				D153F3AD235561AC006E37F3 /* Extension */,
-				BD73995F6FCD852001DA79143D93A83E /* KRAnimation.swift */,
-				D153F3CD235580AF006E37F3 /* AnimatableProperty.swift */,
-				D153F3CF235580C8006E37F3 /* AnimationDescriptor.swift */,
-				F577BDFD87CFB956ACD7BC69BA7739F4 /* DelayedAnimation.swift */,
-				D153F3D123558109006E37F3 /* ViewProperties.swift */,
+				D153F3D623558741006E37F3 /* Extension */,
+				D153F3DA23558741006E37F3 /* UIViewExtension */,
+				D153F3D423558741006E37F3 /* AnimatableProperty.swift */,
+				D153F3D823558741006E37F3 /* AnimationDescriptor.swift */,
+				D153F3D923558741006E37F3 /* DelayedAnimation.swift */,
+				D153F3D523558741006E37F3 /* KRAnimation.swift */,
+				D153F3D323558741006E37F3 /* ViewProperties.swift */,
 				2DAFCE062115B58F3809AF723A5954B1 /* Pod */,
 				129C28CE2FB6593A74E6B3E5248D1D3A /* Support Files */,
 			);
@@ -427,6 +429,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					5729B06F5220728864A2104773CDA654 = {
+						LastSwiftMigration = 1110;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -495,29 +502,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D3BDE8AC9BBE79E9533B12F74C9BD5A /* KRAnimation.swift in Sources */,
-				D153F3C023556909006E37F3 /* UIView+OpacityAnim.swift in Sources */,
-				D153F3C2235569B2006E37F3 /* UIView+ShadowAnim.swift in Sources */,
-				D153F3D223558109006E37F3 /* ViewProperties.swift in Sources */,
-				D153F3BC23556804006E37F3 /* UIView+BorderAnim.swift in Sources */,
-				D153F3CC2355806B006E37F3 /* UIView+ZAnim.swift in Sources */,
-				D153F3C823556E30006E37F3 /* UIView+ScaleAnim.swift in Sources */,
-				D153F3BA23556789006E37F3 /* UIView+BGColorAnim.swift in Sources */,
-				D153F3AF235561B8006E37F3 /* UIView+OriginAnim.swift in Sources */,
-				FD748E714FB2003BEDC77777180D575E /* Helper.swift in Sources */,
-				C1EC75601E8B3A46CDA0BCF55A360F16 /* DelayedAnimation.swift in Sources */,
-				D153F3C623556B10006E37F3 /* UIView+RotationAnim.swift in Sources */,
+				D153F3FC23558741006E37F3 /* UIView+OriginAnim.swift in Sources */,
+				D153F3F023558741006E37F3 /* DelayedAnimation.swift in Sources */,
+				D153F40023558741006E37F3 /* UIView+BorderAnim.swift in Sources */,
+				D153F3F623558741006E37F3 /* UIView+TranslationAnim.swift in Sources */,
+				D153F3F723558741006E37F3 /* UIView+DelayedAnimation.swift in Sources */,
 				38358CE46BFF6E8353B603E7B6F2EAAB /* KRAnimationKit-dummy.m in Sources */,
-				D153F3B323556227006E37F3 /* UIView+FrameAnim.swift in Sources */,
-				D153F3C423556AF2006E37F3 /* UIView+TransformAnim.swift in Sources */,
-				D153F3CE235580AF006E37F3 /* AnimatableProperty.swift in Sources */,
-				D153F3B1235561EF006E37F3 /* UIView+SizeAnim.swift in Sources */,
-				D153F3BE235568BB006E37F3 /* UIView+CornerRadiusAnim.swift in Sources */,
-				CE280EC23C635E1DFCB2B523A55F833A /* UIView+DelayedAnimation.swift in Sources */,
-				D153F3B823556690006E37F3 /* UIView+PositionAnim.swift in Sources */,
-				D153F3D0235580C8006E37F3 /* AnimationDescriptor.swift in Sources */,
-				D153F3B623556538006E37F3 /* UIView+CenterAnim.swift in Sources */,
-				D153F3CA23557FC5006E37F3 /* UIView+TranslationAnim.swift in Sources */,
+				D153F3FE23558741006E37F3 /* UIView+FrameAnim.swift in Sources */,
+				D153F3F923558741006E37F3 /* UIView+BGColorAnim.swift in Sources */,
+				D153F3FF23558741006E37F3 /* UIView+ShadowAnim.swift in Sources */,
+				D153F3EF23558741006E37F3 /* AnimationDescriptor.swift in Sources */,
+				D153F3F423558741006E37F3 /* UIView+OpacityAnim.swift in Sources */,
+				D153F3ED23558741006E37F3 /* KRAnimation.swift in Sources */,
+				D153F3FB23558741006E37F3 /* UIView+TransformAnim.swift in Sources */,
+				D153F3EE23558741006E37F3 /* Helper.swift in Sources */,
+				D153F3F523558741006E37F3 /* UIView+CornerRadiusAnim.swift in Sources */,
+				D153F3F123558741006E37F3 /* UIView+RotationAnim.swift in Sources */,
+				D153F3F823558741006E37F3 /* UIView+SizeAnim.swift in Sources */,
+				D153F3EB23558741006E37F3 /* ViewProperties.swift in Sources */,
+				D153F3EC23558741006E37F3 /* AnimatableProperty.swift in Sources */,
+				D153F3F323558741006E37F3 /* UIView+PositionAnim.swift in Sources */,
+				D153F3F223558741006E37F3 /* UIView+CenterAnim.swift in Sources */,
+				D153F3FD23558741006E37F3 /* UIView+ScaleAnim.swift in Sources */,
+				D153F3FA23558741006E37F3 /* UIView+ZAnim.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE7060F7E39FA2FB621A0E551E93F2B7 /* KRAnimationKit.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -569,6 +577,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -833,6 +842,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE7060F7E39FA2FB621A0E551E93F2B7 /* KRAnimationKit.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

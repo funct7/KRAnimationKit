@@ -33,7 +33,7 @@ Not only that, it's really simple to mix and match animations for different view
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'KRAnimationKit/Classes/**/*'
+  s.source_files = 'KRAnimationKit/**/*'
   s.dependency 'KRTimingFunction', '1.1.0'
   # s.resource_bundles = {
   #   'KRAnimationKit' => ['KRAnimationKit/Assets/*.png']
