@@ -9,158 +9,16 @@
 import UIKit
 import KRTimingFunction
 
-public enum AnimatableProperty {
-    case origin
-    case originX
-    case originY
+public enum KRAnimation {
     
-    case size
-    case sizeWidth
-    case sizeHeight
-    
-    case frame
-    
-    case center
-    case centerX
-    case centerY
-    
-    case positionX
-    case positionY
-    case position
-    
-    case backgroundColor
-    
-    case borderColor
-    case borderWidth
-    
-    case cornerRadius
-    
-    case opacity
-    case alpha
-    
-    case shadowColor
-    case shadowOffset
-    case shadowOpacity
-    case shadowPath
-    case shadowRadius
-    
-    case transform
-    
-    case rotationX
-    case rotationY
-    case rotationZ
-    
-    case scaleX
-    case scaleY
-    case scaleZ
-    case scale2D
-    case scale
-    
-    case translationX
-    case translationY
-    case translationZ
-    case translation
-    
-    case zPosition
-}
-
-public struct AnimationDescriptor {
-    let view: UIView
-    let delay: Double
-    let property: AnimatableProperty
-    let endValue: Any
-    let duration: Double
-    let function: FunctionType
-    
-    internal func getFrameAnimations() -> (origin: AnimationDescriptor, size: AnimationDescriptor) {
-        let frame = (endValue as! NSValue).cgRectValue
-        
-        let animOrigin = AnimationDescriptor(view: view, delay: delay, property: .origin, endValue: NSValue(cgPoint: frame.origin), duration: duration, function: function)
-        let animSize = AnimationDescriptor(view: view, delay: delay, property: .size, endValue: NSValue(cgSize: frame.size), duration: duration, function: function)
-        
-        return (origin: animOrigin, size: animSize)
-    }
-}
-
-internal class ViewProperties: NSObject {
-    var origin: CGPoint {
-        get {
-            let (x, y) = (position.x - bounds.width*anchorPoint.x, position.y - bounds.height * anchorPoint.y)
-            return CGPoint(x: x, y: y)
-        }
-        set {
-            let (posX, posY) = (newValue.x + bounds.width*anchorPoint.x, newValue.y + bounds.height * anchorPoint.y)
-            position = CGPoint(x: posX, y: posY)
-        }
-    }
-    var frame: CGRect {
-        get {
-            return CGRect(origin: origin, size: bounds.size)
-        }
-        set {
-            origin = newValue.origin
-            bounds.size = newValue.size
-        }
-    }
-    
-    var center: CGPoint {
-        get {
-            return position
-        }
-        set {
-            position = newValue
-        }
-    }
-    var anchorPoint: CGPoint
-    var position: CGPoint
-    var bounds: CGRect
-    
-    var backgroundColor: UIColor?
-    
-    var borderColor: UIColor?
-    var borderWidth: CGFloat
-    var cornerRadius: CGFloat
-    
-    var opacity: Float
-    var alpha: CGFloat {
-        get {
-            return CGFloat(opacity)
-        }
-        set {
-            opacity = Float(newValue)
-        }
-    }
-    
-    var shadowColor: UIColor?
-    var shadowOffset: CGSize
-    var shadowOpacity: Float
-    var shadowPath: CGPath?
-    var shadowRadius: CGFloat
-    
-    var transform: CATransform3D
-    
-    init(view: UIView) {
-        anchorPoint = view.layer.anchorPoint
-        position = view.layer.position
-        bounds = view.layer.bounds
-        backgroundColor = view.layer.backgroundColor?.uiColor
-        borderColor = view.layer.borderColor?.uiColor
-        borderWidth = view.layer.borderWidth
-        cornerRadius = view.layer.cornerRadius
-        opacity = view.layer.opacity
-        
-        shadowColor = view.layer.shadowColor?.uiColor
-        shadowOffset = view.layer.shadowOffset
-        shadowOpacity = view.layer.shadowOpacity
-        shadowPath = view.layer.shadowPath
-        shadowRadius = view.layer.shadowRadius
-        
-        transform = view.layer.transform
-    }
-}
-
-public struct KRAnimation {
-    @discardableResult public static func chain(_ animDescriptors: [AnimationDescriptor]..., reverses: Bool = false, repeatCount: Float = 1.0, completion: (() -> Void)? = nil) -> String {
+    @discardableResult
+    static public func chain(
+        _ animDescriptors: [AnimationDescriptor]...,
+        reverses: Bool = false,
+        repeatCount: Float = 1.0,
+        completion: (() -> Void)? = nil)
+        -> String
+    {
         var propDic = [UIView: ViewProperties]()
         var animDic = [UIView: [CAAnimation]]()
         
@@ -282,19 +140,25 @@ public struct KRAnimation {
         return animKey
     }
     
-    internal static func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
+    static internal func getScaledValue(_ b: CGFloat, _ e: CGFloat, _ scale: CGFloat) -> CGFloat {
         return b + scale * (e - b)
     }
     
-    internal static func getScaledValue(_ b: Float, _ e: Float, _ scale: CGFloat) -> CGFloat {
+    static internal func getScaledValue(_ b: Float, _ e: Float, _ scale: CGFloat) -> CGFloat {
         return CGFloat(b) + scale * CGFloat(e - b)
     }
     
-    internal static func getScaledValue(_ b: Double, _ e: Double, _ scale: CGFloat) -> CGFloat {
+    static internal func getScaledValue(_ b: Double, _ e: Double, _ scale: CGFloat) -> CGFloat {
         return CGFloat(b) + scale * CGFloat(e - b)
     }
     
-    internal static func animate(_ animDesc: AnimationDescriptor, reverses: Bool, repeatCount: Float, completion: (() -> Void)?) -> String {
+    static internal func animate(
+        _ animDesc: AnimationDescriptor,
+        reverses: Bool,
+        repeatCount: Float,
+        completion: (() -> Void)?)
+        -> String
+    {
         let view = animDesc.view
         let updatedProperties = ViewProperties(view: view)
         
@@ -333,7 +197,12 @@ public struct KRAnimation {
         return animKey
     }
     
-    private static func getAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
+    static private func getAnimation(
+        _ animDesc: AnimationDescriptor,
+        viewProperties: ViewProperties,
+        setDelay: Bool)
+        -> CAAnimation
+    {
         if animDesc.property == .frame {
             let frameAnimations = animDesc.getFrameAnimations()
             
@@ -356,7 +225,12 @@ public struct KRAnimation {
         }
     }
     
-    private static func getKeyframeAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAKeyframeAnimation {
+    static private func getKeyframeAnimation(
+        _ animDesc: AnimationDescriptor,
+        viewProperties: ViewProperties,
+        setDelay: Bool)
+        -> CAKeyframeAnimation
+    {
         var anim: CAKeyframeAnimation!
         switch animDesc.property {
             // Origin
@@ -455,7 +329,11 @@ public struct KRAnimation {
         return anim
     }
     
-    private static func getValues(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties) -> [Any] {
+    static private func getValues(
+        _ animDesc: AnimationDescriptor,
+        viewProperties: ViewProperties)
+        -> [Any]
+    {
         var values = [Any]()
         let totalFrames = CGFloat(60 * animDesc.duration)
         var f: ((CGFloat) -> Any)!
@@ -806,11 +684,21 @@ public struct KRAnimation {
         return values
     }
     
-    private static func needsSnapshotAnimation(_ view: UIView, animDesc: AnimationDescriptor) -> Bool {
-        return String(describing: type(of: view)) == "_UIReplicantView" && [AnimatableProperty.frame, .size, .sizeWidth, .sizeHeight].contains(animDesc.property)
+    static private func needsSnapshotAnimation(
+        _ view: UIView,
+        animDesc: AnimationDescriptor)
+        -> Bool
+    {
+        return String(describing: type(of: view)) == "_UIReplicantView"
+            && [AnimatableProperty.frame, .size, .sizeWidth, .sizeHeight].contains(animDesc.property)
     }
     
-    private static func getSnapshotAnimation(_ animDesc: AnimationDescriptor, viewProperties: ViewProperties, setDelay: Bool) -> CAAnimation {
+    static private func getSnapshotAnimation(
+        _ animDesc: AnimationDescriptor,
+        viewProperties: ViewProperties,
+        setDelay: Bool)
+        -> CAAnimation
+    {
         let contentView = animDesc.view.subviews[0]
         var contentAnimDesc: AnimationDescriptor!
         
@@ -818,12 +706,27 @@ public struct KRAnimation {
             var frame = (animDesc.endValue as! NSValue).cgRectValue
             frame.origin = CGPoint.zero
             let endValue = NSValue(cgRect: frame)
-            contentAnimDesc = AnimationDescriptor(view: contentView, delay: animDesc.delay, property: animDesc.property, endValue: endValue, duration: animDesc.duration, function: animDesc.function)
+            contentAnimDesc = AnimationDescriptor(
+                view: contentView,
+                delay: animDesc.delay,
+                property: animDesc.property,
+                endValue: endValue,
+                duration: animDesc.duration,
+                function: animDesc.function)
         } else {
             contentView.layer.anchorPoint = CGPoint.zero
-            contentAnimDesc = AnimationDescriptor(view: contentView, delay: animDesc.delay, property: animDesc.property, endValue: animDesc.endValue, duration: animDesc.duration, function: animDesc.function)
+            contentAnimDesc = AnimationDescriptor(
+                view: contentView,
+                delay: animDesc.delay,
+                property: animDesc.property,
+                endValue: animDesc.endValue,
+                duration: animDesc.duration,
+                function: animDesc.function)
         }
         
-        return getAnimation(contentAnimDesc, viewProperties: ViewProperties(view: contentView), setDelay: setDelay)
+        return getAnimation(
+            contentAnimDesc,
+            viewProperties: ViewProperties(view: contentView),
+            setDelay: setDelay)
     }
 }
