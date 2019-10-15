@@ -10,7 +10,7 @@
 		26154445AB1AA3D84F5BEFBBB6E55F14 /* KRAnimationKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 456D46BBC4B24325E79FBC243C929134 /* KRAnimationKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38358CE46BFF6E8353B603E7B6F2EAAB /* KRAnimationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 086DF2A86FA9F7DB4B915DC207DE93F0 /* KRAnimationKit-dummy.m */; };
 		3FE38560733E6788F454FB3A02B6633A /* Pods-KRAnimationKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 055A64138348EBA195C12599BC5161B3 /* Pods-KRAnimationKit_Example-dummy.m */; };
-		4D3BDE8AC9BBE79E9533B12F74C9BD5A /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73995F6FCD852001DA79143D93A83E /* Animation.swift */; };
+		4D3BDE8AC9BBE79E9533B12F74C9BD5A /* KRAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73995F6FCD852001DA79143D93A83E /* KRAnimation.swift */; };
 		5F189E0FA9C3F429BCB2A376F8ABCA9E /* KRTimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E96B94F7EBE5399CAFAECC251BA91C9 /* KRTimingFunction.swift */; };
 		766F63BCD1D683197EBD00C8A659EF42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84FA37FE8AB277FC395F9E12C20286A /* Foundation.framework */; };
 		7956343878BFFA73FA988D126F2016E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84FA37FE8AB277FC395F9E12C20286A /* Foundation.framework */; };
@@ -92,7 +92,7 @@
 		A42033CA2A45D8BAF0993A07D3C623F2 /* Helper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		AECBBC8D93A3868E58F2F28A4BEAF7DA /* Pods-KRAnimationKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KRAnimationKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B85998E5086E58300A1386273F01C2ED /* KRTimingFunction+CGFloat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "KRTimingFunction+CGFloat.swift"; path = "KRTimingFunction/Classes/KRTimingFunction+CGFloat.swift"; sourceTree = "<group>"; };
-		BD73995F6FCD852001DA79143D93A83E /* Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = KRAnimationKit/Classes/Animation.swift; sourceTree = "<group>"; };
+		BD73995F6FCD852001DA79143D93A83E /* KRAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KRAnimation.swift; path = KRAnimationKit/Classes/KRAnimation.swift; sourceTree = "<group>"; };
 		BDC0C49B373D7EA83933585F5E186B4C /* Pods-KRAnimationKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KRAnimationKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C84FA37FE8AB277FC395F9E12C20286A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		C8CD4EB0B8C0E5795EA2F5F476AF9A5D /* Pods-KRAnimationKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KRAnimationKit_Example-Info.plist"; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 			children = (
 				D153F3B42355651E006E37F3 /* UIViewExtension */,
 				D153F3AD235561AC006E37F3 /* Extension */,
-				BD73995F6FCD852001DA79143D93A83E /* Animation.swift */,
+				BD73995F6FCD852001DA79143D93A83E /* KRAnimation.swift */,
 				D153F3CD235580AF006E37F3 /* AnimatableProperty.swift */,
 				D153F3CF235580C8006E37F3 /* AnimationDescriptor.swift */,
 				F577BDFD87CFB956ACD7BC69BA7739F4 /* DelayedAnimation.swift */,
@@ -495,7 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D3BDE8AC9BBE79E9533B12F74C9BD5A /* Animation.swift in Sources */,
+				4D3BDE8AC9BBE79E9533B12F74C9BD5A /* KRAnimation.swift in Sources */,
 				D153F3C023556909006E37F3 /* UIView+OpacityAnim.swift in Sources */,
 				D153F3C2235569B2006E37F3 /* UIView+ShadowAnim.swift in Sources */,
 				D153F3D223558109006E37F3 /* ViewProperties.swift in Sources */,
